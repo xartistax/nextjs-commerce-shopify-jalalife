@@ -30,3 +30,14 @@ export const getProductRecommendationsQuery = /* GraphQL */ `
   }
   ${productFragment}
 `;
+
+export const getProductMetafieldsQuery = /* GraphQL */ `
+  query getProductMetafieldQuery($handle: String!, $key: String!, $namespace: String!) {
+    productByHandle(handle: $handle) {
+      metafield(key: $key, namespace: $namespace) {
+        key
+        value
+      }
+    }
+  }
+`;

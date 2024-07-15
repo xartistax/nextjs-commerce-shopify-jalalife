@@ -1,7 +1,9 @@
-import Navbar from 'components/layout/navbar';
-import { GeistSans } from 'geist/font/sans';
+import { ThemeProvider } from '@mui/material';
 import { ensureStartsWith } from 'lib/utils';
+import dynamic from 'next/dynamic';
+import { brandonGrotesque } from 'public/fonts/brandon-grotesque';
 import { ReactNode } from 'react';
+import { theme } from 'theme';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -32,12 +34,16 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+  const Navbar = dynamic(() => import('components/layout/navbar'), { ssr: false });
+
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
-        <Navbar />
-        <main>{children}</main>
-      </body>
-    </html>
+    <ThemeProvider theme={theme}>
+      <html lang="de" className={brandonGrotesque.className}>
+        <body className="bg-neutral-50 text-black selection:bg-customColor selection:text-white">
+          <Navbar />
+          <main>{children}</main>
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }

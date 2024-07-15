@@ -10,6 +10,7 @@ import {
   editCartItemsMutation,
   removeFromCartMutation
 } from './mutations/cart';
+import { getArticleByHandleQuery, getArticleQuery, getLatestArticlesQuery } from './queries/blogs';
 import { getCartQuery } from './queries/cart';
 import {
   getCollectionProductsQuery,
@@ -19,6 +20,7 @@ import {
 import { getMenuQuery } from './queries/menu';
 import { getPageQuery, getPagesQuery } from './queries/page';
 import {
+  getProductMetafieldsQuery,
   getProductQuery,
   getProductRecommendationsQuery,
   getProductsQuery
@@ -32,6 +34,10 @@ import {
   Page,
   Product,
   ShopifyAddToCartOperation,
+  ShopifyArticle,
+  ShopifyArticleByHandleOperation,
+  ShopifyArticleOperation,
+  ShopifyArticlesOperation,
   ShopifyCart,
   ShopifyCartOperation,
   ShopifyCollection,
@@ -43,6 +49,8 @@ import {
   ShopifyPageOperation,
   ShopifyPagesOperation,
   ShopifyProduct,
+  ShopifyProductMetafield,
+  ShopifyProductMetafieldsOperation,
   ShopifyProductOperation,
   ShopifyProductRecommendationsOperation,
   ShopifyProductsOperation,
@@ -122,7 +130,7 @@ const reshapeCart = (cart: ShopifyCart): Cart => {
   if (!cart.cost?.totalTaxAmount) {
     cart.cost.totalTaxAmount = {
       amount: '0.0',
-      currencyCode: 'USD'
+      currencyCode: 'CHF'
     };
   }
 
@@ -139,7 +147,7 @@ const reshapeCollection = (collection: ShopifyCollection): Collection | undefine
 
   return {
     ...collection,
-    path: `/search/${collection.handle}`
+    path: `/collections/${collection.handle}`
   };
 };
 
@@ -324,7 +332,7 @@ export async function getCollections(): Promise<Collection[]> {
         title: 'All',
         description: 'All products'
       },
-      path: '/search',
+      path: '/collections',
       updatedAt: new Date().toISOString()
     },
     // Filter out the `hidden` collections.
@@ -349,7 +357,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
   return (
     res.body?.data?.menu?.items.map((item: { title: string; url: string }) => ({
       title: item.title,
-      path: item.url.replace(domain, '').replace('/collections', '/search').replace('/pages', '')
+      path: item.url.replace(domain, '')
     })) || []
   );
 }
@@ -449,4 +457,63 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
   }
 
   return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });
+}
+
+/// Custom Functions Bexolutions
+
+export async function getArticle(id: string): Promise<ShopifyArticle | undefined> {
+  const res = await shopifyFetch<ShopifyArticleOperation>({
+    query: getArticleQuery,
+    variables: {
+      id
+    }
+  });
+
+  return res.body.data.article;
+}
+
+export async function getLatestArticles(): Promise<ShopifyArticle[]> {
+  const res = await shopifyFetch<ShopifyArticlesOperation>({
+    query: getLatestArticlesQuery
+  });
+
+  return res.body.data.articles.edges.map((edge) => edge.node);
+}
+
+export async function getArticleByHandle(
+  blogHandle: string,
+  articleHandle: string
+): Promise<ShopifyArticle | undefined> {
+  const res = await shopifyFetch<ShopifyArticleByHandleOperation>({
+    query: getArticleByHandleQuery,
+    variables: {
+      blogHandle,
+      articleHandle
+    }
+  });
+
+  return res.body.data.blog.articleByHandle;
+}
+
+export async function getProductMetafields(
+  handle: string,
+  identifiers: { key: string; namespace: string }[]
+): Promise<ShopifyProductMetafield[] | undefined> {
+  const promises = identifiers.map(async ({ key, namespace }) => {
+    const res = await shopifyFetch<ShopifyProductMetafieldsOperation>({
+      query: getProductMetafieldsQuery,
+      variables: {
+        handle,
+        key,
+        namespace
+      }
+    });
+
+    return res.body.data?.productByHandle?.metafield;
+  });
+
+  const metafields = await Promise.all(promises);
+
+  // Filter out null values and map to just ShopifyProductMetafield
+  return metafields.filter((metafield): metafield is ShopifyProductMetafield => metafield !== null);
 }

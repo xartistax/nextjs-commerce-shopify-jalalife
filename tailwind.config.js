@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-geist-sans)']
       },
+      colors: {
+        customColor: '#AFA263' // Define your custom color here
+      },
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },

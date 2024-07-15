@@ -263,3 +263,73 @@ export type ShopifyProductsOperation = {
     sortKey?: string;
   };
 };
+
+export type ShopifyArticle = {
+  id: string;
+  title: string;
+  handle: string;
+  excerpt: string;
+  contentHtml: string;
+  authorV2: {
+    name: string;
+  };
+  image: {
+    altText: string;
+    url: string;
+  };
+  metafield?: {
+    value: string;
+    type: string;
+    reference: {
+      id: string;
+      title: string;
+      handle: string;
+    };
+  };
+  blog: {
+    handle: string;
+  };
+  seo?: SEO;
+  publishedAt: string;
+  updatedAt: string;
+};
+
+export type ShopifyArticleOperation = {
+  data: { article: ShopifyArticle };
+  variables: {
+    id: string;
+  };
+};
+
+export type ShopifyArticlesOperation = {
+  data: { articles: { edges: { node: ShopifyArticle }[] } };
+  variables?: {};
+};
+
+export interface ShopifyArticleByHandleOperation {
+  data: {
+    shop: {
+      name: string;
+    };
+    blog: {
+      articleByHandle: ShopifyArticle;
+    };
+  };
+  variables: {
+    blogHandle: string;
+    articleHandle: string;
+  };
+}
+
+export interface ShopifyProductMetafield {
+  key: string;
+  value: string;
+}
+
+export interface ShopifyProductMetafieldsOperation {
+  data: {
+    productByHandle: {
+      metafield: ShopifyProductMetafield | null;
+    } | null;
+  };
+}
