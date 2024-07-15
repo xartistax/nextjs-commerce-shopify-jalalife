@@ -8,15 +8,10 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { theme } from 'theme';
+import { truncateText } from 'utils/truncate';
 // Truncate text function
-export function truncateText(text: string, maxLength: number): string {
-  const words = text.split(' ');
-  if (words.length > maxLength) {
-    return words.slice(0, maxLength).join(' ') + '...';
-  } else {
-    return text;
-  }
-}
+
+
 
 // Function to fetch metadata for SEO
 export async function generateMetadata({
