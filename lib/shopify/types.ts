@@ -40,9 +40,15 @@ export type Image = {
   height: number;
 };
 
+export type MenuItem = {
+  title: string;
+  path: string;
+};
+
 export type Menu = {
   title: string;
   path: string;
+  items?: MenuItem[]; // Optional array of sub-menu items
 };
 
 export type Money = {
