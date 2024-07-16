@@ -31,45 +31,46 @@ const infoMenu = [
 ];
 
 export default function InformationNavigation() {
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-
+  
       // Determine which section is currently in view
       const sections = infoMenu.map((item) => {
-        const sectionElement = document.querySelector(item.url);
+        const sectionElement = document.querySelector(item.url) as HTMLElement;
         return {
           id: item.url,
           offsetTop: sectionElement ? sectionElement.offsetTop - 100 : 0,
           offsetHeight: sectionElement ? sectionElement.offsetHeight : 0
         };
       });
-
+  
       const currentSection = sections.find(
         (section) =>
           scrollPosition >= section.offsetTop &&
           scrollPosition < section.offsetTop + section.offsetHeight
       );
-
+  
       if (currentSection) {
         setActiveSection(currentSection.id);
       }
     };
-
+  
     // Add event listener for scroll
     window.addEventListener('scroll', handleScroll);
-
+  
     // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Run effect only on mount and unmount
+  }, []);
+  // Run effect only on mount and unmount
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement, MouseEvent>, url: string) => {
     event.preventDefault();
-    const targetElement = document.querySelector(url);
+    const targetElement = document.querySelector(url) as HTMLElement;
     if (targetElement) {
       window.scrollTo({
         top: targetElement.offsetTop - 20,
