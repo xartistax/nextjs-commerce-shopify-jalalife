@@ -1,3 +1,4 @@
+"use client"
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Sticky from 'react-sticky-el/lib/basic-version';
