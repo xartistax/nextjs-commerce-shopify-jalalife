@@ -1,8 +1,6 @@
 import { Grid, Typography } from '@mui/material';
-import { convertSchemaToHtml } from '@thebeyondgroup/shopify-rich-text-renderer';
 import { getProductMetafields } from 'lib/shopify';
 import { Product } from 'lib/shopify/types';
-import Prose from './prose';
 import InformationNavigation from './single-product-info-navigation';
 
 export async function SingleProductInformations({ product }: { product: Product }) {
@@ -35,7 +33,8 @@ export async function SingleProductInformations({ product }: { product: Product 
               </Typography>
             </Grid>
             <Grid item xs={12} md={8}>
-              <Prose className="mb-6 leading-tight" html={convertSchemaToHtml(field.value, true)} />
+              {field.value}
+              {/* <Prose className="mb-6 leading-tight" html={field.value, true} /> */}
             </Grid>
           </Grid>
         </section>
