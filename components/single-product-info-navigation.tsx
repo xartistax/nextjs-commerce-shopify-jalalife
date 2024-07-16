@@ -1,6 +1,5 @@
-'use client';
 import { Box } from '@mui/material';
-import { MouseEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Sticky from 'react-sticky-el/lib/basic-version';
 
 const infoMenu = [
@@ -39,7 +38,7 @@ export default function InformationNavigation() {
   
       // Determine which section is currently in view
       const sections = infoMenu.map((item) => {
-        const sectionElement = document.querySelector(item.url) as HTMLElement;
+        const sectionElement = document.querySelector(item.url) as HTMLElement | null;
         return {
           id: item.url,
           offsetTop: sectionElement ? sectionElement.offsetTop - 100 : 0,
@@ -68,14 +67,17 @@ export default function InformationNavigation() {
   }, []);
   // Run effect only on mount and unmount
 
-  const handleClick = (event: MouseEvent<HTMLAnchorElement, MouseEvent>, url: string) => {
+  const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
     event.preventDefault();
-    const targetElement = document.querySelector(url) as HTMLElement;
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 20,
-        behavior: 'smooth'
-      });
+    const url = event.currentTarget.getAttribute('href');
+    if (url) {
+      const targetElement = document.querySelector(url) as HTMLElement;
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 20,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
@@ -88,9 +90,9 @@ export default function InformationNavigation() {
               <Box
                 component="a"
                 href={item.url}
-                onClick={(e) => handleClick(e, item.url)}
+                onClick={handleClick}
                 className={`block w-full rounded-md px-3 py-2 text-center text-sm font-bold uppercase `}
-                sx={activeSection === item.url ? { color: 'primary.main' } : null}
+                sx={activeSection === item.url ? { color: 'primary.main' } : undefined}
               >
                 {item.name}
               </Box>
