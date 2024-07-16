@@ -328,6 +328,7 @@ export interface ShopifyArticleByHandleOperation {
 }
 
 export interface ShopifyProductMetafield {
+  value: any;
   key: string;
   namespace: string;
 }
