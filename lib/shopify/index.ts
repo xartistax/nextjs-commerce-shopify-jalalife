@@ -509,7 +509,7 @@ export async function getProductMetafields(
       }
     });
 
-    return res.body.data?.productByHandle?.metafield;
+    return res.body.data.productByHandle?.metafield;
   });
 
   const metafields = await Promise.all(promises);
@@ -517,3 +517,4 @@ export async function getProductMetafields(
   // Filter out null values and map to just ShopifyProductMetafield
   return metafields.filter((metafield): metafield is ShopifyProductMetafield => metafield !== null);
 }
+

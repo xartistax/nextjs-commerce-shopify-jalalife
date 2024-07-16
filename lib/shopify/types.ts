@@ -329,13 +329,18 @@ export interface ShopifyArticleByHandleOperation {
 
 export interface ShopifyProductMetafield {
   key: string;
-  value: string;
+  namespace: string;
 }
 
 export interface ShopifyProductMetafieldsOperation {
-  data: {
-    productByHandle: {
-      metafield: ShopifyProductMetafield | null;
-    } | null;
+  data: any;
+  query: string;
+  variables: {
+    handle: string;
+    key: string;
+    namespace: string;
   };
 }
+
+
+
