@@ -11,7 +11,7 @@ export default async function Navbar() {
   const menugutgegen = await getMenu('gutgegenmenu');
   const menu = await getMenu('hotmenu');
   const legal = await getMenu('footer');
-  const logoImagePath = '/logo_Schwarz_Full.png';
+
 
   return (
     <nav className="relative flex items-center justify-between p-4 lg:px-6">
@@ -30,7 +30,7 @@ export default async function Navbar() {
                 width: 'auto'
               }}
               alt={`${SITE_NAME}`}
-              src={logoImagePath} // Use dynamic logo image path
+              src={'/logo_Schwarz_Full.png'} // Use dynamic logo image path
             />
           </Link>
         </div>
