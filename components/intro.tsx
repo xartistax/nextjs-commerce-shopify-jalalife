@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Link, Typography } from '@mui/material';
 import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import { getCollection, getCollectionProducts } from 'lib/shopify';
@@ -108,7 +108,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
                             textAlign="center"
                             fontWeight="bold"
                           >
-                            {item.title}
+                            <Link href={`/product/${ item.handle }`}> {item.title} </Link>
                           </Typography>
                           <Box
                             sx={{
