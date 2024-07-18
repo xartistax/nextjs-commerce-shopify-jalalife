@@ -1,10 +1,13 @@
 import { ThemeProvider } from '@mui/material';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ensureStartsWith } from 'lib/utils';
 import dynamic from 'next/dynamic';
 import { brandonGrotesque } from 'public/fonts/brandon-grotesque';
 import { ReactNode } from 'react';
 import { theme } from 'theme';
 import './globals.css';
+
+
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -40,8 +43,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <ThemeProvider theme={theme}>
       <html lang="de" className={brandonGrotesque.className}>
         <body className="bg-neutral-50 text-black selection:bg-customColor selection:text-white">
+        <AppRouterCacheProvider>
           <Navbar />
           <main>{children}</main>
+          </AppRouterCacheProvider>
         </body>
       </html>
     </ThemeProvider>
