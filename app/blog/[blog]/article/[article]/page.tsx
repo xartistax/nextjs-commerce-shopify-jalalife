@@ -11,8 +11,6 @@ import { theme } from 'theme';
 import { truncateText } from 'utils/truncate';
 // Truncate text function
 
-
-
 // Function to fetch metadata for SEO
 export async function generateMetadata({
   params

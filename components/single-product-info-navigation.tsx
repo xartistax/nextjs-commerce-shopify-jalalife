@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Sticky from 'react-sticky-el/lib/basic-version';
@@ -36,7 +36,7 @@ export default function InformationNavigation() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-  
+
       // Determine which section is currently in view
       const sections = infoMenu.map((item) => {
         const sectionElement = document.querySelector(item.url) as HTMLElement | null;
@@ -46,21 +46,21 @@ export default function InformationNavigation() {
           offsetHeight: sectionElement ? sectionElement.offsetHeight : 0
         };
       });
-  
+
       const currentSection = sections.find(
         (section) =>
           scrollPosition >= section.offsetTop &&
           scrollPosition < section.offsetTop + section.offsetHeight
       );
-  
+
       if (currentSection) {
         setActiveSection(currentSection.id);
       }
     };
-  
+
     // Add event listener for scroll
     window.addEventListener('scroll', handleScroll);
-  
+
     // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);

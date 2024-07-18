@@ -517,4 +517,3 @@ export async function getProductMetafields(
   // Filter out null values and map to just ShopifyProductMetafield
   return metafields.filter((metafield): metafield is ShopifyProductMetafield => metafield !== null);
 }
-

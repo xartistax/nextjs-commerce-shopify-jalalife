@@ -342,6 +342,3 @@ export interface ShopifyProductMetafieldsOperation {
     namespace: string;
   };
 }
-
-
-

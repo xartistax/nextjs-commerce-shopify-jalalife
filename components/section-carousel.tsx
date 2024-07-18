@@ -5,7 +5,6 @@ import 'react-multi-carousel/lib/styles.css';
 import { Slide } from 'react-slideshow-image';
 import TextTruncate from 'react-text-truncate';
 
-
 interface Product {
   title: string;
   description: string;
@@ -15,7 +14,6 @@ interface Product {
   handle: string;
   // Add other properties as needed
 }
-
 
 export default function SectionCarousel() {
   const [products, setProducts] = useState<Product[]>([]);

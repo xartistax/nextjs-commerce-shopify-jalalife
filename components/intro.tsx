@@ -108,7 +108,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
                             textAlign="center"
                             fontWeight="bold"
                           >
-                            <Link href={`/product/${ item.handle }`}> {item.title} </Link>
+                            <Link href={`/product/${item.handle}`}> {item.title} </Link>
                           </Typography>
                           <Box
                             sx={{
