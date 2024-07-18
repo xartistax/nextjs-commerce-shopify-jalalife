@@ -1,9 +1,10 @@
 'use client';
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import 'react-multi-carousel/lib/styles.css';
 import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 import TextTruncate from 'react-text-truncate';
+
 
 interface Product {
   title: string;
@@ -15,7 +16,8 @@ interface Product {
   // Add other properties as needed
 }
 
-export default function SectionCarousel() {
+
+const CollectionProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   const responsiveSettings = [
@@ -40,10 +42,18 @@ export default function SectionCarousel() {
     };
 
     fetchProducts();
-  }, [products]);
+  }, []);
 
   return (
-    <Box className="slide-container" sx={{ paddingTop: '100px', paddingBottom: '100px' }}>
+    <Container
+      maxWidth="lg"
+      sx={{
+        position: 'relative', // Ensure relative positioning for proper layering
+        textAlign: 'center',
+        overflow: 'hidden' // Prevent overflow issues
+      }}
+    >
+      <Box sx={{ paddingTop: '100px', paddingBottom: '100px' }}>
       {products.length > 0 ? (
         <Slide
           duration={50000}
@@ -61,8 +71,7 @@ export default function SectionCarousel() {
                 textAlign: 'left',
                 display: 'flex',
                 minHeight: '400px', // Make the container 100% height
-                height: 'auto',
-                backgroundColor: 'red'
+                height: 'auto'
               }}
             >
               {/* Left box with green background */}
@@ -146,5 +155,10 @@ export default function SectionCarousel() {
         <div>Loading...</div>
       )}
     </Box>
+
+    </Container>
+    
   );
-}
+};
+
+export default CollectionProducts;

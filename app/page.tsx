@@ -1,3 +1,4 @@
+import SectionCarousel from 'components/section-carousel';
 import SectionLast from 'components/section-last';
 import dynamic from 'next/dynamic';
 
@@ -21,10 +22,12 @@ export default async function HomePage() {
   return (
     <>
       <SectionIntro />
+      <SectionCarousel />
       <SectionMainBlog />
       <SectionBlogArticles />
       <SectionInfo />
       <SectionLast />
+      <SectionCarousel />
       <Footer />
     </>
   );
