@@ -109,7 +109,7 @@ const CollectionProducts = () => {
                       gutterBottom
                       variant="h4"
                       component="h2"
-                      sx={{ fontWeight: 'normal' }}
+                      sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
                       className="text-slate-800"
                     >
                       {product.title}
