@@ -27,7 +27,6 @@ export default async function HomePage() {
       <SectionBlogArticles />
       <SectionInfo />
       <SectionLast />
-      <SectionCarousel />
       <Footer />
     </>
   );
