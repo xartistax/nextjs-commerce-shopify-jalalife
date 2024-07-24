@@ -27,13 +27,15 @@ export default async function Navbar() {
           >
          
 
-            <Image
-              src="/logo_schwarz_full.png"
-              width={50}
-              height={50}
-              alt={`${SITE_NAME}`}
-              style={{ width: '50px' }}
-            />
+         <Image
+                src={'/logo_schwarz_full.png'}
+                alt={`${SITE_NAME}`}
+                width={300}
+                height={300}
+                style={{ width: '50px', height: 'auto' }}
+              />
+
+           
           </Link>
         </div>
         <div className="flex w-1/3 justify-end">
