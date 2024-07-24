@@ -77,6 +77,15 @@ button {
   background-color: #f3f3f3;
 }
 
+
+.styled-table th {
+  color: #fff
+}
+.styled-table em {
+  display: block;
+  text-align: center;
+}
+
 .styled-table tbody tr:last-of-type {
   border-bottom: 2px solid #AFA263;;
 }
