@@ -133,7 +133,7 @@ export default function MobileMenu({
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
-            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6">
+            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-auto w-full flex-col bg-white pb-6">
               <div className="p-4">
                 <button
                   className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors"
@@ -146,7 +146,7 @@ export default function MobileMenu({
                 <div className="mb-4 w-full md:hidden"></div>
 
                 <Grid container spacing={2} paddingTop={5}>
-                  <Grid item xs={3}>
+                  <Grid item md={3} xs={12}>
                     {menu.length ? (
                       <Box component="ul" className="flex w-full flex-col">
                         <Typography
@@ -198,7 +198,7 @@ export default function MobileMenu({
                       </Box>
                     ) : null}
                   </Grid>
-                  <Grid item xs={3}>
+                  <Grid item md={3} xs={12}>
                     <Typography
                       gutterBottom
                       component="h3"
@@ -296,7 +296,7 @@ export default function MobileMenu({
                       )}
                     </Backdrop>
                   </Grid>
-                  <Grid item xs={3}>
+                  <Grid item md={3} xs={12}>
                     <Typography
                       gutterBottom
                       component="h3"
@@ -346,7 +346,7 @@ export default function MobileMenu({
                       <Sendungsverfolgung />
                     </Box>
                   </Grid>
-                  <Grid item xs={3}>
+                  <Grid item md={3} xs={12}>
                     <Typography
                       gutterBottom
                       component="h3"
