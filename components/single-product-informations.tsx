@@ -31,12 +31,12 @@ export async function SingleProductInformations( { product }: { product: Product
         >
           <Grid container spacing={2} alignItems="center">
             <Grid item xs={12} md={4}>
-              <Typography gutterBottom component="h2" variant="h4">
+              <Typography gutterBottom component="h2" variant="h4" sx={{ fontWeight: {xs: 'bold', md:'normal'} }}>
                 {fullName}
               </Typography>
             </Grid>
             <Grid item xs={12} md={8}>
-              <Prose className="mb-6 leading-tight" html={ toHTML(metafield.value) } />
+              <Prose className="leading-tight" html={ toHTML(metafield.value) } />
             </Grid>
           </Grid>
         </section>
