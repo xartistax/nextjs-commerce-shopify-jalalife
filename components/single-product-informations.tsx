@@ -1,12 +1,13 @@
 import { Grid, Typography } from '@mui/material';
 // Assuming Prose is a component to render HTML
-import { convertSchemaToHtml } from '@thebeyondgroup/shopify-rich-text-renderer';
+
 import { getProductMetafields } from 'lib/shopify';
+import { Product } from 'lib/shopify/types';
+import { toHTML } from 'utils/json-to-html';
 import Prose from './prose';
 import InformationNavigation from './single-product-info-navigation';
 
-
-export async function SingleProductInformations({ product }) {
+export async function SingleProductInformations( { product }: { product: Product } ) {
   const handle = product.handle;
   const identifiers = [
     { key: 'qualitaet', namespace: 'custom', fullName: 'Qualität' },
@@ -35,7 +36,7 @@ export async function SingleProductInformations({ product }) {
               </Typography>
             </Grid>
             <Grid item xs={12} md={8}>
-              <Prose className="mb-6 leading-tight" html={convertSchemaToHtml(metafield.value)} />
+              <Prose className="mb-6 leading-tight" html={ toHTML(metafield.value) } />
             </Grid>
           </Grid>
         </section>

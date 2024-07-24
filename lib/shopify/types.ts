@@ -342,3 +342,54 @@ export interface ShopifyProductMetafieldsOperation {
     namespace: string
   };
 }
+
+
+
+
+
+
+
+
+export interface TextNode {
+  type: 'text';
+  value: string;
+  bold?: boolean;
+  italic?: boolean;
+}
+
+export interface LinkNode {
+  type: 'link';
+  url: string;
+  target: string;
+  children: TextNode[];
+  bold?: boolean;
+  italic?: boolean;
+}
+
+export type ParagraphNode = TextNode | LinkNode;
+
+export interface HeadingNode {
+  type: 'heading';
+  level: number;
+  children: TextNode[];
+}
+
+export interface ListItemNode {
+  children: TextNode[];
+}
+
+export interface ListNode {
+  type: 'list';
+  listType: 'unordered' | 'ordered';
+  children: ListItemNode[];
+}
+
+export interface Paragraph {
+  type: 'paragraph';
+  children: ParagraphNode[];
+}
+
+export interface Content {
+  type: 'root';
+  children: (HeadingNode | ListNode | Paragraph)[];
+}
