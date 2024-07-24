@@ -30,8 +30,8 @@ export default async function Navbar() {
          <Image
                 src={'/logo_schwarz_full.png'}
                 alt={`${SITE_NAME}`}
-                width={300}
-                height={300}
+                width={50}
+                height={50}
                 style={{ width: '50px', height: 'auto' }}
               />
 
