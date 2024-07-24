@@ -339,6 +339,6 @@ export interface ShopifyProductMetafieldsOperation {
   variables: {
     handle: string;
     key: string;
-    namespace: string;
+    namespace: string
   };
 }

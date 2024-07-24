@@ -497,9 +497,9 @@ export async function getArticleByHandle(
 
 export async function getProductMetafields(
   handle: string,
-  identifiers: { key: string; namespace: string }[]
-): Promise<ShopifyProductMetafield[] | undefined> {
-  const promises = identifiers.map(async ({ key, namespace }) => {
+  identifiers: { key: string; namespace: string; fullName: string }[]
+): Promise<{ metafield: ShopifyProductMetafield, fullName: string }[] | undefined> {
+  const promises = identifiers.map(async ({ key, namespace, fullName }) => {
     const res = await shopifyFetch<ShopifyProductMetafieldsOperation>({
       query: getProductMetafieldsQuery,
       variables: {
@@ -509,11 +509,12 @@ export async function getProductMetafields(
       }
     });
 
-    return res.body.data.productByHandle?.metafield;
+    return { metafield: res.body.data.productByHandle?.metafield, fullName };
   });
 
   const metafields = await Promise.all(promises);
 
-  // Filter out null values and map to just ShopifyProductMetafield
-  return metafields.filter((metafield): metafield is ShopifyProductMetafield => metafield !== null);
+  // Filter out null values and map to just ShopifyProductMetafield with fullName
+  return metafields.filter(({ metafield }) => metafield !== null);
 }
+

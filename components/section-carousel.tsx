@@ -12,15 +12,16 @@ interface Product {
     url: string;
   };
   handle: string;
-  // Add other properties as needed
 }
 
 const CollectionProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const responsiveSettings = [
     {
-      breakpoint: 768, // Tailwind's sm breakpoint (640px)
+      breakpoint: 768,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
@@ -31,30 +32,44 @@ const CollectionProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`/api/products`);
+        const response = await fetch('/api/products');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
         const data = await response.json();
         setProducts(data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching collection products:', error);
+        setError('Failed to load products');
+        setLoading(false);
       }
     };
 
     fetchProducts();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <Container
       maxWidth="lg"
       sx={{
-        position: 'relative', // Ensure relative positioning for proper layering
+        position: 'relative',
         textAlign: 'center',
-        overflow: 'hidden' // Prevent overflow issues
+        overflow: 'hidden'
       }}
     >
       <Box sx={{ paddingTop: '100px', paddingBottom: '100px' }}>
         {products.length > 0 ? (
           <Slide
-            duration={50000}
+            duration={5000}
             transitionDuration={300}
             indicators={false}
             slidesToScroll={1}
@@ -68,15 +83,14 @@ const CollectionProducts = () => {
                 sx={{
                   textAlign: 'left',
                   display: 'flex',
-                  minHeight: '400px', // Make the container 100% height
+                  minHeight: '400px',
                   height: 'auto'
                 }}
               >
-                {/* Left box with green background */}
                 <Box
                   sx={{
                     position: 'relative',
-                    flex: '1' // Take up half of the available width
+                    flex: '1'
                   }}
                 >
                   <Box
@@ -89,19 +103,18 @@ const CollectionProducts = () => {
                       bottom: '0',
                       left: '0'
                     }}
-                    alt="Indischer Weihrauch mit Zink"
+                    alt={product.title}
                     src={product.featuredImage?.url}
+                    loading="lazy"
                   />
                 </Box>
-
-                {/* Right box with blue background and product title */}
                 <Box
                   sx={{
-                    flex: '1', // Take up the other half of the available width
+                    flex: '1',
                     display: 'flex',
-                    alignItems: 'center', // Center content vertically
-                    justifyContent: 'center', // Center content horizontally
-                    paddingLeft: '16px' // Add padding for better spacing
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingLeft: '16px'
                   }}
                 >
                   <div>
@@ -114,7 +127,6 @@ const CollectionProducts = () => {
                     >
                       {product.title}
                     </Typography>
-
                     <Typography
                       component="p"
                       className="text-slate-600"
@@ -138,7 +150,6 @@ const CollectionProducts = () => {
                               color: 'primary.main'
                             }}
                           >
-                            {' '}
                             Zum Produkt
                           </Typography>
                         }
@@ -150,7 +161,7 @@ const CollectionProducts = () => {
             ))}
           </Slide>
         ) : (
-          <div>Loading...</div>
+          <div>No products available</div>
         )}
       </Box>
     </Container>
