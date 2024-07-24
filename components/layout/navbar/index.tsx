@@ -1,7 +1,6 @@
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import { getMenu } from 'lib/shopify';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
@@ -27,13 +26,13 @@ export default async function Navbar() {
           >
          
 
-         <Image
+         {/* <Image
                 src={'/logo_schwarz_full.png'}
                 alt={`${SITE_NAME}`}
                 width={50}
                 height={50}
                 style={{ width: '50px', height: 'auto' }}
-              />
+              /> */}
 
            
           </Link>
