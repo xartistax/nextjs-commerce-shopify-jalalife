@@ -1,11 +1,11 @@
-import { Box } from '@mui/material';
 import Cart from 'components/cart';
 import OpenCart from 'components/cart/open-cart';
 import { getMenu } from 'lib/shopify';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
-const { SITE_NAME } = process.env;
+const { SITE_NAME, SHOPIFY_STORE_DOMAIN } = process.env;
 
 export default async function Navbar() {
   const menugutgegen = await getMenu('gutgegenmenu');
@@ -21,15 +21,18 @@ export default async function Navbar() {
           </Suspense>
         </div>
         <div className="w-1/3 justify-center md:flex">
-          <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
-            <Box
-              component="img"
-              sx={{
-                height: '50px',
-                width: 'auto'
-              }}
+          <Link
+            href={`https://${SHOPIFY_STORE_DOMAIN}`}
+            className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6"
+          >
+         
+
+            <Image
+              src="/logo_schwarz_full.png"
+              width={50}
+              height={50}
               alt={`${SITE_NAME}`}
-              src={'logo_schwarz_full.png'} // Use dynamic logo image path
+              style={{ width: '50px' }}
             />
           </Link>
         </div>
