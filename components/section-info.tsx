@@ -6,7 +6,7 @@ import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 const sections = [
   {
     id: 1,
-    icon: <ScienceIcon sx={{ color: 'white', fontSize: 40 }} />,
+    icon: <ScienceIcon sx={{ color: 'white', fontSize: {xs: '30px', md: '50px'} }} />,
     iconBgColor: 'primary.light',
     title: 'Die rein pflanzliche Jala-Life Formel!',
     description:
@@ -14,7 +14,7 @@ const sections = [
   },
   {
     id: 2,
-    icon: <ScienceIcon sx={{ color: 'white', fontSize: 40 }} />,
+    icon: <ScienceIcon sx={{ color: 'white', fontSize: {xs: '30px', md: '50px'} }} />,
     iconBgColor: 'primary.light',
     title: 'Hinter unseren Produkten steht fundierte Wissenschaft!',
     description:
@@ -22,7 +22,7 @@ const sections = [
   },
   {
     id: 3,
-    icon: <GroupIcon sx={{ color: 'white', fontSize: 40 }} />,
+    icon: <GroupIcon sx={{ color: 'white', fontSize: {xs: '30px', md: '50px'} }} />,
     iconBgColor: 'primary.light',
     title: 'Die Jala-Life Community!',
     description:
@@ -34,20 +34,21 @@ export default function SectionInfo() {
   return (
     <Container
       maxWidth="lg"
-      sx={{ position: 'relative', paddingX: '0!important', paddingBottom: '200px' }}
+      sx={{ position: 'relative', paddingX: '0!important', paddingBottom: { xs: '30px' ,md: '200px'}, }}
     >
-      <Grid container spacing={5}>
+      <Grid container spacing={5} sx={{'padding': 2}}>
         {sections.map((section) => (
           <Grid item xs={12} md={4} key={section.id}>
             <Paper
-              elevation={0}
+              elevation={1}
               sx={{
-                p: 6,
+                p: 4,
+                pt:0,
                 textAlign: 'left',
                 position: 'relative',
                 overflow: 'visible',
-                mt: 8, // to counteract the translation of icon box
-                height: '550px', // fixed height
+                mt: 0, // to counteract the translation of icon box
+                height: {xs: 'auto', md: '550px'}, // fixed height
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center'
@@ -59,9 +60,9 @@ export default function SectionInfo() {
                   top: '-40px',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  width: '90px',
-                  height: '90px',
-                  display: 'flex',
+                  width: {xs: '50px', md: '90px'},
+                  height: {xs: '50px', md: '90px'},
+                  display: {xs: 'none', md: 'flex'},
                   alignItems: 'center',
                   justifyContent: 'center',
                   bgcolor: section.iconBgColor,

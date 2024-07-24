@@ -14,7 +14,7 @@ export default async function SectionBlogArticles() {
   return (
     <Container
       maxWidth="lg"
-      sx={{ position: 'relative', paddingX: '0!important', paddingY: '100px' }}
+      sx={{ position: 'relative', paddingX: { md: '0 !important'}, paddingY: {xs: '30px', md: '100px'} }}
     >
       <Box>
         {articles.map((article, index) => (

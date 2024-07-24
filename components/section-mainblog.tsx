@@ -49,7 +49,7 @@ export default async function SectionMainBlog() {
       />
 
       {/* Content */}
-      <Box sx={{ paddingX: '8rem', paddingY: '10rem', position: 'relative', zIndex: 1 }}>
+      <Box sx={{ paddingX: {md: '8rem', xs: '.9rem'}, paddingY:  {md: '10rem', xs: '5rem'}, position: 'relative', zIndex: 1, overflowWrap: 'anywhere' }}>
         <div key={article.id}>
           <Typography
             gutterBottom
@@ -58,6 +58,7 @@ export default async function SectionMainBlog() {
             color="white"
             textTransform="uppercase"
             fontWeight="bold"
+            fontSize={  { xs: '34px'} }
           >
             {article.title}
           </Typography>

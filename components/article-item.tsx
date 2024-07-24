@@ -10,15 +10,16 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
   if (!article) return null;
 
   return (
-    <Grid container spacing={0} sx={{ paddingY: '75px' }}>
+    <Grid container spacing={0} sx={{ paddingY: '30px' }}>
       {reverse ? (
         <>
           <Grid
             item
-            xs={7}
+            xs={12}
+            md={7}
             sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
-            <Box sx={{ width: '100%', height: 'auto', paddingRight: '20%' }}>
+            <Box sx={{ width: '100%', height: 'auto', paddingRight: { md: '20%'} }}>
               <Typography
                 gutterBottom
                 variant="h4"
@@ -38,6 +39,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                     display: 'inline-block',
                     textAlign: 'left',
                     fontSize: '16px',
+                    fontWeight: {xs: 'bold'},
                     textTransform: 'uppercase',
                     paddingTop: '24px',
                     color: 'primary.main',
@@ -57,6 +59,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                         display: 'inline-block',
                         textAlign: 'left',
                         fontSize: '16px',
+                        fontWeight: {xs: 'bold'},
                         paddingTop: '24px',
                         color: 'primary.main',
                         margin: '0 8px'
@@ -72,6 +75,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                         display: 'inline-block',
                         textAlign: 'left',
                         fontSize: '16px',
+                        fontWeight: {xs: 'bold'},
                         textTransform: 'uppercase',
                         paddingTop: '24px',
                         color: 'primary.main',
@@ -88,7 +92,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={12} md={5}>
             <Box
               sx={{
                 width: '100%',
@@ -98,7 +102,8 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                 backgroundImage: `url(${article.image.url})`, // Add your background image here
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
+                display : { xs: 'none', md: 'block'}
               }}
             >
               {/* Overlay content */}
@@ -123,7 +128,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
         </>
       ) : (
         <>
-          <Grid item xs={5}>
+          <Grid item xs={12} md={5}>
             <Box sx={{ width: '100%', height: 'auto' }}>
               <Box
                 sx={{
@@ -134,7 +139,8 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                   backgroundImage: `url(${article.image.url})`, // Add your background image here
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
+                  backgroundRepeat: 'no-repeat',
+                  display : { xs: 'none', md: 'block'}
                 }}
               >
                 {/* Overlay content */}
@@ -162,10 +168,11 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
 
           <Grid
             item
-            xs={7}
+            xs={12}
+            md={7}
             sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
-            <Box sx={{ width: '100%', height: 'auto', paddingLeft: '20%' }}>
+            <Box sx={{ width: '100%', height: 'auto', paddingLeft: { md: '20%'} }}>
               <Typography
                 gutterBottom
                 variant="h4"
@@ -185,6 +192,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                     display: 'inline-block',
                     textAlign: 'left',
                     fontSize: '16px',
+                    fontWeight: {xs: 'bold'},
                     textTransform: 'uppercase',
                     paddingTop: '24px',
                     color: 'primary.main',
@@ -204,6 +212,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                         display: 'inline-block',
                         textAlign: 'left',
                         fontSize: '16px',
+                        fontWeight: {xs: 'bold'},
                         paddingTop: '24px',
                         color: 'primary.main',
                         margin: '0 8px'
@@ -219,6 +228,7 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                         display: 'inline-block',
                         textAlign: 'left',
                         fontSize: '16px',
+                        fontWeight: {xs: 'bold'},
                         textTransform: 'uppercase',
                         paddingTop: '24px',
                         color: 'primary.main',

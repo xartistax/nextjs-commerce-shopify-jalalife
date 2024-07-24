@@ -66,7 +66,7 @@ const CollectionProducts = () => {
         overflow: 'hidden'
       }}
     >
-      <Box sx={{ paddingTop: '100px', paddingBottom: '100px' }}>
+      <Box sx={{ paddingTop: {xs: '30px', md: '100px'}, paddingBottom: {xs: '30px', md: '100px'} }}>
         {products.length > 0 ? (
           <Slide
             duration={5000}
@@ -84,13 +84,16 @@ const CollectionProducts = () => {
                   textAlign: 'left',
                   display: 'flex',
                   minHeight: '400px',
-                  height: 'auto'
+                  height: 'auto',
+                  flexDirection: { xs: 'column', sm: 'row' } // Adjust layout based on screen size
                 }}
               >
+                {/* Image Box (hidden on extra-small screens) */}
                 <Box
                   sx={{
                     position: 'relative',
-                    flex: '1'
+                    flex: '1',
+                    display: { xs: 'none', sm: 'block' } // Corrected property name
                   }}
                 >
                   <Box
@@ -108,6 +111,8 @@ const CollectionProducts = () => {
                     loading="lazy"
                   />
                 </Box>
+
+                {/* Text Box */}
                 <Box
                   sx={{
                     flex: '1',
@@ -143,10 +148,11 @@ const CollectionProducts = () => {
                             href={`/product/${product.handle}`}
                             sx={{
                               display: 'block',
-                              textAlign: 'right',
+                              textAlign: {md: 'right', xs: 'left'},
+                              fontWeight: {md: 'inherit', xs: 'bold'},
                               fontSize: '16px',
                               textTransform: 'uppercase',
-                              paddingTop: '50px',
+                              paddingTop: {md: '50px', xs: '20px'},
                               color: 'primary.main'
                             }}
                           >
@@ -157,6 +163,7 @@ const CollectionProducts = () => {
                     </Typography>
                   </div>
                 </Box>
+                
               </Box>
             ))}
           </Slide>

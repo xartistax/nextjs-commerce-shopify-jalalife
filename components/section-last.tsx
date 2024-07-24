@@ -19,7 +19,7 @@ export default function SectionLast() {
   const theme = useTheme();
 
   return (
-    <Container maxWidth="lg" sx={{ position: 'relative', px: 0, py: 0 }}>
+    <Container maxWidth="lg" sx={{ position: 'relative', px: { xs: '2' ,md: '0'}, py: 0 }}>
       <Typography
         gutterBottom
         variant="h4"
@@ -36,35 +36,36 @@ export default function SectionLast() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'start',
-                paddingBottom: '3rem',
-                paddingLeft: '4rem',
+                paddingBottom: { xs: '0' ,md: '3rem'},
+                paddingLeft: { xs: '6rem' ,md: '4rem'},
                 position: 'relative',
                 '&::before': {
                   content: `'${index + 1}'`, // Manual counter
-                  width: '5rem',
-                  height: '5rem',
+                  width: { xs: '4rem' ,md: '5rem'},
+                  height: { xs: '4rem' ,md: '5rem'},
                   background: theme.palette.primary.main,
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '2rem',
+                  fontSize: { xs: '1.5rem' ,md: '2rem'},
                   color: 'white',
                   marginBottom: '1rem',
                   position: 'absolute',
-                  top: '-1rem',
-                  left: '-2rem',
+                  top: { xs: '0' ,md: '-1rem'},
+                  left: { xs: '0rem' ,md: '-2rem'},
                   zIndex: 1
                 },
                 '&::after': {
                   content: '""',
-                  width: '2.5rem',
-                  height: '2.5rem',
+                  width: '1.5rem',
+                  height: '1.5rem',
                   background: theme.palette.primary.main,
                   zIndex: -1,
                   position: 'absolute',
                   top: '1rem',
-                  left: 0,
+                  left: { xs: '3.5rem' ,md: '0'},
+                  display: { xs: 'none' ,md: 'block'},
                   borderTopLeftRadius: '3px'
                 }
               }}
