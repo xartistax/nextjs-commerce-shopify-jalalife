@@ -68,7 +68,7 @@ export default async function Article({ params }: { params: { blog: string; arti
 
                   {/* Metadata Section */}
                   <Box mb={4}>
-                    <Typography variant="h1" component="h1" className="mb-8 text-5xl font-bold">
+                    <Typography gutterBottom variant="h2" component="h1" fontWeight={"bold"}  lineHeight={1}>
                       {article.title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
@@ -102,13 +102,13 @@ export default async function Article({ params }: { params: { blog: string; arti
 
               {/* Sidebar for featured articles */}
               <Grid item xs={12} md={4}>
-                <aside className="ps-20 text-right">
-                  <Typography variant="h2" component="h2" className="mb-4 text-2xl font-bold">
+                <Box component={'aside'} className="ps-20" sx={{'paddingLeft' : { xs: '0' ,md: '5rem'}, textAlign: {xs: 'left', md: 'right'}}}>
+                  <Typography gutterBottom variant="h4" component="h2" fontWeight={'bold'} className="mb-4 text-2xl font-bold">
                     Weitere Artikel
                   </Typography>
                   {featuredArticles.map((item) => (
                     <div key={item.id} className="mb-4">
-                      <Typography variant="h3" component="h3" className="text-lg font-semibold">
+                      <Typography variant="h6" component="h3">
                         {item.title}
                       </Typography>
                       <Box
@@ -120,7 +120,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                       </Box>
                     </div>
                   ))}
-                </aside>
+                </Box>
               </Grid>
             </Grid>
           </Container>
