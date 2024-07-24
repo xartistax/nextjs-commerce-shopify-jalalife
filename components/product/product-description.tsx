@@ -1,9 +1,9 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
-import Link from 'next/link';
+
 import { Suspense } from 'react';
 import { VariantSelector } from './variant-selector';
 
@@ -12,7 +12,9 @@ export function ProductDescription({ product }: { product: Product }) {
     <>
       <Box>
         <Box className="mb-6 flex flex-col pb-6">
-          <h1 className="mb-2 text-5xl font-medium">{product.title}</h1>
+          <Typography  gutterBottom component={'h1'} variant='h2' fontWeight={'bold'} lineHeight={'1'}>
+            {product.title}
+          </Typography>
           <Box
             component="div"
             className="mr-auto w-auto p-2 text-sm text-white"
@@ -26,7 +28,7 @@ export function ProductDescription({ product }: { product: Product }) {
           <Box component="div" className="mr-auto w-auto py-2 text-sm  text-slate-800">
             <Typography variant="caption">
               Versand: 1 - 2 Tage <br />
-              inkl. MwSt., exkl. <Link href={'/versandbedingungen'}> Versandkosten </Link>
+              inkl. MwSt., exkl. <Link href={'/versandbedingungen'} sx={{'text-decoration': 'underline'}}> Versandkosten </Link>
             </Typography>
           </Box>
         </Box>
