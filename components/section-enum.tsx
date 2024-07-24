@@ -15,7 +15,7 @@ const items = [
   { title: 'Verträglich', content: 'Glutenfrei und vegan' }
 ];
 
-export default function SectionLast() {
+export default function SectionEnum() {
   const theme = useTheme();
 
   return (

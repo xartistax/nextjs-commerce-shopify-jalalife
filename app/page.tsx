@@ -1,5 +1,6 @@
 import CollectionProducts from 'components/section-carousel';
-import SectionLast from 'components/section-last';
+import SectionEnum from 'components/section-enum';
+import SectionNutzen from 'components/section-nutzen';
 import dynamic from 'next/dynamic';
 
 export const metadata = {
@@ -26,7 +27,8 @@ export default async function HomePage() {
       <SectionMainBlog  />
       <SectionBlogArticles />
       <SectionInfo />
-      <SectionLast />
+      <SectionEnum /> 
+      <SectionNutzen /> 
       <Footer />
     </>
   );

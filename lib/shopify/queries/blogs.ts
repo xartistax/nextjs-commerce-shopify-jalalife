@@ -11,7 +11,7 @@ export const getArticleQuery = /* GraphQL */ `
 
 export const getLatestArticlesQuery = /* GraphQL */ `
   query getLatestArticles {
-    articles(reverse: true, first: 4) {
+    articles(reverse: true, first: 3) {
       edges {
         node {
           ...article
