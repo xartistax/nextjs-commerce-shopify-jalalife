@@ -66,7 +66,6 @@ export default function InformationNavigation() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  // Run effect only on mount and unmount
 
   const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
     event.preventDefault();
@@ -85,15 +84,21 @@ export default function InformationNavigation() {
   return (
     <Sticky>
       <nav className="bg-neutral-50 py-4">
-        <ul className="mx-auto flex w-full max-w-screen-xl justify-center space-x-4 border-b-2 border-t-2 border-black">
+        <ul className="mx-auto flex w-full max-w-screen-xl justify-center space-x-4 border-b-2 border-t-2 border-black flex-wrap">
           {infoMenu.map((item, i) => (
-            <li key={i} className="flex-1">
+            <li key={i} className="flex-1 sm:flex-none">
               <Box
                 component="a"
                 href={item.url}
                 onClick={handleClick}
-                className={`block w-full rounded-md px-3 py-2 text-center text-sm font-bold uppercase `}
-                sx={activeSection === item.url ? { color: 'primary.main' } : undefined}
+                className={`block w-full rounded-md px-3 py-2 text-center text-sm font-bold uppercase`}
+                sx={{
+                  color: activeSection === item.url ? 'primary.main' : undefined,
+                  flexBasis: '100%', // Ensure each item takes full width on small screens
+                  '@media (min-width: 600px)': {
+                    flexBasis: 'auto' // Revert to auto width on larger screens
+                  }
+                }}
               >
                 {item.name}
               </Box>

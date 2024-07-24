@@ -12,13 +12,13 @@ export function ProductDescription({ product }: { product: Product }) {
     <>
       <Box className="productBox">
         <Box className="mb-6 flex flex-col pb-6">
-          <Typography  gutterBottom component={'h1'} variant='h2' fontWeight={'bold'} lineHeight={'1'}>
+          <Typography  gutterBottom component={'h1'} variant='h2' fontWeight={'bold'} lineHeight={'1'} sx={{ fontSize: {xs: '2rem'} }}>
             {product.title}
           </Typography>
           <Box
             component="div"
-            className="mr-auto w-auto p-2 text-sm text-white"
-            sx={{ backgroundColor: 'primary.main' }}
+            className="mr-auto w-auto py-2 text-sm text-white"
+            sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.5rem' }}
           >
             <Price
               amount={product.priceRange.maxVariantPrice.amount}
