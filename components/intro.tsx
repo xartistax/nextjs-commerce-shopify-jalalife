@@ -14,6 +14,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
 
   return (
     <>
+    
       <Box
         component="section"
         sx={{ width: '100%', minheight: '100vh', height: 'auto', paddingTop: '1rem' }}
@@ -27,7 +28,6 @@ export default async function CollectionIntro({ handle }: PageProps) {
             backgroundSize: 'cover',
             backgroundImage: `url('Main_Banner_3840x2126_2.webp')`,
             display: 'flex',
-            padding: '32px',
             justifyContent: 'start',
             alignItems: 'start',
             textAlign: 'left'
@@ -47,41 +47,24 @@ export default async function CollectionIntro({ handle }: PageProps) {
                 textAlign: 'left'
               }}
             >
-              <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
-                <Typography
-                  component="h1"
-                  gutterBottom
-                  textTransform="uppercase"
-                  fontWeight="bold"
-                  letterSpacing=".5rem"
-                  fontSize="57px"
-                  lineHeight="3.5rem"
-                  sx={{
-                    fontSize: {
-                      md: '3.5rem',
-                      xs: '2.5rem'
-                    },
-                    lineHeight: {
-                      md: '3.5rem',
-                      xs: '2.5rem'
-                    }
-                  }}
-                >
+              <Container maxWidth="lg" sx={{ textAlign: { xs: 'left' ,md: 'center'} }}>
+              <Typography  gutterBottom component={'h1'} variant='h2' fontWeight={'bold'} lineHeight={'1'} sx={{ fontSize: {xs: '2rem'} }}>
                   {collection?.title}
                 </Typography>
 
                 <Typography
-                  variant="body1"
+                  variant="body2"
                   component="p"
                   fontSize="18px"
                   gutterBottom
                   color="inherit"
                   fontWeight="lighter"
+                  sx={{ fontSize: {md: '18px', xs: 'inherit'} }}
                 >
                   {collection?.description}
                 </Typography>
 
-                <Grid container justifyContent="start" spacing={3} sx={{ paddingTop: '6rem' }}>
+                <Grid container justifyContent="start" spacing={3} sx={{ paddingTop: { xs: '1rem' ,md: '6rem'} }}>
                   {collectionProducts.map((item, i) => (
                     <Grid item xs={12} sm={6} md={4} lg={4} key={i}>
                       <Box
@@ -97,16 +80,17 @@ export default async function CollectionIntro({ handle }: PageProps) {
                           component="img"
                           src={item.featuredImage.url}
                           alt={item.title}
-                          sx={{ maxWidth: '200px', margin: 'auto' }}
+                          sx={{ maxWidth: { md: '200px', xs: '100%' }, display: {xs: 'none'} }}
+                         
                         />
                         <Box component="div" sx={{ paddingY: '3rem' }}>
                           <Typography
                             gutterBottom
                             variant="h5"
                             component="h2"
-                            fontSize="1.20rem"
                             textAlign="center"
                             fontWeight="bold"
+                            sx={{ textAlign:{ xs: 'left' ,md: 'center'} , fontSize: {md: '1.20rem' ,xs: 'inherit'} }}
                           >
                             <Link href={`/product/${item.handle}`}> {item.title} </Link>
                           </Typography>
@@ -116,7 +100,8 @@ export default async function CollectionIntro({ handle }: PageProps) {
                               WebkitLineClamp: 3,
                               WebkitBoxOrient: 'vertical',
                               overflow: 'hidden',
-                              textOverflow: 'ellipsis'
+                              textOverflow: 'ellipsis',
+                              fontSize: {md: '1.20rem' } 
                             }}
                           >
                             {item.description}
@@ -125,8 +110,9 @@ export default async function CollectionIntro({ handle }: PageProps) {
 
                         <Box
                           component="div"
-                          className="mr-auto w-auto p-2 text-sm"
-                          sx={{ color: 'primary.main' }}
+                          className="mr-auto w-auto text-sm"
+                          fontWeight={"bold"}
+                          sx={{ color: 'primary.main', fontSize: {md: '1.20rem' ,xs: '1.2rem'} , paddingBottom: '32px' }}
                         >
                           <Price
                             amount={item.priceRange.maxVariantPrice.amount}
