@@ -4,7 +4,7 @@ import { getMenu } from 'lib/shopify';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
-const { SITE_NAME, SHOPIFY_STORE_DOMAIN } = process.env;
+const {  SHOPIFY_STORE_DOMAIN } = process.env;
 
 export default async function Navbar() {
   const menugutgegen = await getMenu('gutgegenmenu');
