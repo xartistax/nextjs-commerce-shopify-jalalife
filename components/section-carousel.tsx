@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -68,6 +68,7 @@ const CollectionProducts = () => {
     >
       <Box sx={{ paddingTop: {xs: '30px', md: '100px'}, paddingBottom: {xs: '30px', md: '100px'} }}>
         {products.length > 0 ? (
+          <>
           <Slide
             duration={5000}
             transitionDuration={300}
@@ -167,6 +168,8 @@ const CollectionProducts = () => {
               </Box>
             ))}
           </Slide>
+          <Button variant='outlined' href='/collections/online-shop' size='large' sx={{ 'marginTop': '3rem', 'fontWeight': 'bold'}}> Jetzt zum Shop</Button>
+          </>
         ) : (
           <div>No products available</div>
         )}
