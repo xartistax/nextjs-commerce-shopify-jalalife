@@ -80,7 +80,8 @@ export default async function CollectionIntro({ handle }: PageProps) {
                           component="img"
                           src={item.featuredImage.url}
                           alt={item.title}
-                          sx={{ maxWidth: { md: '200px', xs: '100%' }, display: {xs: 'none'} }}
+                          margin={'auto'}
+                          sx={{ maxWidth: { md: '200px', xs: '100%' }, display: {xs: 'none', md: 'block'} }}
                          
                         />
                         <Box component="div" sx={{ paddingY: '3rem' }}>
