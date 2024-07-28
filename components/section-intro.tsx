@@ -78,7 +78,7 @@ export default async function SectionIntro() {
             right: { md: '10%' },
             left: { xs: '50%', md: 'unset' },
             transform: { xs: ' translate(-50%, -0%) ', md: 'unset' },
-            display: { xs : 'none'}
+            display: { xs : 'none', md: 'block'}
           }}
           alt="Indischer Weihrauch mit Zink"
           src="/indisch.png"
