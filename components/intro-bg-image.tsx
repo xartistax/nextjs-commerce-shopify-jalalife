@@ -14,6 +14,7 @@ export default function IntroBgImg() {
       src={isXs ? bg1 : bg2}
       placeholder="blur"
       fill
+      loading="eager"
       sizes="80vw"
       style={{
         objectFit: 'cover',

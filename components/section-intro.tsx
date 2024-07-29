@@ -1,7 +1,19 @@
-import { Box, Container, Typography } from '@mui/material';
+"use client"
+import { Box, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
+import Image from 'next/image';
+import indisch from '../public/indisch.png';
 import IntroBgImg from './intro-bg-image';
 
+
+
 export default function SectionIntro() {
+
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down('md'));
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+  const isLgUp = useMediaQuery(theme.breakpoints.up('lg'));
+
+  
   return (
     <Box
       component="section"
@@ -74,21 +86,26 @@ export default function SectionIntro() {
       </Box>
 
       <Container maxWidth="lg">
-        <Box
-          component="img"
-          sx={{
-            height: { xs: '380px', lg: '420px' },
-            width: 'auto',
-            position: 'absolute',
-            bottom: 0,
-            right: { md: '10%' },
-            left: { xs: '50%', md: 'unset' },
-            transform: { xs: ' translate(-50%, -0%) ', md: 'unset' },
-            display: { xs: 'none', md: 'block' }
-          }}
-          alt="Indischer Weihrauch mit Zink"
-          src="/indisch.png"
-        />
+        
+
+<Image 
+            src={indisch}
+            alt="Indischer Weihrauch mit Zink"
+            loading='eager'// Required to fill the parent container
+            objectFit="contain" // Maintains aspect ratio
+            priority // Ensures the image is loaded eagerly
+            style={{
+              height: isXs ? '380px' : isLgUp ? '420px' : 'auto',
+              width: 'auto',
+              position: 'absolute',
+              bottom: 0,
+              right: isMdUp ? '10%' : 'unset',
+              left: isXs ? '50%' : 'unset',
+              transform: isXs ? 'translate(-50%, 0%)' : 'unset',
+              display: isXs ? 'none' : 'block',
+              zIndex: 1 // Ensure it appears above the background
+            }}
+          />
       </Container>
     </Box>
   );
