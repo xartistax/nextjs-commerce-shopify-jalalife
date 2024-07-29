@@ -2,7 +2,6 @@ import { ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ensureStartsWith } from 'lib/utils';
 import dynamic from 'next/dynamic';
-import { brandonGrotesque } from 'public/fonts/brandon-grotesque';
 import { ReactNode } from 'react';
 import { theme } from 'theme';
 import './globals.css';
@@ -41,7 +40,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <ThemeProvider theme={theme}>
-      <html lang="de" className={brandonGrotesque.className}>
+      <html lang="de">
         <body className="bg-neutral-50 text-black selection:bg-customColor selection:text-white">
         <AppRouterCacheProvider>
           <Navbar />
