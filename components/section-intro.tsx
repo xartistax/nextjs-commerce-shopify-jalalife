@@ -1,34 +1,40 @@
 import { Box, Container, Typography } from '@mui/material';
+import IntroBgImg from './intro-bg-image';
 
-export default async function SectionIntro() {
+export default function SectionIntro() {
   return (
-    <Box component="section" sx={{ width: '100%', height: {md: '100vh', xs: 'auto'} }} suppressHydrationWarning>
+    <Box
+      component="section"
+      sx={{ width: '100%', height: { md: '100vh', xs: 'auto' } }}
+      suppressHydrationWarning
+    >
       <Box
-  component="div"
-  sx={{
-    width: '100%',
-    height: {
-      md: '80vh',   // padding for medium devices
-    },
-    backgroundSize: 'cover',
-    backgroundImage: {xs: `url('bg2_mobile.jpeg')`, md: `url('bg2.jpeg')`}, // Ensure the path is correct
-    display: 'flex',
-    
-    paddingX: {
-      md: '0px',   // padding for medium devices
-      lg: '32px'   // padding for large devices
-    },
-    paddingY: {
-      xs: '100px',
-      md: '0px',   // padding for medium devices
-      lg: '32px'   // padding for large devices
-    },
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center'
-  }}
->
-        <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
+        component="div"
+        sx={{
+          width: '100%',
+          height: {
+            md: '80vh' // padding for medium devices
+          },
+          display: 'flex',
+          position: 'relative', // Add position relative
+          paddingX: {
+            md: '0px', // padding for medium devices
+            lg: '32px' // padding for large devices
+          },
+          paddingY: {
+            xs: '100px',
+            md: '0px', // padding for medium devices
+            lg: '32px' // padding for large devices
+          },
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center',
+          overflow: 'hidden' // Ensure no overflow issues
+        }}
+      >
+        <IntroBgImg /> {/* Background image component handles responsive logic */}
+
+        <Container maxWidth="lg" sx={{ textAlign: 'center', zIndex: 1, position: 'relative' }}>
           <Typography
             component="h1"
             gutterBottom
@@ -78,7 +84,7 @@ export default async function SectionIntro() {
             right: { md: '10%' },
             left: { xs: '50%', md: 'unset' },
             transform: { xs: ' translate(-50%, -0%) ', md: 'unset' },
-            display: { xs : 'none', md: 'block'}
+            display: { xs: 'none', md: 'block' }
           }}
           alt="Indischer Weihrauch mit Zink"
           src="/indisch.png"
