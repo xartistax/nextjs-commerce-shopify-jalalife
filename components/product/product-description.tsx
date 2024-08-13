@@ -12,7 +12,14 @@ export function ProductDescription({ product }: { product: Product }) {
     <>
       <Box className="productBox">
         <Box className="mb-6 flex flex-col pb-6">
-          <Typography  gutterBottom component={'h1'} variant='h2' fontWeight={'bold'} lineHeight={'1'} sx={{ fontSize: {xs: '2rem'} }}>
+          <Typography
+            gutterBottom
+            component={'h1'}
+            variant="h2"
+            fontWeight={'bold'}
+            lineHeight={'1'}
+            sx={{ fontSize: { xs: '2rem' } }}
+          >
             {product.title}
           </Typography>
           <Box
@@ -28,7 +35,11 @@ export function ProductDescription({ product }: { product: Product }) {
           <Box component="div" className="mr-auto w-auto py-2 text-sm  text-slate-800">
             <Typography variant="caption">
               Versand: 1 - 2 Tage <br />
-              inkl. MwSt., exkl. <Link href={'/pages/versandbedingungen'} sx={{'text-decoration': 'underline'}}> Versandkosten </Link>
+              inkl. MwSt., exkl.{' '}
+              <Link href={'/pages/versandbedingungen'} sx={{ 'text-decoration': 'underline' }}>
+                {' '}
+                Versandkosten{' '}
+              </Link>
             </Typography>
           </Box>
         </Box>

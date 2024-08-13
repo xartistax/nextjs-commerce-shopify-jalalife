@@ -1,6 +1,7 @@
 'use client';
 
 import { PlusIcon } from '@heroicons/react/24/outline';
+import { Typography } from '@mui/material';
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -84,9 +85,9 @@ export function AddToCart({
   return (
     <form action={actionWithVariant}>
       <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
-      <p aria-live="polite" className="sr-only" role="status">
+      <Typography component={'p'} aria-live="polite" className="sr-only" role="status">
         {message}
-      </p>
+      </Typography>
     </form>
   );
 }

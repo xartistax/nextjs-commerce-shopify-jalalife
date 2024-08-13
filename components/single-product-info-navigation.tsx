@@ -1,5 +1,5 @@
 'use client';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Sticky from 'react-sticky-el/lib/basic-version';
 
@@ -84,7 +84,7 @@ export default function InformationNavigation() {
   return (
     <Sticky>
       <nav className="bg-neutral-50 py-4">
-        <ul className="mx-auto flex w-full max-w-screen-xl justify-center space-x-4 border-b-2 border-t-2 border-black flex-wrap">
+        <ul className="mx-auto flex w-full max-w-screen-xl flex-wrap justify-center space-x-4 border-b-2 border-t-2 border-black">
           {infoMenu.map((item, i) => (
             <li key={i} className="flex-1 sm:flex-none">
               <Box
@@ -100,7 +100,7 @@ export default function InformationNavigation() {
                   }
                 }}
               >
-                {item.name}
+                <Typography>{item.name}</Typography>
               </Box>
             </li>
           ))}

@@ -1,5 +1,6 @@
-import clsx from 'clsx';
-import type { FunctionComponent } from 'react';
+import { Box, Link, List, ListItem, Typography } from '@mui/material';
+import parse, { domToReact } from 'html-react-parser';
+import { FunctionComponent } from 'react';
 
 interface TextProps {
   html: string;
@@ -7,15 +8,93 @@ interface TextProps {
 }
 
 const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
-  return (
-    <div
-      className={clsx(
-        'text-base leading-7 text-black prose-headings:mt-8 prose-headings:font-semibold prose-headings:tracking-wide prose-headings:text-black prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-a:text-black prose-a:underline hover:prose-a:text-neutral-300 prose-strong:text-black prose-ol:mt-8 prose-ol:list-decimal prose-ol:pl-6 prose-ul:mt-8 prose-ul:list-disc prose-ul:pl-6',
-        className
-      )}
-      dangerouslySetInnerHTML={{ __html: html as string }}
-    />
-  );
+  const options = {
+    replace: (domNode: any) => {
+      if (domNode.name === 'h1') {
+        return (
+          <Typography
+            variant="h1"
+            sx={{ mt: 8, fontSize: '5xl', fontWeight: 'bold', textAlign: 'center' }}
+          >
+            {domToReact(domNode.children, options)}
+          </Typography>
+        );
+      }
+
+      if (domNode.name === 'h2') {
+        return (
+          <Typography variant="h2" sx={{ mt: 8, fontSize: '4xl', fontWeight: 'semibold' }}>
+            {domToReact(domNode.children, options)}
+          </Typography>
+        );
+      }
+
+      if (domNode.name === 'h3') {
+        return (
+          <Typography variant="h3" sx={{ mt: 8, fontSize: '3xl', fontWeight: 'medium' }}>
+            {domToReact(domNode.children, options)}
+          </Typography>
+        );
+      }
+
+      if (domNode.name === 'p') {
+        return (
+          <Typography variant="body1" sx={{ mb: 2, lineHeight: '1.75' }}>
+            {domToReact(domNode.children, options)}
+          </Typography>
+        );
+      }
+
+      if (domNode.name === 'strong') {
+        return (
+          <Typography component="strong" sx={{ fontWeight: 'bold' }}>
+            {domToReact(domNode.children, options)}
+          </Typography>
+        );
+      }
+
+      if (domNode.name === 'a') {
+        return (
+          <Link
+            href={domNode.attribs.href}
+            sx={{
+              textDecoration: 'underline',
+              color: 'black',
+              '&:hover': { color: 'neutral.300' }
+            }}
+          >
+            {domToReact(domNode.children, options)}
+          </Link>
+        );
+      }
+
+      if (domNode.name === 'ul') {
+        return (
+          <List sx={{ mt: 8, pl: 4, listStyleType: 'disc' }}>
+            {domToReact(domNode.children, options)}
+          </List>
+        );
+      }
+
+      if (domNode.name === 'ol') {
+        return (
+          <List sx={{ mt: 8, pl: 4, listStyleType: 'decimal' }}>
+            {domToReact(domNode.children, options)}
+          </List>
+        );
+      }
+
+      if (domNode.name === 'li') {
+        return (
+          <ListItem sx={{ display: 'list-item' }}>{domToReact(domNode.children, options)}</ListItem>
+        );
+      }
+
+      // Add more cases as needed for other elements
+    }
+  };
+
+  return <Box className={className}>{parse(html, options)}</Box>;
 };
 
 export default Prose;
