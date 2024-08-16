@@ -49,7 +49,15 @@ export default async function SectionMainBlog() {
       />
 
       {/* Content */}
-      <Box sx={{ paddingX: {md: '8rem', xs: '.9rem'}, paddingY:  {md: '10rem', xs: '5rem'}, position: 'relative', zIndex: 1, overflowWrap: 'anywhere' }}>
+      <Box
+        sx={{
+          paddingX: { md: '8rem', xs: '.9rem' },
+          paddingY: { md: '10rem', xs: '5rem' },
+          position: 'relative',
+          zIndex: 1,
+          overflowWrap: 'anywhere'
+        }}
+      >
         <div key={article.id}>
           <Typography
             gutterBottom
@@ -58,7 +66,7 @@ export default async function SectionMainBlog() {
             color="white"
             textTransform="uppercase"
             fontWeight="bold"
-            fontSize={  { xs: '34px'} }
+            fontSize={{ xs: '34px' }}
           >
             {article.title}
           </Typography>
@@ -79,7 +87,7 @@ export default async function SectionMainBlog() {
             }}
           >
             {' '}
-            Mehr zum Thema{' '}
+            <Typography>Mehr zum Thema </Typography>
           </Box>
         </div>
       </Box>
