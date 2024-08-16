@@ -173,7 +173,7 @@ const CollectionProducts = () => {
                     flexDirection: { xs: 'column', sm: 'row' }
                   }}
                 >
-                  <ImageBox>
+                  <ImageBox sx={{ display: { xs: 'none', sm: 'block' } }}>
                     <Box
                       component="img"
                       alt={product.title}
@@ -181,6 +181,7 @@ const CollectionProducts = () => {
                       loading="lazy"
                       className="image"
                       onLoad={(e) => e.currentTarget.classList.add('loaded')}
+                      sx={{ display: { xs: 'none', sm: 'block' } }}
                     />
                   </ImageBox>
 

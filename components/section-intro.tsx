@@ -83,32 +83,34 @@ export default function SectionIntro() {
         </Container>
       </Box>
 
-      <Container maxWidth="lg">
-        {/* Image with fade-in effect after loading */}
-        <Image
-          src={indisch}
-          alt="Indischer Weihrauch mit Zink"
-          loading="eager"
-          objectFit="contain"
-          priority
-          style={{
-            height: isXs ? '380px' : isLgUp ? '420px' : 'auto',
-            width: 'auto',
-            position: 'absolute',
-            bottom: 0,
-            right: isMdUp ? '10%' : 'unset',
-            left: isXs ? '50%' : 'unset',
-            transform: isXs ? 'translate(-50%, 0%)' : 'unset',
-            opacity: imgLoaded ? 1 : 0, // Hide the image initially
-            transition: 'opacity 1s ease-in-out', // Fade-in effect
-            zIndex: 1,
-            maxWidth: '100%' // Ensure it doesn't exceed parent container width
-          }}
-          width={500}
-          height={500}
-          onLoad={() => setImgLoaded(true)} // Set the image load state to true once it's loaded
-        />
-      </Container>
+      {!isXs && (
+        <Container maxWidth="lg">
+          {/* Image with fade-in effect after loading */}
+          <Image
+            src={indisch}
+            alt="Indischer Weihrauch mit Zink"
+            loading="eager"
+            objectFit="contain"
+            priority
+            style={{
+              height: isXs ? '380px' : isLgUp ? '420px' : 'auto',
+              width: 'auto',
+              position: 'absolute',
+              bottom: 0,
+              right: isMdUp ? '10%' : 'unset',
+              left: isXs ? '50%' : 'unset',
+              transform: isXs ? 'translate(-50%, 0%)' : 'unset',
+              opacity: imgLoaded ? 1 : 0, // Hide the image initially
+              transition: 'opacity 1s ease-in-out', // Fade-in effect
+              zIndex: 1,
+              maxWidth: '100%' // Ensure it doesn't exceed parent container width
+            }}
+            width={500}
+            height={500}
+            onLoad={() => setImgLoaded(true)} // Set the image load state to true once it's loaded
+          />
+        </Container>
+      )}
     </Box>
   );
 }
