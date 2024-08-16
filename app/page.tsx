@@ -1,7 +1,7 @@
 import CollectionProducts from 'components/section-carousel';
 import SectionEnum from 'components/section-enum';
 import SectionNutzen from 'components/section-nutzen';
-import dynamic from 'next/dynamic';
+import { lazy } from 'react';
 
 export const metadata = {
   description: 'JalaLife Redesign',
@@ -11,24 +11,24 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const SectionIntro = dynamic(() => import('components/section-intro'), { ssr: false });
-  //const SectionCarousel = dynamic(() => import('components/section-carousel'), { ssr: false })
-  const SectionMainBlog = dynamic(() => import('components/section-mainblog'), { ssr: false });
-  const SectionBlogArticles = dynamic(() => import('components/section-blogarticles'), {
-    ssr: false
-  });
-  const SectionInfo = dynamic(() => import('components/section-info'), { ssr: false });
-  const Footer = dynamic(() => import('components/layout/footer'), { ssr: false });
+  const SectionIntro = lazy(() => import('components/section-intro'));
+  //const SectionCarousel = lazy(() => import('components/section-carousel'))
+  const SectionMainBlog = lazy(() => import('components/section-mainblog'));
+  const SectionBlogArticles = lazy(() => import('components/section-blogarticles'));
+  const SectionInfo = lazy(() => import('components/section-info'));
+  const Footer = lazy(() => import('components/layout/footer'));
 
   return (
     <>
       <SectionIntro />
       <CollectionProducts />
-      <SectionMainBlog  />
+
+      <CollectionProducts />
+      <SectionMainBlog />
       <SectionBlogArticles />
       <SectionInfo />
-      <SectionEnum /> 
-      <SectionNutzen /> 
+      <SectionEnum />
+      <SectionNutzen />
       <Footer />
     </>
   );

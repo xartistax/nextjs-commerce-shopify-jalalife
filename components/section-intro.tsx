@@ -1,19 +1,18 @@
-"use client"
+'use client';
 import { Box, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
+import { useState } from 'react';
 import indisch from '../public/indisch.png';
 import IntroBgImg from './intro-bg-image';
 
-
-
 export default function SectionIntro() {
-
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down('md'));
   const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
   const isLgUp = useMediaQuery(theme.breakpoints.up('lg'));
 
-  
+  const [imgLoaded, setImgLoaded] = useState(false); // Track image load state
+
   return (
     <Box
       component="section"
@@ -45,7 +44,6 @@ export default function SectionIntro() {
         }}
       >
         <IntroBgImg /> {/* Background image component handles responsive logic */}
-
         <Container maxWidth="lg" sx={{ textAlign: 'center', zIndex: 1, position: 'relative' }}>
           <Typography
             component="h1"
@@ -86,26 +84,30 @@ export default function SectionIntro() {
       </Box>
 
       <Container maxWidth="lg">
-        
-
-<Image 
-            src={indisch}
-            alt="Indischer Weihrauch mit Zink"
-            loading='eager'// Required to fill the parent container
-            objectFit="contain" // Maintains aspect ratio
-            priority // Ensures the image is loaded eagerly
-            style={{
-              height: isXs ? '380px' : isLgUp ? '420px' : 'auto',
-              width: 'auto',
-              position: 'absolute',
-              bottom: 0,
-              right: isMdUp ? '10%' : 'unset',
-              left: isXs ? '50%' : 'unset',
-              transform: isXs ? 'translate(-50%, 0%)' : 'unset',
-              display: isXs ? 'none' : 'block',
-              zIndex: 1 // Ensure it appears above the background
-            }}
-          />
+        {/* Image with fade-in effect after loading */}
+        <Image
+          src={indisch}
+          alt="Indischer Weihrauch mit Zink"
+          loading="eager"
+          objectFit="contain"
+          priority
+          style={{
+            height: isXs ? '380px' : isLgUp ? '420px' : 'auto',
+            width: 'auto',
+            position: 'absolute',
+            bottom: 0,
+            right: isMdUp ? '10%' : 'unset',
+            left: isXs ? '50%' : 'unset',
+            transform: isXs ? 'translate(-50%, 0%)' : 'unset',
+            opacity: imgLoaded ? 1 : 0, // Hide the image initially
+            transition: 'opacity 1s ease-in-out', // Fade-in effect
+            zIndex: 1,
+            maxWidth: '100%' // Ensure it doesn't exceed parent container width
+          }}
+          width={500}
+          height={500}
+          onLoad={() => setImgLoaded(true)} // Set the image load state to true once it's loaded
+        />
       </Container>
     </Box>
   );
