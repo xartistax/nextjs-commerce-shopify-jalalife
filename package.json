@@ -7,7 +7,7 @@
     "pnpm": ">=8"
   },
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbo & npx next-video sync -w",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -41,6 +41,7 @@
     "local": "link:@next/font/local",
     "mobile-detect": "^1.4.5",
     "next": "14.2.2",
+    "next-video": "^1.1.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "^6.1.0",

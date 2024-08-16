@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 import { getArticle } from 'lib/shopify';
+
 import Head from 'next/head';
 
 export default async function SectionMainBlog() {
@@ -23,12 +24,16 @@ export default async function SectionMainBlog() {
         }}
       >
         {/* Background Video */}
+
         <video
           poster="organic-frame.jpeg"
           autoPlay
           loop
           muted
           playsInline
+          width="320"
+          height="240"
+          preload="none"
           style={{
             position: 'absolute',
             top: 0,
