@@ -1,5 +1,5 @@
 'use client';
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, BoxProps, Button, Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -12,6 +12,10 @@ interface Product {
     url: string;
   };
   handle: string;
+}
+
+interface PlaceholderProps extends BoxProps {
+  fadeOut?: boolean;
 }
 
 const TruncatedText = styled(Typography)`
@@ -41,7 +45,7 @@ const ImageBox = styled(Box)`
   }
 `;
 
-const Placeholder = styled(Box)`
+const Placeholder = styled(({ fadeOut, ...rest }: PlaceholderProps) => <Box {...rest} />)`
   position: absolute;
   top: 0;
   left: 0;
