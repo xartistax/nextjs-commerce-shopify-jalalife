@@ -2,8 +2,8 @@
 import { useMediaQuery, useTheme } from '@mui/material';
 import Image from 'next/image';
 import { useState } from 'react'; // Import useState
-import bg2 from '../public/bg2.jpeg';
-import bg1 from '../public/bg2_mobile.jpeg';
+import bg2 from '../public/bg2.webp';
+import bg1 from '../public/bg2_mobile.webp';
 
 export default function IntroBgImg() {
   const theme = useTheme();
