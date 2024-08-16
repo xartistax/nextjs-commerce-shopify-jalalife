@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
-import { getArticle } from 'lib/shopify';
 
+import { getArticle } from 'lib/shopify';
 import Head from 'next/head';
 
 export default async function SectionMainBlog() {
@@ -24,6 +24,29 @@ export default async function SectionMainBlog() {
         }}
       >
         {/* Background Video */}
+
+        <video
+          poster="organic-frame.webp"
+          autoPlay
+          loop
+          muted
+          playsInline
+          width="320"
+          height="240"
+          preload="metadata"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: -1
+          }}
+        >
+          <source src="organic2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         {/* Dark Overlay */}
         <Box
