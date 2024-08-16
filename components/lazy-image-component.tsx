@@ -1,8 +1,18 @@
-// Separate file: LazyImageComponent.js
+// Separate file: LazyImageComponent.tsx
 import Image from 'next/image';
 import indisch from '../public/indisch.png';
 
-export default function LazyImage({ isXs, isMdUp, isLgUp }) {
+interface LazyImageProps {
+  isXs?: boolean;
+  isMdUp?: boolean;
+  isLgUp?: boolean;
+}
+
+export default function LazyImage({
+  isXs = false,
+  isMdUp = false,
+  isLgUp = false
+}: LazyImageProps) {
   return (
     <Image
       src={indisch}
