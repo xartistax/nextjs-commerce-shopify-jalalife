@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: 'Brandon Grotesque';
   font-style: normal;
-  font-weight: 400; /* Regular */
+  font-weight: 400; 
   src: url('../public/fonts/brandon-grotesque-regular.woff2') format('woff2');
   font-display: swap;
 }
@@ -13,10 +13,10 @@
 @font-face {
   font-family: 'Brandon Grotesque';
   font-style: bold;
-  font-weight: 700; /* Bold */
+  font-weight: 700; 
   src: url('../public/fonts/brandon-grotesque-bold.woff2') format('woff2');
   font-display: swap;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   html {
@@ -42,10 +42,6 @@ button {
   text-overflow: ellipsis;
 }
 
-
-
-
-
 /* Basic table styles */
 .styled-table {
   width: 100%;
@@ -59,7 +55,7 @@ button {
 }
 
 .styled-table thead tr {
-  background-color: #AFA263;;
+  background-color: #afa263;
   color: #ffffff;
   text-align: left;
 }
@@ -77,9 +73,8 @@ button {
   background-color: #f3f3f3;
 }
 
-
 .styled-table th {
-  color: #fff
+  color: #fff;
 }
 .styled-table em {
   display: block;
@@ -87,7 +82,7 @@ button {
 }
 
 .styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #AFA263;;
+  border-bottom: 2px solid #afa263;
 }
 
 /* Responsive adjustments */

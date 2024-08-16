@@ -102,7 +102,7 @@ export default async function SectionMainBlog() {
                 paddingTop: '32px'
               }}
             >
-              Mehr zum Thema
+              <Typography>Mehr zum Thema</Typography>
             </Box>
           </div>
         </Box>

@@ -8,7 +8,6 @@ export const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: " 'Brandon Grotesque'",
     body1: {
       fontWeight: '100'
     }

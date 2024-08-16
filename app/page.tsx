@@ -1,7 +1,9 @@
 import CollectionProducts from 'components/section-carousel';
 import SectionEnum from 'components/section-enum';
 import SectionNutzen from 'components/section-nutzen';
+
 import { lazy } from 'react';
+
 export const metadata = {
   description: 'JalaLife Redesign',
   openGraph: {
