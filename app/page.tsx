@@ -22,8 +22,6 @@ export default async function HomePage() {
     <>
       <SectionIntro />
       <CollectionProducts />
-
-      <CollectionProducts />
       <SectionMainBlog />
       <SectionBlogArticles />
       <SectionInfo />
