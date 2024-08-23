@@ -12,7 +12,12 @@ const Price = ({
   currencyCode: string;
   currencyCodeClassName?: string;
 } & React.ComponentProps<'p'>) => (
-  <Typography suppressHydrationWarning={true} className={className}>
+  <Typography
+    suppressHydrationWarning={true}
+    variant="button"
+    fontSize={'2rem'}
+    className={className}
+  >
     {`${new Intl.NumberFormat(undefined, {
       style: 'currency',
       currency: currencyCode,

@@ -15,7 +15,7 @@ const FooterMenuItem = ({ item }: { item: Menu }) => {
           }
         )}
       >
-        {item.title}
+        <Typography variant="caption">{item.title}</Typography>
       </Link>
     </li>
   );
@@ -62,33 +62,36 @@ export default function FooterMenu({
         </Typography>
 
         <Box sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
-          <Typography gutterBottom component="p" sx={{ fontWeight: 'bold' }}></Typography>
-          SoluVeda GmbH <br />
-          Turmstrasse 11 <br />
-          DE- 78467, Konstanz <br />
-          <Box component={'a'} sx={{ color: 'primary.main' }} href="mailto:info@jala-life.com">
-            info@jala-life.com
-          </Box>{' '}
-          <br />
-          <Box component={'a'} sx={{ color: 'primary.main' }} href="tel:+49 7531 58 47 850">
-            Tel: +49 7531 58 47 850
-          </Box>
+          <Typography gutterBottom variant="caption">
+            SoluVeda GmbH <br />
+            Turmstrasse 11 <br />
+            DE- 78467, Konstanz <br />
+            <Box component={'a'} sx={{ color: 'primary.main' }} href="mailto:info@jala-life.com">
+              info@jala-life.com
+            </Box>{' '}
+            <br />
+            <Box component={'a'} sx={{ color: 'primary.main' }} href="tel:+49 7531 58 47 850">
+              Tel: +49 7531 58 47 850
+            </Box>
+          </Typography>
         </Box>
 
         <Box sx={{ marginBottom: '2rem', marginTop: '1rem' }}>
           <Typography gutterBottom component="p" sx={{ fontWeight: 'bold' }}>
             Für Kunden aus der Schweiz und Lichtenstein
           </Typography>
-          CannSol Distribution AG <br />
-          Industriestrasse 46 <br />
-          LI-9491 Ruggell <br />
-          <Box component={'a'} sx={{ color: 'primary.main' }} href="mailto:info@jala-life.com">
-            info@jala-life.com
-          </Box>{' '}
-          <br />
-          <Box component={'a'} sx={{ color: 'primary.main' }} href="tel:+423 237 70 72">
-            Tel.: +423 237 70 72
-          </Box>
+          <Typography gutterBottom variant="caption">
+            CannSol Distribution AG <br />
+            Industriestrasse 46 <br />
+            LI-9491 Ruggell <br />
+            <Box component={'a'} sx={{ color: 'primary.main' }} href="mailto:info@jala-life.com">
+              info@jala-life.com
+            </Box>{' '}
+            <br />
+            <Box component={'a'} sx={{ color: 'primary.main' }} href="tel:+423 237 70 72">
+              Tel.: +423 237 70 72
+            </Box>
+          </Typography>
         </Box>
       </Box>
     </nav>

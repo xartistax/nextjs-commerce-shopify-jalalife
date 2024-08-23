@@ -83,7 +83,7 @@ const CollectionProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/api/products');
+        const response = await fetch('/api/products', { cache: 'no-cache' });
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
@@ -168,9 +168,10 @@ const CollectionProducts = () => {
                   sx={{
                     textAlign: 'left',
                     display: 'flex',
-                    minHeight: '400px',
+                    minHeight: '330px',
                     height: 'auto',
-                    flexDirection: { xs: 'column', sm: 'row' }
+                    flexDirection: { xs: 'column', sm: 'row' },
+                    alignItems: 'stretch'
                   }}
                 >
                   <ImageBox sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -181,7 +182,12 @@ const CollectionProducts = () => {
                       loading="lazy"
                       className="image"
                       onLoad={(e) => e.currentTarget.classList.add('loaded')}
-                      sx={{ display: { xs: 'none', sm: 'block' } }}
+                      sx={{
+                        display: { xs: 'none', sm: 'block' },
+                        height: '100%',
+                        maxHeight: '400px',
+                        objectFit: 'cover'
+                      }}
                     />
                   </ImageBox>
 
@@ -199,8 +205,17 @@ const CollectionProducts = () => {
                         gutterBottom
                         variant="h4"
                         component="h2"
-                        sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
-                        className="text-slate-800"
+                        sx={{
+                          fontWeight: 'bold',
+                          textTransform: 'uppercase',
+                          className: 'text-slate-800',
+                          height: '90px', // Fixed height for title
+                          overflow: 'hidden', // Hide overflow if title is too long
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2, // Limits to 2 lines
+                          WebkitBoxOrient: 'vertical',
+                          textOverflow: 'ellipsis' // Adds ellipsis if text overflows
+                        }}
                       >
                         {product.title}
                       </Typography>

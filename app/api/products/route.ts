@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET(): Promise<NextResponse> {
   try {
-    const collectionHandle = 'hidden-carousel'; // Specify the handle of the collection you want to fetch products from
+    const collectionHandle = 'online-shop'; // Specify the handle of the collection you want to fetch products from
 
     // Fetch products from the specified collection
     const products = await getCollectionProducts({ collection: collectionHandle });

@@ -1,6 +1,24 @@
-import { Box, Link, List, ListItem, Typography } from '@mui/material';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+import {
+  Box,
+  Link,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  ThemeProvider,
+  Typography
+} from '@mui/material';
 import parse, { domToReact } from 'html-react-parser';
 import { FunctionComponent } from 'react';
+import { theme } from 'theme';
 
 interface TextProps {
   html: string;
@@ -11,19 +29,12 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
   const options = {
     replace: (domNode: any) => {
       if (domNode.name === 'h1') {
-        return (
-          <Typography
-            variant="h1"
-            sx={{ mt: 8, fontSize: '5xl', fontWeight: 'bold', textAlign: 'center' }}
-          >
-            {domToReact(domNode.children, options)}
-          </Typography>
-        );
+        return <Typography variant="h1">{domToReact(domNode.children, options)}</Typography>;
       }
 
       if (domNode.name === 'h2') {
         return (
-          <Typography variant="h2" sx={{ mt: 8, fontSize: '4xl', fontWeight: 'semibold' }}>
+          <Typography variant="h2" fontSize="2.5rem">
             {domToReact(domNode.children, options)}
           </Typography>
         );
@@ -31,15 +42,12 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
 
       if (domNode.name === 'h3') {
         return (
-          <Typography variant="h3" sx={{ mt: 8, fontSize: '3xl', fontWeight: 'medium' }}>
-            {domToReact(domNode.children, options)}
-          </Typography>
-        );
-      }
-
-      if (domNode.name === 'p') {
-        return (
-          <Typography variant="body1" sx={{ mb: 2, lineHeight: '1.75' }}>
+          <Typography
+            gutterBottom
+            component="h3"
+            variant="h6"
+            sx={{ fontWeight: { xs: 'bold', md: 'normal' } }}
+          >
             {domToReact(domNode.children, options)}
           </Typography>
         );
@@ -47,30 +55,19 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
 
       if (domNode.name === 'strong') {
         return (
-          <Typography component="strong" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="body1" component="strong" sx={{ fontWeight: 'bold' }}>
             {domToReact(domNode.children, options)}
           </Typography>
         );
       }
 
       if (domNode.name === 'a') {
-        return (
-          <Link
-            href={domNode.attribs.href}
-            sx={{
-              textDecoration: 'underline',
-              color: 'black',
-              '&:hover': { color: 'neutral.300' }
-            }}
-          >
-            {domToReact(domNode.children, options)}
-          </Link>
-        );
+        return <Link href={domNode.attribs.href}>{domToReact(domNode.children, options)}</Link>;
       }
 
       if (domNode.name === 'ul') {
         return (
-          <List sx={{ mt: 8, pl: 4, listStyleType: 'disc' }}>
+          <List aria-label="jalaLife" sx={{ display: 'list-item', listStyleType: 'none' }}>
             {domToReact(domNode.children, options)}
           </List>
         );
@@ -78,15 +75,90 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
 
       if (domNode.name === 'ol') {
         return (
-          <List sx={{ mt: 8, pl: 4, listStyleType: 'decimal' }}>
-            {domToReact(domNode.children, options)}
-          </List>
+          <List sx={{ listStyleType: 'decimal' }}>{domToReact(domNode.children, options)}</List>
         );
       }
 
       if (domNode.name === 'li') {
         return (
-          <ListItem sx={{ display: 'list-item' }}>{domToReact(domNode.children, options)}</ListItem>
+          <ListItem disablePadding alignItems="flex-start">
+            <ListItemIcon sx={{ color: 'primary.light' }}>
+              <DoneAllIcon sx={{ minWidth: '36px !important' }} />
+            </ListItemIcon>
+            <ListItemText
+              primary={domToReact(domNode.children, options)}
+              primaryTypographyProps={{
+                sx: {
+                  mb: 0,
+                  '& p': {
+                    mb: 0 // Disable bottom margin for <p> inside <li>
+                  }
+                }
+              }}
+            />
+          </ListItem>
+        );
+      }
+
+      if (domNode.name === 'p') {
+        const isInsideListItem = domNode.parent && domNode.parent.name === 'li';
+        const isInsideTableCell = domNode.parent && domNode.parent.name === 'td';
+
+        return (
+          <Typography
+            variant="body1"
+            sx={{ mb: isInsideListItem || isInsideTableCell ? 0 : 3 }} // No margin if inside <li> or <td>, otherwise apply margin
+          >
+            {domToReact(domNode.children, options)}
+          </Typography>
+        );
+      }
+
+      if (domNode.name === 'table') {
+        return (
+          <TableContainer component={Paper} sx={{ my: 4, p: 4, borderRadius: 2 }}>
+            <Table sx={{ minWidth: 650 }} className="productTable">
+              {domNode.children.map((child: any, index: number) => {
+                if (child.name === 'colgroup') {
+                  // Skip <colgroup> as it's used for styling, not content
+                  return null;
+                }
+
+                if (child.name === 'thead') {
+                  return <TableHead key={index}>{domToReact(child.children, options)}</TableHead>;
+                }
+
+                if (child.name === 'tbody') {
+                  return <TableBody key={index}>{domToReact(child.children, options)}</TableBody>;
+                }
+
+                if (child.name === 'tr') {
+                  return <TableRow key={index}>{domToReact(child.children, options)}</TableRow>;
+                }
+
+                if (child.name === 'td' || child.name === 'th') {
+                  return (
+                    <TableCell
+                      key={index}
+                      padding="normal"
+                      sx={{
+                        borderBottom: '1px solid #ddd',
+                        padding: '8px',
+                        textAlign: 'left',
+                        '& p': {
+                          mb: 0 // Disable bottom margin for <p> inside <td> or <th>
+                        }
+                      }}
+                    >
+                      {domToReact(child.children, options)}
+                    </TableCell>
+                  );
+                }
+
+                return null;
+              })}
+            </Table>
+          </TableContainer>
         );
       }
 
@@ -94,7 +166,11 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
     }
   };
 
-  return <Box className={className}>{parse(html, options)}</Box>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Box className={className}>{parse(html, options)}</Box>
+    </ThemeProvider>
+  );
 };
 
 export default Prose;

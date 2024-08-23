@@ -7,14 +7,16 @@ export default async function SectionBlogArticles() {
 
   const ArticleItem = dynamic(() => import('./article-item'), { ssr: false });
 
-  console.log(articles);
-
   if (!articles || articles.length === 0) return null;
 
   return (
     <Container
       maxWidth="lg"
-      sx={{ position: 'relative', paddingX: { md: '0 !important'}, paddingY: {xs: '30px', md: '100px'} }}
+      sx={{
+        position: 'relative',
+        paddingX: { md: '0 !important' },
+        paddingY: { xs: '30px', md: '100px' }
+      }}
     >
       <Box>
         {articles.map((article, index) => (

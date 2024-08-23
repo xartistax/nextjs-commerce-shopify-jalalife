@@ -37,3 +37,11 @@ export const validateEnvironmentVariables = () => {
     );
   }
 };
+
+export const identifiers = [
+  { key: 'qualit_t', namespace: 'custom', fullName: 'Qualität' },
+  { key: 'wirkung', namespace: 'custom', fullName: 'Wirkung' },
+  { key: 'dosierung', namespace: 'custom', fullName: 'Dosierung' },
+  { key: 'inhaltsstoffe', namespace: 'custom', fullName: 'Inhaltsstoffe' },
+  { key: 'produktdetails', namespace: 'custom', fullName: 'Produktdetails' }
+];

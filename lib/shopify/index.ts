@@ -67,7 +67,7 @@ const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 type ExtractVariables<T> = T extends { variables: object } ? T['variables'] : never;
 
 export async function shopifyFetch<T>({
-  cache = 'force-cache',
+  cache = 'no-cache',
   headers,
   query,
   tags,
@@ -498,7 +498,7 @@ export async function getArticleByHandle(
 export async function getProductMetafields(
   handle: string,
   identifiers: { key: string; namespace: string; fullName: string }[]
-): Promise<{ metafield: ShopifyProductMetafield, fullName: string }[] | undefined> {
+): Promise<{ metafield: ShopifyProductMetafield; fullName: string }[] | undefined> {
   const promises = identifiers.map(async ({ key, namespace, fullName }) => {
     const res = await shopifyFetch<ShopifyProductMetafieldsOperation>({
       query: getProductMetafieldsQuery,
@@ -517,4 +517,3 @@ export async function getProductMetafields(
   // Filter out null values and map to just ShopifyProductMetafield with fullName
   return metafields.filter(({ metafield }) => metafield !== null);
 }
-

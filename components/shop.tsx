@@ -1,18 +1,14 @@
 import { Box, Container, Grid, Link, Typography } from '@mui/material';
 import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
-import { getCollection, getCollectionProducts } from 'lib/shopify';
+import { getCollectionProducts } from 'lib/shopify';
 import { Suspense } from 'react';
 
-
-
 export default async function CollectionIntro() {
-  const collection = await getCollection('online-shop');
   const collectionProducts = await getCollectionProducts({ collection: 'online-shop' });
 
   return (
     <>
-    
       <Box
         component="section"
         sx={{ width: '100%', minheight: '100vh', height: 'auto', paddingTop: '1rem' }}
@@ -41,14 +37,24 @@ export default async function CollectionIntro() {
                 textAlign: 'left'
               }}
             >
-              <Container maxWidth="lg" sx={{ textAlign: { xs: 'left' ,md: 'center'} }}>
-              <Typography  gutterBottom component={'h1'} variant='h2' fontWeight={'bold'} lineHeight={'1'} sx={{ fontSize: {xs: '2rem'} }}>
+              <Container maxWidth="lg" sx={{ textAlign: { xs: 'left', md: 'center' } }}>
+                <Typography
+                  gutterBottom
+                  component={'h1'}
+                  variant="h2"
+                  fontWeight={'bold'}
+                  lineHeight={'1'}
+                  sx={{ fontSize: { xs: '2rem' } }}
+                >
                   Next Generation Plant-Extract
                 </Typography>
 
-               
-
-                <Grid container justifyContent="start" spacing={3} sx={{ paddingTop: { xs: '1rem' ,md: '6rem'} }}>
+                <Grid
+                  container
+                  justifyContent="start"
+                  spacing={3}
+                  sx={{ paddingTop: { xs: '1rem', md: '6rem' } }}
+                >
                   {collectionProducts.map((item, i) => (
                     <Grid item xs={12} sm={6} md={4} lg={4} key={i}>
                       <Box
@@ -65,8 +71,10 @@ export default async function CollectionIntro() {
                           src={item.featuredImage.url}
                           alt={item.title}
                           margin={'auto'}
-                          sx={{ maxWidth: { md: '200px', xs: '100%' }, display: {xs: 'none', md: 'block'} }}
-                         
+                          sx={{
+                            maxWidth: { md: '200px', xs: '100%' },
+                            display: { xs: 'none', md: 'block' }
+                          }}
                         />
                         <Box component="div" sx={{ paddingY: '3rem' }}>
                           <Typography
@@ -75,9 +83,12 @@ export default async function CollectionIntro() {
                             component="h2"
                             textAlign="center"
                             fontWeight="bold"
-                            sx={{ textAlign:{ xs: 'left' ,md: 'center'} , fontSize: {md: '1.20rem' ,xs: 'inherit'} }}
+                            sx={{
+                              textAlign: { xs: 'left', md: 'center' },
+                              fontSize: { md: '1.20rem', xs: 'inherit' }
+                            }}
                           >
-                            <Link href={`/product/${item.handle}`}> {item.title} </Link>
+                            <Link href={`/product/${item.handle}`}>{item.title}</Link>
                           </Typography>
                           <Box
                             sx={{
@@ -85,19 +96,22 @@ export default async function CollectionIntro() {
                               WebkitLineClamp: 3,
                               WebkitBoxOrient: 'vertical',
                               overflow: 'hidden',
-                              textOverflow: 'ellipsis',
-                              fontSize: {md: '1.20rem' } 
+                              textOverflow: 'ellipsis'
                             }}
                           >
-                            {item.description}
+                            <Typography variant="body2">{item.description}</Typography>
                           </Box>
                         </Box>
 
                         <Box
                           component="div"
                           className="mr-auto w-auto text-sm"
-                          fontWeight={"bold"}
-                          sx={{ color: 'primary.main', fontSize: {md: '1.20rem' ,xs: '1.2rem'} , paddingBottom: '32px' }}
+                          fontWeight={'bold'}
+                          sx={{
+                            color: 'primary.main',
+                            fontSize: { md: '1.20rem', xs: '1.2rem' },
+                            paddingBottom: '32px'
+                          }}
                         >
                           <Price
                             amount={item.priceRange.maxVariantPrice.amount}

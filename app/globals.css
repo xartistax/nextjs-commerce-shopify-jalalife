@@ -94,3 +94,7 @@ button {
     white-space: nowrap; /* Prevent text from wrapping */
   }
 }
+
+.productTable tr:first-child {
+  font-weight: 900;
+}
