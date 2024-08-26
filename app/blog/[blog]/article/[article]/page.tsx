@@ -68,7 +68,13 @@ export default async function Article({ params }: { params: { blog: string; arti
 
                   {/* Metadata Section */}
                   <Box mb={4}>
-                    <Typography gutterBottom variant="h2" component="h1" fontWeight={"bold"}  lineHeight={1}>
+                    <Typography
+                      gutterBottom
+                      variant="h2"
+                      component="h1"
+                      fontWeight={'bold'}
+                      lineHeight={1}
+                    >
                       {article.title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary">
@@ -96,14 +102,28 @@ export default async function Article({ params }: { params: { blog: string; arti
                   </Box>
 
                   {/* Article Content */}
-                  <Prose className="mb-8" html={article.contentHtml as string} />
+
+                  <Prose className="leading-tight" html={article.contentHtml} />
                 </article>
               </Grid>
 
               {/* Sidebar for featured articles */}
               <Grid item xs={12} md={4}>
-                <Box component={'aside'} className="ps-20" sx={{'paddingLeft' : { xs: '0' ,md: '5rem'}, textAlign: {xs: 'left', md: 'right'}}}>
-                  <Typography gutterBottom variant="h4" component="h2" fontWeight={'bold'} className="mb-4 text-2xl font-bold">
+                <Box
+                  component={'aside'}
+                  className="ps-20"
+                  sx={{
+                    paddingLeft: { xs: '0', md: '5rem' },
+                    textAlign: { xs: 'left', md: 'right' }
+                  }}
+                >
+                  <Typography
+                    gutterBottom
+                    variant="h4"
+                    component="h2"
+                    fontWeight={'bold'}
+                    className="mb-4 text-2xl font-bold"
+                  >
                     Weitere Artikel
                   </Typography>
                   {featuredArticles.map((item) => (

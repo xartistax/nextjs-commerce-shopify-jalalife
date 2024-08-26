@@ -219,7 +219,7 @@ const CollectionProducts = () => {
                       >
                         {product.title}
                       </Typography>
-                      <TruncatedText className="text-slate-600" sx={{ textAlign: 'justify' }}>
+                      <TruncatedText className="text-slate-600">
                         {product.description}
                       </TruncatedText>
                       <Typography
