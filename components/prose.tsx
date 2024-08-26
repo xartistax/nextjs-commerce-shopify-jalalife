@@ -117,7 +117,7 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
       if (domNode.name === 'table') {
         return (
           <TableContainer component={Paper} sx={{ my: 4, p: 4, borderRadius: 2 }}>
-            <Table sx={{ minWidth: 650 }} className="productTable">
+            <Table sx={{ minWidth: 650 }} className="productTable styled-table">
               {domNode.children.map((child: any, index: number) => {
                 if (child.name === 'colgroup') {
                   // Skip <colgroup> as it's used for styling, not content
@@ -133,25 +133,32 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
                 }
 
                 if (child.name === 'tr') {
-                  return <TableRow key={index}>{domToReact(child.children, options)}</TableRow>;
-                }
-
-                if (child.name === 'td' || child.name === 'th') {
                   return (
-                    <TableCell
-                      key={index}
-                      padding="normal"
-                      sx={{
-                        borderBottom: '1px solid #ddd',
-                        padding: '8px',
-                        textAlign: 'left',
-                        '& p': {
-                          mb: 0 // Disable bottom margin for <p> inside <td> or <th>
+                    <TableRow key={index}>
+                      {domToReact(child.children, {
+                        replace: (tdNode: any, tdIndex: number) => {
+                          if (tdNode.name === 'td' || tdNode.name === 'th') {
+                            return (
+                              <TableCell
+                                key={tdIndex}
+                                padding="normal"
+                                sx={{
+                                  borderBottom: '1px solid #ddd',
+                                  padding: '8px',
+                                  textAlign: 'left',
+                                  fontWeight: tdIndex === 0 ? 'bold' : 'normal', // Bold for the first child
+                                  '& p': {
+                                    mb: 0 // Disable bottom margin for <p> inside <td> or <th>
+                                  }
+                                }}
+                              >
+                                {domToReact(tdNode.children, options)}
+                              </TableCell>
+                            );
+                          }
                         }
-                      }}
-                    >
-                      {domToReact(child.children, options)}
-                    </TableCell>
+                      })}
+                    </TableRow>
                   );
                 }
 

@@ -50,7 +50,6 @@ button {
   font-size: 0.9em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   overflow-x: auto;
 }
 
@@ -58,6 +57,10 @@ button {
   background-color: #afa263;
   color: #ffffff;
   text-align: left;
+}
+
+.styled-table tr:first-child {
+  font-weight: 700;
 }
 
 .styled-table th,
