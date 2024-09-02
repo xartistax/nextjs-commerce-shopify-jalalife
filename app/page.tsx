@@ -25,9 +25,10 @@ export default async function HomePage() {
       <CollectionProducts />
       <SectionMainBlog />
       <SectionBlogArticles />
+      <SectionNutzen />
       <SectionInfo />
       <SectionEnum />
-      <SectionNutzen />
+
       <Footer />
     </>
   );

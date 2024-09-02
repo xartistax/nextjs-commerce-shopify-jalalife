@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const items = [
   {
-    title: 'Optimale Aufnahme in den Körper',
+    title: 'Optimale Aufnahme ',
     content:
       'Unsere Extrakte werden durch einen einzigartigen Prozess mit Akazienharz veredelt. Dies ermöglicht, dass jeder eingenommene Tropfen schnell und effizient im Körper dort ankommt, wo er benötigt wird.',
     image: '/icon_11.avif'
@@ -25,7 +25,21 @@ const items = [
 
 export default function SectionNutzen() {
   return (
-    <Container maxWidth="lg" sx={{ paddingTop: { xs: '60px', md: '200px' } }}>
+    <Container maxWidth="lg" sx={{ paddingY: '100px' }}>
+      <Typography
+        gutterBottom
+        variant="h4"
+        component="h2"
+        sx={{
+          fontWeight: 'bold',
+          textTransform: 'uppercase',
+          marginBottom: '5rem',
+          textAlign: 'center'
+        }}
+      >
+        Next-Generation Plant-Extracts
+      </Typography>
+
       <Grid container spacing={3}>
         {items.map((item, index) => (
           <Grid key={index} item sm={4}>
