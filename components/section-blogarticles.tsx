@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import { getLatestArticles } from 'lib/shopify';
 import dynamic from 'next/dynamic';
 
@@ -18,11 +18,17 @@ export default async function SectionBlogArticles() {
         paddingY: { xs: '30px', md: '100px' }
       }}
     >
-      <Box>
-        {articles.map((article, index) => (
-          <ArticleItem key={article.id} article={article} reverse={index % 2 !== 0} />
+      <Grid
+        container
+        spacing={3}
+        sx={{
+          alignItems: 'stretch' // Ensure all items stretch to the same height
+        }}
+      >
+        {articles.slice(1, 4).map((article) => (
+          <ArticleItem key={article.id} article={article} />
         ))}
-      </Box>
+      </Grid>
     </Container>
   );
 }

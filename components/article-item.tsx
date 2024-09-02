@@ -1,198 +1,97 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import { ShopifyArticle } from 'lib/shopify/types';
+import Link from 'next/link';
 
 interface ArticleItemProps {
   article: ShopifyArticle;
-  reverse: boolean;
 }
 
-export default function ArticleItem({ article, reverse }: ArticleItemProps) {
+export default function ArticleItem({ article }: ArticleItemProps) {
   if (!article) return null;
 
   return (
-    <Grid container spacing={0} sx={{ paddingY: '30px' }}>
-      {reverse ? (
-        <>
-          <Grid
-            item
-            xs={12}
-            md={7}
-            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-          >
-            <Box sx={{ width: '100%', height: 'auto', paddingRight: { md: '20%'} }}>
-              <Typography
-                gutterBottom
-                variant="h4"
-                component="h2"
-                sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
-              >
-                {article.title}
-              </Typography>
-              <Typography variant="body1" component="p" fontWeight="lighter">
-                {article.excerpt}
-              </Typography>
-              <Box>
-                <Typography
-                  component="a"
-                  href={`/blog/${article.blog.handle}/article/${article.handle}`}
-                  sx={{
-                    display: 'inline-block',
-                    textAlign: 'left',
-                    fontSize: '16px',
-                    fontWeight: {xs: 'bold'},
-                    textTransform: 'uppercase',
-                    paddingTop: '24px',
-                    color: 'primary.main',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      textDecoration: 'underline'
-                    }
-                  }}
-                >
-                  Weiter lesen
-                </Typography>
-
-                {article.metafield ? (
-                  <>
-                    <Typography
-                      sx={{
-                        display: 'inline-block',
-                        textAlign: 'left',
-                        fontSize: '16px',
-                        fontWeight: {xs: 'bold'},
-                        paddingTop: '24px',
-                        color: 'primary.main',
-                        margin: '0 8px'
-                      }}
-                    >
-                      |
-                    </Typography>
-
-                    <Typography
-                      component="a"
-                      href={`/product/${article.metafield?.reference.handle}`}
-                      sx={{
-                        display: 'inline-block',
-                        textAlign: 'left',
-                        fontSize: '16px',
-                        fontWeight: {xs: 'bold'},
-                        textTransform: 'uppercase',
-                        paddingTop: '24px',
-                        color: 'primary.main',
-                        textDecoration: 'none',
-                        '&:hover': {
-                          textDecoration: 'underline'
-                        }
-                      }}
-                    >
-                      Zum Produkt
-                    </Typography>
-                  </>
-                ) : null}
-              </Box>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={5}>
+    <Grid item xs={12} sm={6} md={4} sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Paper
+        elevation={1}
+        sx={{
+          flex: 1, // Allow the Paper to stretch and fill the height
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+      >
+        <Box padding={2} sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+          <Box>
             <Box
               sx={{
+                paddingTop: '100%',
                 width: '100%',
-                paddingTop: '100%', // This sets the height to maintain 1:1 aspect ratio (100% of width)
-                position: 'relative',
-                backgroundColor: 'primary.main', // Replace with your desired background color
-                backgroundImage: `url(${article.image.url})`, // Add your background image here
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                display : { xs: 'none', md: 'block'}
+                backgroundImage: `url(${article.image.url})`,
+                backgroundSize: 'cover'
               }}
             >
-              {/* Overlay content */}
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  zIndex: 1, // Ensure the overlay is above the background image
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  color: '#fff', // Text color for overlay content
-                  textAlign: 'center',
-                  padding: '1rem'
-                }}
-              ></Box>
+              {/* Placeholder for Image */}
             </Box>
-          </Grid>
-        </>
-      ) : (
-        <>
-          <Grid item xs={12} md={5}>
-            <Box sx={{ width: '100%', height: 'auto' }}>
-              <Box
-                sx={{
-                  width: '100%',
-                  paddingTop: '100%', // This sets the height to maintain 1:1 aspect ratio (100% of width)
-                  position: 'relative',
-                  backgroundColor: 'primary.main', // Replace with your desired background color
-                  backgroundImage: `url(${article.image.url})`, // Add your background image here
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  display : { xs: 'none', md: 'block'}
-                }}
-              >
-                {/* Overlay content */}
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    zIndex: 1, // Ensure the overlay is above the background image
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    color: '#fff', // Text color for overlay content
-                    textAlign: 'center',
-                    padding: '1rem'
-                  }}
-                >
-                  <Box sx={{ display: 'flex', flexDirection: 'column' }}></Box>
-                </Box>
-              </Box>
-            </Box>
-          </Grid>
 
-          <Grid
-            item
-            xs={12}
-            md={7}
-            sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-          >
-            <Box sx={{ width: '100%', height: 'auto', paddingLeft: { md: '20%'} }}>
-              <Typography
-                gutterBottom
-                variant="h4"
-                component="h2"
-                sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
-              >
+            {/* Article Title with Link */}
+            <Typography
+              fontWeight={'900'}
+              variant="h5"
+              component={'h2'}
+              lineHeight={1}
+              gutterBottom
+              paddingTop={2}
+            >
+              <Link href={`/articles/${article.id}`} passHref>
                 {article.title}
-              </Typography>
-              <Typography variant="body1" component="p">
-                {article.excerpt}
-              </Typography>
-              <Box>
+              </Link>
+            </Typography>
+
+            {/* Placeholder for Author */}
+            <Typography variant="caption" gutterBottom color={'primary.main'}>
+              {article.authorV2.name} {/* Replace with article.author when available */}
+            </Typography>
+
+            {/* Article Excerpt */}
+            <Typography
+              paddingTop={2}
+              className="text-slate-800"
+              sx={{
+                wordWrap: 'break-word',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                textOverflow: 'ellipsis'
+              }}
+            >
+              {article.excerpt}
+            </Typography>
+          </Box>
+
+          {/* Promotion Section */}
+          <Box marginTop={2}>
+            {article.metafield ? (
+              <>
                 <Typography
-                  component="a"
-                  href={`/blog/${article.blog.handle}/article/${article.handle}`}
                   sx={{
                     display: 'inline-block',
                     textAlign: 'left',
                     fontSize: '16px',
-                    fontWeight: {xs: 'bold'},
+                    fontWeight: { xs: 'bold' },
+                    paddingTop: '24px',
+                    color: 'primary.main',
+                    margin: '0 8px'
+                  }}
+                >
+                  |
+                </Typography>
+
+                <Typography
+                  component="a"
+                  href={`/product/${article.metafield?.reference.handle}`}
+                  sx={{
+                    display: 'inline-block',
+                    textAlign: 'left',
+                    fontSize: '16px',
+                    fontWeight: { xs: 'bold' },
                     textTransform: 'uppercase',
                     paddingTop: '24px',
                     color: 'primary.main',
@@ -202,51 +101,13 @@ export default function ArticleItem({ article, reverse }: ArticleItemProps) {
                     }
                   }}
                 >
-                  Weiter lesen
+                  {article.metafield?.reference.title} ansehen
                 </Typography>
-
-                {article.metafield ? (
-                  <>
-                    <Typography
-                      sx={{
-                        display: 'inline-block',
-                        textAlign: 'left',
-                        fontSize: '16px',
-                        fontWeight: {xs: 'bold'},
-                        paddingTop: '24px',
-                        color: 'primary.main',
-                        margin: '0 8px'
-                      }}
-                    >
-                      |
-                    </Typography>
-
-                    <Typography
-                      component="a"
-                      href={`/product/${article.metafield?.reference.handle}`}
-                      sx={{
-                        display: 'inline-block',
-                        textAlign: 'left',
-                        fontSize: '16px',
-                        fontWeight: {xs: 'bold'},
-                        textTransform: 'uppercase',
-                        paddingTop: '24px',
-                        color: 'primary.main',
-                        textDecoration: 'none',
-                        '&:hover': {
-                          textDecoration: 'underline'
-                        }
-                      }}
-                    >
-                      Zum Produkt
-                    </Typography>
-                  </>
-                ) : null}
-              </Box>
-            </Box>
-          </Grid>
-        </>
-      )}
+              </>
+            ) : null}
+          </Box>
+        </Box>
+      </Paper>
     </Grid>
   );
 }

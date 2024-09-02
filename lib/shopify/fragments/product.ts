@@ -56,6 +56,11 @@ const productFragment = /* GraphQL */ `
     }
     tags
     updatedAt
+
+    # Add the metafield query here
+    metafield(key: "sub_title", namespace: "custom") {
+      value
+    }
   }
   ${imageFragment}
   ${seoFragment}

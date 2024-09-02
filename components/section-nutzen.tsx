@@ -2,66 +2,58 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 
+const items = [
+  {
+    title: 'Optimale Aufnahme in den Körper',
+    content:
+      'Unsere Extrakte werden durch einen einzigartigen Prozess mit Akazienharz veredelt. Dies ermöglicht, dass jeder eingenommene Tropfen schnell und effizient im Körper dort ankommt, wo er benötigt wird.',
+    image: '/icon_11.avif'
+  },
+  {
+    title: 'Wissenschaftlich belegt',
+    content:
+      'Wir verwenden ausschliesslich Pflanzenwirkstoffe, die in der klinischen Forschung seit Jahrzehnten erforscht, geprüft und erprobt werden. Die Ergebnisse dieser Studien lassen die Wissenschaft immer wieder staunen!',
+    image: '/icon_2.webp'
+  },
+  {
+    title: 'Nachhaltig und Swissmade',
+    content:
+      'Um die bestmögliche Qualität sicherzustellen, werden unsere Produkte unter höchsten Qualitätsanforderungen ausschliesslich in der Schweiz entwickelt und hergestellt.',
+    image: '/swiss.avif'
+  }
+];
+
 export default function SectionNutzen() {
   return (
     <Container maxWidth="lg" sx={{ paddingTop: { xs: '60px', md: '200px' } }}>
-      <Typography
-        gutterBottom
-        variant="h4"
-        component="h2"
-        sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
-      >
-        Natürlichkeit und Nachhaltigkeit
-      </Typography>
-
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6} order={{ xs: 2, md: 1 }}>
-          <Box component={'div'} marginBottom={6}>
-            <Typography gutterBottom>
-              Bei Jala-Life sind wir davon überzeugt, dass echtes Wohlbefinden aus der Natur kommt. Unser Ziel ist es, Menschen zu unterstützen, ihre Gesundheit auf natürliche Weise zu steigern und zu erhalten. Dafür nutzen wir sorgfältig ausgewählte Pflanzenextrakte, die nicht nur in der traditionellen indischen Naturheilkunde seit Jahrtausenden geschätzt werden, sondern auch durch die moderne Wissenschaft in zahlreichen Studien bestätigt sind.
-            </Typography>
-          </Box>
-
-          <Box component={'div'} marginBottom={6}>
-            <Typography fontWeight={'bold'}>
-              Unsere einzigartige Jala-Life Formel:
-            </Typography>
-
-            <Typography gutterBottom>
-              Wir veredeln diese traditionellen Extrakte mit einer speziellen Formel, die auf nur drei natürlichen Zutaten basiert: Akazienharz, Schweizer Bergquellwasser und reinen Pflanzenextrakten. Diese Kombination gewährleistet eine optimale Aufnahme der Wirkstoffe in den Körper, was die Wirksamkeit unserer Produkte maximiert.
-            </Typography>
-          </Box>
-
-          <Box component={'div'} marginBottom={3}>
-            <Typography fontWeight={'bold'}>
-              Verpflichtung zu Natürlichkeit und Nachhaltigkeit:
-            </Typography>
-
-            <Typography gutterBottom>
-              Natürlichkeit und Nachhaltigkeit stehen im Zentrum unserer Unternehmensphilosophie. Wir verpflichten uns, Produkte zu schaffen, die nicht nur effektiv, sondern auch umweltschonend und verantwortungsbewusst sind. Jedes Element unseres Produktionsprozesses reflektiert dieses Engagement – von der sorgfältigen Auswahl der Rohstoffe bis hin zur umweltschonenden Herstellung.
-              Mit Jala-Life entscheidest du dich für einen Weg, der Respekt vor der Natur und Vertrauen in ihre Kraft widerspiegelt. Tritt ein in eine Welt, in der Gesundheit und Wohlbefinden Hand in Hand gehen mit der Bewahrung unseres Planeten.
-            </Typography>
-          </Box>
-        </Grid>
-
-        <Grid item xs={12} md={6} order={{ xs: 1, md: 2 }} textAlign={{ xs: 'center', md: 'right' }}>
-          <Box
-            component="div"
-            sx={{
-              width: { xs: '100%', md: '80%' },
-              display: 'block',
-              margin: { xs: '0 auto', md: '0 0 0 auto' },
-            }}
-          >
-            <Image
-              src="/smile.webp"
-              width={500}
-              height={500}
-              alt="JalaLife"
-              style={{ width: '100%' }}
-            />
-          </Box>
-        </Grid>
+      <Grid container spacing={3}>
+        {items.map((item, index) => (
+          <Grid key={index} item sm={4}>
+            <Box textAlign={'center'}>
+              <Box
+                sx={{
+                  mb: 2, // Margin-bottom to space out the image and the title
+                  width: '100%',
+                  height: 'auto',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                <Image
+                  width={100}
+                  height={100}
+                  src={item.image}
+                  alt={item.title}
+                  style={{ width: '100%', maxWidth: '150px', height: 'auto', borderRadius: '8px' }} // Adjust styles as needed
+                />
+              </Box>
+              <Typography component={'h2'} variant="h5" gutterBottom fontWeight={'900'}>
+                {item.title}
+              </Typography>
+              <Typography variant="body1">{item.content}</Typography>
+            </Box>
+          </Grid>
+        ))}
       </Grid>
     </Container>
   );

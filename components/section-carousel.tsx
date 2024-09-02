@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import styled from 'styled-components';
+import ProseSmall from './prose-small';
 
 interface Product {
+  descriptionHtml: string;
+  metafield: any;
   title: string;
   description: string;
   featuredImage?: {
@@ -103,6 +106,10 @@ const CollectionProducts = () => {
 
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   if (loading) {
     return (
@@ -202,14 +209,12 @@ const CollectionProducts = () => {
                   >
                     <div>
                       <Typography
-                        gutterBottom
                         variant="h4"
                         component="h2"
                         sx={{
                           fontWeight: 'bold',
                           textTransform: 'uppercase',
                           className: 'text-slate-800',
-                          height: '90px', // Fixed height for title
                           overflow: 'hidden', // Hide overflow if title is too long
                           display: '-webkit-box',
                           WebkitLineClamp: 2, // Limits to 2 lines
@@ -219,19 +224,23 @@ const CollectionProducts = () => {
                       >
                         {product.title}
                       </Typography>
+                      <Typography variant="body2" color={'primary.main'} gutterBottom>
+                        {' '}
+                        {product.metafield.value}{' '}
+                      </Typography>
                       <TruncatedText className="text-slate-600">
-                        {product.description}
+                        <ProseSmall html={product.descriptionHtml} />
                       </TruncatedText>
                       <Typography
                         component="a"
                         href={`/product/${product.handle}`}
                         sx={{
                           display: 'block',
-                          textAlign: { md: 'right', xs: 'left' },
+                          textAlign: { md: 'left', xs: 'left' },
                           fontWeight: { md: 'inherit', xs: 'bold' },
                           fontSize: '16px',
                           textTransform: 'uppercase',
-                          paddingTop: { md: '50px', xs: '20px' },
+                          paddingTop: { md: '20px', xs: '20px' },
                           color: 'primary.main'
                         }}
                       >

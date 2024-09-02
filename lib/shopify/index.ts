@@ -10,7 +10,7 @@ import {
   editCartItemsMutation,
   removeFromCartMutation
 } from './mutations/cart';
-import { getArticleByHandleQuery, getArticleQuery, getLatestArticlesQuery } from './queries/blogs';
+import { getArticleByHandleQuery, getLatestArticlesQuery } from './queries/blogs';
 import { getCartQuery } from './queries/cart';
 import {
   getCollectionProductsQuery,
@@ -36,7 +36,6 @@ import {
   ShopifyAddToCartOperation,
   ShopifyArticle,
   ShopifyArticleByHandleOperation,
-  ShopifyArticleOperation,
   ShopifyArticlesOperation,
   ShopifyCart,
   ShopifyCartOperation,
@@ -460,17 +459,6 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
 }
 
 /// Custom Functions Bexolutions
-
-export async function getArticle(id: string): Promise<ShopifyArticle | undefined> {
-  const res = await shopifyFetch<ShopifyArticleOperation>({
-    query: getArticleQuery,
-    variables: {
-      id
-    }
-  });
-
-  return res.body.data.article;
-}
 
 export async function getLatestArticles(): Promise<ShopifyArticle[]> {
   const res = await shopifyFetch<ShopifyArticlesOperation>({

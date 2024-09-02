@@ -1,10 +1,10 @@
 import { Box, Container, Typography } from '@mui/material';
 
-import { getArticle } from 'lib/shopify';
+import { getLatestArticles } from 'lib/shopify';
 import Head from 'next/head';
 
 export default async function SectionMainBlog() {
-  const article = await getArticle('gid://shopify/Article/590504591612');
+  const article = await getLatestArticles();
 
   if (!article) return null;
 
@@ -72,7 +72,7 @@ export default async function SectionMainBlog() {
             textAlign: 'center'
           }}
         >
-          <div key={article.id}>
+          <div key={article[0]?.id}>
             <Typography
               gutterBottom
               variant="h3"
@@ -83,7 +83,7 @@ export default async function SectionMainBlog() {
               fontSize={{ xs: '34px' }}
               sx={{ mb: 2 }}
             >
-              {article.title}
+              {article[0]?.title}
             </Typography>
             <Typography
               component="p"
@@ -92,12 +92,12 @@ export default async function SectionMainBlog() {
               gutterBottom
               color="white"
             >
-              {article.excerpt}
+              {article[0]?.excerpt}
             </Typography>
 
             <Box
               component="a"
-              href={`/blog/${article.blog.handle}/article/${article.handle}`}
+              href={`/blog/${article[0]?.blog.handle}/article/${article[0]?.handle}`}
               sx={{
                 textDecoration: 'underline',
                 color: 'white',

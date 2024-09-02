@@ -13,7 +13,6 @@ export async function SingleProductInformations({ product }: { product: Product 
   const handle = product.handle;
 
   const metafields = await getProductMetafields(handle, identifiers);
-  console.log(metafields);
 
   return metafields && metafields.length > 0 ? (
     <>

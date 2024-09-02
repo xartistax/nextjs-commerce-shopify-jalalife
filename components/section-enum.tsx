@@ -19,7 +19,7 @@ export default function SectionEnum() {
   const theme = useTheme();
 
   return (
-    <Container maxWidth="lg" sx={{ position: 'relative', px: { xs: '2' ,md: '0'}, py: 0 }}>
+    <Container maxWidth="lg" sx={{ position: 'relative', py: 0 }}>
       <Typography
         gutterBottom
         variant="h4"
@@ -28,63 +28,72 @@ export default function SectionEnum() {
       >
         Was macht Jala-Life einzigartig?
       </Typography>
-      <Grid container spacing={4} sx={{ listStyle: 'none', width: '100%' }}>
-        {items.map((item, index) => (
-          <Grid item xs={12} md={6} key={index}>
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'start',
-                paddingBottom: { xs: '0' ,md: '3rem'},
-                paddingLeft: { xs: '6rem' ,md: '4rem'},
-                position: 'relative',
-                '&::before': {
-                  content: `'${index + 1}'`, // Manual counter
-                  width: { xs: '4rem' ,md: '5rem'},
-                  height: { xs: '4rem' ,md: '5rem'},
-                  background: theme.palette.primary.main,
-                  borderRadius: '50%',
+      <Grid container spacing={4}>
+        <Grid item xs={12} md={6}>
+          <Box>
+            {items.map((item, index) => (
+              <Box
+                key={index}
+                sx={{
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: { xs: '1.5rem' ,md: '2rem'},
-                  color: 'white',
-                  marginBottom: '1rem',
-                  position: 'absolute',
-                  top: { xs: '0' ,md: '-1rem'},
-                  left: { xs: '0rem' ,md: '-2rem'},
-                  zIndex: 1
-                },
-                '&::after': {
-                  content: '""',
-                  width: '1.5rem',
-                  height: '1.5rem',
-                  background: theme.palette.primary.main,
-                  zIndex: -1,
-                  position: 'absolute',
-                  top: '1rem',
-                  left: { xs: '3.5rem' ,md: '0'},
-                  display: { xs: 'none' ,md: 'block'},
-                  borderTopLeftRadius: '3px'
-                }
-              }}
-            >
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="h2"
-                lineHeight={1}
-                fontWeight={'bold'}
+                  flexDirection: 'column',
+                  alignItems: 'start',
+                  paddingBottom: { xs: '0', md: '3rem' },
+                  position: 'relative',
+                  '&::before': {
+                    content: `'${index + 1}'`, // Manual counter
+                    width: { xs: '2rem', md: '3rem' },
+                    height: { xs: '2rem', md: '3rem' },
+                    background: theme.palette.primary.main,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: { xs: '1rem', md: '1.5rem' },
+                    color: 'white',
+                    marginBottom: '1rem',
+                    position: 'absolute',
+
+                    zIndex: 1
+                  }
+                }}
               >
-                {item.title}
-              </Typography>
-              <Typography variant="body1" component={'p'} fontWeight={'light'} sx={{}}>
-                {item.content}
-              </Typography>
-            </Box>
-          </Grid>
-        ))}
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  lineHeight={1}
+                  fontWeight={'bold'}
+                  sx={{ paddingLeft: '5rem' }}
+                >
+                  {item.title}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  component={'p'}
+                  fontWeight={'light'}
+                  sx={{ paddingLeft: '5rem' }}
+                >
+                  {item.content}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          {/* Replace 'your-image-url.jpg' with the path to your image */}
+          <Box
+            sx={{
+              width: '100%',
+              height: '100%',
+              backgroundImage: 'url(jalalife_2.webp)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '3px', // Optional: add border radius to the image
+              boxShadow: 0 // Optional: add shadow to the image
+            }}
+          />
+        </Grid>
       </Grid>
     </Container>
   );

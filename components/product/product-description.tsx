@@ -8,7 +8,6 @@ import { Suspense } from 'react';
 import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {
-  console.log('desc', product.descriptionHtml);
   return (
     <>
       <Box className="productBox">
