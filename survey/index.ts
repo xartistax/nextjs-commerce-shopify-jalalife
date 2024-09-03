@@ -63,7 +63,10 @@ export const json = {
               text: 'Menstruationsbeschwerden'
             }
           ],
-          placeholder: 'Auswahl'
+          maxSelectedChoices: 3,
+          minSelectedChoices: 1,
+          placeholder: 'Auswahl',
+          hideSelectedItems: true
         }
       ]
     },
@@ -130,7 +133,11 @@ export const json = {
       ]
     }
   ],
+  showTitle: false,
+  showPageTitles: false,
+  showQuestionNumbers: 'off',
   pagePrevText: 'Zurück',
   pageNextText: 'Weiter',
-  completeText: 'Zeig mir mein Produkt'
+  completeText: 'Zeig mir mein Produkt',
+  widthMode: 'responsive'
 };

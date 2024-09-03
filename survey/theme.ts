@@ -1,18 +1,19 @@
 export declare const DefaultJalaTheme: {
   themeName: 'sharp';
   colorPalette: 'light';
-  isPanelless: false;
+  isPanelless: true;
   backgroundImage: '';
   backgroundOpacity: 1;
   backgroundImageAttachment: 'scroll';
   backgroundImageFit: 'cover';
   cssVariables: {
+    '--sjs-editorpanel-backcolor': 'rgba(255, 255, 255, 1)';
     '--sjs-corner-radius': '4px';
     '--sjs-base-unit': '8px';
     '--sjs-shadow-small': '0px 0px 0px 1px rgba(0, 0, 0, 0.2)';
-    '--sjs-shadow-inner': '0px 0px 0px 1px rgba(0, 0, 0, 0.25)';
-    '--sjs-border-default': 'rgba(0, 0, 0, 0.25)';
-    '--sjs-border-light': 'rgba(0, 0, 0, 0.25)';
+    '--sjs-shadow-inner': 'inset 0px 0px 0px 3px rgba(175, 162, 99, 1)';
+    '--sjs-border-default': 'rgba(0, 0, 0, 0.15)';
+    '--sjs-border-light': 'rgba(0, 0, 0, 0.15)';
     '--sjs-general-backcolor': 'rgba(255, 255, 255, 1)';
     '--sjs-general-backcolor-dark': 'rgba(228, 228, 228, 1)';
     '--sjs-general-backcolor-dim-light': 'rgba(238, 238, 238, 1)';
@@ -29,7 +30,7 @@ export declare const DefaultJalaTheme: {
     '--sjs-shadow-small-reset': '0px 0px 0px 0px rgba(0, 0, 0, 0.2)';
     '--sjs-shadow-medium': '0px 2px 6px 0px rgba(0, 0, 0, 0.1)';
     '--sjs-shadow-large': '0px 8px 16px 0px rgba(0, 0, 0, 0.1)';
-    '--sjs-shadow-inner-reset': '0px 0px 0px 0px rgba(0, 0, 0, 0.25)';
+    '--sjs-shadow-inner-reset': 'inset 0px 0px 0px 0px rgba(175, 162, 99, 1)';
     '--sjs-border-inside': 'rgba(0, 0, 0, 0.16)';
     '--sjs-special-red-forecolor': 'rgba(255, 255, 255, 1)';
     '--sjs-special-green': 'rgba(25, 179, 148, 1)';
@@ -81,9 +82,9 @@ export declare const DefaultJalaTheme: {
     '--sjs-article-font-default-lineHeight': '28px';
     '--sjs-article-font-default-paragraphIndent': '0px';
     '--sjs-article-font-default-textCase': 'none';
-    '--sjs-general-backcolor-dim': '#ffffff';
+    '--sjs-general-backcolor-dim': 'rgba(255, 255, 255, 1)';
     '--sjs-primary-backcolor': '#AFA263';
-    '--sjs-primary-backcolor-dark': 'rgba(160, 148, 91, 1)';
+    '--sjs-primary-backcolor-dark': 'rgba(141, 131, 80, 1)';
     '--sjs-primary-backcolor-light': 'rgba(175, 162, 99, 0.1)';
     '--sjs-primary-forecolor': 'rgba(255, 255, 255, 1)';
     '--sjs-primary-forecolor-light': 'rgba(255, 255, 255, 0.25)';
