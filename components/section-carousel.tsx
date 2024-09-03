@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import styled from 'styled-components';
-import ProseSmall from './prose-small';
+import { toHTML } from 'utils/json-to-html';
+import Prose from './prose';
 
 interface Product {
   descriptionHtml: string;
@@ -34,9 +35,9 @@ const ImageBox = styled(Box)`
   flex: 1;
   display: block;
   img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
+    max-height: 100%;
+    height: 100%;
+    width: auto;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -161,6 +162,7 @@ const CollectionProducts = () => {
               transitionDuration={300}
               indicators={false}
               slidesToScroll={1}
+              autoplay={false}
               slidesToShow={1}
               responsive={responsiveSettings}
             >
@@ -171,7 +173,7 @@ const CollectionProducts = () => {
                   sx={{
                     textAlign: 'left',
                     display: 'flex',
-                    minHeight: '330px',
+                    minHeight: '350px',
                     height: 'auto',
                     flexDirection: { xs: 'column', sm: 'row' },
                     alignItems: 'stretch'
@@ -205,10 +207,11 @@ const CollectionProducts = () => {
                   >
                     <div>
                       <Typography
-                        variant="h4"
+                        variant="h5"
                         component="h2"
                         sx={{
                           fontWeight: 'bold',
+
                           textTransform: 'uppercase',
                           className: 'text-slate-800',
                           overflow: 'hidden', // Hide overflow if title is too long
@@ -221,11 +224,13 @@ const CollectionProducts = () => {
                         {product.title}
                       </Typography>
                       <Typography variant="body2" color={'primary.main'} gutterBottom>
-                        {' '}
-                        {product.metafield.value}{' '}
+                        {product.metafields[0].value}{' '}
                       </Typography>
                       <TruncatedText className="text-slate-600">
-                        <ProseSmall html={product.descriptionHtml} />
+                        <Prose
+                          className="leading-tight"
+                          html={toHTML(product.metafields[1].value)}
+                        />
                       </TruncatedText>
                       <Typography
                         component="a"

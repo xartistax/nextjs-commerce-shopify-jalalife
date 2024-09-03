@@ -116,8 +116,12 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
 
       if (domNode.name === 'table') {
         return (
-          <TableContainer component={Paper} sx={{ my: 4, p: 4, borderRadius: 2 }}>
-            <Table sx={{ minWidth: 650 }} className="productTable styled-table">
+          <TableContainer
+            className="productTable"
+            component={Paper}
+            sx={{ my: 4, p: 4, borderRadius: 2 }}
+          >
+            <Table sx={{ minWidth: 250 }} className="productTable styled-table">
               {domNode.children.map((child: any, index: number) => {
                 if (child.name === 'colgroup') {
                   // Skip <colgroup> as it's used for styling, not content

@@ -99,7 +99,7 @@ export default async function CollectionIntro() {
                               textOverflow: 'ellipsis'
                             }}
                           >
-                            <Typography variant="body2">{item.description}</Typography>
+                            <Typography variant="body1">{item.description}</Typography>
                           </Box>
                         </Box>
 

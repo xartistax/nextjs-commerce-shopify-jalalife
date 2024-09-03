@@ -1,5 +1,3 @@
-// Assuming Prose is a component to render HTML
-
 import InfoIcon from '@mui/icons-material/Info';
 import { Grid, Stack, Typography } from '@mui/material';
 import { getProductMetafields } from 'lib/shopify';
@@ -43,10 +41,12 @@ export async function SingleProductInformations({ product }: { product: Product 
           </Grid>
         </section>
       ))}
+
+      {/* Your additional section */}
       <section
-        id={'jalaLife_info'}
-        className="info-section mx-auto w-full max-w-screen-xl py-4 "
-        key={'jalaLife_info'}
+        id="jalaLife_info"
+        className="info-section mx-auto w-full max-w-screen-xl py-4"
+        key="jalaLife_info"
       >
         <Grid container spacing={2} alignItems="top">
           <Grid item xs={12} md={4}>
@@ -64,19 +64,9 @@ export async function SingleProductInformations({ product }: { product: Product 
           </Grid>
           <Grid item xs={12} md={8}>
             <Typography>
+              {/* Your content for Jala Life */}
               Wir möchten Menschen dabei unterstützen, ihre Gesundheit und ihr Wohlbefinden auf
-              natürliche Weise zu steigern und zu erhalten. Dazu verwenden wir Extrakte aus
-              Pflanzen, die in traditionellen Heilverfahren seit Jahrtausenden erfolgreich
-              angewendet werden und auch in der modernen Forschung umfassend untersucht wurden. Wir
-              veredeln diese wertvollen Pflanzenextrakte mit unser Jala-Life Formel und ermöglichen
-              dadurch eine optimale Aufnahme der Wirkstoffe in den Körper. Dabei setzen wir auf nur
-              drei natürliche Zutaten: Gummi arabicum, reines Schweizer Wasser und hochwertige
-              Pflanzenextrakte. Wir glauben fest daran, dass echte Gesundheit und Wohlbefinden nur
-              durch eine harmonische Beziehung zur Natur erreicht werden können. Deshalb achten wir
-              bei jedem Schritt unseres Herstellungsprozesses auf Nachhaltigkeit und
-              umweltfreundliche Praktiken. Von der Auswahl unserer Rohstoffe bis hin zur Verpackung
-              – wir setzen auf natürliche Materialien und umweltschonende Verfahren, um die Erde zu
-              schützen und zukünftigen Generationen eine gesunde Umwelt zu hinterlassen.
+              natürliche Weise zu steigern und zu erhalten...
             </Typography>
           </Grid>
         </Grid>

@@ -57,8 +57,15 @@ const productFragment = /* GraphQL */ `
     tags
     updatedAt
 
-    # Add the metafield query here
-    metafield(key: "sub_title", namespace: "custom") {
+    # Fetch multiple metafields
+    metafields(
+      identifiers: [
+        { key: "sub_title", namespace: "custom" }
+        { key: "truncated_product_text", namespace: "custom" }
+      ]
+    ) {
+      key
+      namespace
       value
     }
   }

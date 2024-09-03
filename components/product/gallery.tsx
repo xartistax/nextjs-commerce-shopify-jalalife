@@ -15,15 +15,10 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
   const nextSearchParams = new URLSearchParams(searchParams.toString());
   const nextImageIndex = imageIndex + 1 < images.length ? imageIndex + 1 : 0;
   nextSearchParams.set('image', nextImageIndex.toString());
-  const nextUrl = createUrl(pathname, nextSearchParams);
 
   const previousSearchParams = new URLSearchParams(searchParams.toString());
   const previousImageIndex = imageIndex === 0 ? images.length - 1 : imageIndex - 1;
   previousSearchParams.set('image', previousImageIndex.toString());
-  const previousUrl = createUrl(pathname, previousSearchParams);
-
-  const buttonClassName =
-    'h-full px-6 transition-all ease-in-out hover:scale-110 hover:text-black flex items-center justify-center';
 
   return (
     <>
@@ -65,7 +60,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
       </div>
 
       {images.length > 1 ? (
-        <ul className="my-1 flex items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
+        <ul className="my-5 flex items-center justify-center gap-2 overflow-auto py-1 lg:mb-0">
           {images.map((image, index) => {
             const isActive = index === imageIndex;
             const imageSearchParams = new URLSearchParams(searchParams.toString());
