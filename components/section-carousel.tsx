@@ -21,7 +21,7 @@ interface PlaceholderProps extends BoxProps {
   fadeOut?: boolean;
 }
 
-const TruncatedText = styled(Typography)`
+export const TruncatedText = styled(Typography)`
   display: -webkit-box;
   -webkit-line-clamp: 9;
   -webkit-box-orient: vertical;
@@ -106,10 +106,6 @@ const CollectionProducts = () => {
 
     fetchProducts();
   }, []);
-
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
 
   if (loading) {
     return (

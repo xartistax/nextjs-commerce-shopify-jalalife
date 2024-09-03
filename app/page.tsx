@@ -1,6 +1,7 @@
 import CollectionProducts from 'components/section-carousel';
 import SectionEnum from 'components/section-enum';
 import SectionNutzen from 'components/section-nutzen';
+import SectionReviews from 'components/section-reviews';
 
 import { lazy } from 'react';
 
@@ -28,6 +29,7 @@ export default async function HomePage() {
       <SectionNutzen />
       <SectionInfo />
       <SectionEnum />
+      <SectionReviews />
 
       <Footer />
     </>
