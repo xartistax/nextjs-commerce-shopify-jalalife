@@ -120,7 +120,7 @@ const CollectionProducts = () => {
         <Box
           sx={{
             paddingTop: { xs: '30px', md: '100px' },
-            paddingBottom: { xs: '30px', md: '100px' }
+            paddingBottom: { xs: '30px', md: '0px' }
           }}
         >
           <Placeholder />
@@ -143,7 +143,7 @@ const CollectionProducts = () => {
       }}
     >
       <Box
-        sx={{ paddingTop: { xs: '30px', md: '100px' }, paddingBottom: { xs: '30px', md: '100px' } }}
+        sx={{ paddingTop: { xs: '30px', md: '100px' }, paddingBottom: { xs: '30px', md: '0px' } }}
       >
         <Box
           sx={{

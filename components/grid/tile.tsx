@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { Box, useTheme } from '@mui/material';
 import Image from 'next/image';
 import Label from '../label';
 
@@ -17,23 +17,48 @@ export function GridTileImage({
     position?: 'bottom' | 'center';
   };
 } & React.ComponentProps<typeof Image>) {
+  const theme = useTheme();
+
   return (
-    <div
-      className={clsx(
-        'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-white hover:border-blue-600 dark:bg-black',
-        {
-          relative: label,
-          'border-2 border-blue-600': active,
-          'border-neutral-200 dark:border-neutral-800': !active
-        }
-      )}
+    <Box
+      sx={{
+        display: 'flex',
+        height: '100%',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        borderRadius: 2, // corresponds to rounded-lg
+        border: 2,
+        backgroundColor: 'background.paper', // corresponds to bg-white
+        borderColor: active
+          ? theme.palette.primary.main // corresponds to border-blue-600
+          : theme.palette.mode === 'dark'
+            ? theme.palette.grey[800] // corresponds to dark:border-neutral-800
+            : theme.palette.grey[200], // corresponds to border-neutral-200
+        '&:hover': {
+          borderColor: isInteractive
+            ? theme.palette.primary.main // corresponds to hover:border-blue-600
+            : undefined
+        },
+        position: label ? 'relative' : undefined
+      }}
     >
       {props.src ? (
-        // eslint-disable-next-line jsx-a11y/alt-text -- `alt` is inherited from `props`, which is being enforced with TypeScript
+        // eslint-disable-next-line jsx-a11y/alt-text
         <Image
-          className={clsx('relative h-full w-full object-contain', {
-            'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
-          })}
+          className={isInteractive ? 'transition duration-300 ease-in-out' : ''}
+          style={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'contain',
+            ...(isInteractive && {
+              transition: 'transform 0.3s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.05)' // corresponds to group-hover:scale-105
+              }
+            })
+          }}
           {...props}
         />
       ) : null}
@@ -45,6 +70,6 @@ export function GridTileImage({
           position={label.position}
         />
       ) : null}
-    </div>
+    </Box>
   );
 }

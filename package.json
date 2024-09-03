@@ -38,6 +38,7 @@
     "clsx": "^2.1.0",
     "geist": "^1.3.0",
     "html-react-parser": "^5.1.10",
+    "javascript-time-ago": "^2.5.11",
     "jquery": "^3.7.1",
     "json2html-react": "^2.3.2",
     "local": "link:@next/font/local",

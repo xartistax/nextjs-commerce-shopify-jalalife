@@ -1,7 +1,20 @@
 'use client';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { Box, BoxProps, Container, Link, Paper, Typography } from '@mui/material';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import {
+  Box,
+  BoxProps,
+  Container,
+  Grid,
+  IconButton,
+  Link,
+  Paper,
+  Tooltip,
+  Typography
+} from '@mui/material';
+import TimeAgo from 'javascript-time-ago';
+import de from 'javascript-time-ago/locale/de';
 import { useEffect, useState } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -71,6 +84,9 @@ const SectionReviews = () => {
   const [error, setError] = useState<string | null>(null);
   const [sliderReady, setSliderReady] = useState(false);
   const [placeholderFadeOut, setPlaceholderFadeOut] = useState(false);
+
+  TimeAgo.addDefaultLocale(de);
+  const timeAgo = new TimeAgo('de-DE');
 
   const responsiveSettings = [
     {
@@ -147,7 +163,7 @@ const SectionReviews = () => {
         <Box
           sx={{
             position: 'relative',
-            height: '400px', // Ensure the container has the same height as slides
+            height: '300px', // Ensure the container has the same height as slides
             overflow: 'hidden'
           }}
         >
@@ -172,39 +188,83 @@ const SectionReviews = () => {
                     minHeight: '300px',
                     height: 'auto',
                     alignItems: 'stretch',
-                    padding: 6
+                    padding: 6,
+                    position: 'relative'
                   }}
                 >
-                  <Typography
-                    variant="h5"
-                    component={'h2'}
-                    fontWeight={900}
-                    lineHeight={1}
-                    gutterBottom
-                  >
-                    <TextTruncate line={1} element="div" truncateText="…" text={review.title} />
-                  </Typography>
+                  <Box sx={{ position: 'relative' }}>
+                    <Typography
+                      variant="h5"
+                      component={'h2'}
+                      fontWeight={900}
+                      lineHeight={1}
+                      gutterBottom
+                    >
+                      <TextTruncate line={1} element="div" truncateText="…" text={review.title} />
+                    </Typography>
 
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    {review.verified && (
+                      <Tooltip title="Verifiezierter kauf" arrow>
+                        <IconButton
+                          sx={{
+                            position: 'absolute',
+                            top: 0,
+                            right: 0,
+                            color: 'gray',
+                            backgroundColor: 'transparent',
+                            '&:hover': {
+                              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                              color: 'primary.main'
+                            },
+                            '& .MuiSvgIcon-root': {
+                              fontSize: '1.2rem' // Smaller size for the icon
+                            }
+                          }}
+                        >
+                          <VerifiedUserIcon />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                  </Box>
+
+                  <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
                     {Array.from({ length: 5 }, (_, i) =>
                       i < review.rating ? (
-                        <StarIcon key={i} sx={{ color: '#FFD700' }} />
+                        <StarIcon key={i} sx={{ color: 'primary.main' }} />
                       ) : (
-                        <StarBorderIcon key={i} sx={{ color: '#FFD700' }} />
+                        <StarBorderIcon key={i} sx={{ color: 'primary.main' }} />
                       )
                     )}
                   </Box>
 
                   <Typography variant="body1" gutterBottom>
-                    <TextTruncate line={3} element="div" truncateText="…" text={review.body} />
+                    <TextTruncate line={2} element="div" truncateText="…" text={review.body} />
                   </Typography>
 
                   <Link href={`/product/${review.product_handle}`}>
-                    <Typography variant="caption" gutterBottom>
+                    <Typography variant="body1" fontWeight={600} gutterBottom marginTop={3}>
                       {' '}
                       {review.product_title}{' '}
                     </Typography>
                   </Link>
+
+                  <Box
+                    sx={{ position: 'absolute', bottom: 0, left: 0, width: '100%', px: 6, py: 2 }}
+                  >
+                    <Grid container>
+                      <Grid item sm={6}>
+                        {' '}
+                        <Typography variant="caption">{review.reviewer.name}</Typography>{' '}
+                      </Grid>
+                      <Grid item sm={6} textAlign={'right'}>
+                        {' '}
+                        <Typography variant="caption">
+                          {' '}
+                          {timeAgo.format(new Date(review.created_at))}{' '}
+                        </Typography>{' '}
+                      </Grid>
+                    </Grid>
+                  </Box>
                 </Paper>
               ))}
             </Slide>
