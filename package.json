@@ -58,7 +58,11 @@
     "react-sticky-el": "^2.1.0",
     "react-text-truncate": "^0.19.0",
     "react-truncate-markup": "^5.1.2",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "survey-core": "^1.11.13",
+    "survey-creator-core": "^1.11.13",
+    "survey-creator-react": "^1.11.13",
+    "survey-react-ui": "^1.11.13"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
