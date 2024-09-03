@@ -14,10 +14,9 @@ export default async function CollectionIntro({ handle }: PageProps) {
 
   return (
     <>
-    
       <Box
         component="section"
-        sx={{ width: '100%', minheight: '100vh', height: 'auto', paddingTop: '1rem' }}
+        sx={{ width: '100%', minheight: '100vh', height: 'auto', paddingTop: '100px' }}
       >
         <Box
           component="div"
@@ -47,8 +46,15 @@ export default async function CollectionIntro({ handle }: PageProps) {
                 textAlign: 'left'
               }}
             >
-              <Container maxWidth="lg" sx={{ textAlign: { xs: 'left' ,md: 'center'} }}>
-              <Typography  gutterBottom component={'h1'} variant='h2' fontWeight={'bold'} lineHeight={'1'} sx={{ fontSize: {xs: '2rem'} }}>
+              <Container maxWidth="lg" sx={{ textAlign: { xs: 'left', md: 'center' } }}>
+                <Typography
+                  gutterBottom
+                  component={'h1'}
+                  variant="h2"
+                  fontWeight={'bold'}
+                  lineHeight={'1'}
+                  sx={{ fontSize: { xs: '2rem' } }}
+                >
                   {collection?.title}
                 </Typography>
 
@@ -59,21 +65,24 @@ export default async function CollectionIntro({ handle }: PageProps) {
                   gutterBottom
                   color="inherit"
                   fontWeight="lighter"
-                  sx={{ fontSize: {md: '18px', xs: 'inherit'} }}
+                  sx={{ fontSize: { md: '18px', xs: 'inherit' } }}
                 >
                   {collection?.description}
                 </Typography>
 
-                <Grid container justifyContent="start" spacing={3} sx={{ paddingTop: { xs: '1rem' ,md: '6rem'} }}>
+                <Grid
+                  container
+                  justifyContent="start"
+                  spacing={3}
+                  sx={{ paddingTop: { xs: '1rem', md: '6rem' } }}
+                >
                   {collectionProducts.map((item, i) => (
                     <Grid item xs={12} sm={6} md={4} lg={4} key={i}>
                       <Box
                         component="div"
                         sx={{
                           backgroundColor: 'white',
-                          padding: '1rem',
-                          borderColor: 'rgba(99, 99, 99, 0.1)',
-                          border: '1px solid rgba(99, 99, 99, 0.1)'
+                          padding: '1rem'
                         }}
                       >
                         <Box
@@ -81,20 +90,28 @@ export default async function CollectionIntro({ handle }: PageProps) {
                           src={item.featuredImage.url}
                           alt={item.title}
                           margin={'auto'}
-                          sx={{ maxWidth: { md: '200px', xs: '100%' }, display: {xs: 'none', md: 'block'} }}
-                         
+                          sx={{
+                            maxWidth: { md: '200px', xs: '100%' },
+                            display: { xs: 'none', md: 'block' }
+                          }}
                         />
                         <Box component="div" sx={{ paddingY: '3rem' }}>
-                          <Typography
-                            gutterBottom
-                            variant="h5"
-                            component="h2"
-                            textAlign="center"
-                            fontWeight="bold"
-                            sx={{ textAlign:{ xs: 'left' ,md: 'center'} , fontSize: {md: '1.20rem' ,xs: 'inherit'} }}
-                          >
-                            <Link href={`/product/${item.handle}`}> {item.title} </Link>
-                          </Typography>
+                          <Link href={`/product/${item.handle}`}>
+                            <Typography
+                              gutterBottom
+                              variant="h5"
+                              component="h2"
+                              textAlign="center"
+                              fontWeight="bold"
+                              sx={{
+                                textAlign: { xs: 'left', md: 'center' },
+                                fontSize: { md: '1.20rem', xs: 'inherit' }
+                              }}
+                            >
+                              {item.title}
+                            </Typography>
+                          </Link>
+
                           <Box
                             sx={{
                               display: '-webkit-box',
@@ -102,18 +119,22 @@ export default async function CollectionIntro({ handle }: PageProps) {
                               WebkitBoxOrient: 'vertical',
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
-                              fontSize: {md: '1.20rem' } 
+                              fontSize: { md: '1.20rem' }
                             }}
                           >
-                            {item.description}
+                            <Typography variant="body1"> {item.description} </Typography>
                           </Box>
                         </Box>
 
                         <Box
                           component="div"
                           className="mr-auto w-auto text-sm"
-                          fontWeight={"bold"}
-                          sx={{ color: 'primary.main', fontSize: {md: '1.20rem' ,xs: '1.2rem'} , paddingBottom: '32px' }}
+                          fontWeight={'bold'}
+                          sx={{
+                            color: 'primary.main',
+                            fontSize: { md: '1.20rem', xs: '1.2rem' },
+                            paddingBottom: '32px'
+                          }}
                         >
                           <Price
                             amount={item.priceRange.maxVariantPrice.amount}
