@@ -8,6 +8,7 @@ import { toHTML } from 'utils/json-to-html';
 import Prose from './prose';
 
 interface Product {
+  metafields: any;
   descriptionHtml: string;
   metafield: any;
   title: string;
