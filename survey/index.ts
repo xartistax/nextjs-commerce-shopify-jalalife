@@ -90,7 +90,8 @@ export const json = {
               value: 'weiblich',
               text: 'Weiblich'
             }
-          ]
+          ],
+          autocomplete: 'sex'
         },
         {
           type: 'text',
@@ -99,6 +100,10 @@ export const json = {
           isRequired: true,
           requiredErrorText: {
             de: 'Sie müssen diese Frage beantworten'
+          },
+          autocomplete: 'family-name',
+          placeholder: {
+            de: 'Nachname'
           }
         },
         {
@@ -108,6 +113,10 @@ export const json = {
           isRequired: true,
           requiredErrorText: {
             de: 'Sie müssen diese Frage beantworten'
+          },
+          autocomplete: 'name',
+          placeholder: {
+            de: 'Vorname'
           }
         },
         {
@@ -118,7 +127,11 @@ export const json = {
           requiredErrorText: {
             de: 'Sie müssen diese Frage beantworten'
           },
-          inputType: 'email'
+          inputType: 'email',
+          autocomplete: 'email',
+          placeholder: {
+            de: 'E-Mail Adresse'
+          }
         },
         {
           type: 'text',
@@ -128,7 +141,11 @@ export const json = {
           requiredErrorText: {
             de: 'Sie müssen diese Frage beantworten'
           },
-          inputType: 'tel'
+          inputType: 'tel',
+          autocomplete: 'tel',
+          placeholder: {
+            de: 'Telefonnummer'
+          }
         }
       ]
     }

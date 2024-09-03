@@ -11,7 +11,7 @@ export declare const DefaultJalaTheme: {
     '--sjs-corner-radius': '4px';
     '--sjs-base-unit': '8px';
     '--sjs-shadow-small': '0px 0px 0px 1px rgba(0, 0, 0, 0.2)';
-    '--sjs-shadow-inner': 'inset 0px 0px 0px 3px rgba(175, 162, 99, 1)';
+    '--sjs-shadow-inner': 'inset 0px 0px 0px 1px rgba(175, 162, 99, 1)';
     '--sjs-border-default': 'rgba(0, 0, 0, 0.15)';
     '--sjs-border-light': 'rgba(0, 0, 0, 0.15)';
     '--sjs-general-backcolor': 'rgba(255, 255, 255, 1)';
