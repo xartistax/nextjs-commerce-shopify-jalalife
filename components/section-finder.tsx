@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import FullScreenDialog from './fullscreen-dialog';
 
 export default function WirkstoffFinder() {
@@ -7,11 +7,6 @@ export default function WirkstoffFinder() {
     console.log('Dialog closed');
   };
 
-  const content = (
-    <>
-      <Typography>Wirkstoffinder goes here</Typography>
-    </>
-  );
   return (
     <Container
       maxWidth="lg"
@@ -27,7 +22,6 @@ export default function WirkstoffFinder() {
         <FullScreenDialog
           openButtonLabel="Welcher Wirkstoff passt zu dir?"
           title="Wirkstoffinder"
-          content={content}
           onClose={handleClose}
         />
       </Box>
