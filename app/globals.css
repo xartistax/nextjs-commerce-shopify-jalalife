@@ -101,3 +101,7 @@ button {
 .productTable tr:first-child {
   font-weight: 900;
 }
+
+#product-info-section ul {
+  z-index: -1 !important;
+}
