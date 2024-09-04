@@ -12,7 +12,7 @@ export async function GET(): Promise<NextResponse> {
 
     // Respond with the fetched reviews
     return new NextResponse(JSON.stringify(reviews), {
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }
     });
   } catch (error) {
     console.error('Error fetching reviews:', error);

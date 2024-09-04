@@ -12,7 +12,7 @@ export function ProductDescription({ product }: { product: Product }) {
     <>
       <Box className="productBox" sx={{ py: { xs: '30px', md: '100px' } }}>
         <Box className="mb-6 flex flex-col pb-6">
-          <Typography gutterBottom variant="h1" fontSize={'3.75rem'}>
+          <Typography gutterBottom variant="h1" fontSize={'3.75rem'} fontWeight={900}>
             {product.title}
           </Typography>
           <Box
