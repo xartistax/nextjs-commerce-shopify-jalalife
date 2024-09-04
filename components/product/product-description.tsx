@@ -10,7 +10,7 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
-      <Box className="productBox">
+      <Box className="productBox" sx={{ py: { xs: '30px', md: '100px' } }}>
         <Box className="mb-6 flex flex-col pb-6">
           <Typography gutterBottom variant="h1" fontSize={'3.75rem'}>
             {product.title}

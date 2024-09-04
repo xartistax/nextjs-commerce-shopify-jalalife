@@ -23,14 +23,23 @@ export default async function HomePage() {
 
   return (
     <>
-      <SectionIntro />
+      <SectionIntro
+        heading={
+          <>
+            Mehr Leben!
+            <br />
+            Mehr Natur!
+          </>
+        }
+        size={'85vh'}
+      />
       <CollectionProducts />
       <WirkstoffFinder />
       <SectionMainBlog />
       <SectionBlogArticles />
       <SectionNutzen />
-      <SectionInfo />
       <SectionEnum />
+      <SectionInfo />
       <SectionReviews />
 
       <Footer />

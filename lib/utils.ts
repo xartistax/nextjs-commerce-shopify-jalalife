@@ -43,5 +43,6 @@ export const identifiers = [
   { key: 'wirkung', namespace: 'custom', fullName: 'Wirkung' },
   { key: 'dosierung', namespace: 'custom', fullName: 'Dosierung' },
   { key: 'inhaltsstoffe', namespace: 'custom', fullName: 'Inhaltsstoffe' },
-  { key: 'produktdetails', namespace: 'custom', fullName: 'Produktdetails' }
+  { key: 'produktdetails', namespace: 'custom', fullName: 'Produktdetails' },
+  { key: 'jalaLife_info', namespace: 'custom', fullName: 'Jala-Life' }
 ];

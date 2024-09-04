@@ -88,33 +88,35 @@ export default async function ProductPage({ params }: { params: { handle: string
 
         <Paper elevation={0}>
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={6} sx={{ overflow: 'scroll' }}>
+            <Grid item xs={12} sm={6} sx={{ overflow: 'scroll', paddingBottom: '100px' }}>
               <StickyBox>
-                <Suspense
-                  fallback={
-                    <Box
-                      sx={{
-                        position: 'relative',
-                        width: '100%',
-                        aspectRatio: '1',
-                        maxHeight: 'auto',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                      }}
-                    >
-                      <CircularProgress />
-                    </Box>
-                  }
-                >
-                  <Gallery
-                    images={product.images.map((image) => ({
-                      src: image.url,
-                      altText: image.altText
-                    }))}
-                  />
-                </Suspense>
+                <Box component={'div'} sx={{ py: '50px' }}>
+                  <Suspense
+                    fallback={
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          width: '100%',
+                          aspectRatio: '1',
+                          maxHeight: 'auto',
+                          overflow: 'hidden',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <CircularProgress />
+                      </Box>
+                    }
+                  >
+                    <Gallery
+                      images={product.images.map((image) => ({
+                        src: image.url,
+                        altText: image.altText
+                      }))}
+                    />
+                  </Suspense>
+                </Box>
               </StickyBox>
             </Grid>
 

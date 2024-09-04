@@ -1,7 +1,7 @@
 'use client';
 
 import { PlusIcon } from '@heroicons/react/24/outline';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -18,7 +18,7 @@ function SubmitButton({
 }) {
   const { pending } = useFormStatus();
   const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-customColor p-4 tracking-wide text-white';
+    'relative w-full max-w-xs flex items-center justify-center rounded-full bg-customColor p-4 tracking-wide text-white';
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
@@ -83,11 +83,22 @@ export function AddToCart({
   const actionWithVariant = formAction.bind(null, selectedVariantId);
 
   return (
-    <form action={actionWithVariant}>
+    <Box
+      component={'form'}
+      action={actionWithVariant}
+      sx={{
+        width: '100%',
+        margin: 'auto',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center', // Center content vertically
+        textAlign: 'center'
+      }}
+    >
       <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
       <Typography component={'p'} aria-live="polite" className="sr-only" role="status">
         {message}
       </Typography>
-    </form>
+    </Box>
   );
 }

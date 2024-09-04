@@ -51,7 +51,7 @@ export default function FullScreenDialog({
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" size="large" onClick={handleClickOpen}>
         {openButtonLabel}
       </Button>
       <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>

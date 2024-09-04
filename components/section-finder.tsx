@@ -13,14 +13,13 @@ export default function WirkstoffFinder() {
       sx={{
         position: 'relative',
         textAlign: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        py: { xs: '30px', md: '100px' }
       }}
     >
-      <Box
-        sx={{ paddingTop: { xs: '30px', md: '30px' }, paddingBottom: { xs: '30px', md: '100px' } }}
-      >
+      <Box sx={{}}>
         <FullScreenDialog
-          openButtonLabel="Welcher Wirkstoff passt zu dir?"
+          openButtonLabel="Welches Produkt passt zu mir?"
           title="Wirkstoffinder"
           onClose={handleClose}
         />

@@ -25,7 +25,7 @@ const items = [
 
 export default function SectionNutzen() {
   return (
-    <Container maxWidth="lg" sx={{ paddingY: '100px' }}>
+    <Container maxWidth="lg" sx={{ py: { xs: '30px', md: '100px' } }}>
       <Typography
         gutterBottom
         variant="h4"

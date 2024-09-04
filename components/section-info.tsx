@@ -39,9 +39,7 @@ export default function SectionInfo() {
       maxWidth="lg"
       sx={{
         position: 'relative',
-        paddingX: '0!important',
-        paddingBottom: { xs: '30px', md: '200px' },
-        paddingTop: { xs: '30px', md: '100px' }
+        py: { xs: '30px', md: '100px' }
       }}
     >
       <Grid container spacing={5} sx={{ padding: 2 }}>

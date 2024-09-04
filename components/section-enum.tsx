@@ -1,6 +1,6 @@
 'use client';
 import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
-
+import StickyBox from './sticky-component';
 const items = [
   { title: 'Wirkstoffe', content: 'Die Wirkstoffe sind vor der Magensäure geschützt.' },
   { title: 'Verdauung', content: 'Bestmögliche Verteilung der Wirkstoffe im Darm' },
@@ -19,7 +19,7 @@ export default function SectionEnum() {
   const theme = useTheme();
 
   return (
-    <Container maxWidth="lg" sx={{ position: 'relative', py: 0 }}>
+    <Container maxWidth="lg" sx={{ position: 'relative', py: { xs: '30px', md: '100px' } }}>
       <Typography
         gutterBottom
         variant="h4"
@@ -86,13 +86,24 @@ export default function SectionEnum() {
             sx={{
               width: '100%',
               height: '100%',
-              backgroundImage: 'url(jalalife_2.webp)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               borderRadius: '3px', // Optional: add border radius to the image
               boxShadow: 0 // Optional: add shadow to the image
             }}
-          />
+          >
+            <StickyBox>
+              <Box component={'div'} paddingTop={2}>
+                <Box
+                  component={'img'}
+                  src={'/image3.png'}
+                  width={'100%'}
+                  height={'auto'}
+                  borderRadius={1}
+                />
+              </Box>
+            </StickyBox>
+          </Box>
         </Grid>
       </Grid>
     </Container>

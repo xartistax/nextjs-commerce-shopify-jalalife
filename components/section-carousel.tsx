@@ -116,15 +116,11 @@ const CollectionProducts = () => {
         sx={{
           position: 'relative',
           textAlign: 'center',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          py: { xs: '30px', md: '100px' }
         }}
       >
-        <Box
-          sx={{
-            paddingTop: { xs: '30px', md: '100px' },
-            paddingBottom: { xs: '30px', md: '0px' }
-          }}
-        >
+        <Box>
           <Placeholder />
         </Box>
       </Container>

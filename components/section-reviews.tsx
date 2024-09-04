@@ -132,12 +132,7 @@ const SectionReviews = () => {
           overflow: 'hidden'
         }}
       >
-        <Box
-          sx={{
-            paddingTop: { xs: '30px', md: '100px' },
-            paddingBottom: { xs: '30px', md: '100px' }
-          }}
-        >
+        <Box sx={{}}>
           <Placeholder />
         </Box>
       </Container>
@@ -157,9 +152,7 @@ const SectionReviews = () => {
         overflow: 'hidden'
       }}
     >
-      <Box
-        sx={{ paddingTop: { xs: '30px', md: '200px' }, paddingBottom: { xs: '30px', md: '100px' } }}
-      >
+      <Box sx={{}}>
         <Box
           sx={{
             position: 'relative',

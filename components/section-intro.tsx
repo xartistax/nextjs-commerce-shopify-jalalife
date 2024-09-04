@@ -1,13 +1,19 @@
 'use client';
 import { Box, Container, Typography } from '@mui/material';
 import Head from 'next/head';
+import React from 'react';
 
-export default function SectionIntro() {
+interface SectionIntroProps {
+  heading: React.ReactNode;
+  size: string;
+}
+
+export default function SectionIntro({ heading, size }: SectionIntroProps) {
   return (
     <>
       <Head>
         {/* Preload Video */}
-        <link rel="preload" href="Bamboo_Forest.mp4" as="video" />
+        <link rel="preload" href={'/Bamboo_Forest.mp4'} as="video" />
       </Head>
       <Box
         component="section"
@@ -19,7 +25,7 @@ export default function SectionIntro() {
           sx={{
             width: '100%',
             height: {
-              md: '85vh' // padding for medium devices
+              md: size // height for medium devices
             },
             display: 'flex',
             position: 'relative', // Add position relative
@@ -39,7 +45,7 @@ export default function SectionIntro() {
           }}
         >
           <video
-            poster="#"
+            poster={'/BambooPoster.png'}
             autoPlay
             loop
             muted
@@ -57,7 +63,7 @@ export default function SectionIntro() {
               zIndex: -1
             }}
           >
-            <source src="Bamboo_Forest.mp4" type="video/mp4" />
+            <source src={'/Bamboo_Forest.mp4'} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
@@ -95,9 +101,7 @@ export default function SectionIntro() {
                 }
               }}
             >
-              Mehr Leben!
-              <br />
-              Mehr Natur!
+              {heading}
             </Typography>
           </Container>
         </Box>
