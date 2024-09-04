@@ -1,3 +1,4 @@
+// pages/product/[handle].tsx
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -6,7 +7,7 @@ import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { SingleProductInformations } from 'components/single-product-informations';
-import SpeedDialVisibility from 'components/speed-dial-visibility'; // Import the new component
+import SpeedDialVisibility from 'components/speed-dial-visibility';
 import StickyBox from 'components/sticky-component';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct } from 'lib/shopify';
@@ -83,8 +84,11 @@ export default async function ProductPage({ params }: { params: { handle: string
       />
 
       <Box sx={{ maxWidth: '100%', mx: 'auto', px: 2 }}>
-        {/* Use SpeedDialVisibility with the ID of the target element */}
-        <SpeedDialVisibility targetId="product-info-section" />
+        <SpeedDialVisibility
+          targetId="product-info-section"
+          title={product.title}
+          imageSrc={product.featuredImage.url}
+        />
 
         <Paper elevation={0}>
           <Grid container spacing={3}>
@@ -127,8 +131,6 @@ export default async function ProductPage({ params }: { params: { handle: string
         </Paper>
 
         <Box mt={3} id="product-info-section">
-          {' '}
-          {/* Add ID to the section to observe */}
           <SingleProductInformations product={product} />
         </Box>
       </Box>

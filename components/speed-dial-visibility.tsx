@@ -6,9 +6,11 @@ import BasicSpeedDial from './speed-dial';
 
 interface SpeedDialVisibilityProps {
   targetId: string; // The ID of the element to observe
+  title: string;
+  imageSrc: string;
 }
 
-const SpeedDialVisibility: React.FC<SpeedDialVisibilityProps> = ({ targetId }) => {
+const SpeedDialVisibility: React.FC<SpeedDialVisibilityProps> = ({ targetId, title, imageSrc }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const SpeedDialVisibility: React.FC<SpeedDialVisibilityProps> = ({ targetId }) =
     };
   }, [targetId]);
 
-  return <div>{visible && <BasicSpeedDial />}</div>;
+  return <div>{visible && <BasicSpeedDial title={title} imageSrc={imageSrc} />}</div>;
 };
 
 export default SpeedDialVisibility;
