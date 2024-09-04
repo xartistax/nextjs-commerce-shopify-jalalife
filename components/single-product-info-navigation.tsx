@@ -58,7 +58,7 @@ export default function InformationNavigation() {
   return (
     <Sticky>
       <nav className="bg-neutral-50 py-4">
-        <ul className="mx-auto flex w-full max-w-screen-xl flex-wrap justify-center space-x-4 border-b-2 border-t-2 border-black">
+        <ul className="border-b-1 border-t-1 mx-auto flex w-full max-w-screen-xl flex-wrap justify-center space-x-4 border-black">
           {identifiers.map((item, i) => (
             <li key={i} className="flex-1 sm:flex-none">
               <Box
@@ -74,7 +74,7 @@ export default function InformationNavigation() {
                   }
                 }}
               >
-                <Typography>{item.fullName}</Typography>
+                <Typography sx={{ fontWeight: 900 }}>{item.fullName}</Typography>
               </Box>
             </li>
           ))}
