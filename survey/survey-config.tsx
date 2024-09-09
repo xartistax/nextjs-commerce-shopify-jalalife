@@ -1,7 +1,7 @@
 import { json } from 'survey';
 import { Model } from 'survey-core';
 import 'survey-core/defaultV2.min.css';
-import { normalizeKey, symptomToProductsMap } from './product-mapper';
+import { normalizeKey, symptomToCollectionMap } from './product-mapper';
 import { SurveyResponse } from './types';
 
 export function configureSurvey(): Model {
@@ -106,19 +106,19 @@ export function configureSurvey(): Model {
 }
 
 // Function to get products based on the survey response
-export function getProducts(surveyResponse: SurveyResponse): string[] {
+export function getCollections(surveyResponse: SurveyResponse): string[] {
   const { wirkstoffinder } = surveyResponse;
-  const products = new Set<string>();
+  const collections = new Set<string>();
 
   wirkstoffinder.forEach((symptom: string) => {
     const normalizedSymptom = normalizeKey(symptom);
-    for (const key in symptomToProductsMap) {
+    for (const key in symptomToCollectionMap) {
       if (normalizeKey(key) === normalizedSymptom) {
-        const associatedProducts = symptomToProductsMap[key];
-        associatedProducts?.forEach((product: string) => products.add(product));
+        const associatedProducts = symptomToCollectionMap[key];
+        associatedProducts?.forEach((product: string) => collections.add(product));
       }
     }
   });
 
-  return Array.from(products);
+  return Array.from(collections);
 }

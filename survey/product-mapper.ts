@@ -1,24 +1,20 @@
-export type SymptomToProductsMap = {
+export type SymptomToCollectionMap = {
   [key: string]: string[];
 };
 
-export const symptomToProductsMap: SymptomToProductsMap = {
-  schlafprobleme: ['ashwagandha-mit-zink-und-vitamin-b1'],
-  stress: ['ashwagandha-mit-zink-und-vitamin-b1'],
-  angstgefuehle: ['ashwagandha-mit-zink-und-vitamin-b1', 'curcuma-mit-zink'],
-  pruefungsangst: ['ashwagandha-mit-zink-und-vitamin-b1'],
-  energielosigkeit: ['ashwagandha-mit-zink-und-vitamin-b1', 'coenzym-q10-mit-vitamin-e'],
-  muedigkeit: [
-    'ashwagandha-mit-zink-und-vitamin-b1',
-    'ingwer-mit-zink',
-    'coenzym-q10-mit-vitamin-e'
-  ],
-  entzuendungen: ['indischer-weihrauch-mit-zink', 'curcuma-mit-zink', 'ingwer-mit-zink'],
-  kopfschmerzen: ['ingwer-mit-zink', 'curcuma-mit-zink'],
-  verdauungsprobleme: ['curcuma-mit-zink'],
-  darmentzuendung: ['indischer-weihrauch-mit-zink', 'curcuma-mit-zink'],
-  uebelkeit: ['ingwer-mit-zink'],
-  menstruationsbeschwerden: ['ashwagandha-mit-zink-und-vitamin-b1']
+export const symptomToCollectionMap: SymptomToCollectionMap = {
+  atemwege_abwehrkraefte: ['atemwege-und-abwehrkrafte'],
+  energiestoffwechsel: ['energiestoffwechsel'],
+  haut_haare: ['haut-und-haare'],
+  herz_muskeln: ['herz-und-muskeln'],
+  energielosigkeit: ['energielosigkeit'],
+  immunsystem: ['immunsystem'],
+  knochen_gelenke: ['knochen-und-gelenke'],
+  nerven_gehirn: ['nerven-und-gehirn'],
+  regeneration: ['regeneration'],
+  schilddruese: ['schilddruse'],
+  stressabbau_entspannung: ['stressabbau-und-entspannung'],
+  vitalitaet_widerstandskraft: ['vitalitat-und-widerstandskraft']
 };
 
 export function normalizeKey(key: string): string {

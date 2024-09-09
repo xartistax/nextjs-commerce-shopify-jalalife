@@ -1,12 +1,12 @@
-import GroupIcon from '@mui/icons-material/Group';
-import ScienceIcon from '@mui/icons-material/Science';
+'use client';
+import Image from 'next/image';
 
 import { Box, Container, Grid, Link, Paper, Typography } from '@mui/material';
 
 const sections = [
   {
     id: 1,
-    icon: <ScienceIcon sx={{ color: 'white', fontSize: { xs: '30px', md: '50px' } }} />,
+    icon: <Image src={'/svg/boxIcons/Icon_Qualiltat.svg'} alt="" width={50} height={50} />,
     iconBgColor: 'primary.light',
     title: 'Qualität',
     link: '#',
@@ -15,7 +15,7 @@ const sections = [
   },
   {
     id: 2,
-    icon: <ScienceIcon sx={{ color: 'white', fontSize: { xs: '30px', md: '50px' } }} />,
+    icon: <Image src={'/svg/boxIcons/Icon_Inhaltsstoffe.svg'} alt="" width={50} height={50} />,
     iconBgColor: 'primary.light',
     title: 'Wissenschaft',
     link: '#',
@@ -24,7 +24,7 @@ const sections = [
   },
   {
     id: 3,
-    icon: <GroupIcon sx={{ color: 'white', fontSize: { xs: '30px', md: '50px' } }} />,
+    icon: <Image src={'/svg/boxIcons/Icon_Produktdetails.svg'} alt="" width={50} height={50} />,
     iconBgColor: 'primary.light',
     title: 'Community!',
     link: '#',

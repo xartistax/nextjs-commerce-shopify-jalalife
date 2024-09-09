@@ -15,146 +15,90 @@ export const json = {
           },
           choices: [
             {
-              value: 'darmentzuendung',
-              text: 'Darmentzündungen'
+              value: 'atemwege_abwehrkraefte',
+              text: {
+                default: 'Darmentzündungen',
+                de: 'Atemwege und Abwehrkräfte'
+              }
             },
             {
-              value: 'schlafprobleme',
-              text: 'Schlafprobleme'
+              value: 'energiestoffwechsel',
+              text: {
+                de: 'Energiestoffwechsel'
+              }
             },
             {
-              value: 'entzuendungen',
-              text: 'Entzündungen'
+              value: 'haut_haare',
+              text: {
+                de: 'Haut und Haare'
+              }
             },
             {
-              value: 'stress',
-              text: 'Stress'
+              value: 'herz_muskeln',
+              text: {
+                de: 'Herz und Muskeln'
+              }
             },
             {
-              value: 'muedigkeit',
-              text: 'Müdigkeit'
+              value: 'immunsystem',
+              text: {
+                de: 'Immunsystem'
+              }
             },
             {
-              value: 'pruefungsangst',
-              text: 'Prüfungsangst'
+              value: 'knochen_gelenke',
+              text: {
+                de: 'Knochen und Gelenke'
+              }
             },
             {
-              value: 'angstgefuehle',
-              text: 'Angstgefühle'
+              value: 'nerven_gehirn',
+              text: {
+                de: 'Nerven und Gehirn'
+              }
             },
             {
-              value: 'uebelkeit',
-              text: 'Übelkeit'
+              value: 'regeneration',
+              text: {
+                de: 'Regeneration'
+              }
             },
             {
-              value: 'energielosigkeit',
-              text: 'Energielosigkeit'
+              value: 'schilddruese',
+              text: {
+                de: 'Schilddrüse'
+              }
             },
             {
-              value: 'verdauungsprobleme',
-              text: 'Verdauungsprobleme'
+              value: 'stressabbau_entspannung',
+              text: {
+                de: 'Stressabbau und Entspannung'
+              }
             },
             {
-              value: 'kopfschmerzen',
-              text: 'Kopfschmerzen'
-            },
-            {
-              value: 'menstruationsbeschwerden',
-              text: 'Menstruationsbeschwerden'
+              value: 'vitalitaet_widerstandskraft',
+              text: {
+                de: 'Vitalität und Widerstandskraft'
+              }
             }
           ],
-          maxSelectedChoices: 3,
+          maxSelectedChoices: 1,
           minSelectedChoices: 1,
           placeholder: 'Auswahl',
           hideSelectedItems: true
-        }
-      ]
-    },
-    {
-      name: 'page2',
-      elements: [
-        {
-          type: 'dropdown',
-          name: 'gender',
-          title: 'Ich bin ...',
-          isRequired: true,
-          requiredErrorText: {
-            de: 'Sie müssen diese Frage beantworten'
-          },
-          choices: [
-            {
-              value: 'maennlich',
-              text: 'Männlich'
-            },
-            {
-              value: 'weiblich',
-              text: 'Weiblich'
-            }
-          ],
-          autocomplete: 'sex'
-        },
-        {
-          type: 'text',
-          name: 'lastname',
-          title: 'Nachname',
-          isRequired: true,
-          requiredErrorText: {
-            de: 'Sie müssen diese Frage beantworten'
-          },
-          autocomplete: 'family-name',
-          placeholder: {
-            de: 'Nachname'
-          }
-        },
-        {
-          type: 'text',
-          name: 'name',
-          title: 'Vorname',
-          isRequired: true,
-          requiredErrorText: {
-            de: 'Sie müssen diese Frage beantworten'
-          },
-          autocomplete: 'name',
-          placeholder: {
-            de: 'Vorname'
-          }
-        },
-        {
-          type: 'text',
-          name: 'email',
-          title: 'E-Mail Adresse',
-          isRequired: true,
-          requiredErrorText: {
-            de: 'Sie müssen diese Frage beantworten'
-          },
-          inputType: 'email',
-          autocomplete: 'email',
-          placeholder: {
-            de: 'E-Mail Adresse'
-          }
-        },
-        {
-          type: 'text',
-          name: 'phone',
-          title: 'Telefonnummer',
-          isRequired: true,
-          requiredErrorText: {
-            de: 'Sie müssen diese Frage beantworten'
-          },
-          inputType: 'tel',
-          autocomplete: 'tel',
-          placeholder: {
-            de: 'Telefonnummer'
-          }
         }
       ]
     }
   ],
   showTitle: false,
   showPageTitles: false,
+  showCompletedPage: false,
   showQuestionNumbers: 'off',
   pagePrevText: 'Zurück',
   pageNextText: 'Weiter',
-  completeText: 'Zeig mir mein Produkt',
+  completeText: {
+    default: 'Zeig mir mein Produkt',
+    de: 'Zeig mir meine Produkte'
+  },
   widthMode: 'responsive'
 };

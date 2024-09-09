@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { TransitionProps } from '@mui/material/transitions';
 import React, { useState } from 'react';
 import { Survey } from 'survey-react-ui';
-import { configureSurvey, getProducts } from 'survey/survey-config';
+import { configureSurvey, getCollections } from 'survey/survey-config';
 import { SurveyResponse } from 'survey/types';
 
 const Transition = React.forwardRef(function Transition(
@@ -45,8 +45,10 @@ export default function FullScreenDialog({
   const survey = configureSurvey();
 
   survey.onComplete.add((sender) => {
-    const products: string[] = getProducts(sender.data as SurveyResponse);
+    const products: string[] = getCollections(sender.data as SurveyResponse);
+
     console.log(products);
+    window.location.href = `/collections/${products[0]}`;
   });
 
   return (
