@@ -57,7 +57,7 @@ export default function InformationNavigation() {
 
   return (
     <Sticky>
-      <nav className="bg-neutral-50 py-4">
+      <nav className="bg-white py-4">
         <ul className="border-b-1 border-t-1 mx-auto flex w-full max-w-screen-xl flex-wrap justify-center space-x-4 border-black">
           {identifiers.map((item, i) => (
             <li key={i} className="flex-1 sm:flex-none">

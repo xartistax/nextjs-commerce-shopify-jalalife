@@ -46,7 +46,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <ThemeProvider theme={theme}>
       <html lang="de">
         <body
-          className={`bg-neutral-50 text-black selection:bg-customColor selection:text-white ${myFont.variable}`}
+          className={`bg-white text-black selection:bg-customColor selection:text-white ${myFont.variable}`}
         >
           <AppRouterCacheProvider>
             <Navbar />

@@ -14,6 +14,10 @@ export function ProductDescription({ product }: { product: Product }) {
         <Box className="mb-6 flex flex-col pb-6">
           <Typography gutterBottom variant="h1" fontSize={'3.75rem'} fontWeight={900}>
             {product.title}
+            <Box component={'small'} sx={{ fontSize: '1rem', display: 'block' }}>
+              {' '}
+              {product.metafields[0]?.value}{' '}
+            </Box>
           </Typography>
           <Box
             component="div"

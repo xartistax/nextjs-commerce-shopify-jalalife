@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Box, CircularProgress, Grid, Paper, ThemeProvider } from '@mui/material';
+import { Box, CircularProgress, Container, Grid, Paper, ThemeProvider } from '@mui/material';
 import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
@@ -83,7 +83,7 @@ export default async function ProductPage({ params }: { params: { handle: string
         }}
       />
 
-      <Box sx={{ maxWidth: '100%', mx: 'auto', px: 2 }}>
+      <Container maxWidth="lg">
         <SpeedDialVisibility
           targetId="product-info-section"
           title={product.title}
@@ -133,7 +133,7 @@ export default async function ProductPage({ params }: { params: { handle: string
         <Box mt={3} id="product-info-section">
           <SingleProductInformations product={product} />
         </Box>
-      </Box>
+      </Container>
 
       <Footer />
     </ThemeProvider>

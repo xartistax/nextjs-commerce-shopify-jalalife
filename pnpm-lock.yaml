@@ -74,6 +74,9 @@ importers:
       next-video:
         specifier: ^1.1.4
         version: 1.1.4(@types/react-dom@18.2.25)(@types/react@18.2.79)(next@14.2.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      punycode:
+        specifier: ^2.3.1
+        version: 2.3.1
       react:
         specifier: 18.2.0
         version: 18.2.0

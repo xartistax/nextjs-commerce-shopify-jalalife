@@ -1,8 +1,8 @@
-import InfoIcon from '@mui/icons-material/Info';
 import { Grid, Stack, Typography } from '@mui/material';
 import { getProductMetafields } from 'lib/shopify';
 import { Product } from 'lib/shopify/types';
 import { identifiers } from 'lib/utils';
+import Image from 'next/image';
 import { toHTML } from 'utils/json-to-html';
 import Prose from './prose';
 import InformationNavigation from './single-product-info-navigation';
@@ -24,7 +24,8 @@ export async function SingleProductInformations({ product }: { product: Product 
           <Grid container spacing={2} alignItems="top">
             <Grid item xs={12} md={4}>
               <Stack direction="row" alignItems="center" spacing={1}>
-                <InfoIcon />
+                <Image src={`/icons/Icon_${fullName}.svg`} alt={''} width={50} height={50} />
+
                 <Typography
                   gutterBottom
                   component="h2"
@@ -51,7 +52,7 @@ export async function SingleProductInformations({ product }: { product: Product 
         <Grid container spacing={2} alignItems="top">
           <Grid item xs={12} md={4}>
             <Stack direction="row" alignItems="center" spacing={1}>
-              <InfoIcon />
+              <Image src={`/logo_schwarz_full.webp`} alt={''} width={50} height={50} />
               <Typography
                 gutterBottom
                 component="h2"

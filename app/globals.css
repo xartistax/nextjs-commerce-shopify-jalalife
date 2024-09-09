@@ -105,3 +105,7 @@ button {
 #product-info-section ul {
   z-index: -1 !important;
 }
+
+#product-info-section strong {
+  display: block !important;
+}

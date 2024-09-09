@@ -67,9 +67,15 @@ export type Page = {
   updatedAt: string;
 };
 
+export type Metafield = {
+  value: string; // Assuming the value is always a string, can be changed to 'any' if it's dynamic.
+  // Optional field for metafield type
+};
+
 export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
   variants: ProductVariant[];
   images: Image[];
+  metafields: Metafield[];
 };
 
 export type ProductOption = {
@@ -339,16 +345,9 @@ export interface ShopifyProductMetafieldsOperation {
   variables: {
     handle: string;
     key: string;
-    namespace: string
+    namespace: string;
   };
 }
-
-
-
-
-
-
-
 
 export interface TextNode {
   type: 'text';
