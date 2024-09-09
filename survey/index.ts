@@ -8,7 +8,7 @@ export const json = {
         {
           type: 'tagbox',
           name: 'wirkstoffinder',
-          title: 'Wählen Sie bis zu 3 Optionen aus',
+          title: 'Wählen Sie aus was am besten passt',
           isRequired: true,
           requiredErrorText: {
             de: 'Sie müssen diese Frage beantworten'
