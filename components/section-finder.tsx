@@ -20,7 +20,7 @@ export default function WirkstoffFinder() {
       <Box sx={{}}>
         <FullScreenDialog
           openButtonLabel="Welche Produkte passen zu mir?"
-          title="Wirkstoffinder"
+          title="Produktefinder"
           onClose={handleClose}
         />
       </Box>

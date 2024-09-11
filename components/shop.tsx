@@ -56,7 +56,7 @@ export default async function CollectionIntro() {
                   sx={{ paddingTop: { xs: '1rem', md: '6rem' } }}
                 >
                   {collectionProducts.map((item, i) => (
-                    <Grid item xs={12} sm={6} md={4} lg={4} key={i}>
+                    <Grid item xs={6} sm={6} md={4} lg={4} key={i}>
                       <Box
                         component="div"
                         sx={{
@@ -72,8 +72,7 @@ export default async function CollectionIntro() {
                           alt={item.title}
                           margin={'auto'}
                           sx={{
-                            maxWidth: { md: '200px', xs: '100%' },
-                            display: { xs: 'none', md: 'block' }
+                            maxWidth: { md: '200px', xs: '100%' }
                           }}
                         />
                         <Box component="div" sx={{ paddingY: '3rem' }}>
@@ -85,7 +84,7 @@ export default async function CollectionIntro() {
                             fontWeight="bold"
                             sx={{
                               textAlign: { xs: 'left', md: 'center' },
-                              fontSize: { md: '1.20rem', xs: 'inherit' }
+                              fontSize: { md: '1.20rem', xs: '1.25rem' }
                             }}
                           >
                             <Link href={`/product/${item.handle}`}>{item.title}</Link>

@@ -17,6 +17,7 @@ const Price = ({
     variant="button"
     fontSize={'2rem'}
     className={className}
+    sx={{ fontSize: { md: '1.75rem', xs: '1.25rem' }, fontWeight: 'bold' }}
   >
     {`${new Intl.NumberFormat(undefined, {
       style: 'currency',

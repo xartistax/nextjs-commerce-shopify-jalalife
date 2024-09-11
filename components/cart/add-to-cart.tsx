@@ -39,7 +39,9 @@ function SubmitButton({
         <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
         </div>
-        <Typography variant="button">In den Warenkorb</Typography>
+        <Typography variant="button" fontSize={'1rem'}>
+          In den Warenkorb
+        </Typography>
       </button>
     );
   }
@@ -59,7 +61,9 @@ function SubmitButton({
       <div className="absolute left-0 ml-4">
         {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
       </div>
-      <Typography variant="button">In den Warenkorb</Typography>
+      <Typography variant="button" sx={{ fontSize: { md: '0.9rem', xs: '0.7rem' } }}>
+        In den Warenkorb
+      </Typography>
     </button>
   );
 }
