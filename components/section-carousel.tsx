@@ -25,7 +25,7 @@ interface PlaceholderProps extends BoxProps {
 
 export const TruncatedText = styled(Typography)`
   display: -webkit-box;
-  -webkit-line-clamp: 9;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

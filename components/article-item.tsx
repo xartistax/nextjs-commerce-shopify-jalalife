@@ -1,6 +1,7 @@
 import { Box, Grid, Paper, Typography } from '@mui/material';
 import { ShopifyArticle } from 'lib/shopify/types';
 import Link from 'next/link';
+import { TruncatedText } from './section-carousel';
 
 interface ArticleItemProps {
   article: ShopifyArticle;
@@ -57,12 +58,12 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               className="text-slate-800"
               sx={{
                 wordWrap: 'break-word',
-                WebkitLineClamp: 2,
+                WebkitLineClamp: 1,
                 WebkitBoxOrient: 'vertical',
                 textOverflow: 'ellipsis'
               }}
             >
-              {article.excerpt}
+              <TruncatedText> {article.excerpt}</TruncatedText>
             </Typography>
           </Box>
 
