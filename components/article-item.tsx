@@ -41,7 +41,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               gutterBottom
               paddingTop={2}
             >
-              <Link href={`/articles/${article.id}`} passHref>
+              <Link href={`/blog/wissenswert/article/${article.handle}`} passHref>
                 {article.title}
               </Link>
             </Typography>

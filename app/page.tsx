@@ -26,9 +26,9 @@ export default async function HomePage() {
       <SectionIntro
         heading={
           <>
-            Mehr Leben!
-            <br />
             Mehr Natur!
+            <br />
+            Mehr Leben!
           </>
         }
         size={'85vh'}
