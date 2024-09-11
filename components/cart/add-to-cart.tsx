@@ -36,9 +36,13 @@ function SubmitButton({
         aria-disabled
         className={clsx(buttonClasses, disabledClasses)}
       >
-        <div className="absolute left-0 ml-4">
+        <Box
+          component={'div'}
+          className="absolute left-0 ml-4"
+          sx={{ display: { md: 'block', xs: 'none' } }}
+        >
           <PlusIcon className="h-5" />
-        </div>
+        </Box>
         <Typography variant="button" fontSize={'1rem'}>
           In den Warenkorb
         </Typography>
@@ -58,10 +62,14 @@ function SubmitButton({
         [disabledClasses]: pending
       })}
     >
-      <div className="absolute left-0 ml-4">
+      <Box
+        component={'div'}
+        className="absolute left-0 ml-4"
+        sx={{ display: { md: 'block', xs: 'none' }, lineHeight: { md: 'inherit', xs: '1rem' } }}
+      >
         {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
-      </div>
-      <Typography variant="button" sx={{ fontSize: { md: '0.9rem', xs: '0.7rem' } }}>
+      </Box>
+      <Typography variant="button" sx={{ fontSize: { md: '0.9rem', xs: '0.63rem' } }}>
         In den Warenkorb
       </Typography>
     </button>
