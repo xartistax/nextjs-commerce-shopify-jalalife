@@ -13,6 +13,8 @@ export function GridTileImage({
   label?: {
     title: string;
     amount: string;
+    comparedPriceAmount: string;
+
     currencyCode: string;
     position?: 'bottom' | 'center';
   };
@@ -68,6 +70,7 @@ export function GridTileImage({
           amount={label.amount}
           currencyCode={label.currencyCode}
           position={label.position}
+          comparedPriceAmount={label.amount}
         />
       ) : null}
     </Box>
