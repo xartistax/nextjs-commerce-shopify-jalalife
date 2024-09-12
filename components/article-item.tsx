@@ -24,7 +24,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
           <Box>
             <Box
               sx={{
-                paddingTop: '100%',
+                paddingTop: '56.25%',
                 width: '100%',
                 backgroundImage: `url(${article.image.url})`,
                 backgroundSize: 'cover'

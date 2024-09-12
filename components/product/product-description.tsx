@@ -27,6 +27,7 @@ export function ProductDescription({ product }: { product: Product }) {
             <Price
               amount={product.priceRange.maxVariantPrice.amount}
               currencyCode={product.priceRange.maxVariantPrice.currencyCode}
+              comparedPriceAmount={product.compareAtPriceRange.minVariantPrice.amount}
             />
           </Box>
           <Box component="div" className="mr-auto w-auto py-2 text-sm font-light ">
@@ -49,7 +50,11 @@ export function ProductDescription({ product }: { product: Product }) {
         ) : null}
 
         <Suspense fallback={null}>
-          <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+          <AddToCart
+            variants={product.variants}
+            availableForSale={product.availableForSale}
+            align="center"
+          />
         </Suspense>
       </Box>
     </>

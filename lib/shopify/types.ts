@@ -17,6 +17,7 @@ export type CartItem = {
   quantity: number;
   cost: {
     totalAmount: Money;
+    comparedAmount: Money;
   };
   merchandise: {
     id: string;
@@ -107,6 +108,7 @@ export type ShopifyCart = {
     subtotalAmount: Money;
     totalAmount: Money;
     totalTaxAmount: Money;
+    comparedAmount: Money;
   };
   lines: Connection<CartItem>;
   totalQuantity: number;
@@ -129,6 +131,10 @@ export type ShopifyProduct = {
   descriptionHtml: string;
   options: ProductOption[];
   priceRange: {
+    maxVariantPrice: Money;
+    minVariantPrice: Money;
+  };
+  compareAtPriceRange: {
     maxVariantPrice: Money;
     minVariantPrice: Money;
   };
@@ -254,6 +260,13 @@ export type ShopifyProductOperation = {
   data: { product: ShopifyProduct };
   variables: {
     handle: string;
+  };
+};
+
+export type ShopifyProductOperatioWithId = {
+  data: { product: ShopifyProduct };
+  variables: {
+    id: string;
   };
 };
 

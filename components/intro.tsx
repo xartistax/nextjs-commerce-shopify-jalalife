@@ -1,8 +1,9 @@
 import { Box, Container, Grid, Link, Typography } from '@mui/material';
-import { AddToCart } from 'components/cart/add-to-cart';
-import Price from 'components/price';
 import { getCollection, getCollectionProducts } from 'lib/shopify';
+
 import { Suspense } from 'react';
+import { AddToCart } from './cart/add-to-cart';
+import Price from './price';
 
 interface PageProps {
   handle: string;
@@ -13,149 +14,153 @@ export default async function CollectionIntro({ handle }: PageProps) {
   const collectionProducts = await getCollectionProducts({ collection: handle });
 
   return (
-    <>
-      <Box
-        component="section"
-        sx={{ width: '100%', minheight: '100vh', height: 'auto', paddingTop: '100px' }}
-      >
-        <Box
-          component="div"
+    <Box
+      component="section"
+      sx={{
+        width: '100%',
+        minHeight: '100vh',
+        paddingTop: '100px',
+        backgroundImage: `url('Main_Banner_3840x2126_2.webp')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      <Container maxWidth="lg">
+        {/* Collection Title */}
+        <Typography
+          gutterBottom
+          component="h1"
+          variant="h2"
+          fontWeight="bold"
           sx={{
-            width: '100%',
-            minHeight: '100vh',
-            height: 'auto',
-            backgroundSize: 'cover',
-            backgroundImage: `url('Main_Banner_3840x2126_2.webp')`,
-            display: 'flex',
-            justifyContent: 'start',
-            alignItems: 'start',
-            textAlign: 'left'
+            fontSize: { xs: '2rem', md: '3rem' },
+            mb: 3 // margin bottom for spacing
           }}
         >
-          <Box component="section" sx={{ width: '100%', minheight: '100vh', height: 'auto' }}>
-            <Box
-              component="div"
+          {collection?.title}
+        </Typography>
+
+        {/* Collection Description */}
+        <Typography
+          variant="body2"
+          fontWeight="lighter"
+          sx={{
+            fontSize: '18px',
+            width: { xs: '100%', md: '70%' }, // Responsive width
+            mb: 4 // margin bottom for spacing
+          }}
+        >
+          {collection?.description}
+        </Typography>
+
+        {/* Divider */}
+        <Box
+          component="hr"
+          sx={{
+            border: 'none',
+            borderTop: '1px solid rgba(0, 0, 0, 0.1)', // Subtle grey line
+            width: '100%',
+            my: 4 // Margin Y for spacing
+          }}
+        />
+
+        {/* Product Grid */}
+        {collectionProducts.map(async (item, i) => {
+          const compareAtPriceAmount = item.compareAtPriceRange?.minVariantPrice?.amount || null;
+          //const associatedProductIds = item.metafields[3]?.value || null
+
+          //const associatedProduct = await getProductById('gid://shopify/Product/8743223886076');
+
+          return (
+            <Grid
+              container
+              spacing={4}
+              key={i}
               sx={{
-                width: '100%',
-                height: 'auto',
-                backgroundSize: 'cover',
-                backgroundImage: `url('Main_Banner_3840x2126_2.webp')`,
-                display: 'flex',
-                justifyContent: 'start',
-                alignItems: 'start',
-                textAlign: 'left'
+                mb: 4, // margin bottom for each product
+                alignItems: 'center' // vertically align content
               }}
             >
-              <Container maxWidth="lg" sx={{ textAlign: { xs: 'left', md: 'center' } }}>
-                <Typography
-                  gutterBottom
-                  component={'h1'}
-                  variant="h2"
-                  fontWeight={'bold'}
-                  lineHeight={'1'}
-                  sx={{ fontSize: { xs: '2rem' } }}
-                >
-                  {collection?.title}
-                </Typography>
+              {/* Product Image (Left) */}
+              <Grid item xs={12} md={3}>
+                <Box
+                  component="img"
+                  src={item.featuredImage.url}
+                  alt={item.title}
+                  sx={{
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'cover'
+                  }}
+                />
+              </Grid>
 
-                <Typography
-                  variant="body2"
-                  component="p"
-                  fontSize="18px"
-                  gutterBottom
-                  color="inherit"
-                  fontWeight="lighter"
-                  sx={{ fontSize: { md: '18px', xs: 'inherit' } }}
-                >
-                  {collection?.description}
-                </Typography>
+              {/* Product Text (Right) */}
+              <Grid item xs={12} md={9}>
+                <Box paddingX={8}>
+                  <Link href={`/product/${item.handle}`} underline="none">
+                    <Typography
+                      variant="h5"
+                      component="h2"
+                      fontWeight="bold"
+                      sx={{
+                        textAlign: 'left',
+                        mb: 2, // Margin below title
+                        color: 'text.primary' // Ensure link inherits text color
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Link>
 
-                <Grid
-                  container
-                  justifyContent="start"
-                  spacing={3}
-                  sx={{ paddingTop: { xs: '1rem', md: '6rem' } }}
-                >
-                  {collectionProducts.map((item, i) => (
-                    <Grid item xs={12} sm={6} md={4} lg={4} key={i}>
-                      <Box
-                        component="div"
-                        sx={{
-                          backgroundColor: 'white',
-                          padding: '1rem'
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          src={item.featuredImage.url}
-                          alt={item.title}
-                          margin={'auto'}
-                          sx={{
-                            maxWidth: { md: '200px', xs: '100%' },
-                            display: { xs: 'none', md: 'block' }
-                          }}
-                        />
-                        <Box component="div" sx={{ paddingY: '3rem' }}>
-                          <Link href={`/product/${item.handle}`}>
-                            <Typography
-                              gutterBottom
-                              variant="h5"
-                              component="h2"
-                              textAlign="center"
-                              fontWeight="bold"
-                              sx={{
-                                textAlign: { xs: 'left', md: 'center' },
-                                fontSize: { md: '1.20rem', xs: 'inherit' }
-                              }}
-                            >
-                              {item.title}
-                            </Typography>
-                          </Link>
+                  <Box>Associated Products goes here</Box>
 
-                          <Box
-                            sx={{
-                              display: '-webkit-box',
-                              WebkitLineClamp: 3,
-                              WebkitBoxOrient: 'vertical',
-                              overflow: 'hidden',
-                              textOverflow: 'ellipsis',
-                              fontSize: { md: '1.20rem' }
-                            }}
-                          >
-                            <Typography variant="body1"> {item.description} </Typography>
-                          </Box>
-                        </Box>
+                  {/* Product Description */}
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontWeight: '900',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      mb: 2 // Margin below description
+                    }}
+                  >
+                    {item.description}
+                  </Typography>
 
-                        <Box
-                          component="div"
-                          className="mr-auto w-auto text-sm"
-                          fontWeight={'bold'}
-                          sx={{
-                            color: 'primary.main',
-                            fontSize: { md: '1.20rem', xs: '1.2rem' },
-                            paddingBottom: '32px'
-                          }}
-                        >
-                          <Price
-                            amount={item.priceRange.maxVariantPrice.amount}
-                            currencyCode={item.priceRange.maxVariantPrice.currencyCode}
-                          />
-                        </Box>
-                        <Suspense fallback={null}>
-                          <AddToCart
-                            variants={item.variants}
-                            availableForSale={item.availableForSale}
-                          />
-                        </Suspense>
-                      </Box>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Container>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </>
+                  {/* Product Price */}
+                  <Box
+                    sx={{
+                      fontWeight: 'bold',
+                      fontSize: { md: '1.20rem', xs: '1rem' },
+                      color: 'primary.main',
+                      mb: 2 // Margin below price
+                    }}
+                  >
+                    <Price
+                      amount={item.priceRange.maxVariantPrice.amount}
+                      currencyCode={item.priceRange.maxVariantPrice.currencyCode}
+                      comparedPriceAmount={compareAtPriceAmount} // Handle null cases
+                    />
+                  </Box>
+
+                  {/* Add to Cart Button */}
+                  <Suspense fallback={null}>
+                    <AddToCart
+                      variants={item.variants}
+                      availableForSale={item.availableForSale}
+                      align="left"
+                    />
+                  </Suspense>
+                </Box>
+              </Grid>
+            </Grid>
+          );
+        })}
+      </Container>
+    </Box>
   );
 }

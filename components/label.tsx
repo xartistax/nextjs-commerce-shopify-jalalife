@@ -5,12 +5,14 @@ const Label = ({
   title,
   amount,
   currencyCode,
-  position = 'bottom'
+  position = 'bottom',
+  comparedPriceAmount
 }: {
   title: string;
   amount: string;
   currencyCode: string;
   position?: 'bottom' | 'center';
+  comparedPriceAmount: string;
 }) => {
   return (
     <div
@@ -24,6 +26,7 @@ const Label = ({
           className="flex-none rounded-full bg-customColor  p-2 text-white"
           amount={amount}
           currencyCode={currencyCode}
+          comparedPriceAmount={comparedPriceAmount}
           currencyCodeClassName="hidden @[275px]/label:inline"
         />
       </div>

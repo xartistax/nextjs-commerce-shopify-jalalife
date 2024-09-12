@@ -8,130 +8,120 @@ export default async function CollectionIntro() {
   const collectionProducts = await getCollectionProducts({ collection: 'online-shop' });
 
   return (
-    <>
-      <Box
-        component="section"
-        sx={{ width: '100%', minheight: '100vh', height: 'auto', paddingTop: '1rem' }}
-      >
-        <Box
-          component="div"
+    <Box
+      component="section"
+      sx={{
+        width: '100%',
+        minHeight: '100vh',
+        height: 'auto',
+        backgroundColor: '#f8f9fa',
+        py: { xs: 3, md: 6 } // Padding top and bottom
+      }}
+    >
+      <Container maxWidth="lg">
+        {/* Title */}
+        <Typography
+          gutterBottom
+          component={'h1'}
+          variant="h2"
+          fontWeight={'bold'}
           sx={{
-            width: '100%',
-            minHeight: '100vh',
-            height: 'auto',
-            display: 'flex',
-            justifyContent: 'start',
-            alignItems: 'start',
-            textAlign: 'left'
+            fontSize: { xs: '2rem', md: '2.5rem' },
+            textAlign: { xs: 'left', md: 'center' },
+            mb: { xs: 4, md: 6 } // Margin bottom for spacing from title to content
           }}
         >
-          <Box component="section" sx={{ width: '100%', minheight: '100vh', height: 'auto' }}>
-            <Box
-              component="div"
-              sx={{
-                width: '100%',
-                height: 'auto',
-                display: 'flex',
-                justifyContent: 'start',
-                alignItems: 'start',
-                textAlign: 'left'
-              }}
-            >
-              <Container maxWidth="lg" sx={{ textAlign: { xs: 'left', md: 'center' } }}>
+          Next Generation Plant-Extract
+        </Typography>
+
+        {/* Product Grid */}
+        <Grid container spacing={4} justifyContent="center">
+          {collectionProducts.map((item, i) => (
+            <Grid item xs={12} sm={6} md={4} key={i}>
+              <Box
+                sx={{
+                  backgroundColor: 'white',
+                  padding: '1.5rem',
+                  border: '1px solid rgba(99, 99, 99, 0.1)',
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                  textAlign: 'center',
+                  height: '100%'
+                }}
+              >
+                {/* Product Image */}
+                <Box
+                  component="img"
+                  src={item.featuredImage.url}
+                  alt={item.title}
+                  sx={{
+                    maxWidth: { md: '200px', xs: '100%' },
+                    marginBottom: '1rem',
+                    objectFit: 'contain',
+                    margin: 'auto'
+                  }}
+                />
+
+                {/* Product Title */}
                 <Typography
-                  gutterBottom
-                  component={'h1'}
-                  variant="h2"
-                  fontWeight={'bold'}
-                  lineHeight={'1'}
-                  sx={{ fontSize: { xs: '2rem' } }}
+                  variant="h5"
+                  component="h2"
+                  fontWeight="bold"
+                  sx={{
+                    textAlign: { xs: 'left', md: 'center' },
+                    display: 'block', // Ensures the title takes full width (block element)
+                    mb: '1rem' // Ensure margin below title so description stays underneath
+                  }}
                 >
-                  Next Generation Plant-Extract
+                  <Link href={`/product/${item.handle}`} color="inherit" underline="hover">
+                    {item.title}
+                  </Link>
                 </Typography>
 
-                <Grid
-                  container
-                  justifyContent="start"
-                  spacing={3}
-                  sx={{ paddingTop: { xs: '1rem', md: '6rem' } }}
+                {/* Product Description */}
+                <Typography
+                  variant="body1"
+                  sx={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    mb: '1.5rem' // Margin below description
+                  }}
                 >
-                  {collectionProducts.map((item, i) => (
-                    <Grid item xs={6} sm={6} md={4} lg={4} key={i}>
-                      <Box
-                        component="div"
-                        sx={{
-                          backgroundColor: 'white',
-                          padding: '1rem',
-                          borderColor: 'rgba(99, 99, 99, 0.1)',
-                          border: '1px solid rgba(99, 99, 99, 0.1)'
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          src={item.featuredImage.url}
-                          alt={item.title}
-                          margin={'auto'}
-                          sx={{
-                            maxWidth: { md: '200px', xs: '100%' }
-                          }}
-                        />
-                        <Box component="div" sx={{ paddingY: '3rem' }}>
-                          <Typography
-                            gutterBottom
-                            variant="h5"
-                            component="h2"
-                            textAlign="center"
-                            fontWeight="bold"
-                            sx={{
-                              textAlign: { xs: 'left', md: 'center' },
-                              fontSize: { md: '1.20rem', xs: '1.25rem' }
-                            }}
-                          >
-                            <Link href={`/product/${item.handle}`}>{item.title}</Link>
-                          </Typography>
-                          <Box
-                            sx={{
-                              display: '-webkit-box',
-                              WebkitLineClamp: 3,
-                              WebkitBoxOrient: 'vertical',
-                              overflow: 'hidden',
-                              textOverflow: 'ellipsis'
-                            }}
-                          >
-                            <Typography variant="body1">{item.description}</Typography>
-                          </Box>
-                        </Box>
+                  {item.description}
+                </Typography>
 
-                        <Box
-                          component="div"
-                          className="mr-auto w-auto text-sm"
-                          fontWeight={'bold'}
-                          sx={{
-                            color: 'primary.main',
-                            fontSize: { md: '1.20rem', xs: '1.2rem' },
-                            paddingBottom: '32px'
-                          }}
-                        >
-                          <Price
-                            amount={item.priceRange.maxVariantPrice.amount}
-                            currencyCode={item.priceRange.maxVariantPrice.currencyCode}
-                          />
-                        </Box>
-                        <Suspense fallback={null}>
-                          <AddToCart
-                            variants={item.variants}
-                            availableForSale={item.availableForSale}
-                          />
-                        </Suspense>
-                      </Box>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Container>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </>
+                {/* Price */}
+                <Box
+                  sx={{
+                    color: 'primary.main',
+                    fontSize: { md: '1.20rem', xs: '1rem' },
+                    fontWeight: 'bold',
+                    mb: '1rem'
+                  }}
+                >
+                  <Price
+                    amount={item.priceRange.maxVariantPrice.amount}
+                    currencyCode={item.priceRange.maxVariantPrice.currencyCode}
+                    comparedPriceAmount={item.compareAtPriceRange.minVariantPrice.amount}
+                  />
+                </Box>
+
+                {/* Add to Cart Button */}
+                <Suspense fallback={null}>
+                  <AddToCart
+                    variants={item.variants}
+                    availableForSale={item.availableForSale}
+                    align="right"
+                  />
+                </Suspense>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }

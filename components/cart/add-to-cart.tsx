@@ -78,10 +78,12 @@ function SubmitButton({
 
 export function AddToCart({
   variants,
-  availableForSale
+  availableForSale,
+  align
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
+  align: string;
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
@@ -102,9 +104,9 @@ export function AddToCart({
         width: '100%',
         margin: 'auto',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center', // Center content vertically
-        textAlign: 'center'
+        justifyContent: align,
+        alignItems: align, // Center content vertically
+        textAlign: align
       }}
     >
       <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />

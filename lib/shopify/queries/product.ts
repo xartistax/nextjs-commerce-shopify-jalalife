@@ -41,3 +41,12 @@ export const getProductMetafieldsQuery = /* GraphQL */ `
     }
   }
 `;
+
+export const getProductByIdQuery = /* GraphQL */ `
+  query getProductByIdQuery($id: ID!) {
+    product(id: $id) {
+      ...product
+    }
+  }
+  ${productFragment}
+`;

@@ -24,6 +24,16 @@ const productFragment = /* GraphQL */ `
         currencyCode
       }
     }
+    compareAtPriceRange {
+      maxVariantPrice {
+        amount
+        currencyCode
+      }
+      minVariantPrice {
+        amount
+        currencyCode
+      }
+    }
     variants(first: 250) {
       edges {
         node {
@@ -63,6 +73,7 @@ const productFragment = /* GraphQL */ `
         { key: "sub_title", namespace: "custom" }
         { key: "truncated_product_text", namespace: "custom" }
         { key: "reviews", namespace: "rating_count" }
+        { key: "associated_products", namespace: "custom" }
       ]
     ) {
       key

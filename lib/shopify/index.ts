@@ -20,6 +20,7 @@ import {
 import { getMenuQuery } from './queries/menu';
 import { getPageQuery, getPagesQuery } from './queries/page';
 import {
+  getProductByIdQuery,
   getProductMetafieldsQuery,
   getProductQuery,
   getProductRecommendationsQuery,
@@ -50,6 +51,7 @@ import {
   ShopifyProduct,
   ShopifyProductMetafield,
   ShopifyProductMetafieldsOperation,
+  ShopifyProductOperatioWithId,
   ShopifyProductOperation,
   ShopifyProductRecommendationsOperation,
   ShopifyProductsOperation,
@@ -426,6 +428,17 @@ export async function getProducts({
   return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
 }
 
+export async function getProductById(id: string): Promise<Product | undefined> {
+  const res = await shopifyFetch<ShopifyProductOperatioWithId>({
+    query: getProductByIdQuery,
+    tags: [TAGS.products],
+    variables: {
+      id
+    }
+  });
+
+  return reshapeProduct(res.body.data.product, false);
+}
 // This is called from `app/api/revalidate.ts` so providers can control revalidation logic.
 export async function revalidate(req: NextRequest): Promise<NextResponse> {
   // We always need to respond with a 200 status code to Shopify,
