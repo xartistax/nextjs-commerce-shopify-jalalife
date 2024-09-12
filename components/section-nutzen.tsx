@@ -7,13 +7,13 @@ const items = [
     title: 'Optimale Aufnahme ',
     content:
       'Unsere Extrakte werden durch einen einzigartigen Prozess mit Akazienharz veredelt. Dies ermöglicht, dass jeder eingenommene Tropfen schnell und effizient im Körper dort ankommt, wo er benötigt wird.',
-    image: '/icon_11.avif'
+    image: '/Icon_Wirkung.3.svg'
   },
   {
     title: 'Wissenschaftlich belegt',
     content:
       'Wir verwenden ausschliesslich Pflanzenwirkstoffe, die in der klinischen Forschung seit Jahrzehnten erforscht, geprüft und erprobt werden. Die Ergebnisse dieser Studien lassen die Wissenschaft immer wieder staunen!',
-    image: '/icon_2.webp'
+    image: '/Icon_Wissenschaftlich belegt.2.svg'
   },
   {
     title: 'Nachhaltig und Swissmade',

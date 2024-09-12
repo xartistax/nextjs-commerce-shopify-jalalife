@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Link, Typography } from '@mui/material';
-import { getCollection, getCollectionProducts } from 'lib/shopify';
+import { getCollection, getCollectionProducts, getProductById } from 'lib/shopify'; // Assuming Product is defined here
 
+import { Product } from 'lib/shopify/types';
 import { Suspense } from 'react';
 import { AddToCart } from './cart/add-to-cart';
 import Price from './price';
@@ -67,9 +68,26 @@ export default async function CollectionIntro({ handle }: PageProps) {
         {/* Product Grid */}
         {collectionProducts.map(async (item, i) => {
           const compareAtPriceAmount = item.compareAtPriceRange?.minVariantPrice?.amount || null;
-          //const associatedProductIds = item.metafields[3]?.value || null
+          let associatedProductIds = item.metafields[3]?.value || null;
 
-          //const associatedProduct = await getProductById('gid://shopify/Product/8743223886076');
+          // Parse associatedProductIds if it's a string and looks like an array
+          if (associatedProductIds) {
+            try {
+              associatedProductIds = JSON.parse(associatedProductIds);
+            } catch (error) {
+              console.error('Error parsing associatedProductIds', error);
+            }
+          }
+
+          // Fetch associated products by ID if it's a valid array
+          let associatedProducts: Product[] = [];
+          if (Array.isArray(associatedProductIds) && associatedProductIds.length > 0) {
+            associatedProducts = await Promise.all(
+              associatedProductIds.map(async (productId: string): Promise<Product> => {
+                return (await getProductById(productId)) as Product; // Assume getProductById returns Product type
+              })
+            );
+          }
 
           return (
             <Grid
@@ -113,8 +131,18 @@ export default async function CollectionIntro({ handle }: PageProps) {
                     </Typography>
                   </Link>
 
-                  <Box>Associated Products goes here</Box>
-
+                  {/* Associated Products */}
+                  <Box mb={2}>
+                    <Typography variant="body2" fontWeight={'bold'}>
+                      {associatedProducts.map((product: Product, idx: number) => (
+                        <span key={idx}>
+                          <Link href={`/product/${product.handle}`}>{product.title}</Link>
+                          {/* Only add ' || ' if it's not the last product */}
+                          {idx < associatedProducts.length - 1 && ' || '}
+                        </span>
+                      ))}
+                    </Typography>
+                  </Box>
                   {/* Product Description */}
                   <Typography
                     variant="body1"
