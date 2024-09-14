@@ -6,20 +6,20 @@ const items = [
   {
     title: 'Optimale Aufnahme ',
     content:
-      'Unsere Extrakte werden durch einen einzigartigen Prozess mit Akazienharz veredelt. Dies ermöglicht, dass jeder eingenommene Tropfen schnell und effizient im Körper dort ankommt, wo er benötigt wird.',
+      'Unsere Extrakte werden durch einen einzigartigen Prozess mit Gummi arabicum veredelt. Dies sorgt dafür, dass jeder eingenommene Tropfen schnell und effizient im Körper dort ankommt, wo er benötigt wird',
     image: '/Icon_Wirkung.3.svg'
   },
   {
     title: 'Wissenschaftlich belegt',
     content:
-      'Wir verwenden ausschliesslich Pflanzenwirkstoffe, die in der klinischen Forschung seit Jahrzehnten erforscht, geprüft und erprobt werden. Die Ergebnisse dieser Studien lassen die Wissenschaft immer wieder staunen!',
+      'Wir setzen ausschließlich auf Pflanzenwirkstoffe, die seit Jahrzehnten in der klinischen Forschung intensiv untersucht, getestet und erprobt werden. Die beeindruckenden Ergebnisse dieser Studien überraschen uns immer wieder aufs Neue!',
     image: '/Icon_Wissenschaftlich belegt.2.svg'
   },
   {
     title: 'Nachhaltig und Swissmade',
     content:
-      'Um die bestmögliche Qualität sicherzustellen, werden unsere Produkte unter höchsten Qualitätsanforderungen ausschliesslich in der Schweiz entwickelt und hergestellt.',
-    image: '/swiss.avif'
+      'Unsere Produkte werden unter strengsten Qualitätsstandards ausschließlich in der Schweiz entwickelt und hergestellt. Modernste Technologien und sorgfältige Kontrollen garantieren dabei höchste Reinheit und Wirksamkeit – für unvergleichliche Qualität.',
+    image: '/Icon_Quailtat.4.svg'
   }
 ];
 

@@ -35,7 +35,7 @@ export default async function CollectionIntro() {
         </Typography>
 
         {/* Product Grid */}
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={1} justifyContent="center">
           {collectionProducts.map((item, i) => (
             <Grid item xs={12} sm={6} md={4} key={i}>
               <Box
@@ -68,9 +68,9 @@ export default async function CollectionIntro() {
                   component="h2"
                   fontWeight="bold"
                   sx={{
-                    textAlign: { xs: 'left', md: 'center' },
-                    display: 'block', // Ensures the title takes full width (block element)
-                    mb: '1rem' // Ensure margin below title so description stays underneath
+                    textAlign: { xs: 'center', md: 'center' },
+                    display: 'block' // Ensures the title takes full width (block element)
+                    // Ensure margin below title so description stays underneath
                   }}
                 >
                   <Link href={`/product/${item.handle}`} color="inherit" underline="hover">
@@ -78,12 +78,17 @@ export default async function CollectionIntro() {
                   </Link>
                 </Typography>
 
+                <Typography sx={{ fontWeight: 'bold', mb: '1rem', color: 'primary.main' }}>
+                  {' '}
+                  {item.metafields[0]?.value}{' '}
+                </Typography>
+
                 {/* Product Description */}
                 <Typography
                   variant="body1"
                   sx={{
                     display: '-webkit-box',
-                    WebkitLineClamp: 3,
+                    WebkitLineClamp: 5,
                     WebkitBoxOrient: 'vertical',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
@@ -96,6 +101,7 @@ export default async function CollectionIntro() {
                 {/* Price */}
                 <Box
                   sx={{
+                    justifyContent: 'center',
                     color: 'primary.main',
                     fontSize: { md: '1.20rem', xs: '1rem' },
                     fontWeight: 'bold',

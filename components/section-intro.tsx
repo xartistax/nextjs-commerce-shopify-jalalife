@@ -75,7 +75,7 @@ export default function SectionIntro({ heading, size }: SectionIntroProps) {
               left: 0,
               width: '100%',
               height: '100%',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)', // Black with 50% opacity
+              backgroundColor: 'rgba(0, 0, 0, 0.1)', // Black with 50% opacity
               zIndex: 0 // Ensures overlay is on top of the video but below content
             }}
           />

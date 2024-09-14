@@ -46,12 +46,7 @@ export default async function JalaPage() {
             </Box>
             <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} alignItems="center">
               <Box>
-                <Typography
-                  variant="h4"
-                  component={'h2'}
-                  sx={{ fontWeight: 'bold', textTransform: 'uppercase' }}
-                  gutterBottom
-                >
+                <Typography variant="h4" component={'h2'} sx={{ fontWeight: 'bold' }} gutterBottom>
                   {employee.name}
                 </Typography>
                 <Typography variant="body1">{employee.bio}</Typography>

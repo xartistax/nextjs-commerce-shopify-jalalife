@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-import { Box, Container, Grid, Link, Paper, Typography } from '@mui/material';
+import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 
 const sections = [
   {
@@ -11,7 +11,7 @@ const sections = [
     title: 'Qualität',
     link: '#',
     description:
-      'Die Jala-Life Formel optimiert die Aufnahme von Pflanzenwirkstoffen in deinem Körper, sodass geringe Dosen ausreichend sind. Unsere Formel unterstützt die natürlichen Aufnahmemechanismen deines Körpers – ohne Tricks! Dies erreichen wir mit nur drei natürlichen Zutaten: Akazienharz, Schweizer Bergquellwasser und Pflanzenextrakt.'
+      'Die Jala-Life Formel optimiert die Aufnahme von Pflanzenwirkstoffen, sodass bereits kleinste Mengen völlig ausreichend sind – und das ohne den Körper auszutricksen. Unsere Rezeptur unterstützt die natürlichen Aufnahmemechanismen des Körpers und besteht aus nur drei reinen, hochwertigen Zutaten: Gummi arabicum, kristallklares Schweizer Bergquellwasser und erstklassige Pflanzenextrakte – Qualität, der du vertrauen kannst!'
   },
   {
     id: 2,
@@ -20,16 +20,16 @@ const sections = [
     title: 'Wissenschaft',
     link: '#',
     description:
-      'Wissenschaft ist uns wichtig. Jala-Life Produkte enthalten ausschließlich Pflanzenextrakte mit überzeugenden Studienergebnissen. Wir tragen zur modernen Forschung bei, und unsere Extrakte werden von unabhängigen Laboren geprüft. Deine Sicherheit und Lebensqualität sind bei uns in guten Händen!'
+      'Unsere Produkte vereinen das Beste aus Wissenschaft und Natur. Wir setzen ausschließlich auf Pflanzenextrakte, die in zahlreichen Studien überzeugende Ergebnisse gezeigt haben. Auch wir tragen aktiv zur Forschung bei und führen in Zusammenarbeit mit renommierten Forschungsgruppen Studien durch. Jala-Life ist das Ergebnis intensiver Forschung und innovativer Entwicklung – bei uns bist du in kompetenten Händen.'
   },
   {
     id: 3,
     icon: <Image src={'/svg/boxIcons/Icon_Produktdetails.svg'} alt="" width={50} height={50} />,
     iconBgColor: 'primary.light',
-    title: 'Community!',
+    title: 'Rohstoffe!',
     link: '#',
     description:
-      'Tritt der Jala-Life Familie bei und erhalte Zugang zu unserer von Experten begleiteten Facebook Community. Stelle Fragen, berichte über Erfahrungen und diskutiere mit Gleichgesinnten über Heilpflanzen. Freu dich auf spannende Blogs, Experteninterviews und Workshops, die dein Wissen erweitern!'
+      'Die Basis eines hochwertigen Produkts liegt in der Auswahl der richtigen Rohstoffe. Wir setzen ausschließlich auf natürliche, nachhaltig gewonnene Inhaltsstoffe, die sorgfältig ausgewählt und schonend verarbeitet werden. Qualität und Natürlichkeit stehen bei uns im Vordergrund, damit du nur das Beste aus der Natur erhältst. Die Rohstoffe für unsere Extrakte stammen aus kontrolliertem Anbau und werden regelmäßig von unabhängigen Laboren geprüft – für eine Reinheit, die du spüren kannst.'
   }
 ];
 
@@ -91,10 +91,6 @@ export default function SectionInfo() {
                 <Typography variant="body1" component="p">
                   {section.description}
                 </Typography>
-                <Link href="#" variant="body2" marginTop={3} display={'block'}>
-                  {' '}
-                  {'>> '}mehr erfahren
-                </Link>
               </Box>
             </Paper>
           </Grid>

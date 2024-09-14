@@ -31,7 +31,13 @@ const Price = ({
   const hasDiscount = comparedPriceAmount && parseFloat(comparedPriceAmount) > parseFloat(amount);
 
   return (
-    <Box display="flex" alignItems="center">
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent={'center'}
+      width={'100%'}
+      textAlign={'center'}
+    >
       {hasDiscount && comparedPrice && (
         <Typography
           suppressHydrationWarning={true}

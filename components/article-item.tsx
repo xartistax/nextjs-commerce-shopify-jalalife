@@ -1,6 +1,6 @@
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Box, Grid, Link, Paper, Typography } from '@mui/material';
 import { ShopifyArticle } from 'lib/shopify/types';
-import Link from 'next/link';
+
 import { TruncatedText } from './section-carousel';
 
 interface ArticleItemProps {
@@ -42,7 +42,10 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               gutterBottom
               paddingTop={2}
             >
-              <Link href={`/blog/wissenswert/article/${article.handle}`} passHref>
+              <Link
+                href={`/blog/wissenswert/article/${article.handle}`}
+                sx={{ color: 'black', textDecoration: 'none' }}
+              >
                 {article.title}
               </Link>
             </Typography>
@@ -65,10 +68,16 @@ export default function ArticleItem({ article }: ArticleItemProps) {
             >
               <TruncatedText> {article.excerpt}</TruncatedText>
             </Typography>
+
+            <Link href={`/blog/wissenswert/article/${article.handle}`}>
+              <Typography variant="caption" gutterBottom color={'primary.main'}>
+                weiter Lesen
+              </Typography>
+            </Link>
           </Box>
 
           {/* Promotion Section */}
-          <Box marginTop={2}>
+          {/* <Box marginTop={2}>
             {article.metafield ? (
               <>
                 <Typography
@@ -106,7 +115,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
                 </Typography>
               </>
             ) : null}
-          </Box>
+          </Box> */}
         </Box>
       </Paper>
     </Grid>

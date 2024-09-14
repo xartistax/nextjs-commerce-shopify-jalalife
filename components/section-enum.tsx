@@ -2,17 +2,36 @@
 import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
 import StickyBox from './sticky-component';
 const items = [
-  { title: 'Wirkstoffe', content: 'Die Wirkstoffe sind vor der Magensäure geschützt.' },
-  { title: 'Verdauung', content: 'Bestmögliche Verteilung der Wirkstoffe im Darm' },
-  { title: 'Aufnahme', content: 'Schnelle und optimale Aufnahme in den Körper' },
-  { title: 'Dosierung', content: 'Flüssig/Tropfen – somit leicht dosierbar' },
-  { title: 'Mischbar', content: 'Kann mit Getränken gemischt werden' },
   {
-    title: 'Ohne Zusatzstoffe',
-    content: 'Frei von Piperin, Glycerin, Polysorbate, Alkohol und Zucker'
+    title: 'Schutz vor der Magensäure ',
+    content:
+      'Dank unserer innovativen Formulierung sind die Wirkstoffe vor der Magensäure geschützt und können ungehindert vom Darm aufgenommen werden.'
   },
-  { title: 'Maximale Wirkung', content: 'Geringe Dosen sind bereits ausreichend' },
-  { title: 'Verträglich', content: 'Glutenfrei und vegan' }
+  {
+    title: 'Verbesserte Aufnahme',
+    content:
+      'Durch die Wasserlöslichkeit unserer Wirkstoffe können sie effizient vom Darm aufgenommen werden.'
+  },
+  {
+    title: 'Einfache Dosierung',
+    content:
+      'Unsere flüssigen Jala-Life Extrakte in Tropfenform ermöglichen eine flexible und leicht anpassbare Dosierung.'
+  },
+  {
+    title: 'Mischbar',
+    content:
+      'Unsere flüssigen Produkte lassen sich mit allen Getränken mischen und problemlos untereinander kombinieren.'
+  },
+  {
+    title: 'Ohne bedenkliche Zusatzstoffe',
+    content:
+      'Unsere Produkte kommen ohne Polysorbate, Alkohol, Piperin, Zucker, Gluten, Laktose, Gelatine oder Palmöl aus – sie sind zudem frei von Gentechnik.'
+  },
+  {
+    title: 'Maximale Wirkung',
+    content:
+      'Unsere spezielle Formulierung ermöglicht es, dass bereits geringe Dosen eine maximale Wirkung entfalten.'
+  }
 ];
 
 export default function SectionEnum() {
@@ -26,7 +45,7 @@ export default function SectionEnum() {
         component="h2"
         sx={{ fontWeight: 'bold', textTransform: 'uppercase', marginBottom: '5rem' }}
       >
-        Was macht Jala-Life einzigartig?
+        Was macht Jala-Life so einzigartig?
       </Typography>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
