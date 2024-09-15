@@ -157,9 +157,9 @@ const CollectionProducts = () => {
             <Slide
               duration={5000}
               transitionDuration={300}
-              indicators={true}
+              indicators={false}
               slidesToScroll={1}
-              autoplay={false}
+              autoplay={true}
               slidesToShow={1}
               arrows={false}
               responsive={responsiveSettings}
