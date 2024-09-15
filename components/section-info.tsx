@@ -6,7 +6,7 @@ import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 const sections = [
   {
     id: 1,
-    icon: <Image src={'/svg/boxIcons/Icon_Qualiltat.svg'} alt="" width={50} height={50} />,
+    icon: <Image src={'/svg/boxIcons/Icon_Qualiltat.svg'} alt="" width={90} height={90} />,
     iconBgColor: 'primary.light',
     title: 'Qualität',
     link: '#',
@@ -15,7 +15,7 @@ const sections = [
   },
   {
     id: 2,
-    icon: <Image src={'/svg/boxIcons/Icon_Inhaltsstoffe.svg'} alt="" width={50} height={50} />,
+    icon: <Image src={'/svg/boxIcons/Icon_Inhaltsstoffe.svg'} alt="" width={90} height={90} />,
     iconBgColor: 'primary.light',
     title: 'Wissenschaft',
     link: '#',
@@ -24,7 +24,7 @@ const sections = [
   },
   {
     id: 3,
-    icon: <Image src={'/svg/boxIcons/Icon_Produktdetails.svg'} alt="" width={50} height={50} />,
+    icon: <Image src={'/svg/boxIcons/Icon_Produktdetails.svg'} alt="" width={90} height={90} />,
     iconBgColor: 'primary.light',
     title: 'Rohstoffe',
     link: '#',

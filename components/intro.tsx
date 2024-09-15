@@ -29,16 +29,19 @@ export default async function CollectionIntro({ handle }: PageProps) {
       <Container maxWidth="lg">
         {/* Collection Title */}
         <Typography
-          gutterBottom
           component="h1"
           variant="h2"
           fontWeight="bold"
           sx={{
-            fontSize: { xs: '2rem', md: '3rem' },
-            mb: 3 // margin bottom for spacing
+            fontSize: { xs: '2rem', md: '3rem' }
+            // margin bottom for spacing
           }}
         >
           {collection?.title}
+        </Typography>
+        <Typography gutterBottom sx={{ color: 'primary.main', fontWeight: '900', mb: 3 }}>
+          {' '}
+          Mehr Wirkung, mehr Ersparnis!{' '}
         </Typography>
 
         {/* Collection Description */}
