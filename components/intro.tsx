@@ -152,7 +152,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
                     sx={{
                       fontWeight: '900',
                       display: '-webkit-box',
-                      WebkitLineClamp: 3,
+                      WebkitLineClamp: 100,
                       WebkitBoxOrient: 'vertical',
                       overflow: 'hidden',
                       textOverflow: 'ellipsis',
