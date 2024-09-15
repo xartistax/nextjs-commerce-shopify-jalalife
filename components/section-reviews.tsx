@@ -13,8 +13,7 @@ import {
   Tooltip,
   Typography
 } from '@mui/material';
-import TimeAgo from 'javascript-time-ago';
-import de from 'javascript-time-ago/locale/de';
+// import TimeAgo from 'javascript-time-ago';
 import { useEffect, useState } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -85,8 +84,8 @@ const SectionReviews = () => {
   const [sliderReady, setSliderReady] = useState(false);
   const [placeholderFadeOut, setPlaceholderFadeOut] = useState(false);
 
-  TimeAgo.addDefaultLocale(de);
-  const timeAgo = new TimeAgo('de-DE');
+  // TimeAgo.addDefaultLocale(de);
+  // const timeAgo = new TimeAgo('de-DE');
 
   const responsiveSettings = [
     {
@@ -256,7 +255,8 @@ const SectionReviews = () => {
                         {' '}
                         <Typography variant="caption">
                           {' '}
-                          {timeAgo.format(new Date(review.created_at))}{' '}
+                          {/* {timeAgo.format(new Date(review.created_at))}{' '} */}
+                          {review.created_at}
                         </Typography>{' '}
                       </Grid>
                     </Grid>
