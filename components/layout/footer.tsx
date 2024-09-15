@@ -21,7 +21,7 @@ export default async function Footer() {
         <FooterMenu mainMenu={menu} gutGegenMenu={menugutgegen} legalMenu={menulegal} />
       </div>
       <div className="mx-auto  block w-full max-w-7xl gap-6 border-t border-neutral-200  px-6 py-12 text-center text-sm md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0">
-        <Typography variant="overline" fontSize={'0.9rem'} display="block" gutterBottom>
+        <Typography variant="overline" fontSize={'0.65rem'} display="block" gutterBottom>
           Made with ❤️ in 🇨🇭 by{' '}
           <Link href={'https://bexolutions.ch/'} target={'_blank'}>
             {' '}
