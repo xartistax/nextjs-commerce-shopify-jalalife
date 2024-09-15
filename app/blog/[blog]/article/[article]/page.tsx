@@ -81,10 +81,6 @@ export default async function Article({ params }: { params: { blog: string; arti
                       Published on: {new Date(article.publishedAt).toLocaleDateString()}
                     </Typography>
 
-                    <Typography variant="body2" color="textSecondary">
-                      Author: {article.authorV2.name}
-                    </Typography>
-
                     {article.metafield ? (
                       <>
                         <Typography variant="body2" color="textSecondary">
