@@ -5,14 +5,14 @@ const Price = ({
   amount,
   comparedPriceAmount,
   className,
-  currencyCode = 'CHF'
-  //currencyCodeClassName
+  currencyCode = 'CHF',
+  currencyCodeClassName
 }: {
   amount: string;
   comparedPriceAmount?: string; // Update to optional
   className?: string;
   currencyCode: string;
-  //currencyCodeClassName?: string;
+  currencyCodeClassName?: string;
 } & React.ComponentProps<'p'>) => {
   const originalPrice = new Intl.NumberFormat(undefined, {
     style: 'currency',
