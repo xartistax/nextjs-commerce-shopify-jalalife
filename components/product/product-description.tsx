@@ -60,8 +60,8 @@ export async function ProductDescription({ product }: { product: Product }) {
           >
             <Price
               amount={product.priceRange.maxVariantPrice.amount}
+              comparedAmount={product.compareAtPriceRange.maxVariantPrice.amount}
               currencyCode={product.priceRange.maxVariantPrice.currencyCode}
-              comparedPriceAmount={product.compareAtPriceRange.minVariantPrice.amount}
             />
           </Box>
           <Box component="div" className="mr-auto w-auto py-2 text-sm font-light ">

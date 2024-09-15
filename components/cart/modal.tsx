@@ -2,6 +2,7 @@
 
 import { Dialog, Transition } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
+import { Typography } from '@mui/material';
 import Price from 'components/price';
 import { DEFAULT_OPTION } from 'lib/constants';
 import type { Cart } from 'lib/shopify/types';
@@ -37,6 +38,8 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
     }
   }, [isOpen, cart?.totalQuantity, quantityRef]);
 
+  console.log('CART: ', cart);
+
   return (
     <>
       <button aria-label="Open cart" onClick={openCart}>
@@ -66,7 +69,14 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
           >
             <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[390px]">
               <div className="flex items-center justify-between">
-                <p className="text-lg font-semibold">Warenkorb</p>
+                <Typography
+                  className="text-lg font-semibold"
+                  component={'p'}
+                  sx={{ fontWeight: 'bold' }}
+                >
+                  {' '}
+                  Warenkorb{' '}
+                </Typography>
 
                 <button aria-label="Close cart" onClick={closeCart}>
                   <CloseCart />
@@ -120,13 +130,21 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                               </div>
 
                               <div className="flex flex-1 flex-col text-base">
-                                <span className="leading-tight">
+                                <Typography
+                                  variant="subtitle2"
+                                  className="leading-tight"
+                                  sx={{ display: 'block', width: '100%' }}
+                                >
                                   {item.merchandise.product.title}
-                                </span>
+                                </Typography>
+
                                 {item.merchandise.title !== DEFAULT_OPTION ? (
-                                  <p className="text-sm text-neutral-500">
+                                  <Typography
+                                    variant="subtitle2"
+                                    className="text-sm text-neutral-500"
+                                  >
                                     {item.merchandise.title}
-                                  </p>
+                                  </Typography>
                                 ) : null}
                               </div>
                             </Link>
@@ -135,7 +153,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                                 className="flex justify-end space-y-2 text-right text-sm"
                                 amount={item.cost.totalAmount.amount}
                                 currencyCode={item.cost.totalAmount.currencyCode}
-                                comparedPriceAmount={cart.cost.comparedAmount.amount}
+                                //comparedAmount='99.99'
                               />
                               <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200">
                                 <EditItemQuantityButton item={item} type="minus" />
@@ -152,25 +170,27 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                   </ul>
                   <div className="py-4 text-sm text-neutral-500">
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 ">
-                      <p>Steuern</p>
+                      <Typography component={'p'}> Steuern </Typography>
                       <Price
                         className="text-right text-base text-black "
                         amount={cart.cost.totalTaxAmount.amount}
                         currencyCode={cart.cost.totalTaxAmount.currencyCode}
-                        comparedPriceAmount={cart.cost.comparedAmount.amount}
                       />
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1">
-                      <p>Versand</p>
-                      <p className="text-right">Wird im nächsten Schritt berechnet</p>
+                      <Typography component={'p'}> Versand </Typography>
+
+                      <Typography component={'p'} className="text-right">
+                        {' '}
+                        Wird im nächsten Schritt berechnet{' '}
+                      </Typography>
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1">
-                      <p>Total</p>
+                      <Typography component={'p'}> Total </Typography>
                       <Price
                         className="text-right text-base text-black "
                         amount={cart.cost.totalAmount.amount}
                         currencyCode={cart.cost.totalAmount.currencyCode}
-                        comparedPriceAmount={cart.cost.comparedAmount.amount}
                       />
                     </div>
                   </div>
@@ -178,7 +198,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                     href={cart.checkoutUrl}
                     className="block w-full rounded-full bg-customColor p-3 text-center text-sm font-medium text-white opacity-90 hover:opacity-100"
                   >
-                    Weiter zur Zahlung
+                    <Typography sx={{ fontWeight: 'bold' }}>Weiter zur Zahlung</Typography>
                   </a>
                 </div>
               )}
