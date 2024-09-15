@@ -45,7 +45,7 @@ export default function SectionIntro({ heading, size }: SectionIntroProps) {
           }}
         >
           <video
-            poster={'/BambooPoster.png'}
+            poster={'/poster2.jpg'}
             autoPlay
             loop
             muted
@@ -63,7 +63,7 @@ export default function SectionIntro({ heading, size }: SectionIntroProps) {
               zIndex: -1
             }}
           >
-            <source src={'/Bamboo_Forest.mp4'} type="video/mp4" />
+            <source src={'/jala_life_bioverfugbarkeit.mp4'} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 

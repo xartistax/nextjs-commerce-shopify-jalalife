@@ -12,7 +12,7 @@ export default async function SectionMainBlog() {
     <>
       <Head>
         {/* Preload Video */}
-        <link rel="preload" href="organic2.mp4" as="video" />
+        <link rel="preload" href="/jala_life_plfanzen_extrakte_high.mp4" as="video" />
       </Head>
 
       <Container
@@ -26,7 +26,7 @@ export default async function SectionMainBlog() {
         {/* Background Video */}
 
         <video
-          poster="organic-frame.webp"
+          poster="poster.jpg"
           autoPlay
           loop
           muted
@@ -44,7 +44,7 @@ export default async function SectionMainBlog() {
             zIndex: -1
           }}
         >
-          <source src="organic2.mp4" type="video/mp4" />
+          <source src="/jala_life_plfanzen_extrakte_high.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
@@ -56,7 +56,7 @@ export default async function SectionMainBlog() {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundColor: 'rgba(0, 0, 0, 0.1)',
             zIndex: 0
           }}
         />

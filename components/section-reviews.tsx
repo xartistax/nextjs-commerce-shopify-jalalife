@@ -182,7 +182,10 @@ const SectionReviews = () => {
                     height: 'auto',
                     alignItems: 'stretch',
                     padding: 6,
-                    position: 'relative'
+                    position: 'relative',
+                    marginRight: '12px',
+                    marginTop: '12px',
+                    marginBottom: '12px'
                   }}
                 >
                   <Box sx={{ position: 'relative' }}>
@@ -244,7 +247,7 @@ const SectionReviews = () => {
                   <Box
                     sx={{ position: 'absolute', bottom: 0, left: 0, width: '100%', px: 6, py: 2 }}
                   >
-                    <Grid container>
+                    <Grid container spacing={2}>
                       <Grid item sm={6}>
                         {' '}
                         <Typography variant="caption">{review.reviewer.name}</Typography>{' '}

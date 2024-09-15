@@ -26,7 +26,7 @@ const sections = [
     id: 3,
     icon: <Image src={'/svg/boxIcons/Icon_Produktdetails.svg'} alt="" width={50} height={50} />,
     iconBgColor: 'primary.light',
-    title: 'Rohstoffe!',
+    title: 'Rohstoffe',
     link: '#',
     description:
       'Die Basis eines hochwertigen Produkts liegt in der Auswahl der richtigen Rohstoffe. Wir setzen ausschließlich auf natürliche, nachhaltig gewonnene Inhaltsstoffe, die sorgfältig ausgewählt und schonend verarbeitet werden. Qualität und Natürlichkeit stehen bei uns im Vordergrund, damit du nur das Beste aus der Natur erhältst. Die Rohstoffe für unsere Extrakte stammen aus kontrolliertem Anbau und werden regelmäßig von unabhängigen Laboren geprüft – für eine Reinheit, die du spüren kannst.'
@@ -54,7 +54,7 @@ export default function SectionInfo() {
                 position: 'relative',
                 overflow: 'visible',
                 mt: 0, // to counteract the translation of icon box
-                height: { xs: 'auto', md: '450px' }, // fixed height
+                height: { xs: 'auto', md: 'auto' }, // fixed height
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'top'
