@@ -1,5 +1,5 @@
 'use client';
-import { Box, BoxProps, Button, Container, Typography } from '@mui/material';
+import { Box, BoxProps, Container, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
@@ -251,15 +251,6 @@ const CollectionProducts = () => {
               ))}
             </Slide>
           </SlideContainer>
-
-          <Button
-            variant="outlined"
-            href="/collections/online-shop"
-            size="large"
-            sx={{ marginTop: '3rem', fontWeight: 'bold' }}
-          >
-            Jetzt zum Shop
-          </Button>
         </Box>
       </Box>
     </Container>
