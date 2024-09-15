@@ -157,10 +157,11 @@ const CollectionProducts = () => {
             <Slide
               duration={5000}
               transitionDuration={300}
-              indicators={false}
+              indicators={true}
               slidesToScroll={1}
               autoplay={false}
               slidesToShow={1}
+              arrows={false}
               responsive={responsiveSettings}
             >
               {products.map((product, index) => (

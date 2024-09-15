@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 import { getMenu } from 'lib/shopify';
 import FooterMenu from './footer-menu';
 
@@ -22,8 +22,13 @@ export default async function Footer() {
       </div>
       <div className="mx-auto  block w-full max-w-7xl gap-6 border-t border-neutral-200  px-6 py-12 text-center text-sm md:flex-row md:gap-12 md:px-4 min-[1320px]:px-0">
         <Typography variant="overline" display="block" gutterBottom>
-          Made with ❤️ in 🇨🇭 by Bexolutions GmbH, Your Partner for Success – Digital Marketing ,
-          Business Development, Websites, Social Media & Videos.
+          Made with ❤️ in 🇨🇭 by{' '}
+          <Link href={'https://bexolutions.ch/'} target={'_blank'}>
+            {' '}
+            Bexolutions Marketing und Vertrieb AG
+          </Link>
+          , Wo Meine Marke zur Nummer 1 wird – Digital Marketing, Business Development, Websites,
+          Social Media & Videos.
         </Typography>
       </div>
     </footer>
