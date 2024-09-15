@@ -3,16 +3,16 @@ import clsx from 'clsx';
 
 const Price = ({
   amount,
-  comparedAmount,
+  comparedPriceAmount,
   className,
-  currencyCode = 'CHF',
-  currencyCodeClassName
+  currencyCode = 'CHF'
+  //currencyCodeClassName
 }: {
   amount: string;
-  comparedAmount?: string; // Update to optional
+  comparedPriceAmount?: string; // Update to optional
   className?: string;
   currencyCode: string;
-  currencyCodeClassName?: string;
+  //currencyCodeClassName?: string;
 } & React.ComponentProps<'p'>) => {
   const originalPrice = new Intl.NumberFormat(undefined, {
     style: 'currency',
@@ -20,16 +20,16 @@ const Price = ({
     currencyDisplay: 'narrowSymbol'
   }).format(parseFloat(amount));
 
-  const comparedPrice = comparedAmount
+  const comparedPrice = comparedPriceAmount
     ? new Intl.NumberFormat(undefined, {
         style: 'currency',
         currency: currencyCode,
         currencyDisplay: 'narrowSymbol'
-      }).format(parseFloat(comparedAmount))
-    : null; // Do not format comparedAmount if it is null or undefined
+      }).format(parseFloat(comparedPriceAmount))
+    : null; // Do not format comparedPriceAmount if it is null or undefined
 
-  // Adjust discount logic to check if comparedAmount exists and is greater than amount
-  const hasDiscount = comparedAmount && parseFloat(comparedAmount) > parseFloat(amount);
+  // Adjust discount logic to check if comparedPriceAmount exists and is greater than amount
+  const hasDiscount = comparedPriceAmount && parseFloat(comparedPriceAmount) > parseFloat(amount);
 
   return (
     <Box

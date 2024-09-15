@@ -153,7 +153,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                                 className="flex justify-end space-y-2 text-right text-sm"
                                 amount={item.cost.totalAmount.amount}
                                 currencyCode={item.cost.totalAmount.currencyCode}
-                                //comparedAmount='99.99'
+                                comparedPriceAmount={'0.00'}
                               />
                               <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200">
                                 <EditItemQuantityButton item={item} type="minus" />
