@@ -141,12 +141,12 @@ const CollectionProducts = () => {
       }}
     >
       <Box
-        sx={{ paddingTop: { xs: '30px', md: '100px' }, paddingBottom: { xs: '30px', md: '0px' } }}
+        sx={{ paddingTop: { xs: '30px', md: '30px' }, paddingBottom: { xs: '30px', md: '0px' } }}
       >
         <Box
           sx={{
             position: 'relative',
-            height: '400px', // Ensure the container has the same height as slides
+            height: '350px', // Ensure the container has the same height as slides
             overflow: 'hidden'
           }}
         >
