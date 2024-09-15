@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
-const { SHOPIFY_STORE_DOMAIN, SITE_NAME } = process.env;
+const { SITE_NAME } = process.env;
 
 export default async function Navbar() {
   const menugutgegen = await getMenu('gutgegenmenu');
@@ -21,10 +21,7 @@ export default async function Navbar() {
           </Suspense>
         </div>
         <div className="flex w-1/3 justify-center md:justify-center">
-          <Link
-            href={`https://${SHOPIFY_STORE_DOMAIN}`}
-            className="flex items-center justify-center"
-          >
+          <Link href={`https://www.jala-life.com`} className="flex items-center justify-center">
             <Image
               src={'/logo_schwarz_full.webp'}
               alt={`${SITE_NAME}`}
