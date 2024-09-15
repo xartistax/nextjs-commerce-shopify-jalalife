@@ -133,7 +133,7 @@ export default function MobileMenu({
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
-            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-auto w-full flex-col bg-white pb-6">
+            <Dialog.Panel className=" fixed bottom-0 left-0 right-0 top-0 flex h-auto w-full flex-col overflow-y-scroll bg-white pb-6">
               <div className="p-4">
                 <button
                   className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors"
