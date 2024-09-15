@@ -129,7 +129,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                       </Typography>
                       <Box
                         component={'a'}
-                        href={`/blog/${item.blog.handle}/article/${item.handle}`}
+                        href={`/blogs/${item.blog.handle}/article/${item.handle}`}
                         sx={{ textDecoration: 'underline', color: 'primary.main' }}
                       >
                         <Typography variant="body2">{truncateText(item.excerpt, 10)}</Typography>

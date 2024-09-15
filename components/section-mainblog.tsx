@@ -97,7 +97,7 @@ export default async function SectionMainBlog() {
 
             <Box
               component="a"
-              href={`/blog/${article[0]?.blog.handle}/article/${article[0]?.handle}`}
+              href={`/blogs/${article[0]?.blog.handle}/article/${article[0]?.handle}`}
               sx={{
                 textDecoration: 'underline',
                 color: 'white',
