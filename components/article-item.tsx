@@ -50,10 +50,10 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               </Link>
             </Typography>
 
-            {/* Placeholder for Author */}
+            {/* Placeholder for Author
             <Typography variant="caption" gutterBottom color={'primary.main'}>
-              {article.authorV2.name} {/* Replace with article.author when available */}
-            </Typography>
+              {article.authorV2.name} {/* Replace with article.author when available 
+            </Typography> */}
 
             {/* Article Excerpt */}
             <Typography
