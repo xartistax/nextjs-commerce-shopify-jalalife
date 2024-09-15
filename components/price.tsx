@@ -9,7 +9,7 @@ const Price = ({
   //currencyCodeClassName
 }: {
   amount: string;
-  comparedPriceAmount?: string; // Update to optional
+  comparedPriceAmount: string; // Update to optional
   className?: string;
   currencyCode: string;
   //currencyCodeClassName?: string;

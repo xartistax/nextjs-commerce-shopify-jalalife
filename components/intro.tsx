@@ -67,7 +67,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
 
         {/* Product Grid */}
         {collectionProducts.map(async (item, i) => {
-          const compareAtPriceAmount = item.compareAtPriceRange?.minVariantPrice?.amount || null;
+          const compareAtPriceAmount = item.compareAtPriceRange?.maxVariantPrice.amount || 0.0;
           let associatedProductIds = item.metafields[3]?.value || null;
 
           // Parse associatedProductIds if it's a string and looks like an array
