@@ -96,7 +96,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
 
                 <Typography
                   component="a"
-                  href={`/product/${article.metafield?.reference.handle}`}
+                  href={`/products/${article.metafield?.reference.handle}`}
                   sx={{
                     display: 'inline-block',
                     textAlign: 'left',

@@ -236,7 +236,7 @@ const SectionReviews = () => {
                     <TextTruncate line={2} element="div" truncateText="…" text={review.body} />
                   </Typography>
 
-                  <Link href={`/product/${review.product_handle}`}>
+                  <Link href={`/products/${review.product_handle}`}>
                     <Typography variant="body1" fontWeight={600} gutterBottom marginTop={3}>
                       {' '}
                       {review.product_title}{' '}

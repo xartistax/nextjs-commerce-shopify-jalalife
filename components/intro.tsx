@@ -119,7 +119,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
               {/* Product Text (Right) */}
               <Grid item xs={12} md={9}>
                 <Box paddingX={8}>
-                  <Link href={`/product/${item.handle}`} underline="none">
+                  <Link href={`/products/${item.handle}`} underline="none">
                     <Typography
                       variant="h5"
                       component="h2"
@@ -139,7 +139,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
                     <Typography variant="body2" fontWeight={'bold'}>
                       {associatedProducts.map((product: Product, idx: number) => (
                         <span key={idx}>
-                          <Link href={`/product/${product.handle}`}>{product.title}</Link>
+                          <Link href={`/products/${product.handle}`}>{product.title}</Link>
                           {/* Only add ' || ' if it's not the last product */}
                           {idx < associatedProducts.length - 1 && ' || '}
                         </span>

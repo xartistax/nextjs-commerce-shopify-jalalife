@@ -86,7 +86,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                         <Typography variant="body2" color="textSecondary">
                           {/* Product Link */}
                           <Link
-                            href={`/product/${productHandle}`}
+                            href={`/products/${productHandle}`}
                             color="primary"
                             underline="hover"
                           >

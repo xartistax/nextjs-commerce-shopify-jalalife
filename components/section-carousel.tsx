@@ -232,7 +232,7 @@ const CollectionProducts = () => {
                       </TruncatedText>
                       <Typography
                         component="a"
-                        href={`/product/${product.handle}`}
+                        href={`/products/${product.handle}`}
                         sx={{
                           display: 'block',
                           textAlign: { md: 'left', xs: 'left' },

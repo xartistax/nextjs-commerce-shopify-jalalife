@@ -43,7 +43,7 @@ export async function ProductDescription({ product }: { product: Product }) {
                   <Typography variant="body2" fontWeight={'bold'}>
                     {associatedProducts.map((product: Product, idx: number) => (
                       <span key={idx}>
-                        <Link href={`/product/${product.handle}`}>{product.title}</Link>
+                        <Link href={`/products/${product.handle}`}>{product.title}</Link>
                         {/* Only add ' || ' if it's not the last product */}
                         {idx < associatedProducts.length - 1 && ' || '}
                       </span>

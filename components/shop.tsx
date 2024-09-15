@@ -73,7 +73,7 @@ export default async function CollectionIntro() {
                     // Ensure margin below title so description stays underneath
                   }}
                 >
-                  <Link href={`/product/${item.handle}`} color="inherit" underline="hover">
+                  <Link href={`/products/${item.handle}`} color="inherit" underline="hover">
                     {item.title}
                   </Link>
                 </Typography>
