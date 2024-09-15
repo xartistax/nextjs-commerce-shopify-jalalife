@@ -43,7 +43,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               paddingTop={2}
             >
               <Link
-                href={`/blogs/wissenswert/article/${article.handle}`}
+                href={`/blogs/news/article/${article.handle}`}
                 sx={{ color: 'black', textDecoration: 'none' }}
               >
                 {article.title}
@@ -69,7 +69,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               <TruncatedText> {article.excerpt}</TruncatedText>
             </Typography>
 
-            <Link href={`/blogs/wissenswert/article/${article.handle}`}>
+            <Link href={`/blogs/news/article/${article.handle}`}>
               <Typography variant="caption" gutterBottom color={'primary.main'}>
                 weiter Lesen
               </Typography>
