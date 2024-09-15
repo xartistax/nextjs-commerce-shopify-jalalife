@@ -155,8 +155,8 @@ const CollectionProducts = () => {
 
           <SlideContainer className={sliderReady ? 'fade-in' : ''}>
             <Slide
-              duration={5000}
-              transitionDuration={300}
+              duration={3000}
+              transitionDuration={900}
               indicators={false}
               slidesToScroll={1}
               autoplay={true}
@@ -250,15 +250,16 @@ const CollectionProducts = () => {
                 </Box>
               ))}
             </Slide>
-            <Button
-              variant="outlined"
-              href="/collections/online-shop"
-              size="large"
-              sx={{ marginTop: '3rem', fontWeight: 'bold' }}
-            >
-              Jetzt zum Shop
-            </Button>
           </SlideContainer>
+
+          <Button
+            variant="outlined"
+            href="/collections/online-shop"
+            size="large"
+            sx={{ marginTop: '3rem', fontWeight: 'bold' }}
+          >
+            Jetzt zum Shop
+          </Button>
         </Box>
       </Box>
     </Container>
