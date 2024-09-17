@@ -6,13 +6,15 @@ const Label = ({
   amount,
   currencyCode,
   position = 'bottom',
-  comparedPriceAmount
+  comparedPriceAmount,
+  align
 }: {
   title: string;
   amount: string;
   currencyCode: string;
   position?: 'bottom' | 'center';
   comparedPriceAmount: string;
+  align: string;
 }) => {
   return (
     <div
