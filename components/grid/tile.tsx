@@ -71,6 +71,7 @@ export function GridTileImage({
           currencyCode={label.currencyCode}
           position={label.position}
           comparedPriceAmount={label.amount}
+          align={'center'}
         />
       ) : null}
     </Box>
