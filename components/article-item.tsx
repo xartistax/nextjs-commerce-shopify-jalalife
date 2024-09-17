@@ -34,6 +34,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
             </Box>
 
             {/* Article Title with Link */}
+
             <Typography
               fontWeight={'900'}
               variant="h5"
@@ -48,6 +49,10 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               >
                 {article.title}
               </Link>
+            </Typography>
+
+            <Typography variant="caption" gutterBottom color={'primary.main'}>
+              {article.authorV2.name}
             </Typography>
 
             {/* Placeholder for Author

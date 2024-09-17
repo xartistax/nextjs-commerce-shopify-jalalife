@@ -6,7 +6,7 @@ const items = [
   {
     title: 'Optimale Aufnahme ',
     content:
-      'Unsere Extrakte werden durch einen einzigartigen Prozess mit Gummi arabicum veredelt. Dies sorgt dafür, dass jeder eingenommene Tropfen schnell und effizient im Körper dort ankommt, wo er benötigt wird',
+      'Unsere Extrakte werden durch einen einzigartigen Prozess mit Gummi arabicum veredelt. Dies sorgt dafür, dass jeder eingenommene Tropfen schnell und effizient im Körper dort ankommt, wo er benötigt wird.',
     image: '/Icon_Wirkung.3.svg'
   },
   {
@@ -18,7 +18,7 @@ const items = [
   {
     title: 'Nachhaltig und Swissmade',
     content:
-      'Unsere Produkte werden unter strengsten Qualitätsstandards ausschließlich in der Schweiz entwickelt und hergestellt. Modernste Technologien und sorgfältige Kontrollen garantieren dabei höchste Reinheit und Wirksamkeit – für unvergleichliche Qualität.',
+      'Unsere Produkte werden unter strengsten Qualitätsstandards in der Schweiz entwickelt und hergestellt. Modernste Technologien und regelmäßige Kontrollen garantieren höchste Reinheit und Qualität.',
     image: '/Icon_Quailtat.4.svg'
   }
 ];

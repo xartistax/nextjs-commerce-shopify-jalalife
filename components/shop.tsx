@@ -3,6 +3,8 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import { getCollectionProducts } from 'lib/shopify';
 import { Suspense } from 'react';
+import FullScreenDialog from './fullscreen-dialog';
+import { handleFullScreenClose } from './section-finder';
 
 export default async function CollectionIntro() {
   const collectionProducts = await getCollectionProducts({ collection: 'online-shop' });
@@ -20,19 +22,6 @@ export default async function CollectionIntro() {
     >
       <Container maxWidth="lg">
         {/* Title */}
-        <Typography
-          gutterBottom
-          component={'h1'}
-          variant="h2"
-          fontWeight={'bold'}
-          sx={{
-            fontSize: { xs: '2rem', md: '2.5rem' },
-            textAlign: { xs: 'left', md: 'center' },
-            mb: { xs: 4, md: 6 } // Margin bottom for spacing from title to content
-          }}
-        >
-          Next Generation Plant-Extract
-        </Typography>
 
         {/* Product Grid */}
         <Grid container spacing={1} justifyContent="center">
@@ -112,6 +101,7 @@ export default async function CollectionIntro() {
                     amount={item.priceRange.maxVariantPrice.amount}
                     currencyCode={item.priceRange.maxVariantPrice.currencyCode}
                     comparedPriceAmount={item.compareAtPriceRange.minVariantPrice.amount}
+                    align="center"
                   />
                 </Box>
 
@@ -127,6 +117,14 @@ export default async function CollectionIntro() {
             </Grid>
           ))}
         </Grid>
+
+        <Box sx={{ mt: 6 }} textAlign={'center'}>
+          <FullScreenDialog
+            openButtonLabel="Welche Produkte passen zu mir?"
+            title="Produktefinder"
+            onClose={handleFullScreenClose}
+          />
+        </Box>
       </Container>
     </Box>
   );

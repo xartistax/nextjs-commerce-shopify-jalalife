@@ -1,12 +1,11 @@
 'use client';
-import { Box, Container } from '@mui/material';
-import FullScreenDialog from './fullscreen-dialog';
+import { Box, Button, Container } from '@mui/material';
+
+export const handleFullScreenClose = () => {
+  console.log('Dialog closed');
+};
 
 export default function WirkstoffFinder() {
-  const handleClose = () => {
-    console.log('Dialog closed');
-  };
-
   return (
     <Container
       maxWidth="lg"
@@ -18,11 +17,10 @@ export default function WirkstoffFinder() {
       }}
     >
       <Box sx={{}}>
-        <FullScreenDialog
-          openButtonLabel="Welche Produkte passen zu mir?"
-          title="Produktefinder"
-          onClose={handleClose}
-        />
+        <Button href="/shop" variant="outlined" size="large" sx={{ mr: 1 }}>
+          {' '}
+          Zum Shop{' '}
+        </Button>
       </Box>
     </Container>
   );

@@ -4,12 +4,14 @@ import clsx from 'clsx';
 const Price = ({
   amount,
   comparedPriceAmount,
+  align,
   className,
   currencyCode = 'CHF',
   currencyCodeClassName
 }: {
   amount: string;
   comparedPriceAmount?: string; // Update to optional
+  align: string;
   className?: string;
   currencyCode: string;
   currencyCodeClassName?: string;
@@ -32,13 +34,7 @@ const Price = ({
   const hasDiscount = comparedPriceAmount && parseFloat(comparedPriceAmount) > parseFloat(amount);
 
   return (
-    <Box
-      display="flex"
-      alignItems={'start'}
-      justifyContent={'start'}
-      width={'100%'}
-      textAlign={'left'}
-    >
+    <Box display="flex" alignItems={'start'} justifyContent={align} width={'100%'}>
       {hasDiscount && comparedPrice && (
         <>
           <Typography

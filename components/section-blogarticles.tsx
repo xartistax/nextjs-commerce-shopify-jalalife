@@ -1,6 +1,8 @@
-import { Container, Grid } from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 import { getLatestArticles } from 'lib/shopify';
 import dynamic from 'next/dynamic';
+import FullScreenDialog from './fullscreen-dialog';
+import { handleFullScreenClose } from './section-finder';
 
 export default async function SectionBlogArticles() {
   const articles = await getLatestArticles();
@@ -28,6 +30,14 @@ export default async function SectionBlogArticles() {
           <ArticleItem key={article.id} article={article} />
         ))}
       </Grid>
+
+      <Box sx={{ textAlign: 'center', mt: 6 }}>
+        <FullScreenDialog
+          openButtonLabel="Welche Produkte passen zu mir?"
+          title="Produktefinder"
+          onClose={handleFullScreenClose}
+        />
+      </Box>
     </Container>
   );
 }

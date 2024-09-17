@@ -23,7 +23,7 @@ export default async function Navbar() {
         <div className="flex w-1/3 justify-center md:justify-center">
           <Link href={`https://www.jala-life.com`} className="flex items-center justify-center">
             <Image
-              src={'/logo_schwarz_full.webp'}
+              src={'/JalaLife_Jala-Life_Logo_color.svg'}
               alt={`${SITE_NAME}`}
               width={50}
               height={50}

@@ -15,6 +15,20 @@ export default async function SectionMainBlog() {
         <link rel="preload" href="/jala_life_plfanzen_extrakte_high.mp4" as="video" />
       </Head>
 
+      <Typography
+        gutterBottom
+        component={'h1'}
+        variant="h2"
+        fontWeight={'bold'}
+        sx={{
+          fontSize: { xs: '2rem', md: '2.5rem' },
+          textAlign: { xs: 'left', md: 'center' },
+          mb: { xs: 4, md: 6 } // Margin bottom for spacing from title to content
+        }}
+      >
+        Next Generation Plant-Extract
+      </Typography>
+
       <Container
         maxWidth="lg"
         sx={{

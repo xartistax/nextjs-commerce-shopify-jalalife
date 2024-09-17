@@ -62,6 +62,7 @@ export async function ProductDescription({ product }: { product: Product }) {
               amount={product.priceRange.maxVariantPrice.amount}
               comparedPriceAmount={product.compareAtPriceRange.maxVariantPrice.amount}
               currencyCode={product.priceRange.maxVariantPrice.currencyCode}
+              align="start"
             />
           </Box>
           <Box component="div" className="mr-auto w-auto py-2 text-sm font-light ">

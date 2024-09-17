@@ -1,3 +1,4 @@
+'use client';
 import CloseIcon from '@mui/icons-material/Close';
 import { Grid } from '@mui/material';
 import AppBar from '@mui/material/AppBar';

@@ -42,7 +42,7 @@ export default function FooterMenu({
       </ul>
       <ul>
         <Typography gutterBottom component="h3" variant="h6" sx={{ fontWeight: 'bold' }}>
-          Jala-Life
+          Shop
         </Typography>
         {mainMenu.map((item: Menu) => (
           <FooterMenuItem key={item.title} item={item} />
@@ -50,7 +50,7 @@ export default function FooterMenu({
       </ul>
       <Box component={'ul'} sx={{ margin: '0', padding: '0' }}>
         <Typography gutterBottom component="h3" variant="h6" sx={{ fontWeight: 'bold' }}>
-          Shop
+          Jala-Life
         </Typography>
         {legalMenu.map((item: Menu) => (
           <FooterMenuItem key={item.title} item={item} />

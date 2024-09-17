@@ -3,6 +3,12 @@ import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
 import StickyBox from './sticky-component';
 const items = [
   {
+    title: 'Maximale Wirkung',
+    content:
+      'Unsere spezielle Formulierung ermöglicht es, dass bereits geringe Dosen eine maximale Wirkung entfalten.'
+  },
+
+  {
     title: 'Schutz vor der Magensäure ',
     content:
       'Dank unserer innovativen Formulierung sind die Wirkstoffe vor der Magensäure geschützt und können ungehindert vom Darm aufgenommen werden.'
@@ -12,6 +18,13 @@ const items = [
     content:
       'Durch die Wasserlöslichkeit unserer Wirkstoffe können sie effizient vom Darm aufgenommen werden.'
   },
+
+  {
+    title: 'Ohne bedenkliche Zusatzstoffe',
+    content:
+      'Jala-Life kommt ohne Polysorbate, Alkohol, Piperin, Zucker, Gluten, Laktose, Gelatine oder Palmöl aus und ist zudem frei von Gentechnik.'
+  },
+
   {
     title: 'Einfache Dosierung',
     content:
@@ -21,16 +34,6 @@ const items = [
     title: 'Mischbar',
     content:
       'Unsere flüssigen Produkte lassen sich mit allen Getränken mischen und problemlos untereinander kombinieren.'
-  },
-  {
-    title: 'Ohne bedenkliche Zusatzstoffe',
-    content:
-      'Unsere Produkte kommen ohne Polysorbate, Alkohol, Piperin, Zucker, Gluten, Laktose, Gelatine oder Palmöl aus – sie sind zudem frei von Gentechnik.'
-  },
-  {
-    title: 'Maximale Wirkung',
-    content:
-      'Unsere spezielle Formulierung ermöglicht es, dass bereits geringe Dosen eine maximale Wirkung entfalten.'
   }
 ];
 

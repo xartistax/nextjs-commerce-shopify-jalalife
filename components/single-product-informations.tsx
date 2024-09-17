@@ -52,7 +52,7 @@ export async function SingleProductInformations({ product }: { product: Product 
         <Grid container spacing={2} alignItems="top">
           <Grid item xs={12} md={4}>
             <Stack direction="row" alignItems="center" spacing={1}>
-              <Image src={`/logo_schwarz_full.webp`} alt={''} width={50} height={50} />
+              <Image src={`/JalaLife_Jala-Life_Logo_color.svg`} alt={''} width={50} height={50} />
               <Typography
                 gutterBottom
                 component="h2"
@@ -67,7 +67,18 @@ export async function SingleProductInformations({ product }: { product: Product 
             <Typography>
               {/* Your content for Jala Life */}
               Wir möchten Menschen dabei unterstützen, ihre Gesundheit und ihr Wohlbefinden auf
-              natürliche Weise zu steigern und zu erhalten...
+              natürliche Weise zu steigern und zu erhalten. Dazu verwenden wir Extrakte aus
+              Pflanzen, die in traditionellen Heilverfahren seit Jahrtausenden erfolgreich
+              angewendet werden und auch in der modernen Forschung umfassend untersucht wurden. Wir
+              veredeln diese wertvollen Pflanzenextrakte mit unser Jala-Life Formel und ermöglichen
+              dadurch eine optimale Aufnahme der Wirkstoffe in den Körper. Dabei setzen wir auf nur
+              drei natürliche Zutaten: Gummi arabicum, reines Schweizer Wasser und hochwertige
+              Pflanzenextrakte. Wir glauben fest daran, dass echte Gesundheit und Wohlbefinden nur
+              durch eine harmonische Beziehung zur Natur erreicht werden können. Deshalb achten wir
+              bei jedem Schritt unseres Herstellungsprozesses auf Nachhaltigkeit und
+              umweltfreundliche Praktiken. Von der Auswahl unserer Rohstoffe bis hin zur Verpackung
+              – wir setzen auf natürliche Materialien und umweltschonende Verfahren, um die Erde zu
+              schützen und zukünftigen Generationen eine gesunde Umwelt zu hinterlassen.
             </Typography>
           </Grid>
         </Grid>

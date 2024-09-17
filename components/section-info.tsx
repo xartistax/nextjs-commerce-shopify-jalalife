@@ -29,7 +29,7 @@ const sections = [
     title: 'Rohstoffe',
     link: '#',
     description:
-      'Die Basis eines hochwertigen Produkts liegt in der Auswahl der richtigen Rohstoffe. Wir setzen ausschließlich auf natürliche, nachhaltig gewonnene Inhaltsstoffe, die sorgfältig ausgewählt und schonend verarbeitet werden. Qualität und Natürlichkeit stehen bei uns im Vordergrund, damit du nur das Beste aus der Natur erhältst. Die Rohstoffe für unsere Extrakte stammen aus kontrolliertem Anbau und werden regelmäßig von unabhängigen Laboren geprüft – für eine Reinheit, die du spüren kannst.'
+      'Die Basis eines hochwertigen Produkts liegt in der Auswahl der richtigen Rohstoffe. Wir setzen auf natürliche, nachhaltig gewonnene Inhaltsstoffe, sorgfältig ausgewählt und schonend verarbeitet. Qualität und Natürlichkeit stehen bei uns im Vordergrund, damit du nur das Beste aus der Natur bekommst. Unsere Rohstoffe stammen aus kontrolliertem Anbau und werden von unabhängigen Laboren regelmäßig geprüft.'
   }
 ];
 

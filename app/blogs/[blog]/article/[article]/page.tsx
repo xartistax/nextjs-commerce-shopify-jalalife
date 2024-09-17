@@ -1,8 +1,10 @@
 // components/layout/Article.tsx
 
 import { Box, Container, Grid, Link, ThemeProvider, Typography } from '@mui/material';
+import FullScreenDialog from 'components/fullscreen-dialog';
 import Footer from 'components/layout/footer';
 import Prose from 'components/prose';
+import { handleFullScreenClose } from 'components/section-finder';
 import { getArticleByHandle, getLatestArticles } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -77,8 +79,12 @@ export default async function Article({ params }: { params: { blog: string; arti
                     >
                       {article.title}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary">
+                    {/* <Typography variant="body2" color="textSecondary">
                       Published on: {new Date(article.publishedAt).toLocaleDateString()}
+                    </Typography> */}
+
+                    <Typography variant="caption" gutterBottom color={'primary.main'}>
+                      Author: {article.authorV2.name}
                     </Typography>
 
                     {article.metafield ? (
@@ -110,7 +116,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                   className="ps-20"
                   sx={{
                     paddingLeft: { xs: '0', md: '5rem' },
-                    textAlign: { xs: 'left', md: 'right' }
+                    textAlign: { xs: 'left', md: 'left' }
                   }}
                 >
                   <Typography
@@ -123,22 +129,44 @@ export default async function Article({ params }: { params: { blog: string; arti
                     Weitere Artikel
                   </Typography>
                   {featuredArticles.map((item) => (
-                    <div key={item.id} className="mb-4">
-                      <Typography variant="h6" component="h3">
-                        {item.title}
-                      </Typography>
-                      <Box
-                        component={'a'}
-                        href={`/blogs/${item.blog.handle}/article/${item.handle}`}
-                        sx={{ textDecoration: 'underline', color: 'primary.main' }}
-                      >
-                        <Typography variant="body2">{truncateText(item.excerpt, 10)}</Typography>
-                      </Box>
-                    </div>
+                    <Grid container key={item.id} className="mb-4" spacing={2} alignItems="top">
+                      {/* Image on the left */}
+                      <Grid item xs={2}>
+                        <Image
+                          src={item.image.url}
+                          alt={item.image.altText || item.title}
+                          width={50} // Adjust width according to your layout
+                          height={40} // Adjust height according to your layout
+                          style={{ borderRadius: '8px' }}
+                        />
+                      </Grid>
+
+                      {/* Content on the right */}
+                      <Grid item xs={10}>
+                        <Typography variant="h6" component="h3" fontSize={'1rem'} lineHeight={1}>
+                          {item.title}
+                        </Typography>
+                        <Box
+                          component={'a'}
+                          href={`/blogs/${item.blog.handle}/article/${item.handle}`}
+                          sx={{ textDecoration: 'underline', color: 'primary.main' }}
+                        >
+                          <Typography variant="body2">{truncateText(item.excerpt, 10)}</Typography>
+                        </Box>
+                      </Grid>
+                    </Grid>
                   ))}
                 </Box>
               </Grid>
             </Grid>
+
+            <Box sx={{ mt: 6 }}>
+              <FullScreenDialog
+                openButtonLabel="Welche Produkte passen zu mir?"
+                title="Produktefinder"
+                onClose={handleFullScreenClose}
+              />
+            </Box>
           </Container>
         </main>
         <Footer />
