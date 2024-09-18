@@ -175,7 +175,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
                       amount={item.priceRange.maxVariantPrice.amount}
                       currencyCode={item.priceRange.maxVariantPrice.currencyCode}
                       comparedPriceAmount={item.compareAtPriceRange.maxVariantPrice.amount}
-                      align="center"
+                      align="start"
                     />
                   </Box>
 
