@@ -24,7 +24,7 @@ function SubmitButton({
   if (!availableForSale) {
     return (
       <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
-        Out Of Stock
+        Zurzeit nicht an Lager
       </button>
     );
   }
