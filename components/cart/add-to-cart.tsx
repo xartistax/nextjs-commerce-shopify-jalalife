@@ -1,7 +1,7 @@
 'use client';
 
 import { PlusIcon } from '@heroicons/react/24/outline';
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -22,11 +22,7 @@ function SubmitButton({
   const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
 
   if (!availableForSale) {
-    return (
-      <button aria-disabled className={clsx(buttonClasses, disabledClasses)}>
-        Zurzeit nicht an Lager
-      </button>
-    );
+    return <Button className={clsx(buttonClasses, disabledClasses)}>Zurzeit nicht an Lager</Button>;
   }
 
   if (!selectedVariantId) {
