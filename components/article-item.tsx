@@ -55,7 +55,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               {article.authorV2.name}
             </Typography> */}
 
-            {/* Placeholder for Author
+            {/*
             <Typography variant="caption" gutterBottom color={'primary.main'}>
               {article.authorV2.name} {/* Replace with article.author when available 
             </Typography> */}
