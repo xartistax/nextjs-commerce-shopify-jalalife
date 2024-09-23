@@ -51,9 +51,9 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               </Link>
             </Typography>
 
-            {/* <Typography variant="caption" gutterBottom color={'primary.main'}>
-              {article.authorV2.name}
-            </Typography> */}
+            <Typography variant="caption" gutterBottom color={'primary.main'}>
+              {article.metafield?.value}
+            </Typography>
 
             {/*
             <Typography variant="caption" gutterBottom color={'primary.main'}>
