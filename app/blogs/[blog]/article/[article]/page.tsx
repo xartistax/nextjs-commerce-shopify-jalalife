@@ -1,6 +1,6 @@
 // components/layout/Article.tsx
 
-import { Box, Container, Grid, Link, ThemeProvider, Typography } from '@mui/material';
+import { Box, Container, Grid, ThemeProvider, Typography } from '@mui/material';
 import FullScreenDialog from 'components/fullscreen-dialog';
 import Footer from 'components/layout/footer';
 import Prose from 'components/prose';
@@ -39,9 +39,11 @@ export default async function Article({ params }: { params: { blog: string; arti
   const article = await getArticleByHandle(params.blog, params.article);
   const moreArticles = await getLatestArticles();
 
-  const productHandle = `${article?.metafield?.reference.handle}`;
+  const productHandle = `${article?.metafield?.value}`;
 
   if (!article) return notFound();
+
+  console.log(article);
 
   // Dummy data for featured articles (replace with actual logic to fetch featured articles)
   const featuredArticles = moreArticles;
@@ -83,14 +85,14 @@ export default async function Article({ params }: { params: { blog: string; arti
                       Published on: {new Date(article.publishedAt).toLocaleDateString()}
                     </Typography> */}
 
-                    {/* <Typography variant="caption" gutterBottom color={'primary.main'}>
-                      Author: {article.authorV2.name}
-                    </Typography> */}
+                    <Typography variant="caption" gutterBottom color={'primary.main'}>
+                      Author: {article.metafield?.value}
+                    </Typography>
 
-                    {article.metafield ? (
+                    {/* {article.metafield ? (
                       <>
                         <Typography variant="body2" color="textSecondary">
-                          {/* Product Link */}
+                         
                           <Link
                             href={`/products/${productHandle}`}
                             color="primary"
@@ -100,7 +102,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                           </Link>
                         </Typography>
                       </>
-                    ) : null}
+                    ) : null} */}
                   </Box>
 
                   {/* Article Content */}

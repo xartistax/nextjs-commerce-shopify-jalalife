@@ -21,16 +21,10 @@ const articleFragment = /* GraphQL */ `
       handle
     }
     publishedAt
-    metafield(key: "promo", namespace: "global") {
+
+    metafield(key: "custom_author", namespace: "custom") {
       value
       type
-      reference {
-        ... on Product {
-          id
-          title
-          handle
-        }
-      }
     }
   }
 `;
