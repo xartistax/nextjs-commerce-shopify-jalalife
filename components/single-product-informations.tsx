@@ -52,7 +52,7 @@ export async function SingleProductInformations({ product }: { product: Product 
         <Grid container spacing={2} alignItems="top">
           <Grid item xs={12} md={4}>
             <Stack direction="row" alignItems="center" spacing={1}>
-              <Image src={`/JalaLife_Jala-Life_Logo_color.svg`} alt={''} width={50} height={50} />
+              <Image src={`/svg/knospe.svg`} alt={''} width={50} height={50} />
               <Typography
                 gutterBottom
                 component="h2"
