@@ -473,9 +473,11 @@ export async function revalidate(req: NextRequest): Promise<NextResponse> {
 
 /// Custom Functions Bexolutions
 
-export async function getLatestArticles(): Promise<ShopifyArticle[]> {
+export async function getLatestArticles(
+  numberOfArticles: number = 4 // Optional parameter with default value 4
+): Promise<ShopifyArticle[]> {
   const res = await shopifyFetch<ShopifyArticlesOperation>({
-    query: getLatestArticlesQuery
+    query: getLatestArticlesQuery(numberOfArticles) // Pass the number of articles to the query
   });
 
   return res.body.data.articles.edges.map((edge) => edge.node);

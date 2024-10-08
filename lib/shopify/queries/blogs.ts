@@ -1,8 +1,8 @@
 import articleFragment from '../fragments/blog';
 
-export const getLatestArticlesQuery = /* GraphQL */ `
+export const getLatestArticlesQuery = (numberOfArticles: number) => /* GraphQL */ `
   query getLatestArticles {
-    articles(first: 4, reverse: true) {
+    articles(first: ${numberOfArticles}, reverse: true) {
       edges {
         node {
           ...article
