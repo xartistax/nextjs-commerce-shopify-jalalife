@@ -17,6 +17,7 @@ export default async function HomePage() {
   const SectionIntro = lazy(() => import('components/section-intro'));
   // const SectionCarousel = lazy(() => import('components/section-carousel'))
   const SectionMainBlog = lazy(() => import('components/section-mainblog'));
+  const SectionBioBlog = lazy(() => import('components/section-bioblog'));
   const SectionBlogArticles = lazy(() => import('components/section-blogarticles'));
   const SectionInfo = lazy(() => import('components/section-info'));
   const Footer = lazy(() => import('components/layout/footer'));
@@ -38,7 +39,11 @@ export default async function HomePage() {
       <SectionMainBlog />
       <SectionBlogArticles />
       <SectionNutzen />
+
       <SectionEnum />
+
+      <SectionBioBlog />
+
       <SectionInfo />
       <SectionReviews />
 

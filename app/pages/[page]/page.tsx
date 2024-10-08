@@ -41,13 +41,6 @@ export default async function Page({ params }: { params: { page: string } }) {
       >
         <h1 className="mb-8 text-5xl font-bold">{page.title}</h1>
         <Prose className="mb-8" html={page.body as string} />
-        <p className="text-sm italic text-customColor">
-          {`Dieses Dokument wurde zuletzt am ${new Intl.DateTimeFormat(undefined, {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          }).format(new Date(page.updatedAt))} aktualisiert.`}
-        </p>
       </Container>
     </>
   );
