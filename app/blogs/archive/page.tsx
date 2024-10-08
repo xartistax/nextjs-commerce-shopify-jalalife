@@ -1,5 +1,4 @@
 'use';
-import Masonry from '@mui/lab/Masonry';
 import {
   Box,
   Button,
@@ -32,9 +31,9 @@ export default async function BlogArchive() {
         </Typography>
 
         {/* Grid to display posts in a responsive layout */}
-        <Masonry key={posts.length} columns={2} spacing={2}>
+        <Grid container spacing={3} mt={4}>
           {posts.map((post, index) => (
-            <Grid item xs={12} sm={6} key={index}>
+            <Grid item xs={6} sm={6} key={index}>
               <Card
                 variant="outlined"
                 sx={{
@@ -54,7 +53,7 @@ export default async function BlogArchive() {
                       {new Date(post.publishedAt).toLocaleDateString('de-CH')}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {truncateText(post.excerpt, 100)}
+                      {truncateText(post.excerpt, 300)}
                     </Typography>
                   </Box>
 
@@ -88,7 +87,7 @@ export default async function BlogArchive() {
               </Card>
             </Grid>
           ))}
-        </Masonry>
+        </Grid>
       </Container>
 
       <Footer />
