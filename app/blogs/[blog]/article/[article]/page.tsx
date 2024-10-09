@@ -97,7 +97,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                       )}
                       {promo_product && (
                         <>
-                          Product:{' '}
+                          Produkt:{' '}
                           <Link href={`/products/${promo_product.handle}`}>
                             {promo_product.title}
                           </Link>
