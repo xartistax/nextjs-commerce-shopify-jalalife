@@ -1,11 +1,11 @@
 // components/layout/Article.tsx
 
-import { Box, Container, Grid, ThemeProvider, Typography } from '@mui/material';
+import { Box, Container, Grid, Link, ThemeProvider, Typography } from '@mui/material';
 import FullScreenDialog from 'components/fullscreen-dialog';
 import Footer from 'components/layout/footer';
 import Prose from 'components/prose';
 import { handleFullScreenClose } from 'components/section-finder';
-import { getArticleByHandle, getLatestArticles } from 'lib/shopify';
+import { getArticleByHandle, getLatestArticles, getProductById } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -39,11 +39,15 @@ export default async function Article({ params }: { params: { blog: string; arti
   const article = await getArticleByHandle(params.blog, params.article);
   const moreArticles = await getLatestArticles();
 
-  const productHandle = `${article?.metafield?.value}`;
+  const promo_product = article?.metafields?.[1]?.value
+    ? await getProductById(article.metafields[1].value)
+    : null;
+  const author = article?.metafields?.[0]?.value || 'Unknown Author';
 
   if (!article) return notFound();
 
-  console.log(article);
+  console.log(promo_product?.title);
+  console.log(author);
 
   // Dummy data for featured articles (replace with actual logic to fetch featured articles)
   const featuredArticles = moreArticles;
@@ -86,7 +90,19 @@ export default async function Article({ params }: { params: { blog: string; arti
                     </Typography> */}
 
                     <Typography variant="caption" gutterBottom color={'primary.main'}>
-                      Author: {article.metafield?.value}
+                      {author && (
+                        <>
+                          Author: {author} <br />
+                        </>
+                      )}
+                      {promo_product && (
+                        <>
+                          Product:{' '}
+                          <Link href={`/products/${promo_product.handle}`}>
+                            {promo_product.title}
+                          </Link>
+                        </>
+                      )}
                     </Typography>
 
                     {/* {article.metafield ? (

@@ -22,9 +22,22 @@ const articleFragment = /* GraphQL */ `
     }
     publishedAt
 
-    metafield(key: "custom_author", namespace: "custom") {
+    metafields(
+      identifiers: [
+        { key: "custom_author", namespace: "custom" }
+        { key: "promo", namespace: "custom" }
+      ]
+    ) {
       value
       type
+      reference {
+        ... on Product {
+          handle
+        }
+        ... on Page {
+          handle
+        }
+      }
     }
   }
 `;

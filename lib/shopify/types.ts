@@ -303,15 +303,7 @@ export type ShopifyArticle = {
     altText: string;
     url: string;
   };
-  metafield?: {
-    value: string;
-    type: string;
-    reference: {
-      id: string;
-      title: string;
-      handle: string;
-    };
-  };
+  metafields: Metafield[];
   blog: {
     handle: string;
   };

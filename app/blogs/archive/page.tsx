@@ -27,7 +27,7 @@ export default async function BlogArchive() {
       >
         {/* Blog Archive Heading */}
         <Typography variant="h1" gutterBottom>
-          Artikel Archiv
+          Wissenswertes
         </Typography>
 
         {/* Grid to display posts in a responsive layout */}
