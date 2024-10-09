@@ -52,7 +52,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
             </Typography>
 
             <Typography variant="caption" gutterBottom color={'primary.main'}>
-              {article.metafield?.value}
+              {article.metafields[0]?.value}
             </Typography>
 
             {/*
