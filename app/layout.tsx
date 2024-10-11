@@ -1,6 +1,5 @@
 import { ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import ShopifyAnalytics from 'components/shopify-analytics';
 import { ensureStartsWith } from 'lib/utils';
 import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
@@ -52,7 +51,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <AppRouterCacheProvider>
             <Navbar />
             <main className="--font-brandon-regular">{children}</main>
-            <ShopifyAnalytics />
+            {/* <ShopifyAnalytics /> */}
           </AppRouterCacheProvider>
         </body>
       </html>
