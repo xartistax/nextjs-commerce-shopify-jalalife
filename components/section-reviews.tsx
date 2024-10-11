@@ -86,7 +86,7 @@ const SectionReviews = () => {
   const [sliderReady, setSliderReady] = useState(false);
   const [placeholderFadeOut, setPlaceholderFadeOut] = useState(false);
 
-  TimeAgo.addDefaultLocale(de);
+  TimeAgo.addLocale(de);
   const timeAgo = new TimeAgo('de-DE');
 
   const responsiveSettings = [
@@ -234,8 +234,8 @@ const SectionReviews = () => {
                     )}
                   </Box>
 
-                  <Typography variant="body1" gutterBottom>
-                    <TextTruncate line={2} element="div" truncateText="…" text={review.body} />
+                  <Typography variant="body1" component={'div'} gutterBottom>
+                    <TextTruncate line={2} truncateText="…" text={review.body} />
                   </Typography>
 
                   <Link href={`/products/${review.product_handle}`}>

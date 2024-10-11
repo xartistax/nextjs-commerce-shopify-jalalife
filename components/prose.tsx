@@ -107,6 +107,7 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
         return (
           <Typography
             variant="body1"
+            component={'span'}
             sx={{ mb: isInsideListItem || isInsideTableCell ? 0 : 3 }} // No margin if inside <li> or <td>, otherwise apply margin
           >
             {domToReact(domNode.children, options)}

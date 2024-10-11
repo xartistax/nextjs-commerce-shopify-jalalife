@@ -221,7 +221,12 @@ const CollectionProducts = () => {
                       >
                         {product.title}
                       </Typography>
-                      <Typography variant="body2" color={'primary.main'} gutterBottom>
+                      <Typography
+                        variant="body2"
+                        component={'span'}
+                        color={'primary.main'}
+                        gutterBottom
+                      >
                         {product.metafields[0].value}{' '}
                       </Typography>
                       <TruncatedText className="text-slate-600">

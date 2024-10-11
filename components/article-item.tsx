@@ -51,7 +51,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
               </Link>
             </Typography>
 
-            <Typography variant="caption" gutterBottom color={'primary.main'}>
+            <Typography component={'span'} variant="caption" gutterBottom color={'primary.main'}>
               {article.metafields[0]?.value}
             </Typography>
 
@@ -62,6 +62,7 @@ export default function ArticleItem({ article }: ArticleItemProps) {
 
             {/* Article Excerpt */}
             <Typography
+              component={'span'}
               paddingTop={2}
               className="text-slate-800"
               sx={{

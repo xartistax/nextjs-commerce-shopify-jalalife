@@ -83,8 +83,8 @@ export default function MobileMenu({
                 transform="translate(0 0)"
                 fill="none"
                 stroke={'#000'}
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
               ></line>
               <line
                 id="Line_2"
@@ -93,8 +93,8 @@ export default function MobileMenu({
                 transform="translate(0 8.77)"
                 fill="none"
                 stroke={'#000'}
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
               ></line>
               <line
                 id="Line_3"
@@ -103,8 +103,8 @@ export default function MobileMenu({
                 transform="translate(0 18.513)"
                 fill="none"
                 stroke={'#000'}
-                stroke-linecap="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeWidth="2"
               ></line>
             </g>
           </g>
