@@ -38,7 +38,7 @@ const AddReviewForm: React.FC<AddReviewFormProps> = ({ product }) => {
     const productIdExtracted = product.id.split('/').pop();
 
     // Build API request URL with query parameters
-    const apiUrl = `https://judge.me/api/v1/reviews?name=${encodeURIComponent(reviewerName)}&email=${encodeURIComponent(reviewerEmail)}&rating=${rating}&body=${encodeURIComponent(
+    const apiUrl = `https://judge.me/api/v1/reviews?name=${encodeURIComponent(reviewerName)}&email=${encodeURIComponent(reviewerEmail)}&rating=${rating}&handle=${product.handle}?body=${encodeURIComponent(
       reviewBody
     )}&id=${productIdExtracted}&shop_domain=bexolutionsteststore.myshopify.com&title=API+Form+Title&url=jala-life.com`;
 

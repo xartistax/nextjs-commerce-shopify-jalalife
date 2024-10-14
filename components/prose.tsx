@@ -115,6 +115,17 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
         );
       }
 
+      // Handle <div> separately if it is causing issues
+      if (domNode.name === 'div') {
+        return (
+          <Box sx={{ mb: 2 }}>
+            {' '}
+            {/* Or adjust styles as necessary */}
+            {domToReact(domNode.children, options)}
+          </Box>
+        );
+      }
+
       if (domNode.name === 'table') {
         return (
           <TableContainer
@@ -125,7 +136,6 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
             <Table sx={{ minWidth: 250 }} className="productTable styled-table">
               {domNode.children.map((child: any, index: number) => {
                 if (child.name === 'colgroup') {
-                  // Skip <colgroup> as it's used for styling, not content
                   return null;
                 }
 

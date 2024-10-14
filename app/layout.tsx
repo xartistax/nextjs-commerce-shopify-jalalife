@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import CookieConsentBanner from 'components/cookie-banner';
 import { ensureStartsWith } from 'lib/utils';
 import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
@@ -52,6 +53,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <Navbar />
             <main className="--font-brandon-regular">{children}</main>
             {/* <ShopifyAnalytics /> */}
+            <CookieConsentBanner />
           </AppRouterCacheProvider>
         </body>
       </html>

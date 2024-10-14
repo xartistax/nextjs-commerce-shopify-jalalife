@@ -68,6 +68,9 @@ importers:
       jquery:
         specifier: ^3.7.1
         version: 3.7.1
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
       json2html-react:
         specifier: ^2.3.2
         version: 2.3.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -95,6 +98,9 @@ importers:
       react-animate-on-scroll:
         specifier: ^2.1.9
         version: 2.1.9(classnames@2.5.1)(react@18.2.0)
+      react-cookie-consent:
+        specifier: ^9.0.0
+        version: 9.0.0(react@18.2.0)
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
@@ -2452,6 +2458,13 @@ packages:
   jquery@3.7.1:
     resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
 
+  js-cookie@2.2.1:
+    resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
+
+  js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
+
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -3041,6 +3054,12 @@ packages:
     peerDependencies:
       classnames: ^2.2.5
       react: '>= 15.4.1 < 19.0.0-0'
+
+  react-cookie-consent@9.0.0:
+    resolution: {integrity: sha512-Blyj+m+Zz7SFHYqT18p16EANgnSg2sIyU6Yp3vk83AnOnSW7qnehPkUe4+8+qxztJrNmCH5GP+VHsWzAKVOoZA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
 
   react-dom@16.14.0:
     resolution: {integrity: sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==}
@@ -6694,6 +6713,10 @@ snapshots:
 
   jquery@3.7.1: {}
 
+  js-cookie@2.2.1: {}
+
+  js-cookie@3.0.5: {}
+
   js-tokens@4.0.0: {}
 
   js-yaml@4.1.0:
@@ -7208,6 +7231,11 @@ snapshots:
       classnames: 2.5.1
       lodash.throttle: 4.1.1
       prop-types: 15.8.1
+      react: 18.2.0
+
+  react-cookie-consent@9.0.0(react@18.2.0):
+    dependencies:
+      js-cookie: 2.2.1
       react: 18.2.0
 
   react-dom@16.14.0(react@16.14.0):

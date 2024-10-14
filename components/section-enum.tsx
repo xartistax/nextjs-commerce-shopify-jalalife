@@ -1,6 +1,5 @@
 'use client';
 import { Box, Container, Grid, Typography, useTheme } from '@mui/material';
-import StickyBox from './sticky-component';
 const items = [
   {
     title: 'Maximale Wirkung',
@@ -114,7 +113,7 @@ export default function SectionEnum() {
               boxShadow: 0 // Optional: add shadow to the image
             }}
           >
-            <StickyBox>
+            {/* <StickyBox>
               <Box component={'div'} paddingTop={2}>
                 <Box
                   component={'img'}
@@ -124,7 +123,17 @@ export default function SectionEnum() {
                   borderRadius={1}
                 />
               </Box>
-            </StickyBox>
+            </StickyBox> */}
+
+            <Box component={'div'} paddingTop={2}>
+              <Box
+                component={'img'}
+                src={'/image3.png'}
+                width={'100%'}
+                height={'auto'}
+                borderRadius={1}
+              />
+            </Box>
           </Box>
         </Grid>
       </Grid>
