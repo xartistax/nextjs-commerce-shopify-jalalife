@@ -152,7 +152,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                 }}
               >
                 <Typography variant="h4" fontWeight={'bold'} mb={4}>
-                  Special Promotion: {promo_product.title}
+                  {promo_product.title}
                 </Typography>
 
                 <Grid container spacing={4} alignItems="center">

@@ -6,6 +6,7 @@ import { Box, CircularProgress, Container, Grid, Paper, ThemeProvider } from '@m
 import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
+import ReviewForm from 'components/review-form';
 import { SingleProductInformations } from 'components/single-product-informations';
 import SpeedDialVisibility from 'components/speed-dial-visibility';
 import StickyBox from 'components/sticky-component';
@@ -126,6 +127,14 @@ export default async function ProductPage({ params }: { params: { handle: string
 
             <Grid item xs={12} sm={6}>
               <ProductDescription product={product} />
+
+              <Box
+                id="judgeme_product_reviews"
+                className="jdgm-widget jdgm-review-widget"
+                data-id="{{ product.id }}"
+              >
+                <ReviewForm product={product} />
+              </Box>
             </Grid>
           </Grid>
         </Paper>

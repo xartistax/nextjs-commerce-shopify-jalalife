@@ -74,6 +74,7 @@ const productFragment = /* GraphQL */ `
         { key: "truncated_product_text", namespace: "custom" }
         { key: "reviews", namespace: "rating_count" }
         { key: "associated_products", namespace: "custom" }
+        { key: "widget", namespace: "judgeme" }
       ]
     ) {
       key
