@@ -14,11 +14,13 @@ import ReactPlayer from 'react-player/lazy';
 export default function MobileMenu({
   menu,
   mainMenu,
-  legalMenu
+  legalMenu,
+  promoMenu
 }: {
   menu: Menu[];
   mainMenu: Menu[];
   legalMenu: Menu[];
+  promoMenu: Menu[];
 }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -159,6 +161,53 @@ export default function MobileMenu({
                         </Typography>
 
                         {menu.map((item) => (
+                          <Box
+                            component="li"
+                            key={item.path}
+                            sx={{ textDecoration: 'none' }}
+                            className="py-1 text-lg text-black transition-colors hover:text-neutral-500"
+                          >
+                            <Link
+                              href={item.path}
+                              onClick={closeMobileMenu}
+                              sx={{ textDecoration: 'none' }}
+                              color="inherit"
+                            >
+                              <Typography fontSize={'1rem'}>{item.title}</Typography>
+                            </Link>
+                            {item.items && item.items.length > 0 && (
+                              <Box component="ul" className="pl-4">
+                                {item.items.map((subItem) => (
+                                  <Box
+                                    component="li"
+                                    key={subItem.title}
+                                    className="py-2 text-lg text-gray-700 hover:text-gray-900"
+                                  >
+                                    <Link
+                                      href={subItem.path}
+                                      onClick={closeMobileMenu}
+                                      color="inherit"
+                                    >
+                                      {subItem.title}
+                                    </Link>
+                                    {/* Recursive call for deeper submenus */}
+                                  </Box>
+                                ))}
+                              </Box>
+                            )}
+                          </Box>
+                        ))}
+
+                        <Typography
+                          gutterBottom
+                          component="h3"
+                          variant="h5"
+                          sx={{ fontWeight: 'bold', paddingTop: '2rem' }}
+                        >
+                          Angebote
+                        </Typography>
+
+                        {promoMenu.map((item) => (
                           <Box
                             component="li"
                             key={item.path}

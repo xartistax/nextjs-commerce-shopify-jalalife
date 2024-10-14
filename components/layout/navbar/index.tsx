@@ -11,13 +11,19 @@ export default async function Navbar() {
   const menugutgegen = await getMenu('gutgegenmenu');
   const menu = await getMenu('hotmenu');
   const legal = await getMenu('footer');
+  const promoMenu = await getMenu('promotions');
 
   return (
     <nav className="relative flex items-center justify-between bg-white p-4 lg:px-6">
       <div className="flex w-full items-center">
         <div className="flex w-1/3">
           <Suspense fallback={<div>Loading...</div>}>
-            <MobileMenu menu={menugutgegen} mainMenu={menu} legalMenu={legal} />
+            <MobileMenu
+              menu={menugutgegen}
+              mainMenu={menu}
+              legalMenu={legal}
+              promoMenu={promoMenu}
+            />
           </Suspense>
         </div>
         <div className="flex w-1/3 justify-center md:justify-center">
