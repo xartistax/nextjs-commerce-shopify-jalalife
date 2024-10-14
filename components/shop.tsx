@@ -3,8 +3,6 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import { getCollectionProducts } from 'lib/shopify';
 import { Suspense } from 'react';
-import FullScreenDialog from './fullscreen-dialog';
-import { handleFullScreenClose } from './section-finder';
 
 export default async function CollectionIntro() {
   const collectionProducts = await getCollectionProducts({ collection: 'online-shop' });
@@ -118,13 +116,13 @@ export default async function CollectionIntro() {
           ))}
         </Grid>
 
-        <Box sx={{ mt: 6 }} textAlign={'center'}>
+        {/* <Box sx={{ mt: 6 }} textAlign={'center'}>
           <FullScreenDialog
             openButtonLabel="Welche Produkte passen zu mir?"
             title="Produktefinder"
             onClose={handleFullScreenClose}
           />
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );
