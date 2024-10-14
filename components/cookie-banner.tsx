@@ -3,8 +3,13 @@ import { Box, Button, Snackbar, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 // Function to load Shopify's Customer Privacy API
-const loadShopifyPrivacyAPI = () => {
+const loadShopifyPrivacyAPI = (onLoad: { (): void; (): void }) => {
+  console.log('Attempting to load Shopify Privacy API...');
+
+  // Check if Shopify is available on the window
   if (typeof window !== 'undefined' && window.Shopify) {
+    console.log('Shopify is available:', window.Shopify);
+
     window.Shopify.loadFeatures(
       [
         {
@@ -17,9 +22,12 @@ const loadShopifyPrivacyAPI = () => {
           console.error('Error loading Shopify Customer Privacy API', error);
         } else {
           console.log('Shopify Customer Privacy API loaded');
+          if (onLoad) onLoad(); // Call the onLoad callback if provided
         }
       }
     );
+  } else {
+    console.warn('Shopify is not available on the window.');
   }
 };
 
@@ -29,20 +37,29 @@ const CookieConsentBanner = () => {
 
   // Load Shopify Privacy API on component mount
   useEffect(() => {
-    loadShopifyPrivacyAPI();
+    loadShopifyPrivacyAPI(() => {
+      console.log('Checking consent...');
 
-    console.log('Checking consent...');
+      // Ensure customerPrivacy is available after API load
+      if (window.Shopify && window.Shopify.customerPrivacy) {
+        try {
+          const visitorConsent = window.Shopify.customerPrivacy.currentVisitorConsent();
+          console.log('Current Visitor Consent:', visitorConsent); // Log current consent
 
-    if (
-      window.Shopify &&
-      window.Shopify.customerPrivacy &&
-      !window.Shopify.customerPrivacy.analyticsProcessingAllowed()
-    ) {
-      console.log('No consent found. Showing banner.');
-      setBannerVisible(true);
-    } else {
-      console.log('Consent found. Not showing banner.');
-    }
+          // Check if analytics processing is allowed
+          if (!window.Shopify.customerPrivacy.analyticsProcessingAllowed()) {
+            console.log('No consent found. Showing banner.');
+            setBannerVisible(true);
+          } else {
+            console.log('Consent found. Not showing banner.');
+          }
+        } catch (error) {
+          console.error('Error retrieving current visitor consent:', error);
+        }
+      } else {
+        console.warn('Shopify customerPrivacy is not available.');
+      }
+    });
   }, []);
 
   // Function to handle consent acceptance
@@ -72,7 +89,7 @@ const CookieConsentBanner = () => {
             <Box>
               <Typography>
                 Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Mit der Annahme stimmen Sie
-                stimmen Sie unserer Verwendung von Cookies für die Analyse zu.
+                unserer Verwendung von Cookies für die Analyse zu.
               </Typography>
               <Button
                 variant="contained"
@@ -80,7 +97,7 @@ const CookieConsentBanner = () => {
                 onClick={() => handleConsent(true)}
                 sx={{ mt: 1, color: 'white' }}
               >
-                Aktzeptieren
+                Akzeptieren
               </Button>
               <Button
                 variant="text"

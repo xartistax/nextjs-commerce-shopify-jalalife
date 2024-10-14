@@ -1,6 +1,7 @@
 import { Box, Button, Container, Grid, Link, ThemeProvider, Typography } from '@mui/material';
 import Footer from 'components/layout/footer';
 import Prose from 'components/prose';
+import { TruncatedText } from 'components/section-carousel';
 import { getArticleByHandle, getLatestArticles, getProductById } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -172,7 +173,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                   {/* Product details on the right */}
                   <Grid item xs={12} md={8}>
                     <Typography component={'span'} variant="body1" mb={2}>
-                      <Prose className="leading-tight" html={promo_product.descriptionHtml} />
+                      <TruncatedText> {promo_product.description}</TruncatedText>
                     </Typography>
                     <Typography variant="h6" color={'primary.main'} mb={2}>
                       Price: {promo_product.priceRange?.minVariantPrice?.amount}{' '}
