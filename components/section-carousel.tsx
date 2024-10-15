@@ -7,6 +7,16 @@ import styled from 'styled-components';
 import { toHTML } from 'utils/json-to-html';
 import Prose from './prose';
 
+const responsiveSettings = [
+  {
+    breakpoint: 768,
+    settings: {
+      slidesToShow: 2,
+      slidesToScroll: 2
+    }
+  }
+];
+
 interface Product {
   metafields: any;
   descriptionHtml: string;
@@ -74,16 +84,6 @@ const CollectionProducts = () => {
   const [error, setError] = useState<string | null>(null);
   const [sliderReady, setSliderReady] = useState(false);
   const [placeholderFadeOut, setPlaceholderFadeOut] = useState(false);
-
-  const responsiveSettings = [
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    }
-  ];
 
   useEffect(() => {
     const fetchProducts = async () => {

@@ -31,7 +31,11 @@ export async function generateMetadata({
 
 export default async function Article({ params }: { params: { blog: string; article: string } }) {
   const article = await getArticleByHandle(params.blog, params.article);
-  const moreArticles = await getLatestArticles();
+
+  const moreArticles = await getLatestArticles().catch((error) => {
+    console.error('Error fetching latest articles:', error);
+    return []; // Return an empty array in case of an error
+  });
 
   const promo_product = article?.metafields?.[1]?.value
     ? await getProductById(article.metafields[1].value)

@@ -1,3 +1,4 @@
+import CollectionCarousel from 'components/carousel-collection';
 import CollectionProducts from 'components/section-carousel';
 import SectionEnum from 'components/section-enum';
 import WirkstoffFinder from 'components/section-finder';
@@ -38,6 +39,9 @@ export default async function HomePage() {
       <WirkstoffFinder />
       <SectionMainBlog />
       <SectionBlogArticles />
+
+      <CollectionCarousel />
+
       <SectionNutzen />
 
       <SectionEnum />

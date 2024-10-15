@@ -118,6 +118,9 @@ export type ShopifyCollection = {
   handle: string;
   title: string;
   description: string;
+  image?: {
+    url: string; // Change to an object that includes a url
+  };
   seo: SEO;
   updatedAt: string;
 };
