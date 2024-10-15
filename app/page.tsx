@@ -16,7 +16,6 @@ export const metadata = {
 
 export default async function HomePage() {
   const SectionIntro = lazy(() => import('components/section-intro'));
-  // const SectionCarousel = lazy(() => import('components/section-carousel'))
   const SectionMainBlog = lazy(() => import('components/section-mainblog'));
   const SectionBioBlog = lazy(() => import('components/section-bioblog'));
   const SectionBlogArticles = lazy(() => import('components/section-blogarticles'));

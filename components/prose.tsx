@@ -28,6 +28,26 @@ interface TextProps {
 const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
   const options = {
     replace: (domNode: any) => {
+      // Check for paragraphs and handle divs properly
+      if (domNode.name === 'p') {
+        return (
+          <Typography variant="body1" component="p">
+            {domToReact(domNode.children, options)}
+          </Typography>
+        );
+      }
+
+      if (domNode.name === 'div') {
+        // Convert divs to Box to avoid being wrapped in p
+        return (
+          <Box sx={{ mb: 2 }}>
+            {' '}
+            {/* or whatever styles you need */}
+            {domToReact(domNode.children, options)}
+          </Box>
+        );
+      }
+
       if (domNode.name === 'h1') {
         return <Typography variant="h1">{domToReact(domNode.children, options)}</Typography>;
       }
@@ -100,32 +120,6 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
         );
       }
 
-      if (domNode.name === 'p') {
-        const isInsideListItem = domNode.parent && domNode.parent.name === 'li';
-        const isInsideTableCell = domNode.parent && domNode.parent.name === 'td';
-
-        return (
-          <Typography
-            variant="body1"
-            component={'span'}
-            sx={{ mb: isInsideListItem || isInsideTableCell ? 0 : 3 }} // No margin if inside <li> or <td>, otherwise apply margin
-          >
-            {domToReact(domNode.children, options)}
-          </Typography>
-        );
-      }
-
-      // Handle <div> separately if it is causing issues
-      if (domNode.name === 'div') {
-        return (
-          <Box sx={{ mb: 2 }}>
-            {' '}
-            {/* Or adjust styles as necessary */}
-            {domToReact(domNode.children, options)}
-          </Box>
-        );
-      }
-
       if (domNode.name === 'table') {
         return (
           <TableContainer
@@ -161,7 +155,7 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
                                   borderBottom: '1px solid #ddd',
                                   padding: '8px',
                                   textAlign: 'left',
-                                  fontWeight: tdIndex === 0 ? 'bold' : 'normal', // Bold for the first child
+                                  fontWeight: tdIndex === 0 ? 'bold' : 'normal',
                                   '& p': {
                                     mb: 0 // Disable bottom margin for <p> inside <td> or <th>
                                   }
@@ -183,8 +177,6 @@ const Prose: FunctionComponent<TextProps> = ({ html, className }) => {
           </TableContainer>
         );
       }
-
-      // Add more cases as needed for other elements
     }
   };
 

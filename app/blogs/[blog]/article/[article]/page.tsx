@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Link, ThemeProvider, Typography } from '@mui/material';
 import Footer from 'components/layout/footer';
 import Prose from 'components/prose';
-import { TruncatedText } from 'components/section-carousel';
+import { TruncatedText } from 'lib/client-utils';
 import { getArticleByHandle, getLatestArticles, getProductById } from 'lib/shopify';
 import type { Metadata } from 'next';
 import Image from 'next/image';

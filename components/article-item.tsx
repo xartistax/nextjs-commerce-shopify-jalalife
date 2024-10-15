@@ -1,7 +1,6 @@
 import { Box, Grid, Link, Paper, Typography } from '@mui/material';
+import { TruncatedText } from 'lib/client-utils';
 import { ShopifyArticle } from 'lib/shopify/types';
-
-import { TruncatedText } from './section-carousel';
 
 interface ArticleItemProps {
   article: ShopifyArticle;
