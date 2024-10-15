@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import CookieConsentBanner from 'components/cookie-banner';
 import { ensureStartsWith } from 'lib/utils';
 import dynamic from 'next/dynamic';
@@ -56,6 +57,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <CookieConsentBanner />
           </AppRouterCacheProvider>
         </body>
+        <GoogleAnalytics gaId="G-NXQNHNT4T5" />
       </html>
     </ThemeProvider>
   );
