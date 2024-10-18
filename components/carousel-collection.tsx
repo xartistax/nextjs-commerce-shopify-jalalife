@@ -24,12 +24,12 @@ const CollectionCarousel = async () => {
       }}
     >
       <Box
-        sx={{ paddingTop: { xs: '30px', md: '30px' }, paddingBottom: { xs: '30px', md: '0px' } }}
+        sx={{ paddingTop: { xs: '30px', md: '30px' }, paddingBottom: { xs: '30px', md: '100px' } }}
       >
         <Box
           sx={{
             position: 'relative',
-            height: '450px', // Ensure the container has the same height as slides
+            height: 'auto', // Ensure the container has the same height as slides
             overflow: 'visible' // Changed to visible to avoid clipping
           }}
         >
