@@ -102,7 +102,7 @@ const SectionReviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch('/api/reviews', { cache: 'no-cache' });
+        const response = await fetch('/api/reviews/all', { cache: 'no-cache' });
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }

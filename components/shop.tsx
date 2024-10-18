@@ -118,8 +118,9 @@ export default async function CollectionIntro() {
                       </Typography>
 
                       {/* Product Reviews */}
+
                       <Box sx={{ mb: '1rem' }}>
-                        {<ReviewStars starCount={4} />} {/* Mocked 4-star rating */}
+                        {<ReviewStars product_id={item.id.split('/').pop()!} />}
                       </Box>
 
                       {/* Product Description */}
@@ -239,9 +240,6 @@ export default async function CollectionIntro() {
                       </Typography>
 
                       {/* Product Reviews */}
-                      <Box sx={{ mb: '1rem' }}>
-                        {<ReviewStars starCount={4} />} {/* Mocked 5-star rating */}
-                      </Box>
 
                       {/* Product Description */}
                       <Typography
