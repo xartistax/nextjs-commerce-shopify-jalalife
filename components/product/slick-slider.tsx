@@ -1,7 +1,6 @@
 'use client';
 
 import { Box, Grid, Link, Typography } from '@mui/material';
-import ReviewStars from 'components/review-stars';
 import { Collection } from 'lib/shopify/types';
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
@@ -120,9 +119,6 @@ const CollectionSlider: React.FC<CollectionSliderProps> = ({
                 </Typography>
 
                 {/* Placeholder for Reviews */}
-                <Box sx={{ mb: '1rem' }}>
-                  <ReviewStars starCount={4} />
-                </Box>
 
                 {/* Product Description */}
                 <Typography
