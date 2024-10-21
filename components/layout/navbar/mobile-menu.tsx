@@ -430,7 +430,7 @@ export default function MobileMenu({
 
                     <Box sx={{ marginBottom: '2rem', marginTop: '1rem' }}>
                       <Typography gutterBottom component="p" sx={{ fontWeight: 'bold' }}>
-                        Für Kunden aus der Schweiz und Lichtenstein
+                        Für Kunden aus der Schweiz und Liechtenstein
                       </Typography>
                       <Box sx={{ marginBottom: '1rem', marginTop: '1rem' }}>
                         <Typography gutterBottom component="p">

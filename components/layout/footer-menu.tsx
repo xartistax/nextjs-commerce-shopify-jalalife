@@ -78,7 +78,7 @@ export default function FooterMenu({
 
         <Box sx={{ marginBottom: '2rem', marginTop: '1rem' }}>
           <Typography gutterBottom component="p" sx={{ fontWeight: 'bold' }}>
-            Für Kunden aus der Schweiz und Lichtenstein
+            Für Kunden aus der Schweiz und Liechtenstein
           </Typography>
           <Typography gutterBottom variant="caption">
             CannSol Distribution AG <br />
