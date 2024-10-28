@@ -9,8 +9,8 @@ const twitterCreator = TWITTER_CREATOR ? ensureStartsWith(TWITTER_CREATOR, '@') 
 const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : undefined;
 
 export const metadata = {
-  metadataBase: new URL(baseUrl), 
-  title: { 
+  metadataBase: new URL(baseUrl),
+  title: {
     default: SITE_NAME!,
     template: `%s | ${SITE_NAME}`
   },
