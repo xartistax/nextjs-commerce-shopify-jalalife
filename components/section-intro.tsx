@@ -104,7 +104,36 @@ export default function SectionIntro({ heading, size }: SectionIntroProps) {
                 }}
               >
                 {heading}
+                
               </Typography>
+
+
+
+              <Typography
+                component="p"
+                gutterBottom
+                color="white"
+                textTransform="uppercase"
+                fontWeight="bold"
+                letterSpacing=".5rem"
+                fontSize="37px"
+                lineHeight="1.5rem"
+                sx={{
+                  fontSize: {
+                    md: '3.5rem',
+                    xs: '2.5rem'
+                  },
+                  lineHeight: {
+                    md: '3.5rem',
+                    xs: '2.5rem'
+                  },
+                  textDecoration: 'none'
+                }}
+              >
+                {"Die Natur bietet alles was du brauchst"}
+                
+              </Typography>
+
             </Container>
           </Box>
         </Box>
