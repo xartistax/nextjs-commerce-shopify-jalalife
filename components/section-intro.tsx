@@ -114,7 +114,7 @@ export default function SectionIntro({ heading, size }: SectionIntroProps) {
                 gutterBottom
                 color="white"
                 textTransform="uppercase"
-                fontWeight="bold"
+                fontWeight="100"
                 letterSpacing=".5rem"
                 fontSize="37px"
                 lineHeight="1.5rem"
