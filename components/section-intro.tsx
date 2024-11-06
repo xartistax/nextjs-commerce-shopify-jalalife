@@ -120,12 +120,12 @@ export default function SectionIntro({ heading, size }: SectionIntroProps) {
                 lineHeight="1.5rem"
                 sx={{
                   fontSize: {
-                    md: '3.5rem',
-                    xs: '2.5rem'
+                    md: '1.5rem',
+                    xs: '1.5rem'
                   },
                   lineHeight: {
-                    md: '3.5rem',
-                    xs: '2.5rem'
+                    md: '1.5rem',
+                    xs: '1.5rem'
                   },
                   textDecoration: 'none'
                 }}
