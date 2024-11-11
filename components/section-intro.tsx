@@ -1,6 +1,5 @@
 'use client';
 import { Box, Container, Link, Typography } from '@mui/material';
-import Head from 'next/head';
 import React from 'react';
 
 interface SectionIntroProps {
@@ -11,10 +10,10 @@ interface SectionIntroProps {
 export default function SectionIntro({ heading, size }: SectionIntroProps) {
   return (
     <>
-      <Head>
-        {/* Preload Video */}
+      {/* <Head>
+        
         <link rel="preload" href={'/Bamboo_Forest.mp4'} as="video" />
-      </Head>
+      </Head> */}
       <Link href="/shop" sx={{ textDecoration: 'none' }}>
         <Box
           component="section"

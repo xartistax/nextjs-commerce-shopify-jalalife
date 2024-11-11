@@ -1,7 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 
 import { getArticleByHandle } from 'lib/shopify';
-import Head from 'next/head';
 
 export default async function SectionBioBlog() {
   const article = await getArticleByHandle('news', 'bioverfugbarkeit');
@@ -10,10 +9,10 @@ export default async function SectionBioBlog() {
 
   return (
     <>
-      <Head>
-        {/* Preload Video */}
+      {/* <Head>
+       
         <link rel="preload" href="/bio.mp4" as="video" />
-      </Head>
+      </Head> */}
 
       <Container
         maxWidth="lg"

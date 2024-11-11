@@ -1,7 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 
 import { getLatestArticles } from 'lib/shopify';
-import Head from 'next/head';
 
 export default async function SectionMainBlog() {
   const article = await getLatestArticles();
@@ -10,10 +9,9 @@ export default async function SectionMainBlog() {
 
   return (
     <>
-      <Head>
-        {/* Preload Video */}
+      {/* <Head>
         <link rel="preload" href="/jala_life_plfanzen_extrakte_high.mp4" as="video" />
-      </Head>
+      </Head> */}
 
       <Typography
         gutterBottom

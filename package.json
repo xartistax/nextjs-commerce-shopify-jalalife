@@ -7,7 +7,7 @@
     "pnpm": ">=8"
   },
   "scripts": {
-    "dev": "next dev --turbo & npx next-video sync -w",
+    "dev": "next dev", 
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -92,6 +92,7 @@
     "eslint-config-next": "^14.2.2",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-unicorn": "^52.0.0",
+    "kill-port": "^2.0.1",
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.38",
     "prettier": "3.2.5",
