@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import CookieConsentBanner from 'components/cookie-banner';
 import { ensureStartsWith } from 'lib/utils';
 import dynamic from 'next/dynamic';
@@ -47,6 +47,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <ThemeProvider theme={theme}>
       <html lang="de">
+       
         <body
           className={`bg-white text-black selection:bg-customColor selection:text-white ${myFont.variable}`}
         >
@@ -57,6 +58,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <CookieConsentBanner />
           </AppRouterCacheProvider>
         </body>
+        <GoogleTagManager gtmId={"5RVT7F6R"} />
         <GoogleAnalytics gaId="G-NXQNHNT4T5" />
       </html>
     </ThemeProvider>
