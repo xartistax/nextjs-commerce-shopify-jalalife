@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import CookieConsentBanner from 'components/cookie-banner';
 import { ensureStartsWith } from 'lib/utils';
 import dynamic from 'next/dynamic';
@@ -59,6 +59,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           </AppRouterCacheProvider>
         </body>
         <GoogleTagManager gtmId={"GTM-M4P7HMFH"} />
+        <GoogleAnalytics gaId="G-NXQNHNT4T5" />
       </html>
     </ThemeProvider>
   );
