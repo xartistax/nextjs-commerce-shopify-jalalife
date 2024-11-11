@@ -58,7 +58,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <CookieConsentBanner />
           </AppRouterCacheProvider>
         </body>
-        <GoogleTagManager gtmId={"5RVT7F6R"} />
+        <GoogleTagManager gtmId={"GTM-M4P7HMFH"} />
         <GoogleAnalytics gaId="G-NXQNHNT4T5" />
       </html>
     </ThemeProvider>
