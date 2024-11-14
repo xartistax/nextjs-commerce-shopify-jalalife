@@ -7,6 +7,8 @@ import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
 import { ReactNode } from 'react';
 import { theme } from 'theme';
+
+import PopUpManager from 'components/popup-manager';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -44,6 +46,8 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const Navbar = dynamic(() => import('components/layout/navbar'), { ssr: false });
 
+
+
   return (
     <ThemeProvider theme={theme}>
       <html lang="de">
@@ -54,6 +58,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <AppRouterCacheProvider>
             <Navbar />
             <main className="--font-brandon-regular">{children}</main>
+            
+
+            <PopUpManager />
+
+      
             {/* <ShopifyAnalytics /> */}
             <CookieConsentBanner />
           </AppRouterCacheProvider>

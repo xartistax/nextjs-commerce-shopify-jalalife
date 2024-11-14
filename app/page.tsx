@@ -2,6 +2,7 @@ import CollectionCarousel from 'components/carousel-collection';
 import CollectionProducts from 'components/section-carousel';
 import SectionEnum from 'components/section-enum';
 import WirkstoffFinder from 'components/section-finder';
+import SectionIntro from 'components/section-intro';
 import SectionNutzen from 'components/section-nutzen';
 import SectionReviews from 'components/section-reviews';
 
@@ -15,7 +16,6 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const SectionIntro = lazy(() => import('components/section-intro'));
   const SectionMainBlog = lazy(() => import('components/section-mainblog'));
   const SectionBioBlog = lazy(() => import('components/section-bioblog'));
   const SectionBlogArticles = lazy(() => import('components/section-blogarticles'));

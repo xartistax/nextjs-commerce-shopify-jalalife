@@ -11,6 +11,18 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
 
+
+export function transformPath(url: string ) {
+  try {
+    const parsedUrl = new URL(url);
+    const newPath = `${parsedUrl.pathname}`
+    console.log("NEWPATHS: ", newPath)
+    return newPath;
+  } catch (e) {
+    return url; // return original URL if parsing fails
+  }
+}
+
 export default function MobileMenu({
   menu,
   mainMenu,
@@ -30,6 +42,9 @@ export default function MobileMenu({
   const [showPlayer, setShowPlayer] = useState(false);
   const openMobileMenu = () => setIsOpen(true); // Toggle to open the menu
   const closeMobileMenu = () => setIsOpen(false);
+
+
+  console.log("MENU: ", menu)
 
   const handleBDClose = () => {
     setBdOpen(false);
@@ -160,7 +175,15 @@ export default function MobileMenu({
                           Gut für
                         </Typography>
 
-                        {menu.map((item) => (
+                       
+
+                        {menu.map((item) => (<>
+
+
+                        
+
+
+                         
                           <Box
                             component="li"
                             key={item.path}
@@ -168,7 +191,7 @@ export default function MobileMenu({
                             className="py-1 text-lg text-black transition-colors hover:text-neutral-500"
                           >
                             <Link
-                              href={item.path}
+                              href={ transformPath(item.path) }
                               onClick={closeMobileMenu}
                               sx={{ textDecoration: 'none' }}
                               color="inherit"
@@ -184,7 +207,7 @@ export default function MobileMenu({
                                     className="py-2 text-lg text-gray-700 hover:text-gray-900"
                                   >
                                     <Link
-                                      href={subItem.path}
+                                      href={transformPath(subItem.path)}
                                       onClick={closeMobileMenu}
                                       color="inherit"
                                     >
@@ -196,7 +219,9 @@ export default function MobileMenu({
                               </Box>
                             )}
                           </Box>
-                        ))}
+
+
+                          </> ))}
 
                         <Typography
                           gutterBottom
@@ -215,7 +240,7 @@ export default function MobileMenu({
                             className="py-1 text-lg text-black transition-colors hover:text-neutral-500"
                           >
                             <Link
-                              href={item.path}
+                              href={ transformPath(item.path) }
                               onClick={closeMobileMenu}
                               sx={{ textDecoration: 'none' }}
                               color="inherit"
@@ -231,7 +256,7 @@ export default function MobileMenu({
                                     className="py-2 text-lg text-gray-700 hover:text-gray-900"
                                   >
                                     <Link
-                                      href={subItem.path}
+                                      href={transformPath(subItem.path)}
                                       onClick={closeMobileMenu}
                                       color="inherit"
                                     >
@@ -264,7 +289,7 @@ export default function MobileMenu({
                         className="list-none py-1 text-lg text-black transition-colors hover:text-neutral-500"
                       >
                         <Link
-                          href={`${item.path}`}
+                          href={transformPath(item.path)}
                           onClick={closeMobileMenu}
                           sx={{ textDecoration: 'none' }}
                           color="inherit"
@@ -279,7 +304,7 @@ export default function MobileMenu({
                                 key={subItem.title}
                                 className="py-2 text-lg text-gray-700 hover:text-gray-900"
                               >
-                                <Link href={subItem.path} onClick={closeMobileMenu} color="inherit">
+                                <Link href={transformPath(subItem.path)} onClick={closeMobileMenu} color="inherit">
                                   {subItem.title}
                                 </Link>
                               </Box>
@@ -362,9 +387,9 @@ export default function MobileMenu({
                         className="list-none py-1 text-lg text-black transition-colors hover:text-neutral-500"
                       >
                         <Link
-                          href={`${item.path}`}
+                          href={transformPath(item.path)}
                           onClick={closeMobileMenu}
-                          sx={{ textDecoration: 'none' }}
+                          sx={{ textDecoration: 'none' }} 
                           color="inherit"
                         >
                           <Typography fontSize={'1rem'}>{item.title}</Typography>
@@ -377,7 +402,7 @@ export default function MobileMenu({
                                 key={subItem.title}
                                 className="py-2 text-lg text-gray-700 hover:text-gray-900"
                               >
-                                <Link href={subItem.path} onClick={closeMobileMenu} color="inherit">
+                                <Link href={transformPath(subItem.path)} onClick={closeMobileMenu} color="inherit">
                                   {subItem.title}
                                 </Link>
                               </Box>
