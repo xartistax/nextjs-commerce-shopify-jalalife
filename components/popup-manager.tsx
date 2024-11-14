@@ -7,6 +7,8 @@ const PopUpManager = () => {
   const [popupOpen, setPopupOpen] = useState(false);
   const [delayPassed, setDelayPassed] = useState(false);
 
+  
+
   // Function to close popup and set the last shown time in localStorage
   const handleClose = () => {
     setPopupOpen(false);
@@ -17,15 +19,22 @@ const PopUpManager = () => {
     const lastShown = localStorage.getItem('popupLastShown');
     const now = new Date();
 
-    // Check if the popup was shown in the past 24 hours
-    if (!lastShown || new Date(now - new Date(lastShown)).getTime() > 24 * 60 * 60 * 1000) {
-      // Delay popup appearance by 5 seconds
-      const timer = setTimeout(() => {
-        setDelayPassed(true); // Marks the delay as passed
-      }, 5000);
+    const startDate = new Date('2024-11-14');  // Start date (14th November)
+  const endDate = new Date('2024-11-30');    // End date (30th November)
+  const currentDate = new Date(); 
 
-      return () => clearTimeout(timer); // Cleanup the timer on unmount
-    }
+    // Check if the popup was shown in the past 24 hours
+    if (!lastShown || new Date(now).getTime() - new Date(lastShown).getTime() > 24 * 60 * 60 * 1000) {
+        // Check if current date is within the range of start and end dates
+        if (currentDate >= startDate && currentDate <= endDate) {
+          // Delay popup appearance by 5 seconds
+          const timer = setTimeout(() => {
+            setDelayPassed(true); // Marks the delay as passed
+          }, 5000);
+    
+          return () => clearTimeout(timer); // Cleanup the timer on unmount
+        }
+      }
   }, []);
 
   // Trigger popup only when delay has passed
