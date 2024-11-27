@@ -161,8 +161,8 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                                 amount={item.cost.totalAmount.amount}
                                 currencyCode={item.cost.totalAmount.currencyCode}
                                 comparedPriceAmount={'0.00'}
-                                align="start"
-                              />
+                                align="start" hasNoOptionsOrJustOneOption={false}   
+                                                           />
                               <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200">
                                 <EditItemQuantityButton item={item} type="minus" />
                                 <p className="w-6 text-center">
@@ -180,11 +180,10 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 ">
                       <Typography component={'p'}> Steuern </Typography>
                       <Price
-                        className="text-right text-base text-black "
-                        amount={cart.cost.totalTaxAmount.amount}
-                        currencyCode={cart.cost.totalTaxAmount.currencyCode}
-                        align="start"
-                      />
+                          className="text-right text-base text-black "
+                          amount={cart.cost.totalTaxAmount.amount}
+                          currencyCode={cart.cost.totalTaxAmount.currencyCode}
+                          align="start" hasNoOptionsOrJustOneOption={false}                      />
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1">
                       <Typography component={'p'}> Versand </Typography>
@@ -197,11 +196,10 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1">
                       <Typography component={'p'}> Total </Typography>
                       <Price
-                        className="text-right text-base text-black "
-                        amount={cart.cost.totalAmount.amount}
-                        currencyCode={cart.cost.totalAmount.currencyCode}
-                        align="start"
-                      />
+                          className="text-right text-base text-black "
+                          amount={cart.cost.totalAmount.amount}
+                          currencyCode={cart.cost.totalAmount.currencyCode}
+                          align="start" hasNoOptionsOrJustOneOption={false}                      />
                     </div>
                   </div>
                   <a
