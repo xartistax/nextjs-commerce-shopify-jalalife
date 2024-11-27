@@ -193,8 +193,7 @@ export default async function CollectionIntro({ handle }: PageProps) {
                         amount={item.priceRange.maxVariantPrice.amount}
                         currencyCode={item.priceRange.maxVariantPrice.currencyCode}
                         comparedPriceAmount={item.compareAtPriceRange.maxVariantPrice.amount}
-                        align="start"
-                      />
+                        align="start" hasNoOptionsOrJustOneOption={!item.options.length || (item.options.length === 1 && item.options[0]?.values.length === 1)}                      />
                     </Box>
 
                     {/* Add to Cart Button */}
@@ -202,8 +201,9 @@ export default async function CollectionIntro({ handle }: PageProps) {
                       <AddToCart
                         variants={item.variants}
                         availableForSale={item.availableForSale}
-                        align="left"
-                      />
+                        align="left" hasNoOptionsOrJustOneOption={!item.options.length || (item.options.length === 1 && item.options[0]?.values.length === 1)}
+                        handle={item.handle} 
+                        origin={'online-shop'}                      />
                     </Suspense>
                   </Box>
                 </Grid>
