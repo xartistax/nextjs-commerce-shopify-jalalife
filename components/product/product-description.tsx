@@ -99,7 +99,7 @@ export async function ProductDescription({
               comparedPriceAmount={product.compareAtPriceRange.maxVariantPrice.amount}
               currencyCode={product.priceRange.maxVariantPrice.currencyCode}
               align="start"
-              hasNoOptionsOrJustOneOption={hasNoOptionsOrJustOneOption}
+              hasNoOptionsOrJustOneOption={true}
             />
                       
                       
