@@ -7,7 +7,9 @@ const Price = ({
   align,
   className,
   currencyCode = 'CHF',
-  currencyCodeClassName
+  currencyCodeClassName,
+  hasNoOptionsOrJustOneOption 
+  
 }: {
   amount: string;
   comparedPriceAmount?: string; // Update to optional
@@ -15,6 +17,7 @@ const Price = ({
   className?: string;
   currencyCode: string;
   currencyCodeClassName?: string;
+  hasNoOptionsOrJustOneOption: boolean 
 } & React.ComponentProps<'p'>) => {
   const originalPrice = new Intl.NumberFormat(undefined, {
     style: 'currency',
@@ -66,6 +69,11 @@ const Price = ({
           color: hasDiscount ? 'primary.main' : 'inherit'
         }}
       >
+        {
+          hasNoOptionsOrJustOneOption ? null :  <Box component={"span"} textTransform={"lowercase"} fontSize={".9rem"}> ab </Box> 
+        }
+       
+        
         {originalPrice}
       </Typography>
     </Box>

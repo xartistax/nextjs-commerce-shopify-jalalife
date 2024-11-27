@@ -75,11 +75,17 @@ function SubmitButton({
 export function AddToCart({
   variants,
   availableForSale,
-  align
+  align,
+  hasNoOptionsOrJustOneOption,
+  handle,
+  origin
 }: {
   variants: ProductVariant[];
   availableForSale: boolean;
   align: string;
+  hasNoOptionsOrJustOneOption: boolean;
+  handle: string,
+  origin: string | null
 }) {
   const [message, formAction] = useFormState(addItem, null);
   const searchParams = useSearchParams();
@@ -105,10 +111,19 @@ export function AddToCart({
         textAlign: align
       }}
     >
-      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
-      <Typography component={'p'} aria-live="polite" className="sr-only" role="status">
-        {message}
-      </Typography>
+
+    
+
+        <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
+          <Typography component={'p'} aria-live="polite" className="sr-only" role="status">
+            {message}
+          </Typography>
+        
+    
+
+
+
+
     </Box>
   );
 }

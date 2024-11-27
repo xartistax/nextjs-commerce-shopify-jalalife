@@ -53,7 +53,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
+export default async function ProductPage({ params, searchParams }: { 
+  params: { handle: string } ;
+  searchParams: { [key: string]: string | undefined };
+}) {
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
@@ -126,7 +129,7 @@ export default async function ProductPage({ params }: { params: { handle: string
             </Grid>
 
             <Grid item xs={12} sm={6}>
-              <ProductDescription product={product} />
+              <ProductDescription product={product} searchParams={searchParams}/>
 
               <Box
                 id="judgeme_product_reviews"

@@ -8,8 +8,24 @@ import { getProductById } from 'lib/shopify';
 import { Suspense } from 'react';
 import { VariantSelector } from './variant-selector';
 
-export async function ProductDescription({ product }: { product: Product }) {
+
+
+
+
+
+export async function ProductDescription({
+  product,
+  searchParams
+}: {
+  product: Product;
+  searchParams: { [key: string]: string | undefined };
+}) {
+
+  console.log("SEARCHPARAMS: ",searchParams)
+  
   let associatedProductIds = product.metafields[3]?.value || null;
+  const hasNoOptionsOrJustOneOption =
+    ! product.options.length || (product.options.length === 1 && product.options[0]?.values.length === 1);
 
   if (associatedProductIds) {
     try {
@@ -58,12 +74,41 @@ export async function ProductDescription({ product }: { product: Product }) {
             className="mr-auto w-auto py-2 text-sm text-white"
             sx={{ color: 'primary.main', fontWeight: 'bold', fontSize: '1.5rem' }}
           >
-            <Price
+
+            {
+              hasNoOptionsOrJustOneOption ? (
+
+                <Price
               amount={product.priceRange.maxVariantPrice.amount}
               comparedPriceAmount={product.compareAtPriceRange.maxVariantPrice.amount}
               currencyCode={product.priceRange.maxVariantPrice.currencyCode}
               align="start"
+              hasNoOptionsOrJustOneOption={hasNoOptionsOrJustOneOption}
             />
+
+              ) : (
+                      <> 
+
+
+                      <Price
+              amount={
+                searchParams.denominations
+                  ? String(parseInt(searchParams.denominations.replace(/[^\d]/g, ''), 10) / 100)
+                  : product.priceRange.maxVariantPrice.amount
+              }
+              comparedPriceAmount={product.compareAtPriceRange.maxVariantPrice.amount}
+              currencyCode={product.priceRange.maxVariantPrice.currencyCode}
+              align="start"
+              hasNoOptionsOrJustOneOption={hasNoOptionsOrJustOneOption}
+            />
+                      
+                      
+                       </>
+              )
+            }
+            
+
+
           </Box>
           <Box component="div" className="mr-auto w-auto py-2 text-sm font-light ">
             <Typography variant="caption" fontWeight={'light'}>
@@ -89,6 +134,9 @@ export async function ProductDescription({ product }: { product: Product }) {
             variants={product.variants}
             availableForSale={product.availableForSale}
             align="center"
+            hasNoOptionsOrJustOneOption={hasNoOptionsOrJustOneOption}
+            handle={product.handle}
+            origin={"inProduct"}
           />
         </Suspense>
       </Box>

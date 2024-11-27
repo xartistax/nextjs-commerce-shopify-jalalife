@@ -17,6 +17,7 @@ import ReviewStars from './review-stars';
 
 export default async function CollectionIntro() {
   const firstCategoryProducts = await getCollectionProducts({ collection: 'online-shop' });
+  
 
   // Split the products into two categories (mocked for demonstration purposes)
 
@@ -72,7 +73,10 @@ export default async function CollectionIntro() {
             {/* First Category */}
             <Box id="category1">
               <Grid container spacing={2} justifyContent="start">
-                {firstCategoryProducts.map((item, i) => (
+                {firstCategoryProducts.map((item, i) => (<>
+
+                  
+
                   <Grid item xs={12} sm={6} md={4} key={i}>
                     <Box
                       sx={{
@@ -149,11 +153,14 @@ export default async function CollectionIntro() {
                           mb: '1rem'
                         }}
                       >
+
+                        
                         <Price
                           amount={item.priceRange.maxVariantPrice.amount}
                           currencyCode={item.priceRange.maxVariantPrice.currencyCode}
                           comparedPriceAmount={item.compareAtPriceRange.minVariantPrice.amount}
                           align="center"
+                          hasNoOptionsOrJustOneOption = {!item.options.length || (item.options.length === 1 && item.options[0]?.values.length === 1)}
                         />
                       </Box>
 
@@ -163,11 +170,15 @@ export default async function CollectionIntro() {
                           variants={item.variants}
                           availableForSale={item.availableForSale}
                           align="right"
+                          hasNoOptionsOrJustOneOption = {!item.options.length || (item.options.length === 1 && item.options[0]?.values.length === 1)}
+                          handle={item.handle}
+                          origin={"online-shop"}
                         />
                       </Suspense>
                     </Box>
                   </Grid>
-                ))}
+
+                  </>))}
               </Grid>
             </Box>
 
