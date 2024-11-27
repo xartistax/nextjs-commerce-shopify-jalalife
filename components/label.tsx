@@ -30,8 +30,7 @@ const Label = ({
           currencyCode={currencyCode}
           comparedPriceAmount={comparedPriceAmount}
           currencyCodeClassName="hidden @[275px]/label:inline"
-          align={'start'}
-        />
+          align={'start'} hasNoOptionsOrJustOneOption={false}        />
       </div>
     </div>
   );
