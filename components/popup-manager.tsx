@@ -50,19 +50,19 @@ const PopUpManager = () => {
       <PopUpMessage 
       open={popupOpen}
       onClose={handleClose}
-      title="Welt-Diabetes-Tag – Die Bedeutung ganzheitlicher Gesundheit"
+      title="Black Friday – Sichere Dir 15% auf alle Paket-Bundles!
+"
       message={
         <>
-          Vom 14. bis zum 30. November erhältst Du <strong>10% Rabatt</strong> auf unsere Kurkuma sowie Weihrauch Tropfen! 
-          Verwende den Code <strong>DIABETESTAG10</strong> bei Deiner Bestellung und gib Deinem Körper die natürliche 
-          Unterstützung, die er verdient.
+
+          <strong> 15% zusätzlich auf alle Jala-Life Powerpakete – nur für kurze Zeit </strong>
+Dieses Black-Friday-Wochenende schenken wir Dir 15% Rabatt auf unsere beliebten Paket-Bundles. Nutze die Gelegenheit, um Dich mit unseren natürlichen Wirkstoff-Kombinationen einzudecken, die Dein Immunsystem stärken, Stress reduzieren und Dein Wohlbefinden fördern.
+
         </>
       }
-      imageUrl="/ad1.png"
-      linkText1="Curcuma"
-      linkUrl1="/products/curcuma-mit-zink"
-      linkText2="Weihrauch"
-      linkUrl2="/products/indischer-weihrauch-mit-zink"
+      imageUrl="/bf24.png"
+      linkText1="Jetzt sparen"
+      linkUrl1="/shop"
     />
       </div>
     </Fade>
