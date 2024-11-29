@@ -55,7 +55,7 @@ const PopUpManager = () => {
       message={
         <>
 
-          <strong> 15% zusätzlich auf alle Jala-Life Powerpakete – nur für kurze Zeit </strong>
+          <strong> 15% zusätzlich auf alle Jala-Life Powerpakete – nur für kurze Zeit!  </strong>
 Dieses Black-Friday-Wochenende schenken wir Dir 15% Rabatt auf unsere beliebten Paket-Bundles. Nutze die Gelegenheit, um Dich mit unseren natürlichen Wirkstoff-Kombinationen einzudecken, die Dein Immunsystem stärken, Stress reduzieren und Dein Wohlbefinden fördern.
 
         </>
