@@ -1,6 +1,9 @@
 "use client";
-import { Alert, Box, Button, TextField, Typography } from '@mui/material';
+
+import CheckIcon from '@mui/icons-material/Check';
+import { Alert, Box, Button, List, ListItem, ListItemIcon, ListItemText, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+
 
 export default function NewsletterForm() {
   const [severity, setSeverity] = useState<'success' | 'error'>('error');
@@ -54,16 +57,39 @@ export default function NewsletterForm() {
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
-        maxWidth: 400,
+        maxWidth: '500px',
+        minWidth: '50%',
         margin: '100px auto',
         padding: 3,
         borderRadius: 2,
         boxShadow: 1,
       }}
     >
-      <Typography variant="h5" component="h2" textAlign="center" gutterBottom>
-        Abonnieren Sie jetzt unseren Newsletter
+      <Typography variant="h5" component="h2"  gutterBottom>
+      Bleib auf dem Laufenden und profitiere! 🌿
       </Typography>
+
+      <Typography component="p"  gutterBottom>
+      Du möchtest von unseren monatlichen Rabatten und exklusiven Angeboten profitieren? Dann melde dich jetzt für unseren Newsletter an!
+      <Box component={'strong'} sx={{display:'block', paddingTop: '3rem'}}> 🔔 Deine Vorteile:</Box>
+      </Typography>
+
+
+      <List sx={{ display: 'inline-block' }}>
+        {[
+          '10% Rabatt auf Ihren ersten Einkauf',
+          'Exklusive Aktionen nur für Abonnenten',
+          'Spannende Tipps und News rund um natürliche Gesundheit',
+          'Einblicke in neue Produkte und Innovationen',
+        ].map((item, index) => (
+          <ListItem key={index} sx={{ justifyContent: 'center' }}>
+            <ListItemIcon sx={{ minWidth: 'auto'}}>
+              <CheckIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText primary={item} />
+          </ListItem>
+        ))}
+      </List>
 
       <TextField
         label="Email Adresse"
