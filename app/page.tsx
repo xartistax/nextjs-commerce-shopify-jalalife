@@ -1,4 +1,5 @@
 import CollectionCarousel from 'components/carousel-collection';
+import NewsletterForm from 'components/newsletter-section';
 import CollectionProducts from 'components/section-carousel';
 import SectionEnum from 'components/section-enum';
 import WirkstoffFinder from 'components/section-finder';
@@ -49,6 +50,8 @@ export default async function HomePage() {
 
       <SectionInfo />
       <SectionReviews />
+
+      <NewsletterForm />
 
       <Footer />
     </>
