@@ -9,6 +9,7 @@ import { ReactNode } from 'react';
 import { theme } from 'theme';
 
 // import PopUpManager from 'components/popup-manager';
+import PopUpManager from 'components/popup-manager';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -60,7 +61,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             <main className="--font-brandon-regular">{children}</main>
             
 
-            {/* <PopUpManager /> */}
+            <PopUpManager />
 
       
             {/* <ShopifyAnalytics /> */}

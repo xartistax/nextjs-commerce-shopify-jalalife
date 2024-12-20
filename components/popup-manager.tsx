@@ -19,9 +19,9 @@ const PopUpManager = () => {
     const lastShown = localStorage.getItem('popupLastShown');
     const now = new Date();
 
-    const startDate = new Date('2024-11-14');  // Start date (14th November)
-  const endDate = new Date('2024-11-30');    // End date (30th November)
-  const currentDate = new Date(); 
+    const startDate = new Date('2024-12-20');  // Start date (14th November)
+    const endDate = new Date('2024-12-26');    // End date (30th November)
+    const currentDate = new Date(); 
 
     // Check if the popup was shown in the past 24 hours
     if (!lastShown || new Date(now).getTime() - new Date(lastShown).getTime() > 24 * 60 * 60 * 1000) {
@@ -50,19 +50,19 @@ const PopUpManager = () => {
       <PopUpMessage 
       open={popupOpen}
       onClose={handleClose}
-      title="Black Friday – Sichere Dir 15% auf alle Paket-Bundles!
+      title="Sichere Dir 15% auf unser Winterpaket!
 "
       message={
         <>
 
           <strong> 15% zusätzlich auf alle Jala-Life Powerpakete – nur für kurze Zeit!  </strong>
-Dieses Black-Friday-Wochenende schenken wir Dir 15% Rabatt auf unsere beliebten Paket-Bundles. Nutze die Gelegenheit, um Dich mit unseren natürlichen Wirkstoff-Kombinationen einzudecken, die Dein Immunsystem stärken, Stress reduzieren und Dein Wohlbefinden fördern.
+Dieses Wochenende schenken wir Dir 15% Rabatt auf unser Winterpaket. Nutze die Gelegenheit, um Dich mit unseren natürlichen Wirkstoff-Kombinationen einzudecken, die Dein Immunsystem stärken, Stress reduzieren und Dein Wohlbefinden fördern.
 
         </>
       }
-      imageUrl="/bf24.png"
+      imageUrl="/Winterpaket-popup.png"
       linkText1="Jetzt sparen"
-      linkUrl1="/shop"
+      linkUrl1="/products/winterpaket"
     />
       </div>
     </Fade>
