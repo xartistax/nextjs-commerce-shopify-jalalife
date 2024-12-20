@@ -55,8 +55,15 @@ const PopUpManager = () => {
       message={
         <>
 
-          <strong> 15% zusätzlich auf alle Jala-Life Powerpakete – nur für kurze Zeit!  </strong>
-Dieses Wochenende schenken wir Dir 15% Rabatt auf unser Winterpaket. Nutze die Gelegenheit, um Dich mit unseren natürlichen Wirkstoff-Kombinationen einzudecken, die Dein Immunsystem stärken, Stress reduzieren und Dein Wohlbefinden fördern.
+          <strong> 10% zusätzlich – nur für kurze Zeit!  </strong>
+          🎉 Zusätzliche 10% Rabatt auf das neue Winterpaket!
+Der Winter bringt nicht nur kalte Temperaturen, sondern stellt auch Dein Immunsystem vor besondere Herausforderungen. Mit unserem Jala-Life Winterpaket bist Du bestens vorbereitet! Dieses Paket vereint sechs kraftvolle natürliche Wirkstoffe, die Dein Immunsystem stärken, Stress reduzieren und Dein Wohlbefinden fördern.
+
+Doppelt sparen: Unsere Pakete sind immer mit 15% Rabatt erhältlich – nur vom 20. bis 27. Dezember erhältst Du zusätzliche 10% Rabatt mit dem Code WINTER10. Jetzt ist der perfekte Moment, Deine Gesundheit nachhaltig zu unterstützen!
+
+🎟️ Rabattcode: WINTER10
+
+
 
         </>
       }
