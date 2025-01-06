@@ -80,7 +80,7 @@ export default async function Article({ params }: { params: { blog: string; arti
                     <Typography variant="caption" gutterBottom color={'primary.main'}>
                       {author && (
                         <>
-                          Author: {author} <br />
+                          Autor: {author} <br />
                         </>
                       )}
                       {promo_product && (
