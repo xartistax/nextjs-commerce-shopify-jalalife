@@ -25,7 +25,7 @@ const Price = ({
     style: 'currency',
     currency: currencyCode,
     currencyDisplay: 'narrowSymbol'
-  }).format(parseFloat(amount));
+  }).format(parseFloat(minPrice));
 
 
   const comparedPrice = comparedPriceAmount
@@ -77,7 +77,7 @@ const Price = ({
         }
        
         
-        {minPrice} {currencyCode}
+        {originalPrice} 
       </Typography>
     </Box>
   );
