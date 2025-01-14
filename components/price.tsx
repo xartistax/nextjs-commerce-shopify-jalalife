@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material';
 import clsx from 'clsx';
 
 const Price = ({
+  minPrice,
   amount,
   comparedPriceAmount,
   align,
@@ -11,6 +12,7 @@ const Price = ({
   hasNoOptionsOrJustOneOption 
   
 }: {
+  minPrice: string;
   amount: string;
   comparedPriceAmount?: string; // Update to optional
   align: string;
@@ -24,6 +26,7 @@ const Price = ({
     currency: currencyCode,
     currencyDisplay: 'narrowSymbol'
   }).format(parseFloat(amount));
+
 
   const comparedPrice = comparedPriceAmount
     ? new Intl.NumberFormat(undefined, {
@@ -74,7 +77,7 @@ const Price = ({
         }
        
         
-        {originalPrice}
+        {minPrice} {currencyCode}
       </Typography>
     </Box>
   );

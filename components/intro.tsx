@@ -190,10 +190,14 @@ export default async function CollectionIntro({ handle }: PageProps) {
                       }}
                     >
                       <Price
+                        minPrice ={item.priceRange.minVariantPrice.amount}
                         amount={item.priceRange.maxVariantPrice.amount}
                         currencyCode={item.priceRange.maxVariantPrice.currencyCode}
                         comparedPriceAmount={item.compareAtPriceRange.maxVariantPrice.amount}
-                        align="start" hasNoOptionsOrJustOneOption={!item.options.length || (item.options.length === 1 && item.options[0]?.values.length === 1)}                      />
+                        align="start" hasNoOptionsOrJustOneOption={!item.options.length || (item.options.length === 1 && item.options[0]?.values.length === 1)}  
+                        
+                        />
+                    
                     </Box>
 
                     {/* Add to Cart Button */}

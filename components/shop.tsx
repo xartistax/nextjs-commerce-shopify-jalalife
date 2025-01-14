@@ -156,6 +156,7 @@ export default async function CollectionIntro() {
 
                         
                         <Price
+                        minPrice ={item.priceRange.minVariantPrice.amount}
                           amount={item.priceRange.maxVariantPrice.amount}
                           currencyCode={item.priceRange.maxVariantPrice.currencyCode}
                           comparedPriceAmount={item.compareAtPriceRange.minVariantPrice.amount}

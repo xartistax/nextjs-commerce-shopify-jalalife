@@ -79,6 +79,7 @@ export async function ProductDescription({
               hasNoOptionsOrJustOneOption ? (
 
                 <Price
+                minPrice ={product.priceRange.minVariantPrice.amount}
               amount={product.priceRange.maxVariantPrice.amount}
               comparedPriceAmount={product.compareAtPriceRange.maxVariantPrice.amount}
               currencyCode={product.priceRange.maxVariantPrice.currencyCode}

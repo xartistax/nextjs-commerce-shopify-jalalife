@@ -157,6 +157,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                             </Link>
                             <div className="flex h-16 flex-col justify-between">
                               <Price
+                              minPrice ={item.cost.totalAmount.amount}
                                 className="flex justify-end space-y-2 text-right text-sm"
                                 amount={item.cost.totalAmount.amount}
                                 currencyCode={item.cost.totalAmount.currencyCode}
@@ -180,6 +181,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 ">
                       <Typography component={'p'}> Steuern </Typography>
                       <Price
+                          minPrice ={cart.cost.totalTaxAmount.amount}
                           className="text-right text-base text-black "
                           amount={cart.cost.totalTaxAmount.amount}
                           currencyCode={cart.cost.totalTaxAmount.currencyCode}
@@ -196,6 +198,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1">
                       <Typography component={'p'}> Total </Typography>
                       <Price
+                          minPrice ={cart.cost.totalTaxAmount.amount}
                           className="text-right text-base text-black "
                           amount={cart.cost.totalAmount.amount}
                           currencyCode={cart.cost.totalAmount.currencyCode}
