@@ -92,6 +92,7 @@ export async function ProductDescription({
 
 
                       <Price
+                      minPrice ={product.priceRange.minVariantPrice.amount}
               amount={
                 searchParams.denominations
                   ? String(parseInt(searchParams.denominations.replace(/[^\d]/g, ''), 10) / 100)
