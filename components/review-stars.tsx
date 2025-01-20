@@ -85,7 +85,7 @@ export default function ReviewStars({ handle }: ReviewStarsProps) {
       return;
     }
   
-    setAnchorEl(target);
+    setAnchorEl(target as HTMLElement);
     setActiveHandle(handle);
     setLoading(true); // Show loading spinner
   
