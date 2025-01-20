@@ -95,6 +95,7 @@ export default async function ProductPage({ params, searchParams }: {
         />
 
         <Paper elevation={0}>
+        
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6} sx={{ overflow: 'scroll', paddingBottom: '100px' }}>
               <StickyBox>
