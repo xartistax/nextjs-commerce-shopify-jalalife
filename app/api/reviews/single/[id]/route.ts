@@ -33,10 +33,10 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
 
 // Filter and sort reviews
-const filteredAndSortedReviews = data.reviews.filter(review => review.product_handle === handle) 
+const filteredAndSortedReviews = data.reviews.filter((review: { product_handle: string; }) => review.product_handle === handle) 
 
 
-const totalRatings = filteredAndSortedReviews.reduce((sum, review) => sum + review.rating, 0);
+const totalRatings = filteredAndSortedReviews.reduce((sum: any, review: { rating: any; }) => sum + review.rating, 0);
 const reviewCount = filteredAndSortedReviews.length;
 const averageRating = reviewCount > 0 ? (totalRatings / reviewCount).toFixed(2) : 0; // Keep 2 decimal places
 
