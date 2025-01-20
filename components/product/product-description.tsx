@@ -21,7 +21,7 @@ export async function ProductDescription({
   searchParams: { [key: string]: string | undefined };
 }) {
 
-  console.log("SEARCHPARAMS: ",searchParams)
+
   
   let associatedProductIds = product.metafields[3]?.value || null;
   const hasNoOptionsOrJustOneOption =

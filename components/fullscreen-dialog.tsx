@@ -48,7 +48,7 @@ export default function FullScreenDialog({
   survey.onComplete.add((sender) => {
     const products: string[] = getCollections(sender.data as SurveyResponse);
 
-    console.log(products);
+    
     window.location.href = `/collections/${products[0]}`;
   });
 

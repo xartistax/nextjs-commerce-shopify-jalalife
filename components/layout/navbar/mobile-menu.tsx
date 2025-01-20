@@ -16,7 +16,6 @@ export function transformPath(url: string ) {
   try {
     const parsedUrl = new URL(url);
     const newPath = `${parsedUrl.pathname}`
-    console.log("NEWPATHS: ", newPath)
     return newPath;
   } catch (e) {
     return url; // return original URL if parsing fails
@@ -44,7 +43,7 @@ export default function MobileMenu({
   const closeMobileMenu = () => setIsOpen(false);
 
 
-  console.log("MENU: ", menu)
+
 
   const handleBDClose = () => {
     setBdOpen(false);

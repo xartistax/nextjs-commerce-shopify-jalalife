@@ -44,8 +44,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
       'bexolutionsteststore.myshopify.com/checkouts/cn'
     ) || '';
 
-  console.log('CART: ', cart);
-  console.log('CHECKOUTURL: ', checkoutUrl);
+
 
   return (
     <>

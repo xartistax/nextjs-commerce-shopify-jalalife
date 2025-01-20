@@ -15,8 +15,13 @@ import { getCollectionProducts, getCollections } from 'lib/shopify';
 import { Suspense } from 'react';
 import ReviewStars from './review-stars';
 
+
+
 export default async function CollectionIntro() {
   const firstCategoryProducts = await getCollectionProducts({ collection: 'online-shop' });
+
+
+ 
   
 
   // Split the products into two categories (mocked for demonstration purposes)
@@ -73,7 +78,9 @@ export default async function CollectionIntro() {
             {/* First Category */}
             <Box id="category1">
               <Grid container spacing={2} justifyContent="start">
-                {firstCategoryProducts.map((item, i) => (<>
+                {firstCategoryProducts.map((item, i) => (
+                  
+                  <>
 
                   
 
@@ -124,7 +131,16 @@ export default async function CollectionIntro() {
                       {/* Product Reviews */}
 
                       <Box sx={{ mb: '1rem' }}>
-                        {<ReviewStars product_id={item.id.split('/').pop()!} />}
+                        
+                        { 
+                         
+                          <>
+                       
+                          
+                          <ReviewStars handle={item.handle} />
+
+                        </>
+                          }
                       </Box>
 
                       {/* Product Description */}
@@ -179,7 +195,9 @@ export default async function CollectionIntro() {
                     </Box>
                   </Grid>
 
-                  </>))}
+                  </>
+                
+                ))}
               </Grid>
             </Box>
 

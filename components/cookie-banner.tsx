@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 // Function to load Shopify's Customer Privacy API
 const loadShopifyPrivacyAPI = (onLoad: { (): void; (): void }) => {
-  console.log('Attempting to load Shopify Privacy API...');
+
 
   // Check if Shopify is available on the window
   if (typeof window !== 'undefined' && window.Shopify) {

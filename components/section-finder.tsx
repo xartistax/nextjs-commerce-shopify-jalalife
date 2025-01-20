@@ -2,7 +2,7 @@
 import { Box, Button, Container } from '@mui/material';
 
 export const handleFullScreenClose = () => {
-  console.log('Dialog closed');
+
 };
 
 export default function WirkstoffFinder() {
