@@ -2,7 +2,6 @@ import CollectionCarousel from 'components/carousel-collection';
 import NewsletterForm from 'components/newsletter-section';
 import CollectionProducts from 'components/section-carousel';
 import SectionEnum from 'components/section-enum';
-import WirkstoffFinder from 'components/section-finder';
 import SectionIntro from 'components/section-intro';
 import SectionNutzen from 'components/section-nutzen';
 import SectionReviews from 'components/section-reviews';
@@ -36,20 +35,36 @@ export default async function HomePage() {
         size={'85vh'}
       />
       <CollectionProducts />
-      <WirkstoffFinder />
-      <SectionMainBlog />
-      <SectionBlogArticles />
-
-      <CollectionCarousel />
+      {/* <WirkstoffFinder /> */}
 
       <SectionNutzen />
 
       <SectionEnum />
 
+      <SectionInfo />
+
+      <SectionReviews />
+
       <SectionBioBlog />
 
-      <SectionInfo />
-      <SectionReviews />
+       <SectionMainBlog />
+      
+      <SectionBlogArticles />
+
+     
+
+
+      
+      <CollectionCarousel />
+
+      
+
+      
+
+      
+
+      
+      
 
       <NewsletterForm />
 

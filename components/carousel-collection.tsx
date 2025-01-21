@@ -20,11 +20,12 @@ const CollectionCarousel = async () => {
       sx={{
         position: 'relative',
         textAlign: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        py: '50px',
       }}
     >
       <Box
-        sx={{ paddingTop: { xs: '30px', md: '30px' }, paddingBottom: { xs: '30px', md: '100px' } }}
+       
       >
         <Box
           sx={{

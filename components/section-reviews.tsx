@@ -150,7 +150,8 @@ const SectionReviews = () => {
       sx={{
         position: 'relative',
         textAlign: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        py: '50px',
       }}
     >
       <Box sx={{}}>

@@ -49,8 +49,17 @@ export default function ReviewStars({ handle, align = 'center' }: ReviewStarsPro
         const res = await fetch(`/api/reviews/single/${handle}`); // Fetch review data
         const data = await res.json();
 
+        console.log("DATA:", data)
+
+        const filteredReviews = data.reviews.filter(
+          (review: any) => review.product_handle === handle && !review.title.includes('API')
+        );
+
+
+        console.log("NEW:", filteredReviews)
+
         setStarCount(data.averageRating || 0); // Update average rating
-        setTotal(data.reviewCount || 0); // Update total reviews
+        setTotal(filteredReviews.length || 0); // Update total reviews
       } catch (error) {
         console.error('Error fetching reviews:', error);
         setStarCount(0); // Fallback
@@ -61,9 +70,7 @@ export default function ReviewStars({ handle, align = 'center' }: ReviewStarsPro
     fetchProductReview(); // Fetch reviews on mount
   }, [handle]);
 
-  useEffect(() => {
-    console.log('BODY: ', reviews);
-  }, [reviews]);
+
 
   const handleStarClick = async (event: React.MouseEvent) => {
     const target = event.currentTarget;

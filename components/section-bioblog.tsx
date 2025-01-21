@@ -17,10 +17,10 @@ export default async function SectionBioBlog() {
       <Container
         maxWidth="lg"
         sx={{
-          marginY: '5rem',
           position: 'relative',
           textAlign: 'center',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          my: '50px',
         }}
       >
         {/* Background Video */}

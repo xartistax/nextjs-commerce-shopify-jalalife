@@ -14,7 +14,7 @@ export default async function SectionBlogArticles() {
       maxWidth="lg"
       sx={{
         position: 'relative',
-        py: { xs: '30px', md: '100px' }
+        py: '50px',
       }}
     >
       <Grid

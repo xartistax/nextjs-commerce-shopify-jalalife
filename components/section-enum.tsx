@@ -40,7 +40,7 @@ export default function SectionEnum() {
   const theme = useTheme();
 
   return (
-    <Container maxWidth="lg" sx={{ position: 'relative', py: { xs: '30px', md: '100px' } }}>
+    <Container maxWidth="lg" sx={{ position: 'relative', py: '50px', }}>
       <Typography
         gutterBottom
         variant="h4"

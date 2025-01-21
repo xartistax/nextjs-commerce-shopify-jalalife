@@ -25,7 +25,7 @@ const items = [
 
 export default function SectionNutzen() {
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: '30px', md: '0px' } }}>
+    <Container maxWidth="lg" sx={{  py: '100px'}} >
       <Typography
         gutterBottom
         variant="h4"
@@ -34,7 +34,8 @@ export default function SectionNutzen() {
           fontWeight: 'bold',
           textTransform: 'uppercase',
           marginBottom: '5rem',
-          textAlign: 'center'
+          textAlign: 'center',
+         
         }}
       >
         Next-Generation Plant-Extracts

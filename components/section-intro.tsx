@@ -34,9 +34,9 @@ export default function SectionIntro({ heading, size }: SectionIntroProps) {
                 lg: '32px' // padding for large devices
               },
               paddingY: {
-                xs: '100px',
-                md: '0px', // padding for medium devices
-                lg: '32px' // padding for large devices
+                xs: '50px',
+                md: '50px', // padding for medium devices
+                lg: '50px' // padding for large devices
               },
               justifyContent: 'center',
               alignItems: 'center',

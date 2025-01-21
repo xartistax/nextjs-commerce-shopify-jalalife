@@ -13,7 +13,7 @@ export default async function SectionMainBlog() {
         <link rel="preload" href="/jala_life_plfanzen_extrakte_high.mp4" as="video" />
       </Head> */}
 
-      <Typography
+      {/* <Typography
         gutterBottom
         component={'h1'}
         variant="h2"
@@ -25,14 +25,15 @@ export default async function SectionMainBlog() {
         }}
       >
         Next Generation Plant-Extract
-      </Typography>
+      </Typography> */}
 
       <Container
         maxWidth="lg"
         sx={{
           position: 'relative',
           textAlign: 'center',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          my: '50px',
         }}
       >
         {/* Background Video */}
