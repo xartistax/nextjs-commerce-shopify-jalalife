@@ -13,7 +13,7 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import { getCollectionProducts, getCollections } from 'lib/shopify';
 import { Suspense } from 'react';
-import ReviewStars from './review-stars';
+import ReviewStarsServer from './ReviewStars/page';
 
 
 
@@ -135,9 +135,9 @@ export default async function CollectionIntro() {
                         { 
                          
                           <>
-                       
+                 
                           
-                          <ReviewStars handle={item.handle} />
+                          <ReviewStarsServer handle={item.handle} product={item} align="center" />
 
                         </>
                           }

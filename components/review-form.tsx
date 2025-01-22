@@ -11,6 +11,7 @@ import {
   Typography
 } from '@mui/material';
 import { Product } from 'lib/shopify/types';
+
 import { useState } from 'react';
 
 interface AddReviewFormProps {
@@ -20,6 +21,7 @@ interface AddReviewFormProps {
 const AddReviewForm: React.FC<AddReviewFormProps> = ({ product }) => {
   const [reviewerName, setReviewerName] = useState('');
   const [reviewerEmail, setReviewerEmail] = useState('');
+  const [reviewTitle, setReviewTitle] = useState('');
   const [rating, setRating] = useState(0);
   const [reviewBody, setReviewBody] = useState('');
   const [message, setMessage] = useState('');
@@ -40,7 +42,7 @@ const AddReviewForm: React.FC<AddReviewFormProps> = ({ product }) => {
     // Build API request URL with query parameters
     const apiUrl = `https://judge.me/api/v1/reviews?name=${encodeURIComponent(reviewerName)}&email=${encodeURIComponent(reviewerEmail)}&rating=${rating}&handle=${product.handle}?body=${encodeURIComponent(
       reviewBody
-    )}&id=${productIdExtracted}&shop_domain=bexolutionsteststore.myshopify.com&title=API+Form+Title&url=jala-life.com`;
+    )}&id=${productIdExtracted}&shop_domain=bexolutionsteststore.myshopify.com&title=${reviewTitle}&url=jala-life.com`;
 
     // Prepare headers and options for fetch request
     const myHeaders = new Headers();
@@ -73,6 +75,7 @@ const AddReviewForm: React.FC<AddReviewFormProps> = ({ product }) => {
   // Function to clear form fields (optional)
   const clearForm = () => {
     setReviewerName('');
+    setReviewTitle('')
     setReviewerEmail('');
     setRating(0);
     setReviewBody('');
@@ -85,6 +88,21 @@ const AddReviewForm: React.FC<AddReviewFormProps> = ({ product }) => {
       </Typography>
 
       <form onSubmit={handleSubmit}>
+
+
+      <FormControl fullWidth margin="normal" disabled={isSubmitted}>
+          <TextField
+            label="Geben Sie einen Titel an"
+            variant="outlined"
+            value={reviewTitle}
+            onChange={(e) => setReviewTitle(e.target.value)}
+            required
+          />
+        </FormControl>
+
+
+
+
         <FormControl fullWidth margin="normal" disabled={isSubmitted}>
           <TextField
             label="Ihr Name (Sichtbar für andere Käufer)"

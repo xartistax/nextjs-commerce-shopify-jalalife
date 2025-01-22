@@ -41,9 +41,6 @@ const reviewCount = filteredAndSortedReviews.length;
 const averageRating = reviewCount > 0 ? (totalRatings / reviewCount).toFixed(2) : 0; // Keep 2 decimal places
 
 
-console.log(totalRatings);
-console.log(reviewCount);
-console.log(averageRating);
 
 
     

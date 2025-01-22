@@ -76,7 +76,8 @@
     "survey-core": "^1.11.13",
     "survey-creator-core": "^1.11.13",
     "survey-creator-react": "^1.11.13",
-    "survey-react-ui": "^1.11.13"
+    "survey-react-ui": "^1.11.13",
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
