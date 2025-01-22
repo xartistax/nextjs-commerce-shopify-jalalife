@@ -10,6 +10,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { ReviewStarsProps } from './ReviewStars/stars';
 
 
+
+
+
 export function renderStars(rating: number, total: number , align: string) {
   // Stellen sicher, dass rating eine gültige Zahl ist
   if (isNaN(rating) || rating < 0) {
