@@ -91,11 +91,11 @@ export default function CustomPopover({ rating, total, reviews, product, align }
         component="span"
         
       >
-        {renderStars(rating, total, align)}
+        {renderStars(rating, total, String(align))}
       </Link>
       
       ) : (
-        renderStars(rating, total, align)
+        renderStars(rating, total, String(align))
       )}
 
 
