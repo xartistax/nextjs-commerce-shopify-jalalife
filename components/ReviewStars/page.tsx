@@ -13,10 +13,13 @@ import Stars from './stars';
   }
 
 
+  
+
   function calculateAverageRating(reviews: any[]) {
     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
     const averageRating = totalRating / reviews.length;
-  
+
+    
     // Round to the nearest 0.5
     const roundedRating = Math.round(averageRating * 2) / 2;
   
@@ -26,7 +29,12 @@ import Stars from './stars';
 
   export default async function ReviewStarsServer({ handle, product, align }: Props) {
 
-    const response = await fetch(`http://localhost:3000/api/reviews/single/${handle}`);
+    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  : 'http://localhost:3000';
+  
+
+    const response = await fetch(`${baseUrl}/api/reviews/single/${handle}`);
 
     if (!response.ok) {
         // Handle errors if the fetch fails
