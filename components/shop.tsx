@@ -136,7 +136,7 @@ export default async function CollectionIntro() {
                          
                           <>
                  
-                 <ReviewStarsServer handle={item.handle} product={item} i={i} align="center" />
+                 <ReviewStarsServer handle={item.handle} product={item} i={String(i)} align="center" />
                           
 
                         </>

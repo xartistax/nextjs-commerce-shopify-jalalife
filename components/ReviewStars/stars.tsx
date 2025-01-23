@@ -14,7 +14,7 @@ export interface ReviewStarsProps {
   reviews: Review[]
   product: Product
   align: String
-  i?: number;
+  i?: string;
 }
 
 

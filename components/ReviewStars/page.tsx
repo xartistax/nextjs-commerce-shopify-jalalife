@@ -8,7 +8,7 @@ import Stars from './stars';
   interface Props {
     handle: string;
     product: Product
-    i: number;
+    i: string;
     align: string
   }
 
