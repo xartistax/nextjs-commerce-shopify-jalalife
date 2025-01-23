@@ -2,12 +2,12 @@
 
 import CheckIcon from '@mui/icons-material/Check';
 import { Alert, Box, Button, List, ListItem, ListItemIcon, ListItemText, TextField, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 export default function NewsletterForm() {
   const [severity, setSeverity] = useState<'success' | 'error'>('error');
-  const [isClient, setIsClient] = useState(false);
+  
   const [formInput, setFormInput] = useState({
     email: '',
     name: '',
@@ -15,13 +15,7 @@ export default function NewsletterForm() {
     message: '',
   });
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
-  if (!isClient) {
-    return 'NoClient';
-  }
 
   const subscribe = async (e: React.FormEvent) => {
     e.preventDefault();

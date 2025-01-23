@@ -25,7 +25,7 @@ export default async function SectionReviews () {
 
 
   const filteredReviews = data.reviews.filter((review: any) => {
-    console.log(`Review ID: ${review.id}, Hidden: ${review.hidden}, Published: ${review.published}`);
+   
     return !review.hidden && review.published;
   });
 

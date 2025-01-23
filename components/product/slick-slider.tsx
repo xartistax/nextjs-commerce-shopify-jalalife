@@ -3,7 +3,9 @@
 import { Box, Grid, Link, Typography } from '@mui/material';
 import { Collection } from 'lib/shopify/types';
 import React from 'react';
-import { Slide } from 'react-slideshow-image';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 interface CollectionSliderProps {
   collections: Collection[];
@@ -40,6 +42,16 @@ const responsiveSettings = [
   }
 ];
 
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  centerMode: false,
+};
+
 const CollectionSlider: React.FC<CollectionSliderProps> = ({
   collections,
   duration = 3000,
@@ -53,16 +65,7 @@ const CollectionSlider: React.FC<CollectionSliderProps> = ({
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <Slide
-          duration={duration}
-          transitionDuration={transitionDuration}
-          indicators={indicators}
-          slidesToScroll={slidesToScroll}
-          autoplay={autoplay}
-          slidesToShow={slidesToShow}
-          arrows={arrows}
-          responsive={responsiveSettings}
-        >
+      <Slider {...settings}>
           {collections.map((collection, index) => (
             <Box
               key={index}
@@ -151,7 +154,7 @@ const CollectionSlider: React.FC<CollectionSliderProps> = ({
               </Box>
             </Box>
           ))}
-        </Slide>
+        </Slider>
       </Grid>
     </Grid>
   );

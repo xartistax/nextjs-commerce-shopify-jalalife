@@ -3,6 +3,8 @@ import { Box, Container } from '@mui/material';
 import { getCollections } from 'lib/shopify';
 import CollectionSlider from './product/slick-slider';
 
+
+
 const CollectionCarousel = async () => {
   const collections = await getCollections();
 

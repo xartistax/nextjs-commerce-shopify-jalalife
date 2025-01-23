@@ -58,7 +58,7 @@ export function renderStars(rating: number) {
 
 export default function CustomPopoverHome({ rating, reviews }: ReviewStarsHomeProps) {
 
-  console.log(reviews[0]?.id)
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); // Proper type for anchorEl
   const [showPopOver, setShowPopOver] = useState(false);
 

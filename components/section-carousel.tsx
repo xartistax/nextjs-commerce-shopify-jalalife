@@ -7,6 +7,8 @@ const CollectionProducts = async () => {
   // Fetch products directly in the component
   const products = await getCollectionProducts({ collection: 'online-shop' });
 
+
+
   return (
     <Container
       maxWidth="lg"

@@ -1,6 +1,6 @@
 import CollectionCarousel from 'components/carousel-collection';
 import NewsletterForm from 'components/newsletter-section';
-import CollectionProducts from 'components/section-carousel';
+import CollectionProducts from 'components/product-carousel/page';
 import SectionEnum from 'components/section-enum';
 import SectionIntro from 'components/section-intro';
 import SectionNutzen from 'components/section-nutzen';
@@ -9,7 +9,7 @@ import SectionReviews from 'components/section-reviews';
 import { lazy } from 'react';
 
 export const metadata = {
-  description: 'JalaLife - Next generation plant extract',
+  description: 'JalaLife Redesign',
   openGraph: {
     type: 'website'
   }
