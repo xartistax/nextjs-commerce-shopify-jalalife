@@ -24,7 +24,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
     );
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch reviews: ${res.statusText}`);
+      throw new Error(`SINGLE Route - Failed to fetch reviews: ${res.statusText}`);
     }
 
     const data = await res.json();

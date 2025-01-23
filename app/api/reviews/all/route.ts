@@ -17,7 +17,7 @@ export async function GET(): Promise<NextResponse> {
   } catch (error) {
     console.error('Error fetching reviews:', error);
     // Handle error response
-    return new NextResponse(JSON.stringify({ error: 'Failed to fetch reviews' }), {
+    return new NextResponse(JSON.stringify({ error: 'ALL Route: Failed to fetch reviews' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

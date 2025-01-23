@@ -41,7 +41,7 @@ import Stars from './stars';
 
     if (!response.ok) {
         // Handle errors if the fetch fails
-        console.error("Failed to fetch reviews:", response.statusText);
+        console.error("Server Component: Failed to fetch reviews:", response.statusText);
         return ;
       }
 
