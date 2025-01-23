@@ -49,9 +49,17 @@ import Stars from './stars';
       const data = await response.json();
 
 
-      const filteredReviews = data.reviews.filter((review: { product_handle: string; hidden: boolean; published: boolean }) => 
-        review.product_handle === handle && !review.hidden && review.published
-      );
+      const filteredReviews = data.reviews
+  .filter((review: { product_handle: string; hidden: boolean; published: boolean }) => 
+    review.product_handle === handle && !review.hidden && review.published
+  )
+  .map((review: { title: string }) => {
+    // If the title is "API Form Title", change it to "Bewertung ohne titel"
+    if (review.title === "API Form Title") {
+      review.title = "Bewertung ohne titel";
+    }
+    return review;
+  });
 
  
 
