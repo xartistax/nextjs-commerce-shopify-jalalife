@@ -9,7 +9,7 @@ import SectionReviews from 'components/section-reviews';
 import { lazy } from 'react';
 
 export const metadata = {
-  description: 'JalaLife Redesign',
+  description: 'JalaLife - Next generation plant extract',
   openGraph: {
     type: 'website'
   }
