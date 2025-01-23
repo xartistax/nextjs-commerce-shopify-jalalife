@@ -29,12 +29,12 @@ import Stars from './stars';
 
   export default async function ReviewStarsServer({ handle, product, i, align }: Props) {
 
-    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-  : 'http://localhost:3000';
+    const JUDGEME_API_URL = 'https://judge.me/api/v1/reviews';
+    const SHOP_DOMAIN = 'bexolutionsteststore.myshopify.com';
+    const API_TOKEN = 'LOL0WxeJ2wUrj8__zgtlTDiDIaM';
   
 
-    const response = await fetch(`${baseUrl}/api/reviews/single/${handle}`, {
+    const response = await fetch(`${JUDGEME_API_URL}?shop_domain=${SHOP_DOMAIN}&api_token=${API_TOKEN}&per_page=1000`, {
       headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }
     }
     );
@@ -48,8 +48,9 @@ import Stars from './stars';
 
       const data = await response.json();
 
-      const filteredReviews = data.reviews.filter(
-        (review: any) => !review.hidden && review.published
+
+      const filteredReviews = data.reviews.filter((review: { product_handle: string; hidden: boolean; published: boolean }) => 
+        review.product_handle === handle && !review.hidden && review.published
       );
 
  
