@@ -13,26 +13,35 @@ import { ReviewStarsProps } from './ReviewStars/stars';
 
 
 
-export function renderStars(rating: number, total: number , align: string) {
-  // Stellen sicher, dass rating eine gültige Zahl ist
+export function renderStars(rating: number, total: number, align: string) {
+  // Ensure rating is a valid number
   if (isNaN(rating) || rating < 0) {
-    return Array(5).fill(<StarBorderIcon color="primary" />); // Rückgabe eines leeren Arrays, falls die Bewertung ungültig ist
+    return (
+      <Box sx={{ display: 'flex', justifyContent: align, alignItems: 'center', width: '100%' }}>
+        {Array(5).fill(null).map((_, index) => (
+          <StarBorderIcon key={`empty-${index}`} color="primary" />
+        ))}
+        <span style={{ marginLeft: '8px' }}>({total})</span>
+      </Box>
+    );
   }
 
-  // Anzahl der vollen Sterne
+  // Number of full, half, and empty stars
   const fullStars = Math.floor(rating);
-
-  // Halber Stern (falls Dezimalstelle >= 0.5)
   const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+  const emptyStars = Math.max(0, 5 - fullStars - halfStar);
 
-  // Leere Sterne (5 insgesamt, minus volle und halbe Sterne)
-  const emptyStars = Math.max(0, 5 - fullStars - halfStar); // Verhindert negative leere Sterne
-
-  // Generiere die Stern-Icons
+  // Generate star icons with unique keys
   const stars = [
-    ...Array(fullStars).fill(<StarIcon key={`full-${uuidv4()}}`} color="primary" />), // Volle Sterne
-    ...Array(halfStar).fill(<StarHalfIcon key={`half-${uuidv4()}`} color="primary" />), // Halber Stern
-    ...Array(emptyStars).fill(<StarBorderIcon key={`empty-${uuidv4()}`} color="primary" />), // Leere Sterne
+    ...Array(fullStars).fill(null).map((_, index) => (
+      <StarIcon key={`full-${index}`} color="primary" />
+    )),
+    ...Array(halfStar).fill(null).map((_, index) => (
+      <StarHalfIcon key={`half-${index}`} color="primary" />
+    )),
+    ...Array(emptyStars).fill(null).map((_, index) => (
+      <StarBorderIcon key={`empty-${index}`} color="primary" />
+    )),
   ];
 
   return (
@@ -43,7 +52,10 @@ export function renderStars(rating: number, total: number , align: string) {
   );
 }
 
+
 export default function CustomPopover({ rating, total, reviews, product, align }: ReviewStarsProps) {
+
+  console.log(reviews[0]?.id)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); // Proper type for anchorEl
   const [showPopOver, setShowPopOver] = useState(false);
 
@@ -89,7 +101,7 @@ export default function CustomPopover({ rating, total, reviews, product, align }
     <>
       {showPopOver ? (
         <Link
-        key={uuidv4()}
+        key={ `popOverButton-${uuidv4()}` }
         onClick={handleClick}
         component="span"
         
@@ -122,7 +134,8 @@ export default function CustomPopover({ rating, total, reviews, product, align }
 
         
       reviews.map((review, index) => (
-        <Box key={index} marginBottom={ index === reviews.length - 1 ? 0 : 4 }>
+        
+        <Box key={ `${ review.id }` } marginBottom={ index === reviews.length - 1 ? 0 : 4 }>
 
             <Typography variant='h6' component={'h2'}> {review.title} </Typography>
             <Typography component={'p'}> {review.body} </Typography>

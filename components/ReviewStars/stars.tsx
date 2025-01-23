@@ -1,9 +1,9 @@
 import CustomPopover from 'components/custom-popover';
 import { Product } from 'lib/shopify/types';
-import { v4 as uuidv4 } from 'uuid';
 
 
 type Review = {
+  id:string
   title: string;
   body: string;
 };
@@ -14,6 +14,7 @@ export interface ReviewStarsProps {
   reviews: Review[]
   product: Product
   align: String
+  i?: number;
 }
 
 
@@ -22,19 +23,19 @@ export interface ReviewStarsProps {
 
 
 
-export default function Stars({ rating = 0, total = 0, reviews = [], product , align}: ReviewStarsProps) {
-
-
-
+export default function Stars({ rating = 0, total = 0, reviews = [], product, align }: ReviewStarsProps) {
   return (
-
-
-    <CustomPopover key={uuidv4()} rating={rating} total={total} reviews={reviews} product={product} align={align} />
-
-
-    
+    <CustomPopover
+      key={product.id || 'default-popover'} // Ensure a unique key for the product or fallback
+      rating={rating}
+      total={total}
+      reviews={reviews}
+      product={product}
+      align={align}
+    />
   );
 }
+
 
 
 

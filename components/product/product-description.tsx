@@ -4,6 +4,7 @@ import Price from 'components/price';
 import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
 
+import ReviewStarsServer from 'components/ReviewStars/page';
 import { getProductById } from 'lib/shopify';
 import { Suspense } from 'react';
 import { VariantSelector } from './variant-selector';
@@ -70,9 +71,7 @@ export async function ProductDescription({
             </Box>
           </Typography>
 
-           <Box sx={{color: 'white'}}>
-            Start
-           </Box>
+           <ReviewStarsServer handle={product.handle} product={product} align="left" /> 
 
           <Box
             component="div"

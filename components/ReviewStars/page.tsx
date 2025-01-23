@@ -1,5 +1,4 @@
 import { Product } from 'lib/shopify/types';
-import { v4 as uuidv4 } from 'uuid';
 import Stars from './stars';
 
 
@@ -9,6 +8,7 @@ import Stars from './stars';
   interface Props {
     handle: string;
     product: Product
+    i: number;
     align: string
   }
 
@@ -27,14 +27,17 @@ import Stars from './stars';
   }
   
 
-  export default async function ReviewStarsServer({ handle, product, align }: Props) {
+  export default async function ReviewStarsServer({ handle, product, i, align }: Props) {
 
     const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : 'http://localhost:3000';
   
 
-    const response = await fetch(`${baseUrl}/api/reviews/single/${handle}`);
+    const response = await fetch(`${baseUrl}/api/reviews/single/${handle}`, {
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }
+    }
+    );
 
     if (!response.ok) {
         // Handle errors if the fetch fails
@@ -49,6 +52,7 @@ import Stars from './stars';
         (review: any) => !review.hidden && review.published
       );
 
+ 
 
 
 
@@ -58,7 +62,7 @@ import Stars from './stars';
       
 
 
-    return <Stars key={uuidv4()} rating={rating} total={total} reviews={filteredReviews} product={product} align={align}  />
+    return <Stars key={i} rating={rating} total={total} reviews={filteredReviews} product={product} i={i} align={align}  />
 }
 
 

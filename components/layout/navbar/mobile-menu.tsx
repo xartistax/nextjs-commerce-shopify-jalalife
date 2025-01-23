@@ -176,7 +176,7 @@ export default function MobileMenu({
 
                        
 
-                        {menu.map((item) => (<>
+                        {menu.map((item) => (
 
 
                         
@@ -220,7 +220,7 @@ export default function MobileMenu({
                           </Box>
 
 
-                          </> ))}
+                           ))}
 
                         <Typography
                           gutterBottom

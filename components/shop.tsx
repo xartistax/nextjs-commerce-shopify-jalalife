@@ -80,11 +80,11 @@ export default async function CollectionIntro() {
               <Grid container spacing={2} justifyContent="start">
                 {firstCategoryProducts.map((item, i) => (
                   
-                  <>
+        
 
                   
 
-                  <Grid item xs={12} sm={6} md={4} key={i}>
+                  <Grid item xs={12} sm={6} md={4} key={`first-categorie-${i}`}>
                     <Box
                       sx={{
                         backgroundColor: 'white',
@@ -136,8 +136,8 @@ export default async function CollectionIntro() {
                          
                           <>
                  
+                 <ReviewStarsServer handle={item.handle} product={item} i={i} align="center" />
                           
-                          <ReviewStarsServer handle={item.handle} product={item} align="center" />
 
                         </>
                           }
@@ -195,7 +195,7 @@ export default async function CollectionIntro() {
                     </Box>
                   </Grid>
 
-                  </>
+             
                 
                 ))}
               </Grid>
