@@ -71,7 +71,7 @@ export async function ProductDescription({
             </Box>
           </Typography>
 
-           <ReviewStarsServer handle={product.handle} product={product} align="left" i={uuidv4()} /> 
+           <ReviewStarsServer handle={product.handle} product={product} align="left" i={uuidv4()} />  
 
           <Box
             component="div"
