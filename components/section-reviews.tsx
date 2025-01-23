@@ -1,276 +1,44 @@
-'use client';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import {
-  Box,
-  BoxProps,
-  Container,
-  Grid,
-  IconButton,
-  Link,
-  Paper,
-  Tooltip,
-  Typography
-} from '@mui/material';
-import { useEffect, useState } from 'react';
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
-import TextTruncate from 'react-text-truncate';
-import styled from 'styled-components';
-// Define the type for a reviewer
-interface Reviewer {
-  id: number;
-  external_id: string | null;
-  email: string;
-  name: string;
-  phone: string | null;
-  accepts_marketing: boolean;
-  unsubscribed_at: string | null;
-  tags: string | null;
-}
+import ReviewCarousel from "./review-carousel";
 
-// Define the type for a single review
-interface Review {
-  id: number;
-  title: string;
-  body: string;
-  rating: number;
-  product_external_id: number;
-  reviewer: Reviewer;
-  source: string;
-  curated: string;
-  published: boolean;
-  hidden: boolean;
-  verified: string;
-  featured: boolean;
-  created_at: string;
-  updated_at: string;
-  has_published_pictures: boolean;
-  has_published_videos: boolean;
-  pictures: any[]; // Assuming pictures is an array of unknown objects
-  ip_address: string | null;
-  product_title: string;
-  product_handle: string;
-}
+export default async function SectionReviews () {
 
-import TimeAgo from 'javascript-time-ago';
-import de from 'javascript-time-ago/locale/de';
+  const JUDGEME_API_URL = 'https://judge.me/api/v1/reviews';
+  const SHOP_DOMAIN = 'bexolutionsteststore.myshopify.com';
+  const API_TOKEN = 'LOL0WxeJ2wUrj8__zgtlTDiDIaM';
 
-interface PlaceholderProps extends BoxProps {
-  fadeOut?: boolean;
-}
+  
 
-const Placeholder = styled(({ fadeOut, ...rest }: PlaceholderProps) => <Box {...rest} />)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 1s ease-out;
-  opacity: ${({ fadeOut }) => (fadeOut ? 0 : 1)};
-`;
-
-const SlideContainer = styled(Box)`
-  opacity: 0;
-  transition: opacity 1s ease-in;
-  &.fade-in {
-    opacity: 1;
+  const response = await fetch(`${JUDGEME_API_URL}?shop_domain=${SHOP_DOMAIN}&api_token=${API_TOKEN}&per_page=1000`, {
+    headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }
   }
-`;
-
-const SectionReviews = () => {
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [sliderReady, setSliderReady] = useState(false);
-  const [placeholderFadeOut, setPlaceholderFadeOut] = useState(false);
-
-  TimeAgo.addLocale(de);
-  const timeAgo = new TimeAgo('de-DE');
-
-  const responsiveSettings = [
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    }
-  ];
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await fetch('/api/reviews/all', { cache: 'no-cache' });
-        if (!response.ok) {
-          throw new Error('Failed to fetch products');
-        }
-        const data = await response.json();
-        setReviews(data.reviews);
-        setLoading(false);
-        setPlaceholderFadeOut(true); // Start fading out the placeholder
-        setTimeout(() => {
-          setSliderReady(true); // Make the slider visible after placeholder fades out
-        }, 1000); // Match this delay with the placeholder fade-out duration
-      } catch (error) {
-        console.error('Error fetching collection products:', error);
-        setError('Failed to load products');
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
-  }, []);
-
-  if (loading) {
-    return (
-      <Container
-        maxWidth="lg"
-        sx={{
-          position: 'relative',
-          textAlign: 'center',
-          overflow: 'hidden'
-        }}
-      >
-        <Box sx={{}}>
-          <Placeholder />
-        </Box>
-      </Container>
-    );
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        position: 'relative',
-        textAlign: 'center',
-        overflow: 'hidden',
-        py: '50px',
-      }}
-    >
-      <Box sx={{}}>
-        <Box
-          sx={{
-            position: 'relative',
-            height: '300px', // Ensure the container has the same height as slides
-            overflow: 'hidden'
-          }}
-        >
-          {/* Placeholder that is visible while the slider is loading */}
-          <Placeholder fadeOut={placeholderFadeOut} />
-
-          <SlideContainer className={sliderReady ? 'fade-in' : ''}>
-            <Slide
-              duration={5000}
-              transitionDuration={300}
-              indicators={false}
-              slidesToScroll={1}
-              slidesToShow={1}
-              responsive={responsiveSettings}
-            >
-              {reviews.map((review, index) => (
-                <Paper
-                  key={index}
-                  className="each-slide"
-                  sx={{
-                    textAlign: 'left',
-                    minHeight: '300px',
-                    height: 'auto',
-                    alignItems: 'stretch',
-                    padding: 6,
-                    position: 'relative',
-                    marginRight: '12px',
-                    marginTop: '12px',
-                    marginBottom: '12px'
-                  }}
-                >
-                  <Box sx={{ position: 'relative' }}>
-                    <Typography
-                      variant="h5"
-                      component={'h2'}
-                      fontWeight={900}
-                      lineHeight={1}
-                      gutterBottom
-                    >
-                      <TextTruncate line={1} element="div" truncateText="…" text={review.title} />
-                    </Typography>
-
-                    {review.verified && (
-                      <Tooltip title="Verifiezierter kauf" arrow>
-                        <IconButton
-                          sx={{
-                            position: 'absolute',
-                            top: 0,
-                            right: 0,
-                            color: 'gray',
-                            backgroundColor: 'transparent',
-                            '&:hover': {
-                              backgroundColor: 'rgba(0, 0, 0, 0.1)',
-                              color: 'primary.main'
-                            },
-                            '& .MuiSvgIcon-root': {
-                              fontSize: '1.2rem' // Smaller size for the icon
-                            }
-                          }}
-                        >
-                          <VerifiedUserIcon />
-                        </IconButton>
-                      </Tooltip>
-                    )}
-                  </Box>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
-                    {Array.from({ length: 5 }, (_, i) =>
-                      i < review.rating ? (
-                        <StarIcon key={i} sx={{ color: 'primary.main' }} />
-                      ) : (
-                        <StarBorderIcon key={i} sx={{ color: 'primary.main' }} />
-                      )
-                    )}
-                  </Box>
-
-                  <Typography variant="body1" component={'div'} gutterBottom>
-                    <TextTruncate line={2} truncateText="…" text={review.body} />
-                  </Typography>
-
-                  <Link href={`/products/${review.product_handle}`}>
-                    <Typography variant="body1" fontWeight={600} gutterBottom marginTop={3}>
-                      {' '}
-                      {review.product_title}{' '}
-                    </Typography>
-                  </Link>
-
-                  <Box
-                    sx={{ position: 'absolute', bottom: 0, left: 0, width: '100%', px: 6, py: 2 }}
-                  >
-                    <Grid container spacing={2}>
-                      <Grid item sm={6}>
-                        {' '}
-                        <Typography variant="caption">{review.reviewer.name}</Typography>{' '}
-                      </Grid>
-                      <Grid item sm={6} textAlign={'right'}>
-                        {' '}
-                        <Typography variant="caption">
-                          {' '}
-                          {timeAgo.format(new Date(review.created_at))} {/* {review.created_at} */}
-                        </Typography>{' '}
-                      </Grid>
-                    </Grid>
-                  </Box>
-                </Paper>
-              ))}
-            </Slide>
-          </SlideContainer>
-        </Box>
-      </Box>
-    </Container>
   );
-};
 
-export default SectionReviews;
+
+  if (!response.ok) {
+    // Handle errors if the fetch fails
+    console.error("Server Component: Failed to fetch reviews:", response.statusText, response.status);
+    return ;
+  }
+
+
+  const data = await response.json();
+
+
+  const filteredReviews = data.reviews.filter((review: any) => {
+    console.log(`Review ID: ${review.id}, Hidden: ${review.hidden}, Published: ${review.published}`);
+    return !review.hidden && review.published;
+  });
+
+
+ 
+
+
+ 
+ 
+
+
+  
+
+
+  return <ReviewCarousel reviews={filteredReviews}  />
+}

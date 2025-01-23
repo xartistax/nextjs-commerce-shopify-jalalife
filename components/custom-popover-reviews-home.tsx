@@ -7,21 +7,25 @@ import StarHalfIcon from '@mui/icons-material/StarHalf';
 import { Box, Link, Modal, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { ReviewStarsProps } from './ReviewStars/stars';
+import { Review } from './ReviewStars/stars';
 
 
+export interface ReviewStarsHomeProps {
+  rating: number;
+  reviews: Review[]
+  
+}
 
 
-
-export function renderStars(rating: number, total: number, align: string) {
+export function renderStars(rating: number) {
   // Ensure rating is a valid number
   if (isNaN(rating) || rating < 0) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: align, alignItems: 'center', width: '100%' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', width: '100%' }}>
         {Array(5).fill(null).map((_, index) => (
           <StarBorderIcon key={`empty-${index}`} color="primary" />
         ))}
-        <span style={{ marginLeft: '8px' }}>({total})</span>
+       
       </Box>
     );
   }
@@ -45,15 +49,14 @@ export function renderStars(rating: number, total: number, align: string) {
   ];
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: align, alignItems: 'center', width: '100%' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'start', alignItems: 'center', width: '100%' }}>
       {stars} {/* Render all stars */}
-      <span style={{ marginLeft: '8px' }}>({total})</span> {/* Show the total reviews */}
     </Box>
   );
 }
 
 
-export default function CustomPopover({ rating, total, reviews, product, align }: ReviewStarsProps) {
+export default function CustomPopoverHome({ rating, reviews }: ReviewStarsHomeProps) {
 
   console.log(reviews[0]?.id)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); // Proper type for anchorEl
@@ -107,11 +110,11 @@ export default function CustomPopover({ rating, total, reviews, product, align }
         component="span"
         
       >
-        {renderStars(rating, total, String(align))}
+        {renderStars(rating)}
       </Link>
       
       ) : (
-        renderStars(rating, total, String(align))
+        renderStars(rating)
       )}
 
 
@@ -121,34 +124,52 @@ export default function CustomPopover({ rating, total, reviews, product, align }
   aria-labelledby="modal-modal-title"
   aria-describedby="modal-modal-description"
 >
-<Box  sx={style}>
-
-
-{
-    product && product.title ? (
-        <Typography variant='h4' component={'h2'} fontWeight={900} marginBottom={3}> {product.title} </Typography>
-    ) : (null) 
-}
-
-  {
-    reviews && reviews.length > 0 ? ( 
-
-        
+  <Box sx={style}>
+    {reviews && reviews.length > 0 ? (
       reviews.map((review, index) => (
-        
-        <Box key={ `${ review.id }` } marginBottom={ index === reviews.length - 1 ? 0 : 4 }>
+        <Box key={`${review.id}`} marginBottom={index === reviews.length - 1 ? 0 : 4}>
+          {/* Display product title and link only for the first review */}
+          {index === 0 && (
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              marginBottom={3}
+            >
+              <Typography
+                variant="h4"
+                component="h2"
+                fontWeight={900}
+              >
+                {review.product_title}
+              </Typography>
 
-            <Typography variant='h6' component={'h2'}> {review.title} </Typography>
-            <Typography component={'p'}> {review.body} </Typography>
+              {/* Link to the product */}
+              <Typography>
+              <Link
+                href={`/products/${review.product_handle}`} // Dynamically link to the product handle
+                target="_blank"
+                rel="noopener"
+                sx={{ marginLeft: 2, fontSize: '16px' }}
+              >
+                zum Produkt
+              </Link>
+              </Typography>
+              
+            </Box>
+          )}
 
-            
-          
+          <Typography variant="h6" component="h2">
+            {review.title}
+          </Typography>
+          <Typography component="p">{review.body}</Typography>
         </Box>
       ))
-    ) : null
-  }
-</Box>
+    ) : null}
+  </Box>
 </Modal>
+
+
 
       
         
