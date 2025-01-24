@@ -4,17 +4,14 @@
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
-import { Box, Divider, Link, Modal, Typography } from '@mui/material';
-import TimeAgo from 'javascript-time-ago';
-import de from 'javascript-time-ago/locale/de';
+import { Box, Link, Modal, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ReviewStarsProps } from './ReviewStars/stars';
+import ReviewCard from './review-card';
 
 
 
-TimeAgo.addLocale(de);
-  const timeAgo = new TimeAgo('de-DE');
 
 
 
@@ -143,18 +140,7 @@ export default function CustomPopover({ rating, total, reviews, product, align }
         
         <Box key={ `${ review.id }` } marginBottom={ index === reviews.length - 1 ? 0 : 4 }>
 
-            <Typography variant='h6' component={'h2'}> {review.title} </Typography>
-            <Typography component={'p'}> {review.body} </Typography>
-            <Typography component={'p'} fontSize={'small'} sx={{marginTop: '20px'}}>
-              <span> {timeAgo.format(new Date(review.created_at))} </span>
-              {" | "}
-               {review.reviewer.name} 
-            </Typography>
- 
-
-
-            
-          <Divider sx={{marginTop: '20px'}} />
+<ReviewCard review={review} isLast={index === reviews.length - 1}></ReviewCard>
         </Box>
       ))
     ) : null

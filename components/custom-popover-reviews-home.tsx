@@ -8,6 +8,7 @@ import { Box, Link, Modal, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Review } from './ReviewStars/stars';
+import ReviewCard from './review-card';
 
 
 export interface ReviewStarsHomeProps {
@@ -126,11 +127,9 @@ export default function CustomPopoverHome({ rating, reviews }: ReviewStarsHomePr
 >
   <Box sx={style}>
     {reviews && reviews.length > 0 ? (
-      reviews.map((review, index) => (
-        <Box key={`${review.id}`} marginBottom={index === reviews.length - 1 ? 0 : 4}>
-          {/* Display product title and link only for the first review */}
-          {index === 0 && (
-            <Box
+      <>
+        {/* Link to the product */}
+        <Box
               display="flex"
               alignItems="center"
               justifyContent="space-between"
@@ -141,13 +140,13 @@ export default function CustomPopoverHome({ rating, reviews }: ReviewStarsHomePr
                 component="h2"
                 fontWeight={900}
               >
-                {review.product_title}
+                {reviews[0]?.product_title}
               </Typography>
 
               {/* Link to the product */}
               <Typography>
               <Link
-                href={`/products/${review.product_handle}`} // Dynamically link to the product handle
+                href={`/products/${reviews[0]?.product_handle}`} // Dynamically link to the product handle
                 target="_blank"
                 rel="noopener"
                 sx={{ marginLeft: 2, fontSize: '16px' }}
@@ -157,17 +156,17 @@ export default function CustomPopoverHome({ rating, reviews }: ReviewStarsHomePr
               </Typography>
               
             </Box>
-          )}
 
-          <Typography variant="h6" component="h2">
-            {review.title}
-          </Typography>
-          <Typography component="p">{review.body}</Typography>
-        </Box>
-      ))
+        {reviews.map((review, index) => (
+          <Box key={review.id} marginBottom={index === reviews.length - 1 ? 0 : 4}>
+            <ReviewCard review={review} isLast={index === reviews.length - 1} />
+          </Box>
+        ))}
+      </>
     ) : null}
   </Box>
 </Modal>
+
 
 
 
