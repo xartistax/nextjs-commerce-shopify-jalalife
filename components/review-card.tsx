@@ -23,7 +23,7 @@ const ReviewCard = ({ review, isLast } : RevieCardProps) => {
       <Typography component="p" fontSize="small" sx={{ marginTop: '20px', color:'primary.main', fontWeight: 'bold' }}>
       <span> {timeAgo.format(new Date(review.created_at))} </span>
         {" | "}
-        {review.reviewer.name}
+        {review.reviewer.name} 
       </Typography>
       <Divider sx={{ marginTop: '20px' }} />
     </Box>
