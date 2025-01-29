@@ -52,10 +52,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <ThemeProvider theme={theme}>
-      <html lang="de">
-      <Head>
+
+<Head>
           <meta name="google-site-verification" content="-qf55V-hqwPHoAin7YcWhW-UwJqI-p4M73tOUy7dWM8" />
         </Head>
+
+        
+      <html lang="de">
+     
         <body
           className={`bg-white text-black selection:bg-customColor selection:text-white ${myFont.variable}`}
         >
