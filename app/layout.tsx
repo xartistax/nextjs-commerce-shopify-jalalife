@@ -10,6 +10,7 @@ import { theme } from 'theme';
 
 // import PopUpManager from 'components/popup-manager';
 import PopUpManager from 'components/popup-manager';
+import Head from 'next/head';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -52,7 +53,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <ThemeProvider theme={theme}>
       <html lang="de">
-       
+      <Head>
+          <meta name="google-site-verification" content="-qf55V-hqwPHoAin7YcWhW-UwJqI-p4M73tOUy7dWM8" />
+        </Head>
         <body
           className={`bg-white text-black selection:bg-customColor selection:text-white ${myFont.variable}`}
         >
