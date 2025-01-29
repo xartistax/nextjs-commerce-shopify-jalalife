@@ -47,6 +47,8 @@ export default async function HomePage() {
 
       <SectionBioBlog />
 
+      <CollectionCarousel />
+
        <SectionMainBlog />
       
       <SectionBlogArticles />
@@ -55,7 +57,7 @@ export default async function HomePage() {
 
 
       
-      <CollectionCarousel />
+     
 
       
 
