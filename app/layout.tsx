@@ -35,6 +35,9 @@ export const metadata = {
     follow: true,
     index: true
   },
+  verification: {
+    google: `-qf55V-hqwPHoAin7YcWhW-UwJqI-p4M73tOUy7dWM8`,
+    },
   ...(twitterCreator &&
     twitterSite && {
       twitter: {
@@ -48,33 +51,28 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const Navbar = dynamic(() => import('components/layout/navbar'), { ssr: false });
 
-
-
   return (
     <ThemeProvider theme={theme}>
-
-<Head>
+      <html lang="de">
+        {/* Place the Head component here */}
+        <Head>
           <meta name="google-site-verification" content="-qf55V-hqwPHoAin7YcWhW-UwJqI-p4M73tOUy7dWM8" />
         </Head>
 
-        
-      <html lang="de">
-     
         <body
           className={`bg-white text-black selection:bg-customColor selection:text-white ${myFont.variable}`}
         >
           <AppRouterCacheProvider>
             <Navbar />
             <main className="--font-brandon-regular">{children}</main>
-            
 
             <PopUpManager />
 
-      
             {/* <ShopifyAnalytics /> */}
             <CookieConsentBanner />
           </AppRouterCacheProvider>
         </body>
+
         <GoogleTagManager gtmId={"GTM-M4P7HMFH"} />
         <GoogleAnalytics gaId="G-NXQNHNT4T5" />
       </html>
