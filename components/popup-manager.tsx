@@ -1,5 +1,5 @@
 "use client"
-import { Fade } from '@mui/material';
+import { Box, Fade, Link } from '@mui/material';
 import PopUpMessage from 'components/custom-popup';
 import { useEffect, useState } from 'react';
 
@@ -19,8 +19,8 @@ const PopUpManager = () => {
     const lastShown = localStorage.getItem('popupLastShown');
     const now = new Date();
 
-    const startDate = new Date('2024-12-20');  // Start date (14th November)
-    const endDate = new Date('2024-12-26');    // End date (30th November)
+    const startDate = new Date('2025-02-04');  // Start date (14th November)
+    const endDate = new Date('2025-02-10');    // End date (30th November)
     const currentDate = new Date(); 
 
     // Check if the popup was shown in the past 24 hours
@@ -50,26 +50,45 @@ const PopUpManager = () => {
       <PopUpMessage 
       open={popupOpen}
       onClose={handleClose}
-      title="Sichere Dir 15% auf unser Winterpaket!
+      title="Sichere Dir 10% Zum Weltkrebstag 🎗️!
 "
       message={
         <>
 
-          <strong> 10% zusätzlich – nur für kurze Zeit!  </strong>
-          🎉 Zusätzliche 10% Rabatt auf das neue Winterpaket!
-Der Winter bringt nicht nur kalte Temperaturen, sondern stellt auch Dein Immunsystem vor besondere Herausforderungen. Mit unserem Jala-Life Winterpaket bist Du bestens vorbereitet! Dieses Paket vereint sechs kraftvolle natürliche Wirkstoffe, die Dein Immunsystem stärken, Stress reduzieren und Dein Wohlbefinden fördern.
+          <strong>  🎗️ Unterstütze Deine Gesundheit – Zum Weltkrebstag 🎗️  </strong>
+          <p>
+          Wir von Jala-Life setzen auf natürliche Unterstützung für Dein Wohlbefinden. Sichere Dir 10% Rabatt auf unsere Produkte Weihrauch und Curcuma – kraftvolle Begleiter für einen gesunden Lebensstil.
+          <Box className={'mt-5'}>
+          <Link className='block' href="/products/indischer-weihrauch-mit-zink">Weihrauch mit Zink</Link>
+          <Link className='block'  href="/products/curcuma-mit-zink">Curcuma mit Zink</Link>
+          </Box>
+          
+          <ul className='mt-5'>
+            <li> 📅 Nur vom 04. bis 11. Februar </li>
+            <li> 🎟️ Rabattcode: <strong>WELTKREBSTAG10</strong> </li>
+            <li> 🌱 Natürlich. Effektiv. Jala-Life. </li>
+          </ul>
+         <span className='mt-5 block'> Nutze die Kraft der Natur für Deine Gesundheit!</span>
+          </p>
 
-Doppelt sparen: Unsere Pakete sind immer mit 15% Rabatt erhältlich – nur vom 20. bis 27. Dezember erhältst Du zusätzliche 10% Rabatt mit dem Code WINTER10. Jetzt ist der perfekte Moment, Deine Gesundheit nachhaltig zu unterstützen!
+          
 
-🎟️ Rabattcode: WINTER10
+          
+
+
+
+
+
+
+
 
 
 
         </>
       }
-      imageUrl="/Winterpaket-popup.png"
+      imageUrl="/Jala_Life_SM.png"
       linkText1="Jetzt sparen"
-      linkUrl1="/products/winterpaket"
+      linkUrl1="/shop"
     />
       </div>
     </Fade>
