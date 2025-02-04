@@ -86,7 +86,7 @@ const PopUpManager = () => {
 
         </>
       }
-      imageUrl="/Jala_Life_SM.png"
+      imageUrl="/pioUpAd.png"
       linkText1="Jetzt sparen"
       linkUrl1="/shop"
     />
