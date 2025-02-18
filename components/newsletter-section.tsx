@@ -88,7 +88,7 @@ export default function NewsletterForm() {
         ))}
       </List>
 
-      newsletter
+
       <div className="klaviyo-form-RGaPnH"></div>
 
       {/* <TextField
