@@ -1,8 +1,9 @@
 "use client";
 
 import CheckIcon from '@mui/icons-material/Check';
-import { Alert, Box, Button, List, ListItem, ListItemIcon, ListItemText, TextField, Typography } from '@mui/material';
+import { Alert, Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import { useState } from 'react';
+
 
 
 export default function NewsletterForm() {
@@ -44,7 +45,9 @@ export default function NewsletterForm() {
   };
 
   return (
-    <Box
+    <>
+    
+        <Box
       component="form"
       onSubmit={subscribe}
       sx={{
@@ -85,7 +88,10 @@ export default function NewsletterForm() {
         ))}
       </List>
 
-      <TextField
+      newsletter
+      <div className="klaviyo-form-RGaPnH"></div>
+
+      {/* <TextField
         label="Email Adresse"
         type="email"
         variant="outlined"
@@ -125,7 +131,10 @@ export default function NewsletterForm() {
         sx={{ mt: 1, color: 'white' }}
       >
         Jetzt anmelden
-      </Button>
+      </Button> */}
+
+
+    
 
       {formInput.message && (
         <Alert severity={severity} sx={{ mt: 2 }}>
@@ -133,5 +142,7 @@ export default function NewsletterForm() {
         </Alert>
       )}
     </Box>
+    </>
+
   );
 }

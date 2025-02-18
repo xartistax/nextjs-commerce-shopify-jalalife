@@ -11,6 +11,7 @@ import { theme } from 'theme';
 // import PopUpManager from 'components/popup-manager';
 import PopUpManager from 'components/popup-manager';
 import Head from 'next/head';
+import Script from 'next/script';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -75,6 +76,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
         <GoogleTagManager gtmId={"GTM-M4P7HMFH"} />
         <GoogleAnalytics gaId="G-NXQNHNT4T5" />
+        <Script
+        async
+        src="https://static.klaviyo.com/onsite/js/VStMRm/klaviyo.js"
+      />
       </html>
     </ThemeProvider>
   );

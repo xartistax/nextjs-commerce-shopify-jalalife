@@ -138,6 +138,8 @@ export default async function ProductPage({ params, searchParams }: {
                 data-id="{{ product.id }}"
               >
                 <ReviewForm product={product} />
+
+    
               </Box>
             </Grid>
           </Grid>
@@ -147,6 +149,8 @@ export default async function ProductPage({ params, searchParams }: {
           <SingleProductInformations product={product} />
         </Box>
       </Container>
+
+
 
       <Footer />
     </ThemeProvider>
