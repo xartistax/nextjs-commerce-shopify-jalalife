@@ -47,7 +47,7 @@ const SubifyWidget: React.FC<SubifyWidgetProps> = ({ productHandle }) => {
   return (
     <div className="widget-wrapper">
       {/* Das Widget wird hier eingefügt */}
-      Widget goes here
+
       <input type="hidden" name="selling_plan" id="selling-plan-input" value="692456128832" />
     </div>
   );
