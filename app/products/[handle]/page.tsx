@@ -10,6 +10,7 @@ import ReviewForm from 'components/review-form';
 import { SingleProductInformations } from 'components/single-product-informations';
 import SpeedDialVisibility from 'components/speed-dial-visibility';
 import StickyBox from 'components/sticky-component';
+import SubifyWidget from 'components/subi';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct } from 'lib/shopify';
 import { Suspense } from 'react';
@@ -135,6 +136,8 @@ export default async function ProductPage({
               {/* Pass searchParams to ProductDescription */}
               <ProductDescription product={product} searchParams={searchParams} />
 
+              
+
               <Box
                 id="judgeme_product_reviews"
                 className="jdgm-widget jdgm-review-widget"
@@ -145,6 +148,8 @@ export default async function ProductPage({
             </Grid>
           </Grid>
         </Paper>
+
+        <SubifyWidget productHandle={"curcuma-mit-zink"}  />
 
         <Box mt={3} id="product-info-section">
           <SingleProductInformations product={product} />
