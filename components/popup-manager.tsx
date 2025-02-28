@@ -20,7 +20,7 @@ const PopUpManager = () => {
     const now = new Date();
 
     const startDate = new Date('2025-03-01');  // Start date (14th November)
-    const endDate = new Date('2026-03-31');    // End date (30th November)
+    const endDate = new Date('2025-03-31');    // End date (30th November)
     const currentDate = new Date(); 
 
     // Check if the popup was shown in the past 24 hours
