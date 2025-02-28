@@ -37,7 +37,7 @@ Vercel is happy to partner and work with any commerce provider to help them get 
 
 > Note: Providers, if you are looking to use similar products for your demo, you can [download these assets](https://drive.google.com/file/d/1q_bKerjrwZgHwCw0ovfUMW6He9VtepO_/view?usp=sharing).
 
-## Integrations
+## Integrations0
 
 Integrations enable upgraded or additional functionality for Next.js Commerce
 
