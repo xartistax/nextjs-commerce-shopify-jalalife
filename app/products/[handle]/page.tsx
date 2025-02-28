@@ -10,7 +10,7 @@ import ReviewForm from 'components/review-form';
 import { SingleProductInformations } from 'components/single-product-informations';
 import SpeedDialVisibility from 'components/speed-dial-visibility';
 import StickyBox from 'components/sticky-component';
-import SubifyWidget from 'components/subi';
+
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct } from 'lib/shopify';
 import { Suspense } from 'react';
@@ -149,7 +149,9 @@ export default async function ProductPage({
           </Grid>
         </Paper>
 
-        <SubifyWidget productHandle={"curcuma-mit-zink"}  />
+
+
+       
 
         <Box mt={3} id="product-info-section">
           <SingleProductInformations product={product} />

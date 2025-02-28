@@ -3,12 +3,12 @@ import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import Prose from 'components/prose';
 import ReviewStarsServer from 'components/ReviewStars/page';
+import SubifyWidget from 'components/subi';
 import { getProductById } from 'lib/shopify';
 import { Product } from 'lib/shopify/types';
 import { Suspense } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { VariantSelector } from './variant-selector';
-
 
 
 
@@ -135,6 +135,10 @@ export async function ProductDescription({
           <Prose className="mb-6 leading-tight" html={product.descriptionHtml} />
         ) : null}
 
+
+
+        <SubifyWidget productHandle={product.handle}  />
+
         <Suspense fallback={null}>
           <AddToCart
             variants={product.variants}
@@ -145,6 +149,8 @@ export async function ProductDescription({
             origin={"inProduct"}
           />
         </Suspense>
+
+
       </Box>
     </>
   );

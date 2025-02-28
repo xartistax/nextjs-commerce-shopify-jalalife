@@ -19,8 +19,9 @@ const SubifyWidget: React.FC<SubifyWidgetProps> = ({ productHandle }) => {
       console.log("Widget wrapper found:", document.querySelector('.widget-wrapper'));
       console.log("Product handle:", productHandle);
 
-
-
+      window.Shopify = {
+        shop: "bexolutionsteststore.myshopify.com"
+      };
 
       if (window.subifySdk) {
         window.subifySdk.renderWidget(productHandle, {
@@ -47,7 +48,6 @@ const SubifyWidget: React.FC<SubifyWidgetProps> = ({ productHandle }) => {
   return (
     <div className="widget-wrapper">
       {/* Das Widget wird hier eingefügt */}
-
       <input type="hidden" name="selling_plan" id="selling-plan-input" value="692456128832" />
     </div>
   );

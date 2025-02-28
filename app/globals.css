@@ -109,3 +109,8 @@ button {
 #product-info-section strong {
   display: block !important;
 }
+
+
+.subify-widget-whole-wrapper {
+  font-family: "roboto" !important
+}
