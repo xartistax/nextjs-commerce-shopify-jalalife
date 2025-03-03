@@ -74,7 +74,7 @@ const PopUpManager = () => {
                   <Link className="block" href="/products/curcuma-mit-zink">
                     Curcuma mit Zink
                   </Link>
-                  <Link className="block" href="/products/schwarzkummel">
+                  <Link className="block" href="/schwarzkummel">
                     Schwarzkümmel
                   </Link>
                 </Box>
@@ -83,7 +83,7 @@ const PopUpManager = () => {
                   <li> 📅 Gültig den ganzen März mit dem Code <strong> DARMWOHL10 </strong> </li>
                   <li>
                     <strong>
-                      <Link className="block" href="/products/schwarzkummel">
+                      <Link className="block" href="/schwarzkummel">
                         👉 Jetzt entdecken und Deine Darmgesundheit unterstützen
                       </Link>
                     </strong>
