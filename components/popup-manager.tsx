@@ -74,7 +74,7 @@ const PopUpManager = () => {
                   <Link className="block" href="/products/curcuma-mit-zink">
                     Curcuma mit Zink
                   </Link>
-                  <Link className="block" href="/schwarzkummel">
+                  <Link className="block" href="/products/schwarzkummel">
                     Schwarzkümmel
                   </Link>
                 </Box>
