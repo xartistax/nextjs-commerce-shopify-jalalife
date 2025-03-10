@@ -10,22 +10,27 @@ const loadShopifyPrivacyAPI = (onLoad: { (): void; (): void }) => {
   if (typeof window !== 'undefined' && window.Shopify) {
     console.log('Shopify is available:', window.Shopify);
 
-    window.Shopify.loadFeatures(
-      [
-        {
-          name: 'consent-tracking-api',
-          version: '0.1'
+    if (window.Shopify.loadFeatures) {
+      window.Shopify.loadFeatures(
+        [
+          {
+            name: 'consent-tracking-api',
+            version: '0.1'
+          }
+        ],
+        (error) => {
+          if (error) {
+            console.error('Error loading Shopify Customer Privacy API', error);
+          } else {
+            console.log('Shopify Customer Privacy API loaded');
+            if (onLoad) onLoad(); // Call the onLoad callback if provided
+          }
         }
-      ],
-      (error) => {
-        if (error) {
-          console.error('Error loading Shopify Customer Privacy API', error);
-        } else {
-          console.log('Shopify Customer Privacy API loaded');
-          if (onLoad) onLoad(); // Call the onLoad callback if provided
-        }
-      }
-    );
+      );
+    }
+   
+
+
   } else {
     console.warn('Shopify is not available on the window.');
   }
