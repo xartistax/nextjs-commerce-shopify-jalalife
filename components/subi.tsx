@@ -29,6 +29,7 @@ const SubifyWidget: React.FC<SubifyWidgetProps> = ({ productHandle }) => {
       console.log("Widget wrapper found:", document.querySelector('.widget-wrapper'));
       console.log("Product handle:", productHandle);
 
+      // Now window.Shopify can have just the `shop` property
       window.Shopify = {
         shop: "bexolutionsteststore.myshopify.com"
       };

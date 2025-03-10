@@ -12,11 +12,12 @@ interface ShopifyCustomerPrivacy {
 
 // eslint-disable-next-line no-unused-vars
 interface Shopify {
-  loadFeatures: (
+  loadFeatures?: (
     features: { name: string; version: string }[],
     callback: (error: boolean) => void
   ) => void;
-  customerPrivacy: ShopifyCustomerPrivacy;
+  customerPrivacy?: ShopifyCustomerPrivacy;  // Make it optional
+  shop?: string;  // Make the shop property optional
 }
 
 // eslint-disable-next-line no-unused-vars
