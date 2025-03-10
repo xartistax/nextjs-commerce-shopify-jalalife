@@ -4,6 +4,7 @@ import Price from 'components/price';
 import Prose from 'components/prose';
 import ReviewStarsServer from 'components/ReviewStars/page';
 // import SubifyWidget from 'components/subi';
+import SubifyWidget from 'components/subi';
 import { getProductById } from 'lib/shopify';
 import { Product } from 'lib/shopify/types';
 import { Suspense } from 'react';
@@ -137,7 +138,7 @@ export async function ProductDescription({
 
 
 
-        {/* <SubifyWidget productHandle={product.handle}  /> */}
+        <SubifyWidget productHandle={product.handle}  />
 
         <Suspense fallback={null}>
           <AddToCart
